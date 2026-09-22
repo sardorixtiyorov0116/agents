@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agentlar tizimi — nazorat paneli</title>
+  <link rel="stylesheet" href="/statik/panel.css">
+</head>
+<body>
+
+<div class="sarlavha">
+  <h1>Agentlar tizimi</h1>
+  <span class="xira">Nazorat paneli &middot;
+    <a href="/">log ko'rinishi</a> &middot;
+    <a href="/docs">API</a>
+  </span>
+  <span class="jonli" id="jonli"><span class="nuqta"></span><span id="jonli-matn">ulanmoqda…</span></span>
+</div>
+
+<!-- Ofis ko'rinishi: monitoring uchun tepada, ishchi panellar ostida -->
+<div class="karta ofis-karta">
+  <h2>Ofis <span class="ofis-izoh">— har agent o'z stolida, yorliqda holati</span></h2>
+  <div class="ofis-orash">
+    <svg id="ofis" viewBox="0 0 980 400" role="img" aria-label="Agentlar ofisi"></svg>
+  </div>
+  <div class="ofis-izohnoma">
+    <span><i style="background:#9aa4b2"></i> bo'sh</span>
+    <span><i style="background:#8ec2ff"></i> ishlayapti / ulanmagan</span>
+    <span><i style="background:#7ee2a8"></i> tugadi</span>
+    <span><i style="background:#f5d97a"></i> tasdiq kerak</span>
+    <span><i style="background:#ff9a9a"></i> xato</span>
+    <span style="margin-left:auto">Stol qirrasi — xavf darajasi. Agentni bosing: kontrakt va oxirgi ishi.</span>
+  </div>
+</div>
+
+<div class="tarmoq">
+  <!-- chap ustun -->
+  <div>
+    <div class="karta">
+      <h2>So'rov</h2>
+      <form class="sorov-shakl" id="sorov-shakl">
+        <textarea id="sorov-matn" placeholder="Tabiiy tilda yozing. Masalan: Raqiblarning aksiyalarini ko'rib chiqing va kampaniya taklif qiling"></textarea>
+        <button type="submit" id="yubor">Yuborish</button>
+      </form>
+      <div id="sorov-xato"></div>
+    </div>
+
+    <div class="karta">
+      <h2>Joriy zanjir</h2>
+      <div id="zanjir" class="zanjir"><div class="bosh">Hali so'rov yuborilmadi.</div></div>
+    </div>
+
+    <div class="karta">
+      <h2>Tarix</h2>
+      <div id="tarix"><div class="bosh">Yuklanmoqda…</div></div>
+    </div>
+  </div>
+
+  <!-- o'ng ustun -->
+  <div>
+    <div class="karta">
+      <h2>Bugun</h2>
+      <div class="stat-qator" id="statistika"></div>
+    </div>
+
+    <div class="karta">
+      <h2>Tasdiq kutilmoqda</h2>
+      <div id="tasdiqlar"><div class="bosh">Yuklanmoqda…</div></div>
+    </div>
+
+    <div class="karta">
+      <h2>Agentlar</h2>
+      <div id="agentlar"><div class="bosh">Yuklanmoqda…</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="parda" id="parda" hidden>
+  <div class="modal" id="modal"></div>
+</div>
+
+<script src="/statik/panel.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+# Loyiha spetsifikatsiyasidagi qisqartmalar -> Climavent mahsulot nomi.
+#
+# NEGA KERAK
+# ----------
+# Loyihachilar KP so'raganda o'z qisqartmalarini yozadi:
+#
+#     Решетка АДН:
+#     Решетка 300х150 — 57 dona
+#
+# Katalogda esa u «Решетка вентиляционная регулируемая РВР-2 300х150мм
+# без КРВ» deb ataladi. Bu tarjimani hozirgacha MENEJER boshida qilardi.
+#
+# JONLI MISOL (2026-08-28): shunday ro'yxat botga berilganda KP ga
+# «Клап 1000х400» deb tushdi — katalogda bunday nom yo'q, narx
+# topilmadi, 44 qator bo'sh chiqdi. Menejer esa o'sha ro'yxatdan
+# to'liq narxlangan KP-13357 ni tuzgan edi.
+#
+# MANBA — TAXMIN EMAS
+# -------------------
+# Quyidagi moslik `CLimavent предложение КП_13357.pdf` dan olingan:
+# bir tomonda mijoz ro'yxati, ikkinchi tomonda menejer tuzgan KP.
+# Ya'ni bu o'ylab topilgan emas, ishlagan hujjatdan ko'chirilgan.
+#
+# QANDAY YOZILADI
+# ---------------
+# `qolip` ichida `{olcham}` mijoz bergan o'lcham bilan almashadi.
+# Yangi qisqartma uchrasa shu yerga qator qo'shiladi — kodga tegilmaydi.
+
+qisqartmalar:
+
+  # --- Klapanlar ---
+  - belgilar: ["клапан огнезадерживающий", "клп огназадернивиший",
+               "клп огнезадерживающий", "клапан огнезадер"]
+    nomi: "Yong'inga qarshi klapan (universal)"
+    qolip: "Клапан противопожарный КПУ-НО-Н-EI90-{olcham}-КН-НУП-ЭМ-220"
+
+  - belgilar: ["клапан пожарный", "клп пожарний", "клп пожарный",
+               "клапан дымовой"]
+    nomi: "Tutun klapani (elektr yuritmali)"
+    qolip: "Клапан противопожарный КПД-НЗ-Н-EI90-{olcham}-КН-НУП-ЭР-220v"
+    izoh: "Belimo BLF-220-ST yuritmasi bilan"
+
+  - belgilar: ["клп дкс", "клапан дкс", "дроссель клапан", "дкс"]
+    nomi: "Drossel klapan"
+    qolip: "Дроссель клапан ДКСп {olcham}"
+    # Katalogda uchinchi o'lcham (chuqurlik) ham bo'ladi: «700х400х250».
+    # U mijoz ro'yxatida YO'Q va biz uni O'YLAB TOPMAYMIZ — menejer
+    # qo'shadi. Shuning uchun ogohlantirish beriladi.
+    ogohlantirish: "ДКСп da chuqurlik o'lchami ham kerak (masalan 700х400х250) — menejer to'ldirsin"
+
+  # --- Panjaralar ---
+  #
+  # Qisqartma harflari: 2-harf joylashuv (Д — devor, П — shift),
+  # 3-harf rostlagich (Н — KRVsiz, Р — KRV bilan).
+  - belgilar: ["решетка адн", "адн"]
+    nomi: "Devor panjarasi, KRVsiz"
+    qolip: "Решетка вентиляционная регулируемая РВР-2 {olcham}мм без КРВ"
+
+  - belgilar: ["решетка адр", "адр"]
+    nomi: "Devor panjarasi, KRV bilan"
+    qolip: "Решетка вентиляционная регулируемая РВР-2 {olcham}мм с КРВ"
+
+  - belgilar: ["решетка апн", "апн"]
+    nomi: "Shift panjarasi, KRVsiz"
+    qolip: "Решетка вентиляционная потолочная 4РВП {olcham}мм без КРВ"
+    eng_kichik: "300х300"
+
+  - belgilar: ["решетка апр", "апр"]
+    nomi: "Shift panjarasi, KRV bilan"
+    qolip: "Решетка вентиляционная потолочная 4РВП {olcham}мм с КРВ"
+    eng_kichik: "300х300"
+
+  - belgilar: ["решетка дпу", "решетка диу", "дпу", "диу"]
+    nomi: "Shift diffuzori DVS"
+    # Bu yerda o'lcham DIAMETR: «Д125» -> «DVS 125».
+    qolip: "Потолочный диффузор DVS {olcham}"
+    diametr: true
+
+  - belgilar: ["решетка пожарный", "решетка пожарний", "решетка металлическая"]
+    nomi: "Metall panjara (yong'in)"
+    qolip: "Решетка металлическая РМ-Д-ОЦ-{olcham}-НС-У1-СТ"
+
+# ENG KICHIK O'LCHAM QOIDASI
+# --------------------------
+# 4РВП shift panjarasi 300х300 dan kichik ishlab chiqarilmaydi.
+#
+# KP-13357 da mijoz «Решетка 150х150 — 7 dona» so'ragan, menejer esa
+# «4РВП 300х300мм с КРВ — 7» yozgan. Ya'ni o'lchamni O'ZI kattalashtirgan.
+#
+# Biz buni JIMGINA qilmaymiz: o'lcham almashtiriladi, lekin
+# ogohlantirish beriladi va menejer tekshiradi. Loyihada 150х150
+# tuynuk bo'lsa, 300х300 panjara u yerga sig'maydi — bu montajda
+# chiqadigan muammo.
+eng_kichik_izohi: >-
+  4РВП eng kichik o'lchami 300х300. Kichikroq so'ralsa o'lcham
+  kattalashtiriladi va ogohlantirish beriladi — loyihadagi tuynuk
+  o'lchamini muhandis tekshirsin.

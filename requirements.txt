@@ -1,0 +1,41 @@
+# Ishga tushirish uchun kerak bo'lgan HAMMA paket shu yerda.
+#
+# DIQQAT: bu ro'yxat ilgari to'liq emas edi — `fastembed`, `python-docx`,
+# `reportlab` va boshqalar faqat mahalliy muhitda o'rnatilgan edi. Server
+# ularsiz ishga tushmaydi, shuning uchun ro'yxat kod importlari bo'yicha
+# qayta yig'ildi (2026-08-11).
+
+# --- veb va API ---
+fastapi>=0.115
+uvicorn[standard]>=0.32
+httpx>=0.27
+
+# --- model ---
+anthropic>=0.116
+
+# --- sozlama va sxema ---
+pydantic>=2.9
+pydantic-settings>=2.5
+python-dotenv>=1.0
+PyYAML>=6.0
+
+# --- Telegram botlar (ichki + mijozlar) ---
+python-telegram-bot[job-queue]>=21.0
+
+# --- bilim bazasi (RAG) ---
+# `fastembed` o'zi bilan `onnxruntime` ni tortadi (~200 MB). Model fayli
+# esa ALOHIDA yuklanadi — Dockerfile da oldindan yuklab qo'yiladi, aks
+# holda birinchi savol 30+ sekund kutadi.
+fastembed>=0.8
+numpy>=2.0
+rank-bm25>=0.2.2
+
+# --- KP hujjatlari (docx + pdf) ---
+python-docx>=1.1
+reportlab>=4.0
+pypdf>=5.0
+pillow>=11.0
+
+# --- testlar (serverda kerak emas, lekin CI uchun) ---
+pytest>=8.3
+pytest-asyncio>=0.24

@@ -1,0 +1,53 @@
+{
+  "tekshirilgan_sana": "2026-08-21",
+  "manba": {
+    "sayt": "https://jihozvent.uz/catalog/ — 132 ta mahsulot",
+    "baza": "jonli backend, /api products — 137 ta mahsulot oilasi"
+  },
+  "xulosa": "Saytdagi deyarli hamma narsa bazada BOR. Faqat 1 tasi topilmadi.",
+  "bazada_topilmadi": [
+    {
+      "kod": "ВОФ",
+      "tavsif": "Теплообменник ВОФ",
+      "izoh": "Saytda bor (Теплообменники bo'limi), bazadagi 137 oila ichida yo'q"
+    }
+  ],
+  "aniqlanishi_kerak": [
+    {
+      "kod": "Закрытая мокрая градирня",
+      "izoh": "Saytda ALOHIDA mahsulot; bazada faqat «Градирня ВГ» (id 7). Bir xilmi yoki alohida turmi — aniqlanishi kerak"
+    }
+  ],
+  "nomlanish_muammosi": [
+    {
+      "baza_id": 116,
+      "bazada": "Воздухораспределители HPB",
+      "togrisi": "НРВ",
+      "izoh": "H, P, B — LOTIN harflari, kirill emas. Qidiruvda topilmaydi"
+    },
+    {
+      "baza_id": 129,
+      "bazada": "TPB",
+      "togrisi": "ТРВ",
+      "izoh": "T, P, B — LOTIN harflari. Qidiruvda topilmaydi"
+    },
+    {
+      "baza_id": 71,
+      "bazada": "...шахтный ... CBM",
+      "togrisi": "СВМ",
+      "izoh": "C, B, M — LOTIN harflari"
+    },
+    {
+      "baza_id": 73,
+      "bazada": "Вентилятор радиальный BP",
+      "togrisi": "ВР",
+      "izoh": "B, P — LOTIN harflari"
+    },
+    {
+      "baza_id": 108,
+      "bazada": "Регулируемая решетка PBP-1",
+      "togrisi": "РВР-1",
+      "izoh": "P, B, P — LOTIN harflari"
+    }
+  ]
+}

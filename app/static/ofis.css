@@ -1,0 +1,57 @@
+/* Pixel-art ofis manzarasi. panel.css ustiga qo'shiladi. */
+
+.ofis-karta { padding-bottom: 8px; }
+
+.ofis-bosh {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.ofis-bosh h2 { margin: 0; }
+
+.ofis-boshqaruv {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.ofis-boshqaruv button {
+  width: 30px;
+  padding: 4px 0;
+  font-size: 16px;
+  line-height: 1;
+  background: var(--panel-2);
+  border: 1px solid var(--chiziq);
+  color: var(--matn);
+}
+.ofis-boshqaruv button:hover { background: #2b303a; }
+
+.kanvas-orash {
+  border: 1px solid var(--chiziq);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #14161a;
+  line-height: 0;
+}
+
+#ofis-3d {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  /* 3D sahna uchun aniq balandlik kerak — aks holda kanvas 0px bo'lib qoladi. */
+  height: min(70vh, 640px);
+  cursor: grab;
+  touch-action: none;
+}
+#ofis-3d:active { cursor: grabbing; }
+#ofis-3d canvas { display: block; width: 100%; height: 100%; }
+
+/* 3D ofisda agent kartochkasidagi ish tarixi */
+.ish-qatori {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--chiziq);
+}
+.ish-qatori:last-child { border-bottom: none; }

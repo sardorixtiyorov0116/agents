@@ -1,0 +1,24 @@
+# MAXFIY — hech qachon image ichiga tushmasin.
+# Kalitlar server sozlamalarida (muhit o'zgaruvchisi) turadi.
+.env
+.env.*
+!.env.example
+
+# Mahalliy muhit
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.claude/
+
+# Baza image ichida emas, DISKDA turadi (`/data`).
+# Ilk yuklashda uni qo'lda ko'chiramiz — `docs/deployment.md` ga qarang.
+*.db
+*.db-journal
+*.db-wal
+
+# Tayyor KP hujjatlari va keshlar — ular ham diskda.
+chiqish/
+
+# Testlar serverda kerak emas
+tests/

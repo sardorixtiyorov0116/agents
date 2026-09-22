@@ -1,0 +1,262 @@
+{
+ "tur": "oferta-sotuvchi",
+ "kind": "seller",
+ "yol": "/oferta/sotuvchi",
+ "versiya": "1.0",
+ "sana": "15.09.2026",
+ "sarlavha": "Sotuvchilar uchun ommaviy oferta",
+ "uz": {
+  "intro": "Ushbu hujjat «CLIMAVENT» MChJ (keyingi oʻrinlarda — «Operator») tomonidan Climavent marketpleysida tovar joylashtirmoqchi boʻlgan yuridik shaxslar va yakka tartibdagi tadbirkorlarga (keyingi oʻrinlarda — «Sotuvchi») taklif qilinadigan shartnoma shartlarini belgilaydi. Sotuvchi ushbu shartlarni 3-boʻlimda belgilangan tartibda qabul qiladi.",
+  "sections": [
+   {
+    "h": "Atamalar",
+    "body": [
+     "1.1. Platforma — Operatorga tegishli climavent.uz sayti, uning mobil versiyasi va Sotuvchi kabineti.",
+     "1.2. Sotuvchi kabineti — Sotuvchi oʻz doʻkonini, tovarlarini va buyurtmalarini boshqaradigan boshqaruv paneli. Unga climavent.uz saytidagi «Sotuvchi kabinetiga kirish» havolasi orqali kiriladi.",
+     "1.3. Doʻkon — Sotuvchining Platformadagi sahifasi: nomi, logotipi, tavsifi, aloqa maʼlumotlari va tovarlari.",
+     "1.4. Kartochka — tovarning Platformadagi sahifasi: nomi, rasmlari, tavsifi, texnik tavsiflari, modellari (variantlari) va narxi.",
+     "1.5. Xaridor — Platformada roʻyxatdan oʻtgan va tovarga buyurtma beradigan jismoniy yoki yuridik shaxs.",
+     "1.6. Buyurtma — Xaridorning Platforma orqali bir yoki bir nechta tovarni sotib olish haqidagi soʻrovi.",
+     "1.7. Tarif — Operator xizmatlarining narxi va toʻlov tartibi (1-ilova).",
+     "1.8. Aksiya — Sotuvchi belgilangan muddatga tovarga oddiy narxdan past narx qoʻyishi.",
+     "1.9. Ariza — Sotuvchi boʻlish uchun Platformada toʻldiriladigan shakl (2-ilova).",
+     "1.10. Huquq egasi — tovar belgisi, mualliflik huquqi, patent yoki boshqa intellektual mulk obʼektiga huquqi bor shaxs yoki uning vakili (4-ilova)."
+    ]
+   },
+   {
+    "h": "Shartnoma predmeti",
+    "body": [
+     "2.1. Operator Sotuvchiga Platformada Doʻkon ochish, Kartochkalarni joylashtirish, Xaridorlardan Buyurtmalar qabul qilish va ularni Sotuvchiga yetkazish xizmatlarini koʻrsatadi. Sotuvchi ushbu shartlarga rioya qiladi va Tarif boʻyicha haq toʻlaydi.",
+     "2.2. Operator tovarni sotmaydi va Sotuvchi bilan Xaridor oʻrtasidagi oldi-sotdi shartnomasining tarafi hisoblanmaydi. Tovar, uning sifati, narxi, yetkazib berilishi, kafolati va qaytarilishi uchun Sotuvchi javob beradi.",
+     "2.3. Xaridor tovar uchun toʻlovni bevosita Sotuvchiga amalga oshiradi. Operator Xaridordan tovar uchun pul qabul qilmaydi.",
+     "2.4. Operator kelajakda Platforma orqali toʻlov qabul qilishni joriy etishi mumkin. Bu faqat alohida ilova yoki shartnoma asosida, Sotuvchi uni alohida qabul qilganidan keyin qoʻllanadi."
+    ]
+   },
+   {
+    "h": "Shartnomani tuzish tartibi",
+    "body": [
+     "3.1. Oʻzbekiston Respublikasi rezidenti boʻlgan yuridik shaxslar va yakka tartibdagi tadbirkorlar Sotuvchi boʻla oladi.",
+     "3.2. Shartlarni qabul qilish uchun Sotuvchi: (a) Platformada Arizani toʻldiradi va 2-ilovada koʻrsatilgan hujjatlarni yuklaydi; (b) ushbu oferta va Maxfiylik siyosati bilan tanishganini va Arizadagi shaxsga doir maʼlumotlar ishlanishiga roziligini tasdiqlovchi belgini qoʻyadi; (c) Arizani yuboradi. Belgi oldindan qoʻyilmaydi.",
+     "3.3. Operator Arizani 5 ish kuni ichida koʻrib chiqadi va zarur boʻlsa qoʻshimcha hujjat soʻraydi. Qoʻshimcha hujjat soʻralsa, muddat hujjat olingan kundan qayta hisoblanadi.",
+     "3.4. Shartnoma Operator Arizani tasdiqlab, Sotuvchi kabinetini faollashtirgan paytdan tuzilgan hisoblanadi. Operator bu haqda Arizada koʻrsatilgan elektron pochta yoki telefon raqamiga xabar yuboradi.",
+     "3.5. Operator Arizani sababini koʻrsatib rad etishi mumkin: hujjatlar toʻliq yoki ishonchli boʻlmasa; tovarlar Platforma toifalariga mos kelmasa; Sotuvchi ilgari shartlarni qoʻpol buzgani uchun bloklangan boʻlsa.",
+     "3.6. Operator shartlarning qaysi versiyasi, qachon, qaysi hisob va IP-manzildan qabul qilinganini saqlaydi. Bu yozuvlar shartnoma tuzilganining dalili hisoblanadi.",
+     "3.7. Tasdiqlangan Doʻkon nofaol holatda yaratiladi va Xaridorlarga koʻrinmaydi. Sotuvchi Doʻkon maʼlumotlarini toʻldirib, kamida 1 ta Kartochka joylashtirgach, Operator Doʻkonni faollashtiradi."
+    ]
+   },
+   {
+    "h": "Sotuvchining majburiyatlari",
+    "body": [
+     "4.1. Arizada va Sotuvchi kabinetida toʻgʻri va dolzarb maʼlumot berish. Rekvizitlar, rahbar yoki aloqa maʼlumotlari oʻzgarsa, 5 ish kuni ichida yangilash.",
+     "4.2. Kartochkalarda tovar haqida toʻliq va ishonchli maʼlumot berish: nomi, ishlab chiqaruvchisi, modeli, asosiy texnik tavsiflari, kafolat muddati va shartlari, montaj talab qilinishi. Rasmlar joylashtirilgan tovarga mos boʻlishi kerak.",
+     "4.3. Faqat qonuniy muomalada boʻlgan, zarur sertifikat va ruxsatnomalarga ega tovarlarni joylashtirish (3-ilova). Operator soʻrasa, muvofiqlik sertifikati, tovar kelib chiqishini yoki brend egasining ruxsatini tasdiqlovchi hujjatni 3 ish kuni ichida taqdim etish.",
+     "4.4. Narx va mavjudlik maʼlumotini dolzarb saqlash. Tovar tugasa, Kartochkani yashirish yoki «mavjud emas» deb belgilash.",
+     "4.5. Buyurtma haqida xabar olgach, ish kunlari 24 soat ichida Xaridor bilan bogʻlanib, Buyurtmani tasdiqlash yoki rad etish. Buyurtma holatini Sotuvchi kabinetida oʻz vaqtida yangilash: yangi, toʻlangan, yetkazilmoqda, bajarildi, bekor qilindi.",
+     "4.6. Xaridorga qonunchilik talab qiladigan hujjatlarni berish: fiskal chek, yuridik shaxslarga hisob-faktura, kafolat taloni va boshqalar.",
+     "4.7. Tovarni qaytarish, almashtirish va kafolat boʻyicha Xaridor talablarini qonunchilikka muvofiq oʻzi hal qilish.",
+     "4.8. Xaridor maʼlumotlaridan faqat 9-boʻlimda belgilangan maqsadlarda foydalanish.",
+     "4.9. Soxta sharh yozmaslik va yozdirmaslik, sharh uchun Xaridorga haq yoki chegirma taklif qilmaslik, boshqa Sotuvchilarning tovarlariga soxta Buyurtma bermaslik.",
+     "4.10. Sotuvchi kabineti login va parolini boshqalarga bermaslik. Kabinetda Sotuvchi hisobidan qilingan harakatlar Sotuvchi tomonidan qilingan hisoblanadi.",
+     "4.11. Tarif boʻyicha haqni oʻz vaqtida toʻlash.",
+     "4.12. Huquq egasi shikoyati boʻyicha Operator soʻroviga 4-ilovada belgilangan muddatda javob berish."
+    ]
+   },
+   {
+    "h": "Operatorning majburiyatlari",
+    "body": [
+     "5.1. Platformaning uzluksiz ishlashi uchun oqilona choralar koʻrish va rejali texnik ishlar haqida imkon qadar oldindan xabar berish.",
+     "5.2. Buyurtmalarni Sotuvchi kabinetiga darhol yetkazish.",
+     "5.3. Sotuvchiga oʻz savdosi boʻyicha statistikani koʻrish va eksport qilish imkonini berish.",
+     "5.4. Bir Sotuvchining savdo maʼlumotlari, xaridorlari va narx siyosatini boshqa Sotuvchilarga oshkor qilmaslik (9.4-band).",
+     "5.5. Sotuvchi murojaatlariga 2 ish kuni ichida javob berish.",
+     "5.6. Shartlar oʻzgarishi haqida 12-boʻlimda belgilangan muddatda oldindan xabar berish."
+    ]
+   },
+   {
+    "h": "Kartochkalar, kontent va moderatsiya",
+    "body": [
+     "6.1. Kartochka mazmuni (matn, rasm, tovar belgisi, texnik hujjatlar) uchun Sotuvchi javob beradi va unga huquqi borligini kafolatlaydi.",
+     "6.2. Sotuvchi Operatorga kontentdan Platformada koʻrsatish va Platformani reklama qilish (sayt, ijtimoiy tarmoqlar, reklama materiallari) uchun bepul, noeksklyuziv foydalanish huquqini beradi. Bu huquq shartnoma amal qiladigan davrda va u tugaganidan keyin 6 oy davomida amal qiladi.",
+     "6.3. Operator Kartochka mazmunini oʻzgartirmagan holda uni texnik tartibga solishi mumkin: toʻgʻri toifaga joylashtirish, rasm oʻlchamini moslash, formatlash.",
+     "6.4. Kartochka 3-ilovaga yoki qonunchilikka zid boʻlsa, Huquq egasidan 4-ilovadagi tartibda shikoyat kelsa yoki maʼlumot notoʻgʻriligi aniqlansa, Operator uni sababini koʻrsatib yashirishi mumkin. Sotuvchi kamchilikni tuzatgach, Kartochka qayta koʻrsatiladi.",
+     "6.5. Xaridorlar sharh va baho qoldirishi mumkin. Sotuvchi sharhni oʻchira olmaydi. Operator faqat qoidalarga zid sharhlarni (haqorat, spam, shaxsiy maʼlumot, tovarga aloqasi yoʻq matn) yashiradi va sharh mazmunini oʻzgartirmaydi."
+    ]
+   },
+   {
+    "h": "Narxlar va aksiyalar",
+    "body": [
+     "7.1. Tovar narxini Sotuvchi belgilaydi. Platformada narx milliy valyutada (soʻmda) koʻrsatiladi va Xaridor bilan hisob-kitob soʻmda amalga oshiriladi.",
+     "7.2. Buyurtma berilgan paytda Platformada koʻrsatilgan narx amal qiladi. Narx texnik xato tufayli notoʻgʻri koʻrsatilgan boʻlsa, Sotuvchi Buyurtmani tasdiqlashdan oldin Xaridorga xabar beradi. Bu holda Xaridor Buyurtmani bekor qilishi mumkin.",
+     "7.3. Sotuvchi Aksiya narxini boshlanish va tugash sanasi bilan belgilashi mumkin. Aksiya narxi oddiy narxdan past boʻlishi kerak.",
+     "7.4. Kartochkada chizib koʻrsatiladigan oddiy narx Aksiyadan oldin haqiqatda qoʻllangan narx boʻlishi shart. Aksiya oldidan narxni sunʼiy oshirib, keyin chegirma koʻrsatish taqiqlanadi.",
+     "7.5. Aksiya muddatida berilgan Buyurtma, Aksiya keyinroq tugagan boʻlsa ham, Aksiya narxida bajariladi."
+    ]
+   },
+   {
+    "h": "Tarif va hisob-kitoblar",
+    "body": [
+     "8.1. Operator xizmatlarining narxi va toʻlov tartibi 1-ilovada belgilanadi.",
+     "8.2. Haq soʻmda, Operatorning elektron hisob-fakturasi asosida, Operator hisob raqamiga bank oʻtkazmasi orqali toʻlanadi.",
+     "8.3. Tarif toʻlovi 10 kalendar kundan ortiq kechiksa, Operator oldindan xabar berib, toʻlov amalga oshirilgunga qadar Doʻkonni vaqtincha nofaol qilishi mumkin. Bunda ilgari qabul qilingan Buyurtmalar bajarilishi shart.",
+     "8.4. Pullik Tarif davrida har oy yakuni boʻyicha taraflar elektron raqamli imzo bilan Didox yoki taraflar kelishgan boshqa elektron hujjat almashinuvi tizimi orqali xizmatlar koʻrsatilganligi toʻgʻrisidagi dalolatnomani rasmiylashtiradi. Sotuvchi 5 ish kuni ichida imzolamasa yoki asosli eʼtiroz bildirmasa, xizmatlar qabul qilingan hisoblanadi."
+    ]
+   },
+   {
+    "h": "Shaxsiy maʼlumotlar va maxfiylik",
+    "body": [
+     "9.1. Buyurtmani bajarish uchun Sotuvchi Xaridorning ismi, telefon raqami, yetkazib berish manzili va Buyurtma tarkibini oladi. Bu maʼlumotlarni ishlash uchun Sotuvchi «Shaxsga doir maʼlumotlar toʻgʻrisida»gi qonun boʻyicha mustaqil javob beradi.",
+     "9.2. Sotuvchi Xaridor maʼlumotlaridan faqat Buyurtmani bajarish, kafolat va qaytarish masalalari uchun foydalanadi. Ularni uchinchi shaxslarga berish, Xaridorning alohida roziligisiz reklama yuborish va boshqa maqsadlarda ishlatish taqiqlanadi.",
+     "9.3. Sotuvchi kabinetida Sotuvchi faqat oʻz tovarlariga tegishli Buyurtma, savat, sevimlilar, sharh va xaridor maʼlumotlarini koʻradi.",
+     "9.4. Operator bir Sotuvchining savdo hajmi, xaridorlari, narxlari va boshqa tijorat maʼlumotlarini boshqa Sotuvchilarga bermaydi. Operator bu maʼlumotlardan faqat Platformani yuritish va Sotuvchini aniqlab boʻlmaydigan umumlashtirilgan statistika uchun foydalanadi. Operator yoki unga aloqador shaxslar Platformada Sotuvchi sifatida ishtirok etsa ham, bu qoida toʻliq qoʻllanadi.",
+     "9.5. Taraflar shartnoma doirasida olingan tijorat sirini shartnoma amal qilgan davrda va u tugaganidan keyin 3 yil davomida oshkor qilmaydi, qonunda belgilangan hollar bundan mustasno.",
+     "9.6. Sotuvchi Arizada va Sotuvchi kabinetida koʻrsatgan rahbar, masʼul shaxs va boshqa xodimlarning shaxsga doir maʼlumotlarini Operatorga ularning roziligi bilan beradi. Operator bu maʼlumotlarni Maxfiylik siyosatiga muvofiq ishlaydi."
+    ]
+   },
+   {
+    "h": "Javobgarlik",
+    "body": [
+     "10.1. Taraflar majburiyatlarini bajarmagani yoki lozim darajada bajarmagani uchun Oʻzbekiston Respublikasi qonunchiligiga muvofiq javob beradi.",
+     "10.2. Sotuvchi tovarning sifati, xavfsizligi, sertifikatlanganligi, Kartochkadagi maʼlumot toʻgʻriligi, intellektual mulk huquqlariga rioya qilinishi va oʻz soliq majburiyatlari uchun javob beradi.",
+     "10.3. Sotuvchi aybi bilan uchinchi shaxslar (Xaridorlar, Huquq egalari, davlat organlari) Operatorga talab qoʻysa, Sotuvchi Operatorga yetkazilgan va hujjat bilan tasdiqlangan zararni qoplaydi.",
+     "10.4. Operator Sotuvchi va Xaridor oʻrtasidagi shartnoma bajarilishi uchun javob bermaydi. Operatorning ushbu shartnoma boʻyicha javobgarligi Sotuvchi oxirgi 3 oyda toʻlagan Tarif summasi bilan cheklanadi, qasddan qilingan harakatlar bundan mustasno.",
+     "10.5. Yengib boʻlmaydigan kuch (fors-major) holatlari tufayli majburiyatni bajara olmagan taraf javobgarlikdan ozod boʻladi. Bunday holat haqida ikkinchi taraf 5 ish kuni ichida xabardor qilinadi."
+    ]
+   },
+   {
+    "h": "Doʻkonni cheklash va shartnomani bekor qilish",
+    "body": [
+     "11.1. Buyurtmalarga javob berilmasa, asosli shikoyatlar takrorlansa, Kartochkalarda notoʻgʻri maʼlumot boʻlsa yoki Tarif toʻlanmasa, Operator Sotuvchidan kamchilikni 5 ish kuni ichida tuzatishni elektron shaklda, sababini koʻrsatib talab qilishi mumkin.",
+     "11.2. Kamchilik belgilangan muddatda tuzatilmasa, Operator Doʻkonni nofaol qilishi mumkin. Nofaol Doʻkon va uning tovarlari Platformada koʻrinmaydi.",
+     "11.3. Operator Doʻkonni darhol nofaol qilishi mumkin, agar: soxta hujjat taqdim etilsa; qalbaki yoki taqiqlangan tovar joylashtirilsa; Xaridor maʼlumotlari 9-boʻlimga zid ishlatilsa; Platformaga yoki boshqa foydalanuvchilarga zarar yetkazuvchi harakat qilinsa.",
+     "11.4. Sotuvchi Sotuvchi kabineti yoki elektron pochta orqali 14 kalendar kun oldin xabar berib, shartnomani istalgan vaqtda bekor qilishi mumkin.",
+     "11.5. Operator shartnomani 30 kalendar kun oldin xabar berib, 11.3-banddagi hollarda esa darhol bekor qilishi mumkin.",
+     "11.6. Shartnoma bekor qilinganda ham Sotuvchi qabul qilingan Buyurtmalarni bajaradi, Xaridorlar oldidagi kafolat va qaytarish majburiyatlarini saqlaydi hamda bekor qilish sanasigacha boʻlgan Tarif haqini toʻlaydi.",
+     "11.7. Oldindan toʻlangan Tarif haqi qaytarilmaydi, shartnoma Operator aybi bilan bekor qilingan hol bundan mustasno."
+    ]
+   },
+   {
+    "h": "Shartlarni oʻzgartirish",
+    "body": [
+     "12.1. Operator shartlarni bir tomonlama oʻzgartirishi mumkin. Yangi versiya Platformada eʼlon qilinadi va kuchga kirishidan kamida 15 kalendar kun oldin Sotuvchi kabineti hamda elektron pochta orqali xabar qilinadi. Pullik Tarif joriy etilganda yoki Tarif oshirilganda bu muddat kamida 30 kalendar kun.",
+     "12.2. Rozi boʻlmagan Sotuvchi yangi versiya kuchga kirgunga qadar shartnomani 11.4-banddagi tartibda bekor qilishi mumkin. Bu holda bekor qilish sanasigacha eski shartlar qoʻllanadi.",
+     "12.3. Sotuvchi kabinetiga keyingi kirishda yangi versiyani tasdiqlash soʻraladi. Yangi versiya kuchga kirgach kabinetdan foydalanishni davom ettirish uni qabul qilish hisoblanadi.",
+     "12.4. Amaldagi versiya raqami va kuchga kirgan sanasi Platformadagi oferta sahifasida koʻrsatiladi. Oldingi versiyalar Operatorda saqlanadi va Sotuvchi soʻrovi boʻyicha taqdim etiladi."
+    ]
+   },
+   {
+    "h": "Xabarnomalar va nizolarni hal qilish",
+    "body": [
+     "13.1. Taraflar Sotuvchi kabineti, Arizada koʻrsatilgan elektron pochta va telefon orqali xabar almashadi. Dalolatnoma, hisob-faktura va talabnomalar elektron raqamli imzo bilan Didox yoki taraflar kelishgan boshqa elektron hujjat almashinuvi tizimi orqali yuboriladi.",
+     "13.2. Nizolar muzokara yoʻli bilan hal qilinadi. Talabnomaga u olingan kundan boshlab 15 kalendar kun ichida javob beriladi.",
+     "13.3. Kelishuvga erishilmasa, nizo Operator joylashgan yerdagi iqtisodiy sudda koʻrib chiqiladi.",
+     "13.4. Ushbu shartnomaga Oʻzbekiston Respublikasi qonunchiligi qoʻllanadi."
+    ]
+   },
+   {
+    "h": "Operator maʼlumotlari",
+    "body": [
+     [
+      "Nomi — «CLIMAVENT» MChJ",
+      "Manzil — Toshkent shahri, Shota Rustaveli koʻchasi, 115",
+      "Telefon — +998 90 354 78 88",
+      "Elektron pochta — climaventuz@outlook.com",
+      "Ish vaqti — Dushanba–juma, 08:00–17:00",
+      "STIR va bank rekvizitlari — Operator hisob-fakturasida koʻrsatiladi va Sotuvchi soʻrovi boʻyicha taqdim etiladi"
+     ]
+    ]
+   },
+   {
+    "h": "1-ilova. Tariflar",
+    "body": [
+     "1. Ishga tushirish davri. Ushbu oferta kuchga kirgan kundan (15.09.2026) boshlab pullik Tarif joriy etilgunga qadar Operator xizmatlari barcha Sotuvchilar uchun bepul (0 soʻm). Bu davrda Tarif toʻlanmaydi, qolgan shartlar toʻliq amal qiladi.",
+     "2. Pullik Tarif. Pullik Tarif (oylik obuna) joriy etilsa, uning nomi, narxi, tarkibi va QQS qoʻllanishi ushbu ilovaning yangi tahririda eʼlon qilinadi va kuchga kirishidan kamida 30 kalendar kun oldin xabar qilinadi (12.1-band). Rozi boʻlmagan Sotuvchi shartnomani bekor qilishi mumkin.",
+     "3. Obuna haqi har oyning 5-sanasigacha, Operator hisob-fakturasi asosida oldindan toʻlanadi. Oy oʻrtasida ulansa, haq qolgan kunlarga mutanosib hisoblanadi.",
+     "4. Komissiya. Hozirgi bosqichda komissiya olinmaydi. Platforma orqali toʻlov qabul qilish (2.4-band) joriy etilsa, shu tarzda toʻlangan Buyurtmalar uchun komissiya alohida ilovada belgilanadi.",
+     "5. Qoʻshimcha xizmatlar. Pullik qoʻshimcha xizmatlar (Kartochkani roʻyxat tepasida koʻrsatish, banner va boshqalar) joriy etilsa, ular alohida ilovada, Sotuvchi ixtiyoriy tanlaydigan xizmat sifatida belgilanadi."
+    ]
+   },
+   {
+    "h": "2-ilova. Ariza shakli va talab qilinadigan hujjatlar",
+    "body": [
+     "2.1. Arizadagi maʼlumotlar:",
+     [
+      "Huquqiy shakli — MChJ, AJ, boshqa yuridik shaxs yoki YaTT",
+      "Toʻliq nomi — Davlat roʻyxatidagi kabi",
+      "STIR — 9 raqam (YaTT uchun JShShIR ham qabul qilinadi)",
+      "Davlat roʻyxatidan oʻtgan sana",
+      "Yuridik manzil",
+      "Rahbar — F.I.Sh., lavozimi",
+      "Bank rekvizitlari — Bank nomi, hisob raqami, bank kodi (MFO)",
+      "QQS toʻlovchisi — Ha (QQS toʻlovchisi kodi) yoki yoʻq",
+      "Masʼul shaxs — F.I.Sh., telefon, elektron pochta. Sotuvchi kabineti shu shaxsga ochiladi",
+      "Doʻkon nomi — Platformada koʻrinadigan nom",
+      "Faoliyat turi — Ishlab chiqaruvchi, rasmiy distribyutor, diler yoki boshqa sotuvchi",
+      "Tovar toifalari va brendlar — Masalan: konditsionerlar, VRF tizimlari, ventilyatsiya, issiqlik nasoslari",
+      "Ombor yoki shourum manzili — Ixtiyoriy",
+      "Yetkazib berish va montaj hududlari — Ixtiyoriy"
+     ],
+     "2.2. Hujjatlar (skan yoki foto, PDF, JPG yoki PNG):",
+     [
+      "Yakka tartibdagi tadbirkor: davlat roʻyxatidan oʻtganlik guvohnomasi; pasport yoki ID-karta.",
+      "Yuridik shaxs: davlat roʻyxatidan oʻtganlik guvohnomasi; rahbarni tayinlash toʻgʻrisidagi qaror yoki buyruq; rahbarning pasporti yoki ID-kartasi.",
+      "Arizani vakil topshirsa: ishonchnoma.",
+      "Boshqa ishlab chiqaruvchining brendini sotsa: distribyutor yoki diler shartnomasi yoki brend egasining ruxsat xati (Operator soʻraganda).",
+      "Majburiy sertifikatlanadigan tovarlar uchun: muvofiqlik sertifikatlari (Operator soʻraganda)."
+     ],
+     "2.3. Operator pasport va ID-karta nusxalarini faqat Sotuvchini tekshirish uchun ishlatadi va Ariza boʻyicha qaror qabul qilinganidan keyin 30 kun ichida oʻchiradi, qonunda uzoqroq saqlash talab qilingan hol bundan mustasno."
+    ]
+   },
+   {
+    "h": "3-ilova. Taqiqlangan tovarlar va kartochka talablari",
+    "body": [
+     "3.1. Joylashtirish taqiqlanadi:",
+     [
+      "qonunchilikka koʻra muomaladan chiqarilgan yoki muomalasi cheklangan tovarlar;",
+      "qalbaki tovarlar, shuningdek huquq egasining roziligisiz boshqa shaxsning tovar belgisi qoʻyilgan tovarlar;",
+      "majburiy sertifikatlanishi lozim boʻlgan, lekin sertifikatlanmagan tovarlar;",
+      "ishlatilgan yoki qayta tiklangan tovarni yangi sifatida taklif qilish;",
+      "Operator roziligisiz — Platforma toifalariga (iqlim, ventilyatsiya, isitish uskunalari va ularga aloqador tovar va xizmatlar) mos kelmaydigan tovarlar."
+     ],
+     "3.2. Kartochka talablari:",
+     [
+      "Rasmlar joylashtirilgan tovarni koʻrsatadi; ularda boshqa marketpleys, sayt yoki raqobatchining logotipi va suv belgisi boʻlmaydi.",
+      "Nom va tavsifda telefon raqami, sayt yoki messenjer havolasi boʻlmaydi. Aloqa maʼlumotlari faqat Doʻkon profilidagi maxsus maydonlarda koʻrsatiladi.",
+      "Texnik tavsiflar (quvvat, sovutish va isitish unumdorligi, xizmat koʻrsatish maydoni, elektr taʼminoti, shovqin darajasi va boshqalar) ishlab chiqaruvchi hujjatlariga mos keladi.",
+      "Bir tovarning turli modellari yoki oʻlchamlari bitta Kartochkada variant sifatida joylashtiriladi; takroriy Kartochkalar ochilmaydi.",
+      "Kafolat muddati va shartlari hamda montajni kim bajarishi Kartochkada koʻrsatiladi.",
+      "«Eng arzon», «1-raqamli» kabi Xaridorni chalgʻitishi mumkin boʻlgan soʻzlar tasdiqlovchi asossiz ishlatilmaydi."
+     ]
+    ]
+   },
+   {
+    "h": "4-ilova. Huquq egalari shikoyatlarini koʻrib chiqish tartibi",
+    "body": [
+     "4.1. Huquq egasi Kartochka uning tovar belgisi, mualliflik huquqi (rasm, matn, texnik hujjat), patenti yoki boshqa intellektual mulk huquqini buzmoqda deb hisoblasa, Operatorga climaventuz@outlook.com manziliga «Huquq buzilishi» mavzusi bilan shikoyat yuboradi.",
+     "4.2. Shikoyatda quyidagilar boʻlishi kerak:",
+     [
+      "shikoyatchining nomi yoki F.I.Sh., telefon raqami va elektron pochtasi;",
+      "huquqni tasdiqlovchi hujjat: tovar belgisi guvohnomasi yoki reyestr raqami, patent, litsenziya shartnomasi; vakil yuborsa — ishonchnoma;",
+      "buzilish bor deb hisoblangan Kartochka yoki Kartochkalarning havolasi;",
+      "buzilish nimadan iboratligining qisqa tavsifi;",
+      "shikoyatdagi maʼlumotlar toʻgʻri ekanligi haqida bayonot."
+     ],
+     "4.3. Operator shikoyat olingan kundan boshlab 3 ish kuni ichida uning toʻliqligini tekshiradi. Shikoyat toʻliq boʻlmasa, yetishmayotgan maʼlumot soʻraladi va muddat ular olingan kundan hisoblanadi.",
+     "4.4. Toʻliq shikoyat Sotuvchiga yuboriladi. Sotuvchi uni olgan kundan boshlab 5 ish kuni ichida oʻz huquqini tasdiqlovchi hujjatlarni (distribyutor yoki diler shartnomasi, brend egasining ruxsat xati, muvofiqlik sertifikati va boshqalar) taqdim etadi yoki Kartochkani tuzatadi yoxud yashiradi.",
+     "4.5. Buzilish hujjatlardan aniq koʻrinsa (qalbaki tovar, boshqa brend nomi bilan sotish, ruxsatsiz nusxalangan rasm), Operator Kartochkani Sotuvchi javobini kutmasdan vaqtincha yashirishi mumkin.",
+     "4.6. Operator taraflar hujjatlarini koʻrib chiqib, Kartochkani tiklash, tuzatilgan holda tiklash yoki yashirishda qoldirish haqida qaror qabul qiladi va har ikkala tarafga sababini koʻrsatib xabar beradi.",
+     "4.7. Operator intellektual mulk boʻyicha nizoni sud oʻrnida hal qilmaydi. Taraflar nizoni sudda hal qilishi mumkin; kuchga kirgan sud qarori Operator tomonidan ijro etiladi.",
+     "4.8. Bir Sotuvchiga nisbatan asosli shikoyatlar takrorlansa, 11-boʻlim qoʻllanadi. Ataylab yolgʻon shikoyat yuborgan shaxsning keyingi shikoyatlari koʻrib chiqilmasligi mumkin.",
+     "4.9. Xaridorlar va boshqa shaxslar ham qalbaki yoki notoʻgʻri taʼriflangan tovar haqida shu manzilga xabar berishi mumkin."
+    ]
+   }
+  ]
+ },
+ "ru": {
+  "intro": "",
+  "sections": []
+ },
+ "en": {
+  "intro": "",
+  "sections": []
+ }
+}

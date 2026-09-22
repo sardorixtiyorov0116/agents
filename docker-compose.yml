@@ -1,0 +1,42 @@
+# Serverda (VPS) ishga tushirish uchun.
+#
+#   docker compose up -d --build
+#   docker compose logs -f
+#
+# Railway/Render kabi xizmatlarda bu fayl kerak emas — ular `Dockerfile`
+# ni o'zi topadi, disk va muhit o'zgaruvchilari esa panelda beriladi.
+
+services:
+  agentlar:
+    build: .
+    container_name: jihozvent-agentlar
+    restart: unless-stopped
+
+    # KALITLAR SHU YERDA EMAS. `.env` fayli serverning o'zida turadi va
+    # git'ga tushmaydi (`.gitignore`). Namuna: `.env.example`.
+    env_file: .env
+
+    environment:
+      TZ: Asia/Tashkent
+
+    ports:
+      # Panelni faqat ichki tarmoqqa ochamiz. Tashqaridan kirish kerak
+      # bo'lsa oldiga nginx/Caddy qo'yiladi (HTTPS + parol bilan) —
+      # panelda kompaniya ma'lumoti bor, uni ochiq qoldirib bo'lmaydi.
+      - "127.0.0.1:8000:8000"
+
+    volumes:
+      # Baza, KP hujjatlari va texnik kesh — konteyner o'chsa ham qoladi.
+      - agentlar-data:/data
+      # Obsidian vault. Serverda tahrirlanmaydi, faqat o'qiladi.
+      # Mahalliy kompyuterdan nusxa ko'chiriladi (deployment.md).
+      - ./vault:/app/vault:ro
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+volumes:
+  agentlar-data:

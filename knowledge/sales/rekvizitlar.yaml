@@ -1,0 +1,68 @@
+# KP blankasi uchun ma'lumot. Namunaviy KP (КП_12951-26) formatiga mos.
+#
+# To'ldirilmagan maydon hujjatda UMUMAN ko'rsatilmaydi (bo'sh qator chiqmaydi).
+
+# Hujjat kim nomidan chiqadi (namunadagidek).
+nomi: "ООО «CLIMAVENT»"
+nomi_uz: "«CLIMAVENT» MChJ"
+brend: "Climavent"
+
+# Blanka logotipi (namunaviy KP'dan olingan).
+logo: "shablonlar/logo.png"
+
+# Imzo bloki. `_uz` bilan tugagan maydonlar o'zbekcha KP da ishlatiladi;
+# to'ldirilmagan bo'lsa asosiy (ruscha) qiymat qoladi.
+direktor: "Расулов Ж.С."
+direktor_uz: "Rasulov J.S."
+direktor_lavozimi: "Директор"
+direktor_lavozimi_uz: "Direktor"
+
+# Savdo menejerlari — KP ning eng pastida aloqa uchun ko'rsatiladi.
+#
+# ADMINISTRATOR SHU YERNI TO'LDIRADI. Yangi menejer kelganda:
+#   1) undan Telegram ID sini oling — botga /menejer deb yozsa ko'rsatadi;
+#   2) quyidagi namunaga qarab to'rtta qatorni qo'shing;
+#   3) fayl saqlangach o'zi o'qiladi, tizimni qayta yoqish shart emas.
+#
+# ISM IKKI ALIFBODA
+# -----------------
+# KP ruscha bo'lsa ism kirillda, o'zbekcha bo'lsa lotinda chiqadi.
+# `ism_kiril` va `ism_lotin` yozilgan bo'lsa — AYNAN o'sha ishlatiladi.
+# Yozilmasa tizim o'zi o'giradi, lekin u pasportdagi yozuvni bilmaydi:
+# "Шухрат" ni "Shuhrat" ham, "Shukhrat" ham deb yozish mumkin.
+# Shuning uchun ikkalasini ham qo'lda yozib qo'ygan ma'qul.
+#
+# Bot menejerni o'zi ham so'ray oladi (ism-familiya va telefon) va javobni
+# bazaga saqlaydi — lekin u holda alifbo avtomatik o'giriladi.
+menejerlar:
+  "8149535541":
+    ism: "Яхшибоев Бауржон"
+    telefon: "+998 90 099 12 60"
+    ism_kiril: "Яхшибоев Бауржон"
+    # TEKSHIRING: pasportda boshqacha bo'lsa (masalan "Yakhshiboev
+    # Baurzhon") shu qatorni to'g'rilang.
+    ism_lotin: "Yaxshiboyev Baurjon"
+
+  # --- NAMUNA: yangi menejer qo'shish uchun shuni nusxa oling ---
+  # "123456789":
+  #   ism: "Karimov Aziz"
+  #   telefon: "+998 90 000 00 00"
+  #   ism_kiril: "Каримов Азиз"
+  #   ism_lotin: "Karimov Aziz"
+
+# KP raqami shakli. Mavjud qiymatlar: {tartib}, {yil}, {qisqa_yil}, {oy}
+# Namunadagi ko'rinish: 12951/6
+raqam_shakli: "{tartib}/{oy}"
+# Raqamlash shu sondan boshlanadi (mavjud KP raqamlari bilan davom etish uchun).
+raqam_boshlanishi: 12951
+
+# Quyidagilar to'ldirilmagan — hujjatda ko'rsatilmaydi.
+manzil: ""
+telefon: ""
+email: ""
+sayt: ""
+stir: ""
+xr: ""
+bank: ""
+mfo: ""
+ 

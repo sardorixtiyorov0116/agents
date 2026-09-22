@@ -1,0 +1,878 @@
+# Oprosniy listlar — mijozlar botidagi bo'limlar va savollar.
+#
+# NEGA YAML, KOD EMAS
+# -------------------
+# Zavodda 12 ta oprosniy list bor va ular vaqti-vaqti bilan o'zgaradi
+# (yangi model qatori qo'shiladi, klass o'chadi). Savollar kodda bo'lsa
+# har o'zgarishga dasturchi kerak bo'lardi. Bu yerda esa muhandis o'zi
+# tahrirlaydi.
+#
+# MANBA — zavodning haqiqiy oprosniy listlari (`hujjatlar/sorovnoma/`).
+# Savol matni va variantlar O'YLAB TOPILMAGAN, o'sha fayllardan
+# ko'chirilgan. Yangi variant qo'shishdan oldin faylni tekshiring.
+#
+# `shart` — savol faqat shu javob berilganda beriladi. Masalan F5-F9
+# tozalash klassi FAQAT ФЯК filtrida bor; ФЯГ tanlagan mijozga uni
+# ko'rsatish xato bo'lardi.
+
+bolimlar:
+
+  # ---------------------------------------------------------------- 1
+  ventilyator:
+    nomi: "Ventilyator"
+    nomi_ru: "Вентилятор"
+    belgi: "🌀"
+    fayl: ventilyator.docx
+    izoh: "radial, o'qli, kanalli, tomga o'rnatiladigan"
+    savollar:
+      - kalit: joy
+        matn: "Ventilyator qayerga o'rnatiladi?"
+        asl: "Место установки вентилятора"
+        tanlovlar:
+          - {qiymat: "ichkarida", yorliq: "В помещении", izoh: "bino ichida"}
+          - {qiymat: "soyabonli", yorliq: "На улице под навесом", izoh: "ko'chada, soyabon ostida"}
+          - {qiymat: "soyabonsiz", yorliq: "На улице без навеса", izoh: "ko'chada, soyabonsiz"}
+
+      - kalit: turi
+        matn: "Ventilyator turi?"
+        asl: "Тип вентилятора"
+        izoh: "bilmasangiz o'tkazing — sarf va bosimga qarab o'zimiz tanlaymiz"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "radial", yorliq: "Радиальный", izoh: "ВЦ 4-75; ВЦ 14-46; ВР 6-28; ВР 12-26; ВЦ"}
+          - {qiymat: "radial-changli", yorliq: "Радиальный пылевой", izoh: "ВР 6-45; ВЦП 7-40"}
+          - {qiymat: "kryshnoy", yorliq: "Крышной", izoh: "ВКР"}
+          - {qiymat: "vkop", yorliq: "Крышной осевой подпора воздуха", izoh: "ВКОП"}
+          - {qiymat: "osevoy", yorliq: "Осевой", izoh: "ВО 6-300; ВОД-ДУ; шахтный СВМ; ВМЭ; ВОЭ"}
+          - {qiymat: "kanalniy", yorliq: "Канальный", izoh: "ВК; ВКПП; ВКПП-Ш; ВКК; ВКК-Ш"}
+
+      - kalit: sarf
+        matn: "Havo sarfi qancha? (m³/soat)"
+        asl: "Производительность, м³/ч"
+        izoh: "bilmasangiz o'tkazing — obyekt o'lchamidan hisoblab beramiz"
+        tekshir: son
+        otkazsa_boladi: true
+
+      - kalit: bosim
+        matn: "To'liq bosim qancha? (Pa)"
+        asl: "Полное давление, Па"
+        izoh: "bilmasangiz o'tkazing"
+        tekshir: son
+        otkazsa_boladi: true
+
+      - kalit: havo
+        matn: "Qanday havo tortiladi?"
+        asl: "Характеристика перемещаемого воздуха"
+        tanlovlar:
+          - {qiymat: "toza", yorliq: "Чистый воздух", izoh: "toza havo"}
+          - {qiymat: "changli", yorliq: "С содержанием пыли", izoh: "changli"}
+          - {qiymat: "zararli", yorliq: "С вредными примесями", izoh: "agressiv aralashmali"}
+          - {qiymat: "issiq", yorliq: "Горячий воздух", izoh: "issiq havo"}
+
+      - kalit: soni
+        matn: "Nechta kerak?"
+        asl: "Количество, шт"
+        tekshir: butun_son
+
+  # ---------------------------------------------------------------- 2
+  panjara:
+    nomi: "Ventilyatsiya panjaralari"
+    nomi_ru: "Вентиляционные решётки"
+    belgi: "▦"
+    fayl: panjara.docx
+    nom_qolipi: "{model} {olcham}"
+    izoh: "РВН, РВИ, РВР, ДФА, DVS va boshqalar"
+    savollar:
+      - kalit: model
+        matn: "Qaysi model?"
+        asl: "Модели"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "РВН", yorliq: "РВН", izoh: "havo berish (kirish)"}
+          - {qiymat: "РВИ", yorliq: "РВИ", izoh: "havo so'rish (chiqish)"}
+          - {qiymat: "РВР-1 / РВР-2", yorliq: "РВР-1 / РВР-2"}
+          - {qiymat: "4РВП", yorliq: "4РВП"}
+          - {qiymat: "ДФА", yorliq: "ДФА", izoh: "80…500"}
+          - {qiymat: "ДФН", yorliq: "ДФН"}
+          - {qiymat: "DVS / DVS-P", yorliq: "DVS / DVS-P", izoh: "100…200"}
+
+      - kalit: olcham
+        matn: "O'lchami qanday? (A×B, mm)"
+        asl: "Типоразмер АхВ, мм"
+        izoh: "masalan 300x150. Bilmasangiz o'tkazing — havo sarfidan hisoblaymiz"
+        tekshir: bosh_bolmagan_matn
+        otkazsa_boladi: true
+
+      - kalit: krv
+        matn: "KRV kerakmi? (havo sarfini rostlagich)"
+        asl: "КРВ (клапан расхода воздуха)"
+        tanlovlar:
+          - {qiymat: "krv-bilan", yorliq: "с КРВ", izoh: "havo sarfi rostlagichi bilan"}
+          - {qiymat: "krv-siz", yorliq: "без КРВ", izoh: "rostlagichsiz"}
+
+      - kalit: rang
+        matn: "Bo'yoq rangi? (RAL kodi)"
+        asl: "RAL — цвет покраски"
+        izoh: "standart rang kerak bo'lsa o'tkazing"
+        tekshir: bosh_bolmagan_matn
+        otkazsa_boladi: true
+
+      - kalit: soni
+        matn: "Nechta kerak?"
+        asl: "Количество, шт"
+        tekshir: butun_son
+
+  # ---------------------------------------------------------------- 3
+  filtr:
+    nomi: "Filtrlar"
+    nomi_ru: "Фильтры"
+    belgi: "▤"
+    fayl: filtr.docx
+    nom_qolipi: "{turi} {olcham}"
+    izoh: "ФЯК cho'ntakli, ФЯГ gofrali, ФЯП yassi"
+    savollar:
+      - kalit: turi
+        matn: "Filtr turi?"
+        asl: "Типы"
+        tanlovlar:
+          - {qiymat: "ФЯК", yorliq: "ФЯК — фильтр ячейковый карманный", izoh: "yacheykali cho'ntakli"}
+          - {qiymat: "ФЯГ", yorliq: "ФЯГ", izoh: "фильтр ячейковый гофрированный — gofrali"}
+          - {qiymat: "ФЯП", yorliq: "ФЯП — фильтр ячейковый плоский", izoh: "yacheykali yassi"}
+
+      - kalit: klass
+        matn: "Tozalash klassi?"
+        asl: "Класс очистки фильтра"
+        izoh: "G3-G4 dag'al, F5-F9 nozik tozalash"
+        tanlovlar:
+          - {qiymat: "G3", yorliq: "G3"}
+          - {qiymat: "G4", yorliq: "G4"}
+          - {qiymat: "F5", yorliq: "F5", shart_qiymat: "ФЯК"}
+          - {qiymat: "F6", yorliq: "F6", shart_qiymat: "ФЯК"}
+          - {qiymat: "F7", yorliq: "F7", shart_qiymat: "ФЯК"}
+          - {qiymat: "F8", yorliq: "F8", shart_qiymat: "ФЯК"}
+          - {qiymat: "F9", yorliq: "F9", shart_qiymat: "ФЯК"}
+        # F klasslari FAQAT ФЯК da bor — zavod hujjatida shunday.
+        shart_kalit: turi
+
+      - kalit: olcham
+        matn: "Kirish kesimi o'lchami? (A×B, mm)"
+        asl: "Габаритные размеры входного сечения АхВ, мм"
+        tekshir: bosh_bolmagan_matn
+
+      - kalit: chontak_uzunligi
+        matn: "Cho'ntak uzunligi? (mm)"
+        asl: "Длина карманов, мм"
+        izoh: "faqat ФЯК uchun"
+        tekshir: son
+        otkazsa_boladi: true
+        shart: {kalit: turi, qiymat: "ФЯК"}
+
+      - kalit: chontak_soni
+        matn: "Cho'ntaklar soni? (dona)"
+        asl: "Количество карманов, шт"
+        izoh: "faqat ФЯК uchun"
+        tekshir: butun_son
+        otkazsa_boladi: true
+        shart: {kalit: turi, qiymat: "ФЯК"}
+
+      - kalit: ramka
+        matn: "Ramka qalinligi? (mm)"
+        asl: "Толщина рамки, мм"
+        izoh: "faqat ФЯГ va ФЯП uchun"
+        tekshir: son
+        otkazsa_boladi: true
+        shart: {kalit: turi, qiymat: ["ФЯГ", "ФЯП"]}
+
+      - kalit: iqlim
+        matn: "Iqlim ijrosi?"
+        asl: "Климатическое исполнение"
+        izoh: "У — mo''tadil iqlim, УХЛ — sovuq iqlim"
+        tanlovlar:
+          - {qiymat: "У", yorliq: "У"}
+          - {qiymat: "УХЛ", yorliq: "УХЛ"}
+
+      - kalit: soni
+        matn: "Nechta kerak?"
+        asl: "Количество, шт"
+        tekshir: butun_son
+
+  # ---------------------------------------------------------------- 4
+  shovqin:
+    nomi: "Shovqin o'chirgichlar"
+    nomi_ru: "Шумоглушители"
+    belgi: "🔇"
+    fayl: shovqin.docx
+    nom_qolipi: "{turi} {olcham}"
+    izoh: "plastinali П/ОП/ГП, quvurli ГТК/ГТП"
+    savollar:
+      - kalit: turi
+        matn: "Shovqin o'chirgich turi?"
+        asl: "Тип шумоглушителя"
+        izoh: "bilmasangiz o'tkazing — kanal o'lchamiga qarab tanlaymiz"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "П va ОП", yorliq: "Пластинчатые П и обтекатели ОП", izoh: "plastinali va oqim yo'naltirgich"}
+          - {qiymat: "ГП", yorliq: "ГП — шумоглушитель пластинчатый", izoh: "to'g'ri burchakli kanalga"}
+          - {qiymat: "ГТК", yorliq: "ГТК — трубчатый круглый", izoh: "dumaloq kanalga"}
+          - {qiymat: "ГТП", yorliq: "ГТП — трубчатый прямоугольный", izoh: "to'g'ri burchakli kanalga"}
+
+      - kalit: olcham
+        matn: "Tipo o'lchami qanday?"
+        asl: "Типоразмер"
+        izoh: "ОП uchun AxBxR, П va ГП uchun AxBxL, ГТК uchun dxDxL, ГТП uchun axb-AxB-L (mm)"
+        tekshir: bosh_bolmagan_matn
+        otkazsa_boladi: true
+
+      - kalit: iqlim
+        matn: "Iqlim ijrosi?"
+        asl: "Климатическое исполнение"
+        izoh: "У — mo''tadil iqlim, УХЛ — sovuq iqlim"
+        tanlovlar:
+          - {qiymat: "У", yorliq: "У"}
+          - {qiymat: "УХЛ", yorliq: "УХЛ"}
+
+      - kalit: soni
+        matn: "Nechta kerak?"
+        asl: "Количество, шт"
+        tekshir: butun_son
+
+  # ---------------------------------------------------------------- 5
+  klapan:
+    nomi: "Klapanlar"
+    nomi_ru: "Клапаны"
+    belgi: "🔀"
+    fayl: klapan.docx
+    nom_qolipi: "{belgi} {kesim}"
+    izoh: "КОГ, КВУ, КОП, КО, ДКС va boshqalar"
+    savollar:
+      - kalit: belgi
+        matn: "Qaysi klapan kerak?"
+        asl: "Обозначение"
+        tanlovlar:
+          - {qiymat: "КОГ", yorliq: "КОГ", izoh: "olovni ushlab qoluvchi"}
+          - {qiymat: "АВКв", yorliq: "АВКв", izoh: "alyumin, portlashdan himoyalangan"}
+          - {qiymat: "КВУ", yorliq: "КВУ", izoh: "universal havo klapani"}
+          - {qiymat: "КОП", yorliq: "КОП", izoh: "teskari, to'g'ri burchakli"}
+          - {qiymat: "КО / RSK", yorliq: "КО / RSK", izoh: "teskari, dumaloq"}
+          - {qiymat: "КОПв / КОВ", yorliq: "КОПв / КОВ", izoh: "teskari, portlashdan himoyalangan"}
+          - {qiymat: "КС", yorliq: "КС", izoh: "o'zi ochiluvchi"}
+          - {qiymat: "КЛ", yorliq: "КЛ", izoh: "yaproqli"}
+          - {qiymat: "ДКСП", yorliq: "ДКСП", izoh: "drossel, to'g'ri burchakli"}
+          - {qiymat: "ДКСК / ДК", yorliq: "ДКСК / ДК", izoh: "drossel, dumaloq"}
+
+      - kalit: kesim
+        matn: "Ishchi kesimi qanday?"
+        asl: "Рабочее сечение (внутреннее)"
+        izoh: "to'g'ri burchakli uchun AxB (mm), dumaloq uchun D (mm)"
+        tekshir: bosh_bolmagan_matn
+
+      - kalit: ijro
+        matn: "Ijrosi?"
+        asl: "Исполнение"
+        izoh: "Н — umumsanoat, К — korroziyaga chidamli"
+        tanlovlar:
+          - {qiymat: "Н", yorliq: "Н — общепромышленный", izoh: "umumsanoat"}
+          - {qiymat: "К", yorliq: "К — коррозионностойкий", izoh: "korroziyaga chidamli"}
+
+      - kalit: yuritma
+        matn: "Zaslonkani nima boshqaradi?"
+        asl: "Тип привода для управления заслонками"
+        tanlovlar:
+          - {qiymat: "qolda", yorliq: "Ручной", izoh: "qo'lda boshqariladi"}
+          - {qiymat: "elektr", yorliq: "Электрический привод", izoh: "elektr yuritma"}
+
+      - kalit: iqlim
+        matn: "Iqlim ijrosi?"
+        asl: "Климатическое исполнение"
+        izoh: "У — mo''tadil iqlim, УХЛ — sovuq iqlim"
+        tanlovlar:
+          - {qiymat: "У", yorliq: "У"}
+          - {qiymat: "УХЛ", yorliq: "УХЛ"}
+
+      - kalit: soni
+        matn: "Nechta kerak?"
+        asl: "Количество, шт"
+        tekshir: butun_son
+
+  # ---------------------------------------------------------------- 6
+  yongin_klapani:
+    nomi: "Yong'in klapanlari"
+    nomi_ru: "Противопожарные клапаны"
+    belgi: "🔥"
+    fayl: yongin_klapani.docx
+    nom_qolipi: "{belgi} {kesim}"
+    izoh: "КПУ universal, КПД tutun klapani"
+    savollar:
+      - kalit: belgi
+        matn: "Qaysi klapan?"
+        asl: "Обозначение"
+        tanlovlar:
+          - {qiymat: "КПУ", yorliq: "КПУ", izoh: "клапан противопожарный универсальный — universal"}
+          - {qiymat: "КПД", yorliq: "КПД", izoh: "клапан противопожарный дымовой — tutun klapani"}
+
+      - kalit: holati
+        matn: "Odatdagi holati qanday?"
+        asl: "Назначение (НО / НЗ / ДД)"
+        tanlovlar:
+          - {qiymat: "НО", yorliq: "НО — нормально открытый", izoh: "yong'inda yopiladi"}
+          - {qiymat: "НЗ", yorliq: "НЗ — нормально закрытый", izoh: "yong'inda ochiladi"}
+          - {qiymat: "ДД", yorliq: "ДД — двойного действия", izoh: "yong'inda yopilib, keyin ochiladi"}
+
+      - kalit: kesim
+        matn: "Ishchi kesimi qanday?"
+        asl: "Рабочее сечение (внутреннее)"
+        izoh: "to'g'ri burchakli uchun AxB (mm), dumaloq uchun D (mm)"
+        tekshir: bosh_bolmagan_matn
+
+      - kalit: mahkamlash
+        matn: "Qanday mahkamlanadi?"
+        asl: "Тип крепления клапана"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "СТ", yorliq: "СТ — стеновой", izoh: "bitta flanets"}
+          - {qiymat: "КН", yorliq: "КН — канальный", izoh: "ikkita flanets"}
+          - {qiymat: "НП", yorliq: "НП — ниппельный", izoh: "dumaloq kesim uchun"}
+
+      - kalit: yuritma_joyi
+        matn: "Yuritma qayerda joylashsin?"
+        asl: "Размещение привода"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "ВУП", yorliq: "ВУП", izoh: "внутренняя установка привода — ichkarida"}
+          - {qiymat: "НУП", yorliq: "НУП — наружная установка привода", izoh: "tashqarida"}
+
+      - kalit: yuritma
+        matn: "Yuritma turi?"
+        asl: "Тип привода"
+        izoh: "bilmasangiz o'tkazing — loyihaga qarab tanlaymiz"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "ЭМ", yorliq: "ЭМ", izoh: "prujinali, termoqulf bilan"}
+          - {qiymat: "ЭМ1", yorliq: "ЭМ1", izoh: "prujinali, termoqulfsiz"}
+          - {qiymat: "ЭР", yorliq: "ЭР", izoh: "reversiv, datchik bilan"}
+          - {qiymat: "ЭР1", yorliq: "ЭР1", izoh: "reversiv, datchiksiz"}
+          - {qiymat: "ЭТ3", yorliq: "ЭТ3", izoh: "dublyor issiqlik qulfi bilan"}
+
+      - kalit: ijro
+        matn: "Ijrosi?"
+        asl: "Исполнение"
+        izoh: "Н — umumsanoat, К — korroziyaga chidamli"
+        tanlovlar:
+          - {qiymat: "Н", yorliq: "Н — общепромышленный", izoh: "umumsanoat"}
+          - {qiymat: "К", yorliq: "К — коррозионностойкий", izoh: "korroziyaga chidamli"}
+
+      - kalit: qoshimcha
+        matn: "Qo'shimcha jihoz kerakmi?"
+        asl: "Дополнительная комплектация"
+        izoh: "Р — jalyuzi panjara, РД — dekorativ alyumin panjara, SO — to'siq to'r, ПКС — dumaloq kesimga o'tkazgich. Kerak bo'lmasa o'tkazing"
+        tekshir: bosh_bolmagan_matn
+        otkazsa_boladi: true
+
+      - kalit: soni
+        matn: "Nechta kerak?"
+        asl: "Количество, шт"
+        tekshir: butun_son
+
+  # ---------------------------------------------------------------- 7
+  issiqlik_almashtirgich:
+    nomi: "Issiqlik almashtirgich"
+    nomi_ru: "Теплообменник"
+    belgi: "♨️"
+    fayl: issiqlik_almashtirgich.docx
+    nom_qolipi: "{turi}"
+    izoh: "mis-alyumin ВНВ (isitgich), ВОВ (sovutgich)"
+    savollar:
+      - kalit: turi
+        matn: "Qaysi turi kerak?"
+        asl: "Вид теплообменника"
+        tanlovlar:
+          - {qiymat: "ВНВ", yorliq: "ВНВ — воздухонагреватель водяной", izoh: "suvli havo isitgich"}
+          - {qiymat: "ВОВ", yorliq: "ВОВ — воздухоохладитель водяной", izoh: "suvli havo sovutgich"}
+
+      - kalit: montaj
+        matn: "Qanday o'rnatiladi?"
+        asl: "Исполнение по способу монтажа"
+        tanlovlar:
+          - {qiymat: "flanets", yorliq: "С фланцевым соединением", izoh: "flanetsli"}
+          - {qiymat: "ichiga", yorliq: "Встраиваемые", izoh: "ichiga quriladigan"}
+
+      - kalit: sarf
+        matn: "Havo sarfi qancha? (m³/soat)"
+        asl: "Производительность, м³/ч"
+        tekshir: son
+
+      - kalit: kirish_harorati
+        matn: "Havo kirishdagi harorati? (°C)"
+        asl: "Температура воздуха на входе, ºС"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tekshir: bosh_bolmagan_matn
+
+      - kalit: chiqish_harorati
+        matn: "Havo chiqishdagi harorati? (°C)"
+        asl: "Температура воздуха на выходе, ºС"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tekshir: bosh_bolmagan_matn
+
+      - kalit: quvvat
+        matn: "Quvvati qancha? (kVt)"
+        asl: "Производительность, кВт"
+        izoh: "bilmasangiz o'tkazing — havo sarfi va haroratdan hisoblaymiz"
+        otkazsa_boladi: true
+        tekshir: son
+
+      - kalit: issiqlik_tashuvchi
+        matn: "Issiqlik tashuvchi nima?"
+        asl: "Теплоноситель, тип"
+        tanlovlar:
+          - {qiymat: "suv", yorliq: "Вода", izoh: "suv"}
+          - {qiymat: "antifriz", yorliq: "Антифриз", izoh: "antifriz"}
+          - {qiymat: "bug", yorliq: "Пар", izoh: "bug'"}
+
+      - kalit: antifriz_foizi
+        matn: "Antifriz foizi qancha? (%)"
+        asl: "Какой процент антифриза, %"
+        tekshir: son
+        otkazsa_boladi: true
+        shart: {kalit: issiqlik_tashuvchi, qiymat: "antifriz"}
+
+      - kalit: quvur_diametri
+        matn: "Mis quvur diametri?"
+        asl: "Диаметр медной трубки, мм"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "9,52 mm", yorliq: "9,52 mm"}
+          - {qiymat: "12,7 mm", yorliq: "12,7 mm"}
+          - {qiymat: "16 mm", yorliq: "16 mm"}
+
+      - kalit: qatorlar
+        matn: "Qatorlar soni? (dona)"
+        asl: "Количество рядов, шт"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tekshir: butun_son
+
+      - kalit: qoplama
+        matn: "Lamel qoplamasi kerakmi?"
+        asl: "Покрытие ламелей"
+        tanlovlar:
+          - {qiymat: "qoplamasiz", yorliq: "Без покрытия", izoh: "qoplamasiz"}
+          - {qiymat: "gidrofil", yorliq: "С гидрофильным покрытием", izoh: "namli muhitga"}
+
+      - kalit: soni
+        matn: "Nechta kerak?"
+        asl: "Количество, шт"
+        tekshir: butun_son
+
+  # ---------------------------------------------------------------- 8
+  siklon:
+    nomi: "Siklon / aspiratsiya"
+    nomi_ru: "Аспирационное оборудование"
+    belgi: "🌪"
+    fayl: siklon.docx
+    nom_qolipi: "{marka}"
+    izoh: "ЦН-11, ЦН-15, 4БЦШ, ЗИЛ — chang tozalash"
+    savollar:
+      - kalit: marka
+        matn: "Qaysi marka?"
+        asl: "Марка"
+        izoh: "bilmasangiz o'tkazing — chang tarkibiga qarab tanlaymiz"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "ЦН-11", yorliq: "ЦН-11", izoh: "400…800"}
+          - {qiymat: "ЦН-15", yorliq: "ЦН-15", izoh: "300…1400"}
+          - {qiymat: "4БЦШ", yorliq: "4БЦШ", izoh: "200…600"}
+          - {qiymat: "ЗИЛ", yorliq: "ЗИЛ", izoh: "900М, 1600М"}
+
+      - kalit: sarf
+        matn: "Tozalanadigan gaz sarfi qancha? (m³/soat)"
+        asl: "Расход очищаемых газов, м³/час"
+        tekshir: son
+
+      - kalit: harorat
+        matn: "Gaz harorati qancha? (°C)"
+        asl: "Температура очищаемых газов, °С"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tekshir: bosh_bolmagan_matn
+
+      - kalit: chang_tabiati
+        matn: "Chang qanaqa?"
+        asl: "Характер очищаемой пыли"
+        izoh: "abraziv, yopishqoq, portlash xavfli, tolali va h.k. — bilganingizni yozing"
+        tekshir: bosh_bolmagan_matn
+        otkazsa_boladi: true
+
+      - kalit: zarra_olchami
+        matn: "Chang zarralari qanchalik mayda?"
+        asl: "Дисперсный состав сухой пыли"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "5mkm", yorliq: "до 5 мкм", izoh: "faqat ЦН-11 uchun"}
+          - {qiymat: "5-10mkm", yorliq: "от 5 до 10 мкм"}
+          - {qiymat: "10-20mkm", yorliq: "от 10 до 20 мкм"}
+          - {qiymat: "20-40mkm", yorliq: "от 20 до 40 мкм"}
+          - {qiymat: "40-60mkm", yorliq: "от 40 до 60 мкм"}
+          - {qiymat: "60mkm+", yorliq: "более 60 мкм"}
+
+      - kalit: konsentratsiya
+        matn: "Kirishdagi chang konsentratsiyasi? (g/m³)"
+        asl: "Концентрация пыли на входе, г/м³"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tekshir: son
+
+      - kalit: tozalash_darajasi
+        matn: "Qanday tozalash darajasi kerak?"
+        asl: "Требуемый коэффициент очистки, %"
+        tanlovlar:
+          - {qiymat: "85%", yorliq: "85%"}
+          - {qiymat: "90%", yorliq: "90%"}
+          - {qiymat: "95%", yorliq: "95%"}
+          - {qiymat: "99%", yorliq: "99%"}
+
+      - kalit: butlash
+        matn: "Qo'shimcha butlash kerakmi?"
+        asl: "Комплектность (циклон)"
+        izoh: "У — ulitka bilan, havo qabul qilgich, П — piramidal bunker, postament. Kerak bo'lmasa o'tkazing"
+        tekshir: bosh_bolmagan_matn
+        otkazsa_boladi: true
+
+      - kalit: bunker
+        matn: "Bunker shakli qanday?"
+        asl: "Характер бункерного устройства"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "silindr", yorliq: "Цилиндрической формы", izoh: "silindrsimon"}
+          - {qiymat: "piramida", yorliq: "Пирамидальной формы", izoh: "piramidal"}
+
+      - kalit: soni
+        matn: "Nechta kerak?"
+        asl: "Количество, шт"
+        tekshir: butun_son
+
+  # ---------------------------------------------------------------- 9
+  havo_isitgich:
+    nomi: "Havo-isitish agregati"
+    nomi_ru: "Агрегат воздушно-отопительный"
+    belgi: "🔆"
+    fayl: havo_isitgich.docx
+    nom_qolipi: "{turi}"
+    izoh: "АО2, АВО-44, АО, АОЭ, УЭО"
+    savollar:
+      - kalit: turi
+        matn: "Qaysi agregat kerak?"
+        asl: "Тип"
+        tanlovlar:
+          - {qiymat: "АО2", yorliq: "АО2", izoh: "1.5-15 … 10-100"}
+          - {qiymat: "АВО-44", yorliq: "АВО-44", izoh: "issiqxona agregati"}
+          - {qiymat: "АО", yorliq: "АО", izoh: "2.2-2.5 … 3.8-45"}
+          - {qiymat: "АОЭ", yorliq: "АОЭ", izoh: "агрегат электроотопительный — 9…30 kVt"}
+          - {qiymat: "УЭО", yorliq: "УЭО", izoh: "установка электроотопительная — 1…6"}
+
+      - kalit: maqsad
+        matn: "Qayerda ishlatiladi?"
+        asl: "Назначение"
+        izoh: "sex, ombor, issiqxona va h.k."
+        tekshir: bosh_bolmagan_matn
+        otkazsa_boladi: true
+
+      - kalit: maxsus
+        matn: "Maxsus talab bormi?"
+        asl: "Особые требования"
+        izoh: "bo'lmasa o'tkazing"
+        tekshir: bosh_bolmagan_matn
+        otkazsa_boladi: true
+
+      - kalit: soni
+        matn: "Nechta kerak?"
+        asl: "Количество, шт"
+        tekshir: butun_son
+
+  # ---------------------------------------------------------------- 10
+  gradirnya:
+    nomi: "Gradirnya ВГ"
+    nomi_ru: "Градирня ВГ"
+    belgi: "💧"
+    fayl: gradirnya.docx
+    nom_qolipi: "ВГ"
+    izoh: "aylanma suvni sovutish"
+    savollar:
+      - kalit: uskuna
+        matn: "Qaysi uskuna sovutiladi?"
+        asl: "Охлаждаемое оборудование"
+        izoh: "chiller, kompressor, pech va h.k."
+        tekshir: bosh_bolmagan_matn
+
+      - kalit: sarf
+        matn: "Aylanma suv sarfi qancha? (m³/soat)"
+        asl: "Расход оборотной воды, Q (м³/час)"
+        tekshir: son
+
+      - kalit: issiq_harorat
+        matn: "Isigan suv harorati? (°C)"
+        asl: "Температура нагретой воды, °С"
+        tekshir: son
+        otkazsa_boladi: true
+
+      - kalit: sovuq_harorat
+        matn: "Sovutilgan suv harorati? (°C)"
+        asl: "Температура охлаждённой воды, °С"
+        tekshir: son
+        otkazsa_boladi: true
+
+      - kalit: issiqlik_yuki
+        matn: "Gradirnyaga issiqlik yuki qancha? (kVt)"
+        asl: "Тепловая нагрузка на градирню, кВт"
+        izoh: "bilmasangiz o'tkazing — sarf va haroratdan hisoblaymiz"
+        tekshir: son
+        otkazsa_boladi: true
+
+      - kalit: kontur
+        matn: "Sirkulyatsiya tizimi qanday?"
+        asl: "Характеристика циркуляционной системы"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "1-kontur", yorliq: "Одноконтурная", izoh: "bitta nasos guruhi"}
+          - {qiymat: "2-kontur", yorliq: "Двухконтурная", izoh: "issiq va sovuq suvga alohida"}
+
+      - kalit: suyuqlik
+        matn: "Sovutiladigan suyuqlik nima?"
+        asl: "Тип охлаждаемой жидкости"
+        tanlovlar:
+          - {qiymat: "suv", yorliq: "Вода", izoh: "suv"}
+          - {qiymat: "antifriz", yorliq: "Антифриз", izoh: "antifriz"}
+
+      - kalit: agressivlik
+        matn: "Suyuqlik agressivmi?"
+        asl: "Агрессивность"
+        izoh: "tuz, kislota, ishqor bo'lsa yozing. Bo'lmasa o'tkazing"
+        tekshir: bosh_bolmagan_matn
+        otkazsa_boladi: true
+
+      - kalit: havo_harorati
+        matn: "Havo harorati (quruq termometr bo'yicha)? (°C)"
+        asl: "Температура воздуха по сухому термометру, °С"
+        izoh: "bilmasangiz o'tkazing — Toshkent uchun standart olinadi"
+        tekshir: bosh_bolmagan_matn
+        otkazsa_boladi: true
+
+      - kalit: namlik
+        matn: "Havoning nisbiy namligi? (%)"
+        asl: "Относительная влажность воздуха, %"
+        izoh: "bilmasangiz o'tkazing"
+        tekshir: son
+        otkazsa_boladi: true
+
+      - kalit: shchit
+        matn: "Elektr shchiti kerakmi?"
+        asl: "Необходимость в электрическом щите"
+        tanlovlar:
+          - {qiymat: "ha", yorliq: "Да", izoh: "ha"}
+          - {qiymat: "yoq", yorliq: "Нет", izoh: "yo'q"}
+
+      - kalit: soni
+        matn: "Nechta kerak?"
+        asl: "Количество, шт"
+        tekshir: butun_son
+
+  # ---------------------------------------------------------------- 11
+  chiller:
+    nomi: "Chiller"
+    nomi_ru: "Чиллер"
+    belgi: "❄️"
+    fayl: chiller.docx
+    nom_qolipi: "Chiller"
+    izoh: "suv sovutgich, issiqlik nasosi"
+    savollar:
+      - kalit: turi
+        matn: "Chiller turi?"
+        asl: "Тип чиллера"
+        tanlovlar:
+          - {qiymat: "sovutish", yorliq: "Только охлаждение", izoh: "faqat sovutadi"}
+          - {qiymat: "issiqlik-nasosi", yorliq: "Тепловой насос", izoh: "sovutadi ham, isitadi ham"}
+
+      - kalit: sovuq_quvvat
+        matn: "Sovuq bo'yicha quvvat qancha? (kVt)"
+        asl: "Производительность по холоду, кВт"
+        tekshir: son
+
+      - kalit: issiq_quvvat
+        matn: "Issiqlik bo'yicha quvvat qancha? (kVt)"
+        asl: "Производительность по теплу, кВт"
+        tekshir: son
+        otkazsa_boladi: true
+        shart: {kalit: turi, qiymat: "issiqlik nasosi"}
+
+      - kalit: issiqlik_tashuvchi
+        matn: "Issiqlik tashuvchi nima?"
+        asl: "Теплоноситель, тип"
+        tanlovlar:
+          - {qiymat: "suv", yorliq: "Вода", izoh: "suv"}
+          - {qiymat: "etilenglikol", yorliq: "Этиленгликоль", izoh: "etilenglikol"}
+          - {qiymat: "propilenglikol", yorliq: "Пропиленгликоль", izoh: "propilenglikol"}
+
+      - kalit: harorat
+        matn: "Bug'latgichda kirish/chiqish harorati? (°C)"
+        asl: "Температура теплоносителя в испарителе вход/выход, °С"
+        izoh: "masalan 12/7. Bilmasangiz o'tkazing"
+        tekshir: bosh_bolmagan_matn
+        otkazsa_boladi: true
+
+      - kalit: sarf
+        matn: "Issiqlik tashuvchi sarfi qancha? (m³/soat)"
+        asl: "Расход теплоносителя, м³/час"
+        izoh: "bilmasangiz o'tkazing — quvvatdan hisoblaymiz"
+        tekshir: son
+        otkazsa_boladi: true
+
+      - kalit: rejim
+        matn: "Ish rejimi qanday?"
+        asl: "Режим работы"
+        tanlovlar:
+          - {qiymat: "yil-boyi", yorliq: "Круглогодичный", izoh: "yil bo'yi"}
+          - {qiymat: "issiq-davr", yorliq: "Теплый период года", izoh: "faqat issiq davrda"}
+
+      - kalit: soni
+        matn: "Nechta kerak?"
+        asl: "Количество, шт"
+        tekshir: butun_son
+
+  # ---------------------------------------------------------------- 12
+  kckp:
+    nomi: "Markaziy qurilma КЦКП"
+    nomi_ru: "КЦКП"
+    belgi: "🏭"
+    fayl: kckp.pdf
+    izoh: "markaziy havo tayyorlash qurilmasi — seksiyalardan yig'iladi"
+    # DIQQAT — QISQARTIRILGAN RO'YXAT.
+    #
+    # Zavodning КЦКП oprosniy listida 40 dan ortiq maydon bor: har
+    # seksiya uchun alohida harorat, namlik, klass, quvvat. Telefondan
+    # 40 ta savolga javob beradigan mijoz yo'q — u yarmida tashlab
+    # ketadi va biz hech narsa olmaymiz.
+    #
+    # Shuning uchun bu yerda QURILMA O'LCHAMINI belgilaydigan savollar
+    # qoldirilgan: sarf, bosim, joylashuv, seksiyalar tarkibi. Qolgan
+    # tafsilotni menejer to'ldiradi — oxirgi savolda mijozga aynan shu
+    # aytiladi va to'liq fayl taklif qilinadi.
+    savollar:
+      - kalit: tur
+        matn: "Qurilma qaysi yo'nalishda?"
+        asl: "Тип установки"
+        tanlovlar:
+          - {qiymat: "kirish", yorliq: "Приточная", izoh: "toza havo beradi"}
+          - {qiymat: "chiqish", yorliq: "Вытяжная", izoh: "havo so'rib chiqaradi"}
+          - {qiymat: "ikkalasi", yorliq: "Приточно-вытяжная", izoh: "ikkalasi"}
+
+      - kalit: sarf
+        matn: "Havo sarfi qancha? (m³/soat)"
+        asl: "Производительность, м³/ч"
+        tekshir: son
+
+      - kalit: bosim
+        matn: "Erkin bosim qancha? (Pa)"
+        asl: "Свободное давление, Па"
+        izoh: "bilmasangiz o'tkazing"
+        tekshir: son
+        otkazsa_boladi: true
+
+      - kalit: joylashuv
+        matn: "Qurilma qayerda turadi?"
+        asl: "Условие размещения"
+        tanlovlar:
+          - {qiymat: "ichkarida", yorliq: "Внутреннее", izoh: "bino ichida"}
+          - {qiymat: "tashqarida", yorliq: "Наружное", izoh: "ko'chada, himoya korpusi bilan"}
+
+      - kalit: konstruksiya
+        matn: "Konstruksiyasi qanday?"
+        asl: "Конструктивное исполнение"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "monoblok", yorliq: "Моноблок", izoh: "yaxlit korpus"}
+          - {qiymat: "blokli", yorliq: "Блочное", izoh: "seksiyalab yig'iladi"}
+
+      - kalit: ijro
+        matn: "Ijro turi?"
+        asl: "Исполнение"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "umumsanoat", yorliq: "Общепромышленное", izoh: "umumsanoat"}
+          - {qiymat: "gigienik", yorliq: "Гигиеническое", izoh: "oziq-ovqat, tibbiyot"}
+          - {qiymat: "maxsus", yorliq: "Специальное", izoh: "maxsus"}
+
+      - kalit: xizmat_tomoni
+        matn: "Xizmat ko'rsatish tomoni?"
+        asl: "Сторона обслуживания"
+        izoh: "bilmasangiz o'tkazing"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "ong", yorliq: "Правая", izoh: "o'ng tomon"}
+          - {qiymat: "chap", yorliq: "Левая", izoh: "chap tomon"}
+
+      - kalit: isitgich
+        matn: "Havo isitgich kerakmi?"
+        asl: "Секция Воздухонагревателя"
+        tanlovlar:
+          - {qiymat: "ВНВ suvli", yorliq: "Водяной ВНВ", izoh: "Воздухонагреватель водяной"}
+          - {qiymat: "ВНП bug'li", yorliq: "Паровой ВНП", izoh: "Воздухонагреватель паровой"}
+          - {qiymat: "ВНЭ elektr", yorliq: "Электрический ВНЭ", izoh: "Воздухонагреватель электрический"}
+          - {qiymat: "kerak emas", yorliq: "Не требуется", izoh: "kerak emas"}
+
+      - kalit: sovutgich
+        matn: "Havo sovutgich kerakmi?"
+        asl: "Секция Воздухоохладителя"
+        tanlovlar:
+          - {qiymat: "ha", yorliq: "Да", izoh: "ha"}
+          - {qiymat: "yoq", yorliq: "Нет", izoh: "yo'q"}
+
+      - kalit: filtr_klassi
+        matn: "Filtr tozalash klassi?"
+        asl: "Секция Фильтров — класс очистки"
+        izoh: "bilmasangiz o'tkazing — standart G4 qo'yiladi"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "G3", yorliq: "G3"}
+          - {qiymat: "G4", yorliq: "G4"}
+          - {qiymat: "F5-F7", yorliq: "F5–F7", izoh: "nozik tozalash"}
+          - {qiymat: "F8-F9", yorliq: "F8–F9", izoh: "juda nozik"}
+
+      - kalit: namlatgich
+        matn: "Namlatish seksiyasi kerakmi?"
+        asl: "Секция Увлажнения"
+        otkazsa_boladi: true
+        tanlovlar:
+          - {qiymat: "sotali", yorliq: "Сотовое увлажнение", izoh: "sotali"}
+          - {qiymat: "sug'orish kamerasi", yorliq: "Камера орошения", izoh: "sug'orish kamerasi"}
+          - {qiymat: "bug'li", yorliq: "Паровое увлажнение", izoh: "bug'li"}
+          - {qiymat: "kerak emas", yorliq: "Не требуется", izoh: "kerak emas"}
+
+      - kalit: shovqin
+        matn: "Shovqin o'chirish seksiyasi kerakmi?"
+        asl: "Секция Шумоглушения"
+        tanlovlar:
+          - {qiymat: "ha", yorliq: "Да", izoh: "ha"}
+          - {qiymat: "yoq", yorliq: "Нет", izoh: "yo'q"}
+
+      - kalit: avtomatika
+        matn: "Avtomatika shchiti kerakmi?"
+        asl: "Комплект автоматики — щит управления"
+        tanlovlar:
+          - {qiymat: "ichiga qurilgan", yorliq: "Щит управления строенный", izoh: "ichiga qurilgan"}
+          - {qiymat: "devorga", yorliq: "Щит управления настенный", izoh: "devorga"}
+          - {qiymat: "kerak emas", yorliq: "Не требуется", izoh: "kerak emas"}
+
+      - kalit: soni
+        matn: "Nechta kerak?"
+        asl: "Количество, шт"
+        tekshir: butun_son

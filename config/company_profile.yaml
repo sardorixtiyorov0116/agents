@@ -1,0 +1,147 @@
+# Kompaniya profili — har agent chaqiruvida kontekstga qo'shiladi.
+#
+# Bu fayl agentlar "kim uchun ishlayotganini" bilishi uchun. Profilda bor
+# ma'lumot uchun agent foydalanuvchidan savol SO'RAMAYDI.
+#
+# QOIDA: to'ldirilmagan maydon BO'SH qoldiriladi — to'qib chiqarilmaydi.
+# Kodga tegmasdan tahrirlash mumkin; o'zgartirgandan keyin serverni qayta
+# ishga tushiring (yoki `--reload` bilan o'zi ko'taradi).
+
+kompaniya:
+  nomi: "Jihozvent MChJ"
+  toliq_nomi: "«JIHOZVENT» mas'uliyati cheklangan jamiyat"
+  savdo_brendi: "Climavent"
+  brendlar_munosabati: >
+    Jihozvent — ishlab chiqaruvchi ona kompaniya (o'z zavodi bilan).
+    Climavent — uning sotuv/savdo bo'limi (sub-brend), tijorat segmentiga
+    yo'naltirilgan.
+  tashkil_etilgan: 2002
+  soha: "Ventilyatsiya va iqlim texnikasi (HVAC / ОВиК) ishlab chiqarish"
+  tur: "Ishlab chiqaruvchi (o'z zavodi bilan)"
+  hudud: "O'zbekiston"
+  asosiy_bozor: "Toshkent va viloyatlar"
+  manzil: "Toshkent, Sergeli tumani, Daryobo'yi MFY, 3-o'tish Nilufar, 77-uy"
+  sayt: "jihozvent.uz"
+  email: "sales@jihozvent.uz"
+  telefon: "+998 78 777 78 88"
+  til: "uz"
+  valyuta: "UZS"
+
+  # To'liq sikl: loyihalash -> ishlab chiqarish -> yetkazish/montaj ->
+  # puskonaladka -> servis
+  xizmatlar:
+    - "Loyihalash va texnik hisob-kitob"
+    - "O'z zavodida ishlab chiqarish"
+    - "Yetkazib berish va montaj"
+    - "Puskonaladka (sozlash, ekspluatatsiyaga topshirish)"
+    - "Servis — profilaktik va rejali xizmat"
+
+  sertifikatlar:
+    - "ISO 9001 — sifat menejmenti"
+    - "ISO 14001 — ekologik menejment"
+    - "ISO 45001 — mehnat xavfsizligi"
+    - "EUROVENT — xalqaro HVAC sertifikati"
+
+  eksport_bozorlari:
+    - "Qozog'iston"
+    - "Tojikiston"
+    - "Turkmaniston"
+    - "Rossiya"
+
+mahsulotlar:
+  # Batafsil katalog ichki API'dan olinadi (`integrations/climavent_client.py`).
+  # Bu yerda faqat yo'nalishlar — agent umumiy tasavvurga ega bo'lishi uchun.
+  yonalishlar:
+    - "Konditsionerlash tizimlari (VRF, chiller-fankoyl, markaziy konditsioner)"
+    - "Sovutish uskunalari (kompressor-kondensator bloki, gradirnya)"
+    - "Isitish uskunalari (havo-isitish va elektr-isitish agregatlari)"
+    - "Issiqlik almashtirgichlar"
+    - "Kanal uskunalari (kanal ventilyatorlari, klapanlar, filtrlar, rekuperatorlar)"
+    - "Ventilyatorlar (markazdan qochma, o'qli, tomli, chang, maxsus, kanal)"
+    - "Aspiratsiya uskunalari (chang tutuvchi agregatlar, siklonlar)"
+    - "Klapanlar (yong'inga qarshi, umumsanoat, maxsus)"
+    - "Ventilyatsiya panjaralari va shovqin yutgichlar"
+
+  ishlab_chiqaruvchi_belgisi: "JIHOZVENT"
+
+  # MUHIM: narxlar hozircha tizimda yo'q — bu ochiq holat, yashirilmaydi.
+  narx_holati: >
+    Ichki tizimda mahsulot narxlari hozircha to'ldirilmagan. Narx so'ralganda
+    agent buni ochiq aytadi. Tashqi bozor narxi topilsa, u ALBATTA tashqi
+    manba deb belgilanadi va kompaniyaning o'z narxi sifatida ko'rsatilmaydi.
+
+raqobatchilar:
+  # Eng muhim strategik ogohlantirish: bir nechta raqobatchi bevosita
+  # Jihozventning sobiq xodimlari tomonidan tashkil etilgan. Ular mijozlarni
+  # past narx bilan tortadi va ba'zilari o'zini "Jihozvent bilan bog'liq"
+  # deb ko'rsatadi.
+  - nomi: "Ventsystems"
+    sayt: "https://ventsystems.uz/"
+    turi: "Ishlab chiqaruvchi"
+    izoh: "Sobiq xodimlar (sotuv va konstruktor bo'limlari) tomonidan tashkil etilgan"
+  - nomi: "Direct Cool Engineering"
+    sayt: ""
+    turi: "Savdo-servis, Daikin rasmiy distribyutori"
+    izoh: "Sobiq Jihozvent xodimlari; o'z proyekt instituti bor"
+  - nomi: "Everest Group"
+    sayt: ""
+    turi: "Tanlov, montaj, servis (Haier, MDV)"
+    izoh: "Uzclimatdan ketgan xodim tomonidan tashkil etilgan; yirik loyihalar bilan ishlaydi"
+  - nomi: "Ventstore"
+    sayt: ""
+    turi: "Savdo-servis (Stronbull)"
+    izoh: "Iklimdan ketgan xodim tomonidan tashkil etilgan"
+  - nomi: "NED"
+    sayt: "https://air-ned.uz/"
+    turi: "Savdo-servis (NED Russia)"
+    izoh: "Davlat buyurtmalari va proyekt institutlari bilan ishlaydi"
+  - nomi: "Iklim (univent)"
+    sayt: "https://iklim.uz/"
+    turi: "Savdo-servis, internet-do'kon"
+    izoh: "Shaffof narx siyosati bilan kuchli — bozorda narx orientiri hisoblanadi"
+  - nomi: "Akfa Build (SHIVAKI)"
+    sayt: ""
+    turi: "Ishlab chiqaruvchi"
+    izoh: "Proyekt institutlari bilan ishlaydi, brend tanilgan"
+  - nomi: "UZCLIMAT"
+    sayt: ""
+    turi: "Savdo-servis (LG, AUX, YOKO)"
+    izoh: "Shaffof narx va ombor bilan kuchli"
+
+# To'liq ro'yxat (18 ta) va batafsil tahlil kompaniya bilim bazasida.
+raqobat_izohi: >
+  CEO tuzgan to'liq ro'yxatda 18 ta mahalliy raqobatchi bor. Ko'pchiligi
+  distribyutor (import qilib sotadi), Jihozvent esa o'z zavodiga ega ishlab
+  chiqaruvchi — bu narx nazorati, muddat va maxsus yechimlarda ustunlik beradi.
+  Bir nechta raqobatchi bevosita Jihozventning sobiq xodimlari tomonidan
+  tashkil etilgan.
+
+brend:
+  arxetip: "Pravitel (The Ruler) + Sozdatel (The Creator)"
+  ohang: "professional, ishonchli, texnik aniq, avtoritetli, shovqinsiz"
+  vada: "Tartib, nazorat, ishonchlilik — biz bilan obyekt to'g'ri topshiriladi"
+  qadriyatlar:
+    - "sifat"
+    - "mas'uliyat"
+    - "yetakchilik"
+    - "barqarorlik"
+    - "kompetentlik"
+  kontent_yonalishi: >
+    Zavod masshtabi, sifat nazorati, realizatsiya qilingan obyektlar, eksport
+    yutuqlari, sertifikatlar. Fakt, sertifikat va keyslarga tayanadi.
+  taqiqlar:
+    - "Faktsiz ustunlik da'volari yozilmasin ('eng arzon', 'bozorda birinchi')"
+    - "Raqobatchilarni nomlab qoralash yo'q"
+    - "Ichki tizimda yo'q narx o'z narximiz sifatida ko'rsatilmasin"
+    - "Sertifikat yoki standart nomi tasdiqsiz ishlatilmasin"
+
+mijozlar:
+  segmentlar:
+    - "B2B — qurilish va montaj tashkilotlari"
+    - "Proyekt institutlari"
+    - "Tijorat obyektlari (biznes markazlar, savdo markazlari, mehmonxonalar)"
+    - "Sanoat korxonalari"
+    - "Yirik turar-joy komplekslari"
+  fokus: >
+    Climavent tijorat (commercial) segmentiga yo'naltirilgan; VRF tizimlari va
+    kompleks HVAC yechimlari asosiy o'sish nuqtasi.

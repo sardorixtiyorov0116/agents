@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agentlar tizimi — ofis</title>
+  <link rel="stylesheet" href="/statik/panel.css">
+  <link rel="stylesheet" href="/statik/ofis.css">
+</head>
+<body>
+
+<div class="sarlavha">
+  <h1>Agentlar tizimi</h1>
+  <span class="xira">Ofis &middot;
+    <a href="/panel">nazorat paneli</a> &middot;
+    <a href="/">log</a> &middot;
+    <a href="/docs">API</a>
+  </span>
+  <span class="jonli" id="jonli"><span class="nuqta"></span><span id="jonli-matn">ulanmoqda…</span></span>
+</div>
+
+<!-- Ofis manzarasi: kuzatish uchun tepada -->
+<div class="karta ofis-karta">
+  <div class="ofis-bosh">
+    <h2>Ofis</h2>
+    <div class="ofis-boshqaruv">
+      <span class="xira">Aylantirish: torting &middot; zum: g'ildirak (kursor turgan joyga)
+        &middot; ko'chirish: Shift + torting</span>
+      <button class="kichik" id="zum-minus" title="Kichiklashtirish">−</button>
+      <button class="kichik" id="zum-plus" title="Kattalashtirish">+</button>
+    </div>
+  </div>
+  <div class="kanvas-orash">
+    <div id="ofis-3d"></div>
+  </div>
+  <div class="ofis-izohnoma">
+    <span><i style="background:#9aa4b2"></i> bo'sh</span>
+    <span><i style="background:#8ec2ff"></i> ishlayapti</span>
+    <span><i style="background:#7ee2a8"></i> tugadi</span>
+    <span><i style="background:#f5d97a"></i> tasdiq kerak (majlis xonasida kutadi)</span>
+    <span><i style="background:#d3b0f5"></i> aniqlik kerak</span>
+    <span><i style="background:#ff9a9a"></i> xato</span>
+    <span style="margin-left:auto">Yorliq chegarasi — xavf darajasi. Agentni bosing.</span>
+  </div>
+</div>
+
+<!-- Ishchi panellar: ish uchun ostida -->
+<div class="tarmoq">
+  <div>
+    <div class="karta">
+      <h2>So'rov</h2>
+      <form class="sorov-shakl" id="sorov-shakl">
+        <textarea id="sorov-matn" placeholder="Tabiiy tilda yozing. Masalan: VK-250 ventilyatorining texnik xususiyatlarini bering"></textarea>
+        <button type="submit" id="yubor">Yuborish</button>
+      </form>
+      <div id="sorov-xato"></div>
+    </div>
+
+    <div class="karta">
+      <h2>Joriy zanjir</h2>
+      <div id="zanjir" class="zanjir"><div class="bosh">Hali so'rov yuborilmadi.</div></div>
+    </div>
+
+    <div class="karta">
+      <h2>Tarix</h2>
+      <div id="tarix"><div class="bosh">Yuklanmoqda…</div></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="karta">
+      <h2>Bugun</h2>
+      <div class="stat-qator" id="statistika"></div>
+    </div>
+
+    <div class="karta">
+      <h2>Tasdiq kutilmoqda</h2>
+      <div id="tasdiqlar"><div class="bosh">Yuklanmoqda…</div></div>
+    </div>
+
+    <div class="karta">
+      <h2>Agentlar</h2>
+      <div id="agentlar"><div class="bosh">Yuklanmoqda…</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="parda" id="parda" hidden>
+  <div class="modal" id="modal"></div>
+</div>
+
+<script src="/statik/panel.js"></script>
+<script type="module" src="/statik/ofis3d.js"></script>
+</body>
+</html>

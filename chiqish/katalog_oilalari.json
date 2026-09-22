@@ -1,0 +1,614 @@
+[
+ {
+  "kod": "ЗИЛ",
+  "tavsif": "chang yig'uvchi agregat",
+  "bet": 197,
+  "bolim": "Aspiratsiya uskunalari"
+ },
+ {
+  "kod": "Циклоны ЦН-11 / ЦН-15 / ЦН-24 / 4БЦШ",
+  "tavsif": "siklonlar",
+  "bet": 198,
+  "bolim": "Aspiratsiya uskunalari"
+ },
+ {
+  "kod": "СИОТ 5.907-2",
+  "tavsif": "chang tozalagich",
+  "bet": 201,
+  "bolim": "Aspiratsiya uskunalari"
+ },
+ {
+  "kod": "Виброизоляторы ДО, montaj burchagi, lyuk",
+  "tavsif": "butlovchi qismlar",
+  "bet": 253,
+  "bolim": "Butlovchi qismlar"
+ },
+ {
+  "kod": "Egiluvchan qo'shimcha va butlovchilar",
+  "tavsif": "butlovchi qismlar",
+  "bet": 254,
+  "bolim": "Butlovchi qismlar"
+ },
+ {
+  "kod": "Solenoid klapan, ШСАУ, ТРВ, chastota o'zgartirgich",
+  "tavsif": "avtomatika",
+  "bet": 255,
+  "bolim": "Butlovchi qismlar"
+ },
+ {
+  "kod": "ЩУВ, ПД, ko'rish oynasi",
+  "tavsif": "avtomatika",
+  "bet": 256,
+  "bolim": "Butlovchi qismlar"
+ },
+ {
+  "kod": "ФЯК",
+  "tavsif": "yacheykali filtr",
+  "bet": 246,
+  "bolim": "Filtrlar"
+ },
+ {
+  "kod": "ФЯГ",
+  "tavsif": "yacheykali filtr",
+  "bet": 248,
+  "bolim": "Filtrlar"
+ },
+ {
+  "kod": "ФЯП",
+  "tavsif": "yacheykali filtr",
+  "bet": 250,
+  "bolim": "Filtrlar"
+ },
+ {
+  "kod": "АО2",
+  "tavsif": "havo isitish agregati",
+  "bet": 37,
+  "bolim": "Isitish uskunalari"
+ },
+ {
+  "kod": "АВО-44",
+  "tavsif": "issiqxona uchun isitish agregati",
+  "bet": 38,
+  "bolim": "Isitish uskunalari"
+ },
+ {
+  "kod": "АО",
+  "tavsif": "havo isitish agregati",
+  "bet": 39,
+  "bolim": "Isitish uskunalari"
+ },
+ {
+  "kod": "АОЭ",
+  "tavsif": "elektr havo isitish agregati",
+  "bet": 41,
+  "bolim": "Isitish uskunalari"
+ },
+ {
+  "kod": "УЭО",
+  "tavsif": "elektr isitish qurilmasi",
+  "bet": 42,
+  "bolim": "Isitish uskunalari"
+ },
+ {
+  "kod": "ВНВ va ВОВ",
+  "tavsif": "suvli issiqlik almashtirgich",
+  "bet": 44,
+  "bolim": "Issiqlik almashtirgichlar"
+ },
+ {
+  "kod": "ВК-С",
+  "tavsif": "dumaloq kanal ventilyatori",
+  "bet": 47,
+  "bolim": "Kanal uskunalari — dumaloq"
+ },
+ {
+  "kod": "ВК-П",
+  "tavsif": "dumaloq kanal ventilyatori",
+  "bet": 48,
+  "bolim": "Kanal uskunalari — dumaloq"
+ },
+ {
+  "kod": "КВН",
+  "tavsif": "kanalli suvli isitgich",
+  "bet": 49,
+  "bolim": "Kanal uskunalari — dumaloq"
+ },
+ {
+  "kod": "КНЭ",
+  "tavsif": "kanalli elektr isitgich",
+  "bet": 51,
+  "bolim": "Kanal uskunalari — dumaloq"
+ },
+ {
+  "kod": "ФКГ",
+  "tavsif": "kanalli filtr",
+  "bet": 53,
+  "bolim": "Kanal uskunalari — dumaloq"
+ },
+ {
+  "kod": "КГТ",
+  "tavsif": "kanalli shovqin bostirgich",
+  "bet": 54,
+  "bolim": "Kanal uskunalari — dumaloq"
+ },
+ {
+  "kod": "ДКСк",
+  "tavsif": "dumaloq drossel klapan",
+  "bet": 56,
+  "bolim": "Kanal uskunalari — dumaloq"
+ },
+ {
+  "kod": "Клапан RSK",
+  "tavsif": "teskari klapan",
+  "bet": 57,
+  "bolim": "Kanal uskunalari — dumaloq"
+ },
+ {
+  "kod": "ВКП",
+  "tavsif": "kanal ventilyatori",
+  "bet": 59,
+  "bolim": "Kanal uskunalari — dumaloq"
+ },
+ {
+  "kod": "ВКПН",
+  "tavsif": "kanal ventilyatori",
+  "bet": 61,
+  "bolim": "Kanal uskunalari — dumaloq"
+ },
+ {
+  "kod": "ВКПП",
+  "tavsif": "kanal ventilyatori",
+  "bet": 62,
+  "bolim": "Kanal uskunalari — dumaloq"
+ },
+ {
+  "kod": "ВКК",
+  "tavsif": "kvadrat kanal ventilyatori",
+  "bet": 87,
+  "bolim": "Kanal uskunalari — kvadrat"
+ },
+ {
+  "kod": "ВКК-Ш",
+  "tavsif": "shovqinsiz kvadrat kanal ventilyatori",
+  "bet": 88,
+  "bolim": "Kanal uskunalari — kvadrat"
+ },
+ {
+  "kod": "ВКК-КХ",
+  "tavsif": "issiqlikka chidamli kanal ventilyatori",
+  "bet": 89,
+  "bolim": "Kanal uskunalari — kvadrat"
+ },
+ {
+  "kod": "ПВН",
+  "tavsif": "to'rtburchak suvli isitgich",
+  "bet": 68,
+  "bolim": "Kanal uskunalari — to'rtburchak"
+ },
+ {
+  "kod": "ПНЭ",
+  "tavsif": "to'rtburchak elektr isitgich",
+  "bet": 72,
+  "bolim": "Kanal uskunalari — to'rtburchak"
+ },
+ {
+  "kod": "ПВО",
+  "tavsif": "to'rtburchak sovutgich",
+  "bet": 74,
+  "bolim": "Kanal uskunalari — to'rtburchak"
+ },
+ {
+  "kod": "ПВФ",
+  "tavsif": "freonli sovutgich",
+  "bet": 76,
+  "bolim": "Kanal uskunalari — to'rtburchak"
+ },
+ {
+  "kod": "КБС",
+  "tavsif": "aralashtirish kamerasi",
+  "bet": 78,
+  "bolim": "Kanal uskunalari — to'rtburchak"
+ },
+ {
+  "kod": "ФПГ",
+  "tavsif": "to'rtburchak filtr",
+  "bet": 80,
+  "bolim": "Kanal uskunalari — to'rtburchak"
+ },
+ {
+  "kod": "ФПК",
+  "tavsif": "to'rtburchak filtr",
+  "bet": 81,
+  "bolim": "Kanal uskunalari — to'rtburchak"
+ },
+ {
+  "kod": "КГП",
+  "tavsif": "plastinali shovqin bostirgich",
+  "bet": 82,
+  "bolim": "Kanal uskunalari — to'rtburchak"
+ },
+ {
+  "kod": "ДКСп",
+  "tavsif": "to'rtburchak drossel klapan",
+  "bet": 84,
+  "bolim": "Kanal uskunalari — to'rtburchak"
+ },
+ {
+  "kod": "КЦКП",
+  "tavsif": "karkas-panelli markaziy konditsioner",
+  "bet": 15,
+  "bolim": "Konditsionerlar"
+ },
+ {
+  "kod": "IXCHAM",
+  "tavsif": "ixcham havo tayyorlash qurilmasi",
+  "bet": 30,
+  "bolim": "Konditsionerlar"
+ },
+ {
+  "kod": "ВЦ 4-75",
+  "tavsif": "markazdan qochma ventilyator",
+  "bet": 94,
+  "bolim": "Markazdan qochma ventilyatorlar"
+ },
+ {
+  "kod": "ВЦ 4-75 ДУ",
+  "tavsif": "tutun chiqarish ventilyatori",
+  "bet": 95,
+  "bolim": "Markazdan qochma ventilyatorlar"
+ },
+ {
+  "kod": "ВЦ 4-75 (исп.5)",
+  "tavsif": "markazdan qochma ventilyator, 5-bajarilish",
+  "bet": 100,
+  "bolim": "Markazdan qochma ventilyatorlar"
+ },
+ {
+  "kod": "ВЦ 14-46",
+  "tavsif": "markazdan qochma ventilyator",
+  "bet": 103,
+  "bolim": "Markazdan qochma ventilyatorlar"
+ },
+ {
+  "kod": "ВЦ 14-46 ДУ",
+  "tavsif": "tutun chiqarish ventilyatori",
+  "bet": 104,
+  "bolim": "Markazdan qochma ventilyatorlar"
+ },
+ {
+  "kod": "ВР 6-28",
+  "tavsif": "markazdan qochma ventilyator",
+  "bet": 109,
+  "bolim": "Markazdan qochma ventilyatorlar"
+ },
+ {
+  "kod": "ВР 6-28 (исп.5)",
+  "tavsif": "markazdan qochma ventilyator, 5-bajarilish",
+  "bet": 113,
+  "bolim": "Markazdan qochma ventilyatorlar"
+ },
+ {
+  "kod": "ВР 12-26",
+  "tavsif": "yuqori bosimli ventilyator",
+  "bet": 116,
+  "bolim": "Markazdan qochma ventilyatorlar"
+ },
+ {
+  "kod": "ВР 6-45 (исп.5)",
+  "tavsif": "markazdan qochma ventilyator, 5-bajarilish",
+  "bet": 119,
+  "bolim": "Markazdan qochma ventilyatorlar"
+ },
+ {
+  "kod": "ВР",
+  "tavsif": "markazdan qochma ventilyator",
+  "bet": 122,
+  "bolim": "Markazdan qochma ventilyatorlar"
+ },
+ {
+  "kod": "ВНР-ДУ",
+  "tavsif": "devorga o'rnatiladigan tutun ventilyatori",
+  "bet": 123,
+  "bolim": "Markazdan qochma ventilyatorlar"
+ },
+ {
+  "kod": "СВМ",
+  "tavsif": "maxsus ventilyator",
+  "bet": 161,
+  "bolim": "Maxsus ventilyatorlar"
+ },
+ {
+  "kod": "ДПЭ",
+  "tavsif": "maxsus ventilyator",
+  "bet": 162,
+  "bolim": "Maxsus ventilyatorlar"
+ },
+ {
+  "kod": "В-2",
+  "tavsif": "maxsus ventilyator",
+  "bet": 163,
+  "bolim": "Maxsus ventilyatorlar"
+ },
+ {
+  "kod": "ВДПЭ-52",
+  "tavsif": "maxsus ventilyator",
+  "bet": 164,
+  "bolim": "Maxsus ventilyatorlar"
+ },
+ {
+  "kod": "В-3",
+  "tavsif": "maxsus ventilyator",
+  "bet": 165,
+  "bolim": "Maxsus ventilyatorlar"
+ },
+ {
+  "kod": "ВДПЭ-4",
+  "tavsif": "maxsus ventilyator",
+  "bet": 166,
+  "bolim": "Maxsus ventilyatorlar"
+ },
+ {
+  "kod": "ВДПБ-5",
+  "tavsif": "maxsus ventilyator",
+  "bet": 167,
+  "bolim": "Maxsus ventilyatorlar"
+ },
+ {
+  "kod": "ВО 6-300",
+  "tavsif": "o'qli ventilyator",
+  "bet": 139,
+  "bolim": "O'qli ventilyatorlar"
+ },
+ {
+  "kod": "ВОТ",
+  "tavsif": "o'qli ventilyator",
+  "bet": 154,
+  "bolim": "O'qli ventilyatorlar"
+ },
+ {
+  "kod": "ВОД-ДУ",
+  "tavsif": "o'qli tutun ventilyatori",
+  "bet": 156,
+  "bolim": "O'qli ventilyatorlar"
+ },
+ {
+  "kod": "ГТК",
+  "tavsif": "dumaloq shovqin bostirgich",
+  "bet": 233,
+  "bolim": "Shovqin bostirgichlar"
+ },
+ {
+  "kod": "ГТП",
+  "tavsif": "to'rtburchak shovqin bostirgich",
+  "bet": 234,
+  "bolim": "Shovqin bostirgichlar"
+ },
+ {
+  "kod": "ГП",
+  "tavsif": "plastinali shovqin bostirgich",
+  "bet": 235,
+  "bolim": "Shovqin bostirgichlar"
+ },
+ {
+  "kod": "Чиллер JV",
+  "tavsif": "modulli chiller",
+  "bet": 33,
+  "bolim": "Sovutish uskunalari"
+ },
+ {
+  "kod": "ККБ JVK",
+  "tavsif": "kompressor-kondensator bloki",
+  "bet": 34,
+  "bolim": "Sovutish uskunalari"
+ },
+ {
+  "kod": "Градирня ВГ",
+  "tavsif": "sovutish minorasi",
+  "bet": 35,
+  "bolim": "Sovutish uskunalari"
+ },
+ {
+  "kod": "ВКР",
+  "tavsif": "tom ventilyatori",
+  "bet": 129,
+  "bolim": "Tomga o'rnatiladigan ventilyatorlar"
+ },
+ {
+  "kod": "ВКР-ДУ",
+  "tavsif": "tom tutun ventilyatori",
+  "bet": 130,
+  "bolim": "Tomga o'rnatiladigan ventilyatorlar"
+ },
+ {
+  "kod": "ВКРВ-ДУ",
+  "tavsif": "tom tutun ventilyatori, vertikal",
+  "bet": 134,
+  "bolim": "Tomga o'rnatiladigan ventilyatorlar"
+ },
+ {
+  "kod": "ВКОП",
+  "tavsif": "tom ventilyatori",
+  "bet": 136,
+  "bolim": "Tomga o'rnatiladigan ventilyatorlar"
+ },
+ {
+  "kod": "Д, ВД",
+  "tavsif": "tortishma tutun so'rgich va puflagich",
+  "bet": 169,
+  "bolim": "Tortishma mashinalar"
+ },
+ {
+  "kod": "ДН, ВДН",
+  "tavsif": "tortishma mashina, past bosimli",
+  "bet": 175,
+  "bolim": "Tortishma mashinalar"
+ },
+ {
+  "kod": "ВМ",
+  "tavsif": "shaxta ventilyatori",
+  "bet": 193,
+  "bolim": "Tortishma mashinalar"
+ },
+ {
+  "kod": "КЛ",
+  "tavsif": "umumsanoat klapani",
+  "bet": 219,
+  "bolim": "Umumsanoat klapanlari"
+ },
+ {
+  "kod": "ДТ",
+  "tavsif": "ventilyatsiya buyumi",
+  "bet": 237,
+  "bolim": "Ventilyatsiya buyumlari"
+ },
+ {
+  "kod": "ДР",
+  "tavsif": "ventilyatsiya buyumi",
+  "bet": 238,
+  "bolim": "Ventilyatsiya buyumlari"
+ },
+ {
+  "kod": "НРВ",
+  "tavsif": "ventilyatsiya buyumi",
+  "bet": 240,
+  "bolim": "Ventilyatsiya buyumlari"
+ },
+ {
+  "kod": "УП",
+  "tavsif": "ventilyatsiya buyumi",
+  "bet": 241,
+  "bolim": "Ventilyatsiya buyumlari"
+ },
+ {
+  "kod": "КСД",
+  "tavsif": "statik bosim kamerasi",
+  "bet": 243,
+  "bolim": "Ventilyatsiya buyumlari"
+ },
+ {
+  "kod": "DVS",
+  "tavsif": "havo taqsimlagich",
+  "bet": 221,
+  "bolim": "Ventilyatsiya panjaralari"
+ },
+ {
+  "kod": "ДФА",
+  "tavsif": "diffuzor",
+  "bet": 222,
+  "bolim": "Ventilyatsiya panjaralari"
+ },
+ {
+  "kod": "РВ-1",
+  "tavsif": "ventilyatsiya panjarasi",
+  "bet": 223,
+  "bolim": "Ventilyatsiya panjaralari"
+ },
+ {
+  "kod": "РВР-1",
+  "tavsif": "rostlanadigan panjara",
+  "bet": 224,
+  "bolim": "Ventilyatsiya panjaralari"
+ },
+ {
+  "kod": "РВР-2",
+  "tavsif": "rostlanadigan panjara",
+  "bet": 225,
+  "bolim": "Ventilyatsiya panjaralari"
+ },
+ {
+  "kod": "4РВП",
+  "tavsif": "panjara",
+  "bet": 226,
+  "bolim": "Ventilyatsiya panjaralari"
+ },
+ {
+  "kod": "РВН",
+  "tavsif": "panjara",
+  "bet": 227,
+  "bolim": "Ventilyatsiya panjaralari"
+ },
+ {
+  "kod": "РВИ",
+  "tavsif": "panjara",
+  "bet": 228,
+  "bolim": "Ventilyatsiya panjaralari"
+ },
+ {
+  "kod": "РЩ",
+  "tavsif": "tirqishli panjara",
+  "bet": 229,
+  "bolim": "Ventilyatsiya panjaralari"
+ },
+ {
+  "kod": "ДФН",
+  "tavsif": "diffuzor",
+  "bet": 231,
+  "bolim": "Ventilyatsiya panjaralari"
+ },
+ {
+  "kod": "КПУ (НО, НЗ, ДД)",
+  "tavsif": "yong'inga qarshi klapan",
+  "bet": 206,
+  "bolim": "Yong'inga qarshi klapanlar"
+ },
+ {
+  "kod": "КПД",
+  "tavsif": "yong'inga qarshi klapan",
+  "bet": 207,
+  "bolim": "Yong'inga qarshi klapanlar"
+ },
+ {
+  "kod": "КОГ",
+  "tavsif": "tutun chiqarish klapani",
+  "bet": 209,
+  "bolim": "Yong'inga qarshi klapanlar"
+ },
+ {
+  "kod": "АВКв",
+  "tavsif": "havo klapani",
+  "bet": 211,
+  "bolim": "Yong'inga qarshi klapanlar"
+ },
+ {
+  "kod": "КВУ",
+  "tavsif": "havo klapani",
+  "bet": 212,
+  "bolim": "Yong'inga qarshi klapanlar"
+ },
+ {
+  "kod": "КОП",
+  "tavsif": "tutun chiqarish klapani",
+  "bet": 213,
+  "bolim": "Yong'inga qarshi klapanlar"
+ },
+ {
+  "kod": "КО",
+  "tavsif": "tutun chiqarish klapani",
+  "bet": 214,
+  "bolim": "Yong'inga qarshi klapanlar"
+ },
+ {
+  "kod": "КОПв",
+  "tavsif": "tutun chiqarish klapani",
+  "bet": 215,
+  "bolim": "Yong'inga qarshi klapanlar"
+ },
+ {
+  "kod": "КОв",
+  "tavsif": "tutun chiqarish klapani",
+  "bet": 216,
+  "bolim": "Yong'inga qarshi klapanlar"
+ },
+ {
+  "kod": "КИД",
+  "tavsif": "klapan",
+  "bet": 217,
+  "bolim": "Yong'inga qarshi klapanlar"
+ },
+ {
+  "kod": "КС",
+  "tavsif": "klapan",
+  "bet": 218,
+  "bolim": "Yong'inga qarshi klapanlar"
+ }
+]

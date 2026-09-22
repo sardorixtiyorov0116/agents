@@ -1,0 +1,11 @@
+.env
+*.db
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.env.example
+ishga_tushir.log
+.env.zaxira-20260827-1153
+.env.zaxira-20260828-1458
+.env.zaxira-20260907-160905

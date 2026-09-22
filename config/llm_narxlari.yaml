@@ -1,0 +1,50 @@
+# LLM narxlari — 1 MILLION token uchun, DOLLARDA.
+#
+# NEGA KERAK
+# ----------
+# "Tokenlarni suvday ichib yubordi" degan tuyg'u o'lchovsiz paydo
+# bo'ladi. Aslida ikki xil xarajat bor va ular butunlay boshqa:
+#
+#   1. QURISH — dasturchi (yoki Claude Code) kod yozgan seanslar.
+#      Bu bir martalik va katta.
+#   2. ISHLASH — botning o'zi mijozga xizmat qilganda sarflaydigani.
+#      Bu takrorlanadigan va KICHIK.
+#
+# Bu fayl IKKINCHISINI o'lchaydi. `/sarf` buyrug'i har chaqiruvni
+# so'mga aylantirib ko'rsatadi — taxmin qilish o'rniga.
+#
+# O'LCHANGAN (2026-08-28): bitta TZ dan KP = 1124 kirish + 420 chiqish
+# token. Haiku 4.5 da ~39 so'm, Opus 5 da ~193 so'm.
+#
+# YANGILASH: Anthropic narxlari o'zgarsa shu yerni tahrirlang, kodga
+# tegilmaydi. Nom MODEL NOMINING BOSHI bilan solishtiriladi, shuning
+# uchun "claude-haiku-4-5" ham, "claude-haiku-4-5-20251001" ham mos
+# keladi.
+
+modellar:
+  # --- Anthropic ---
+  claude-opus-5:    {kirish: 5.0,  chiqish: 25.0}
+  claude-opus-4:    {kirish: 5.0,  chiqish: 25.0}
+  claude-sonnet-5:  {kirish: 3.0,  chiqish: 15.0}
+  claude-sonnet-4:  {kirish: 3.0,  chiqish: 15.0}
+  claude-haiku-4-5: {kirish: 1.0,  chiqish: 5.0}
+  claude-haiku-3:   {kirish: 0.25, chiqish: 1.25}
+
+  # --- Google Gemini ---
+  #
+  # ⚠️ DIQQAT — BILLING YOQILSA SHU YERNI ALMASHTIRING.
+  #
+  # Hozir nol, chunki BEPUL tarifda ishlayapmiz. Google'da billing
+  # yoqilsa pul ketadi, lekin bu fayl hamon nol deb turadi va `/sarf`
+  # «0 — bepul tarif» deb yozaveradi. Ya'ni xarajat ko'rinmay qoladi —
+  # aynan biz qochmoqchi bo'lgan holat.
+  #
+  # Billing yoqqandan keyin: Google AI Studio -> Pricing dan joriy
+  # narxni oling va pastdagi nol qatorni o'chirib, o'sha narxni
+  # yozing. Taxminiy narx YOZMANG — noto'g'ri raqam hisobsizlikdan
+  # yomonroq.
+  #
+  # Namuna (narxni TEKSHIRIB yozing):
+  #   gemini-3.5-flash:      {kirish: 0.30, chiqish: 2.50}
+  #   gemini-3.5-flash-lite: {kirish: 0.10, chiqish: 0.40}
+  gemini: {kirish: 0.0, chiqish: 0.0}

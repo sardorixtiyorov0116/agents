@@ -1,0 +1,354 @@
+[
+ {
+  "oila": "РКВ",
+  "xususiyat_id": 107,
+  "nom": "РКВ-150",
+  "narx": 1154.0,
+  "varaq": "РКВ",
+  "qator": 15
+ },
+ {
+  "oila": "РКВ",
+  "xususiyat_id": 107,
+  "nom": "РКВ1-260",
+  "narx": 1607.0,
+  "varaq": "РКВ",
+  "qator": 17
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР100",
+  "narx": 56.0,
+  "varaq": "ДР",
+  "qator": 11
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР110",
+  "narx": 48.0,
+  "varaq": "ДР",
+  "qator": 12
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР150",
+  "narx": 59.0,
+  "varaq": "ДР",
+  "qator": 14
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР180",
+  "narx": 60.0,
+  "varaq": "ДР",
+  "qator": 15
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР200",
+  "narx": 69.0,
+  "varaq": "ДР",
+  "qator": 16
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР250",
+  "narx": 84.0,
+  "varaq": "ДР",
+  "qator": 18
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР300",
+  "narx": 83.0,
+  "varaq": "ДР",
+  "qator": 19
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР315",
+  "narx": 79.0,
+  "varaq": "ДР",
+  "qator": 20
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР350",
+  "narx": 81.0,
+  "varaq": "ДР",
+  "qator": 21
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР400",
+  "narx": 81.0,
+  "varaq": "ДР",
+  "qator": 22
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР450",
+  "narx": 92.0,
+  "varaq": "ДР",
+  "qator": 23
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР500",
+  "narx": 110.0,
+  "varaq": "ДР",
+  "qator": 24
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР550",
+  "narx": 117.0,
+  "varaq": "ДР",
+  "qator": 25
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР600",
+  "narx": 144.0,
+  "varaq": "ДР",
+  "qator": 26
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР630",
+  "narx": 131.0,
+  "varaq": "ДР",
+  "qator": 27
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР710",
+  "narx": 191.0,
+  "varaq": "ДР",
+  "qator": 29
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР800",
+  "narx": 221.0,
+  "varaq": "ДР",
+  "qator": 31
+ },
+ {
+  "oila": "ДР",
+  "xususiyat_id": 275,
+  "nom": "ДР1000",
+  "narx": 282.0,
+  "varaq": "ДР",
+  "qator": 33
+ },
+ {
+  "oila": "РЩ",
+  "xususiyat_id": 267,
+  "nom": "1РЩ 1000х52",
+  "narx": 20.0,
+  "varaq": "РЩ",
+  "qator": 11
+ },
+ {
+  "oila": "РЩ",
+  "xususiyat_id": 267,
+  "nom": "2РЩ 1000х92",
+  "narx": 25.0,
+  "varaq": "РЩ",
+  "qator": 12
+ },
+ {
+  "oila": "РЩ",
+  "xususiyat_id": 267,
+  "nom": "3РЩ 1000х132",
+  "narx": 32.0,
+  "varaq": "РЩ",
+  "qator": 13
+ },
+ {
+  "oila": "РЩ",
+  "xususiyat_id": 267,
+  "nom": "4РЩ 1000х172",
+  "narx": 40.0,
+  "varaq": "РЩ",
+  "qator": 14
+ },
+ {
+  "oila": "РЩ",
+  "xususiyat_id": 267,
+  "nom": "5РЩ 1000х213",
+  "narx": 48.0,
+  "varaq": "РЩ",
+  "qator": 15
+ },
+ {
+  "oila": "РЩ",
+  "xususiyat_id": 267,
+  "nom": "6РЩ 1000х292 RAL",
+  "narx": 64.0,
+  "varaq": "РЩ",
+  "qator": 16
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 287х287х45",
+  "narx": 10.0,
+  "varaq": "ФЯГ.",
+  "qator": 28
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 305х305х45",
+  "narx": 10.0,
+  "varaq": "ФЯГ.",
+  "qator": 32
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 490х287х45",
+  "narx": 12.0,
+  "varaq": "ФЯГ.",
+  "qator": 36
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 500х500х45",
+  "narx": 15.0,
+  "varaq": "ФЯГ.",
+  "qator": 40
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 500х500х100",
+  "narx": 20.0,
+  "varaq": "ФЯГ.",
+  "qator": 41
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 592х287х45",
+  "narx": 13.0,
+  "varaq": "ФЯГ.",
+  "qator": 44
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 592х490х45",
+  "narx": 16.0,
+  "varaq": "ФЯГ.",
+  "qator": 48
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 592х490х100",
+  "narx": 18.0,
+  "varaq": "ФЯГ.",
+  "qator": 49
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 592х592х45",
+  "narx": 19.0,
+  "varaq": "ФЯГ.",
+  "qator": 50
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 592х592х45",
+  "narx": 19.0,
+  "varaq": "ФЯГ.",
+  "qator": 52
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 592х592х100",
+  "narx": 22.0,
+  "varaq": "ФЯГ.",
+  "qator": 53
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 610х305х45",
+  "narx": 13.0,
+  "varaq": "ФЯГ.",
+  "qator": 56
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 610х610х45",
+  "narx": 19.0,
+  "varaq": "ФЯГ.",
+  "qator": 60
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 610х610х100",
+  "narx": 22.0,
+  "varaq": "ФЯГ.",
+  "qator": 61
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 892х287х45",
+  "narx": 16.0,
+  "varaq": "ФЯГ.",
+  "qator": 64
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 892х490х45",
+  "narx": 20.0,
+  "varaq": "ФЯГ.",
+  "qator": 68
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 892х490х100",
+  "narx": 24.0,
+  "varaq": "ФЯГ.",
+  "qator": 69
+ },
+ {
+  "oila": "ФЯГ",
+  "xususiyat_id": 278,
+  "nom": "ФЯГ 892х592х45",
+  "narx": 23.0,
+  "varaq": "ФЯГ.",
+  "qator": 72
+ }
+]

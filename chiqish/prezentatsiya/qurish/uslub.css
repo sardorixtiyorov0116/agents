@@ -1,0 +1,257 @@
+/* ============================================================
+   JIHOZVENT — AGENTLAR TIZIMI
+   Ataylab BITTA vizual dunyo: qorongi. Obsidian graf estetikasi.
+   Shuning uchun media-query bilan mavzu almashtirilmaydi —
+   lekin HAR BIR rang va fon ANIQ yoziladi, hech biri host'dan
+   meros olinmaydi.
+   ============================================================ */
+:root{
+  --tun:#05080F; --tun2:#070B15;
+  --qatlam:#0A1120; --qatlam2:#0D1626;
+  --chiziq:#1B2942; --chiziq2:#2A3B5C;
+  --matn:#E9F0FC; --xira:#93A8CA; --sokin:#5D7295;
+  --oqim:#35DCF2;      /* havo oqimi — asosiy urgu */
+  --kahrabo:#FFB443;   /* etibor */
+  --binafsha:#B58CFF;  /* agentlar */
+  --yashil:#4FE3A0;    /* tasdiqlangan */
+  --qizil:#FF6B6B;     /* xato */
+  --sarl:"Unbounded","Segoe UI",system-ui,sans-serif;
+  --tana:"Golos Text","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono","Consolas",monospace;
+  --keng:min(1180px,90vw);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--tun); color:var(--matn);
+  font-family:var(--tana); font-size:17px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+
+/* ---------- fon: jonli graf ---------- */
+#graf{position:fixed; inset:0; width:100%; height:100%; z-index:0; display:block}
+#parda{position:fixed; inset:0; z-index:1; pointer-events:none;
+  background:
+    radial-gradient(115% 78% at 50% 0%,rgba(53,220,242,.10),transparent 62%),
+    radial-gradient(85% 60% at 88% 92%,rgba(181,140,255,.09),transparent 60%),
+    linear-gradient(180deg,rgba(5,8,15,.62),rgba(5,8,15,.86));
+}
+
+/* ---------- slaydlar ---------- */
+#lenta{position:relative; z-index:2; scroll-snap-type:y mandatory;
+  height:100vh; overflow-y:scroll; overflow-x:hidden}
+.slayd{min-height:100vh; scroll-snap-align:start; scroll-snap-stop:always;
+  display:flex; align-items:center; padding:clamp(56px,7vh,96px) 0;
+  position:relative}
+.ich{width:var(--keng); margin:0 auto; display:flex; flex-direction:column;
+  gap:clamp(18px,2.6vh,34px)}
+
+/* ---------- tipografika ---------- */
+.eyebrow{font-family:var(--mono); font-size:11.5px; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--oqim); display:flex; align-items:center;
+  gap:12px}
+.eyebrow::before{content:""; width:26px; height:1px; background:var(--oqim);
+  opacity:.65; flex:none}
+/* Unbounded KENG shrift — 92px da sarlavha 4 qatorga bo'linib ketardi.
+   O'lcham shu shriftning haqiqiy kengligiga qarab tanlangan. */
+h1{font-family:var(--sarl); font-weight:800; margin:0;
+  font-size:clamp(30px,4.9vw,62px); line-height:1.02; letter-spacing:-.03em;
+  text-wrap:balance}
+h2{font-family:var(--sarl); font-weight:700; margin:0;
+  font-size:clamp(23px,3.2vw,40px); line-height:1.1; letter-spacing:-.022em;
+  text-wrap:balance}
+h3{font-family:var(--tana); font-weight:600; margin:0; font-size:19px;
+  letter-spacing:-.01em; color:var(--matn)}
+p{margin:0; max-width:64ch; color:var(--xira)}
+/* `opacity` ISHLATILMAYDI — u kirish animatsiyasi bilan to'qnashardi.
+   Yumshoqlik rang orqali beriladi. */
+p.katta{font-size:clamp(17px,1.9vw,21px); color:#D6E1F4}
+strong{color:var(--matn); font-weight:600}
+.mono{font-family:var(--mono)}
+.oqim{color:var(--oqim)} .kah{color:var(--kahrabo)}
+.bin{color:var(--binafsha)} .yash{color:var(--yashil)} .qiz{color:var(--qizil)}
+
+/* ---------- raqamlar ---------- */
+.raqamlar{display:grid; gap:clamp(12px,1.6vw,22px);
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.raqam{background:linear-gradient(160deg,rgba(13,22,38,.86),rgba(10,17,32,.6));
+  border:1px solid var(--chiziq); border-radius:3px;
+  padding:clamp(14px,1.8vw,22px); display:flex; flex-direction:column; gap:5px}
+.raqam .qiy{font-family:var(--sarl); font-weight:700; letter-spacing:-.035em;
+  font-size:clamp(28px,3.6vw,44px); line-height:1;
+  font-variant-numeric:tabular-nums; color:var(--matn)}
+.raqam .yor{font-family:var(--mono); font-size:10.5px; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--sokin)}
+.raqam .izoh{font-size:13px; color:var(--xira); line-height:1.45}
+.raqam.urg{border-color:rgba(53,220,242,.42);
+  box-shadow:0 0 0 1px rgba(53,220,242,.1),0 12px 44px -22px rgba(53,220,242,.5)}
+.raqam.urg .qiy{color:var(--oqim)}
+.raqam.ogoh{border-color:rgba(255,180,67,.4)} .raqam.ogoh .qiy{color:var(--kahrabo)}
+
+/* ---------- panel / karta ---------- */
+.panel{background:rgba(10,17,32,.72); border:1px solid var(--chiziq);
+  border-radius:3px; padding:clamp(16px,2vw,26px)}
+.setka{display:grid; gap:clamp(11px,1.4vw,18px)}
+.s2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.s3{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.s4{grid-template-columns:repeat(auto-fit,minmax(168px,1fr))}
+/* Uch ustunli qat'iy to'r — inline uslub ISHLATILMAYDI, aks holda
+   telefon uchun media-query uni bekor qila olmaydi (bir marta
+   kartalar 133 px ga siqilib qolgandi). */
+.s3q{grid-template-columns:repeat(3,1fr); gap:9px}
+/* Video bilan yonma-yon turadigan slaydlar uchun ustunlar. */
+.ikki{display:grid; gap:clamp(18px,2.8vw,38px); align-items:center}
+.ustun{display:flex; flex-direction:column; gap:clamp(12px,1.7vh,20px)}
+
+/* ---------- agent kartasi ---------- */
+.agent{background:rgba(10,17,32,.74); border:1px solid var(--chiziq);
+  border-left:2px solid var(--binafsha); border-radius:3px;
+  padding:13px 15px; display:flex; flex-direction:column; gap:3px;
+  transition:border-color .22s,transform .22s,background .22s}
+.agent:hover{border-color:var(--chiziq2); border-left-color:var(--oqim);
+  transform:translateY(-2px); background:rgba(13,22,38,.9)}
+.agent .ism{font-family:var(--sarl); font-weight:600; font-size:15.5px;
+  letter-spacing:-.015em; color:var(--matn)}
+.agent .lav{font-size:12.5px; color:var(--xira); line-height:1.35}
+.agent .kod{font-family:var(--mono); font-size:10px; color:var(--sokin);
+  letter-spacing:.07em; margin-top:3px;
+  display:flex; justify-content:space-between; gap:8px; align-items:center}
+.nishon{font-family:var(--mono); font-size:9px; letter-spacing:.1em;
+  padding:2px 6px; border-radius:2px; text-transform:uppercase; flex:none}
+.n-yuqori{background:rgba(255,107,107,.14); color:#FF9A9A;
+  border:1px solid rgba(255,107,107,.3)}
+.n-orta{background:rgba(255,180,67,.13); color:var(--kahrabo);
+  border:1px solid rgba(255,180,67,.28)}
+.n-past{background:rgba(79,227,160,.12); color:var(--yashil);
+  border:1px solid rgba(79,227,160,.26)}
+
+/* ---------- video ----------
+   Video FILTRSIZ ko'rsatiladi: razmitiya yo'q, shaffoflik pasaytirilmagan,
+   ustiga parda tushirilmagan. Ramka ichida to'liq aniq turadi. */
+.video-rom{border:1px solid var(--chiziq); border-radius:3px; overflow:hidden;
+  position:relative; background:var(--tun2); line-height:0}
+.video-rom video{width:100%; height:100%; display:block; object-fit:cover}
+.video-rom .yorliq{position:absolute; left:0; bottom:0; right:0;
+  font-family:var(--mono); font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--xira); padding:9px 12px; line-height:1.4;
+  background:linear-gradient(0deg,rgba(5,8,15,.92),transparent)}
+
+/* ---------- jadval ---------- */
+.jadval-orov{overflow-x:auto; border:1px solid var(--chiziq); border-radius:3px}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:520px}
+th{font-family:var(--mono); font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--sokin); text-align:left;
+  padding:11px 14px; border-bottom:1px solid var(--chiziq);
+  background:rgba(7,11,21,.8); font-weight:400; white-space:nowrap}
+td{padding:11px 14px; border-bottom:1px solid rgba(27,41,66,.5);
+  color:var(--xira); vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num{font-family:var(--mono); font-variant-numeric:tabular-nums;
+  text-align:right; color:var(--matn); white-space:nowrap}
+td.nom{color:var(--matn); font-weight:500}
+
+/* ---------- log ---------- */
+.log{font-family:var(--mono); font-size:12.5px; line-height:1.75;
+  background:rgba(4,7,13,.9); border:1px solid var(--chiziq); border-radius:3px;
+  padding:16px 18px; overflow-x:auto; color:var(--xira); white-space:pre}
+.log .x{color:var(--qizil)} .log .o{color:var(--yashil)}
+.log .d{color:var(--sokin)} .log .u{color:var(--oqim)}
+
+/* ---------- royxat ---------- */
+ul.ro{list-style:none; margin:0; padding:0; display:flex;
+  flex-direction:column; gap:9px}
+ul.ro li{display:flex; gap:11px; align-items:flex-start; color:var(--xira);
+  font-size:15px; line-height:1.5}
+ul.ro li::before{content:""; width:5px; height:5px; margin-top:9px; flex:none;
+  background:var(--oqim); border-radius:50%; box-shadow:0 0 8px var(--oqim)}
+ul.ro.ogoh li::before{background:var(--kahrabo); box-shadow:0 0 8px var(--kahrabo)}
+ul.ro.yaxshi li::before{background:var(--yashil); box-shadow:0 0 8px var(--yashil)}
+
+/* ---------- oqim (arxitektura) ---------- */
+.oqim-zanjir{display:flex; align-items:stretch; gap:0; flex-wrap:wrap}
+.bosqich{flex:1 1 168px; min-width:158px; padding:15px 16px;
+  border:1px solid var(--chiziq); background:rgba(10,17,32,.76);
+  display:flex; flex-direction:column; gap:5px; position:relative}
+.bosqich+.bosqich{border-left:none}
+.bosqich .n{font-family:var(--mono); font-size:9.5px; letter-spacing:.16em;
+  color:var(--oqim); text-transform:uppercase}
+.bosqich .t{font-family:var(--sarl); font-weight:600; font-size:15px;
+  color:var(--matn)}
+.bosqich .d{font-size:12.5px; color:var(--sokin); line-height:1.45}
+.bosqich.kod{border-color:rgba(79,227,160,.42); background:rgba(79,227,160,.05)}
+.bosqich.kod .n{color:var(--yashil)}
+
+/* ---------- navigatsiya ---------- */
+#reyka{position:fixed; right:clamp(12px,2vw,26px); top:50%;
+  transform:translateY(-50%); z-index:20; display:flex; flex-direction:column;
+  gap:9px}
+#reyka button{width:9px; height:9px; padding:0; border-radius:50%; cursor:pointer;
+  border:1px solid var(--chiziq2); background:transparent; transition:all .22s}
+#reyka button:hover{border-color:var(--oqim); transform:scale(1.3)}
+#reyka button[aria-current="true"]{background:var(--oqim); border-color:var(--oqim);
+  box-shadow:0 0 12px var(--oqim)}
+#reyka button:focus-visible{outline:2px solid var(--oqim); outline-offset:3px}
+#chiziqcha{position:fixed; left:0; top:0; height:2px; z-index:21;
+  background:linear-gradient(90deg,var(--oqim),var(--binafsha)); width:0;
+  transition:width .18s ease-out; box-shadow:0 0 10px rgba(53,220,242,.6)}
+#hisoblagich{position:fixed; left:clamp(14px,2.4vw,30px);
+  bottom:clamp(14px,2.4vw,28px); z-index:20; font-family:var(--mono);
+  font-size:11px; letter-spacing:.15em; color:var(--sokin)}
+#hisoblagich b{color:var(--oqim); font-weight:400}
+#maslahat{position:fixed; right:clamp(14px,2.4vw,30px);
+  bottom:clamp(14px,2.4vw,28px); z-index:20; font-family:var(--mono);
+  font-size:10.5px; letter-spacing:.1em; color:var(--sokin);
+  transition:opacity .5s}
+kbd{font-family:var(--mono); font-size:10px; border:1px solid var(--chiziq2);
+  border-bottom-width:2px; border-radius:3px; padding:1px 5px; color:var(--xira)}
+
+/* ---------- kirish animatsiyasi ----------
+   XATO BO'LSA HAM KO'RINADI. Sukut bo'yicha matn ko'rinadi; yashirish
+   faqat `html.animatsiya` bo'lganda qo'shiladi, uni JS o'zi qo'yadi.
+   Ya'ni JS ishlamasa yoki animatsiya muzlab qolsa — mazmun baribir o'qiladi.
+
+   JONLI XATO (2026-08-30): avval transition ishlatilgandi va sahifa
+   fonda yuklanganda opacity 0,12 da MUZLAB QOLDI — sarlavha ko'rinmadi.
+   Endi @keyframes + `both`: animatsiya tugagach holat qotib qoladi. */
+.kir{opacity:1; transform:none}
+html.animatsiya .kir{opacity:0}
+html.animatsiya .slayd.faol .kir{
+  animation:kirish .58s cubic-bezier(.2,.7,.3,1) both}
+html.animatsiya .slayd.faol .kir:nth-child(2){animation-delay:.07s}
+html.animatsiya .slayd.faol .kir:nth-child(3){animation-delay:.14s}
+html.animatsiya .slayd.faol .kir:nth-child(4){animation-delay:.21s}
+html.animatsiya .slayd.faol .kir:nth-child(5){animation-delay:.28s}
+html.animatsiya .slayd.faol .kir:nth-child(6){animation-delay:.35s}
+@keyframes kirish{
+  from{opacity:0; transform:translateY(18px)}
+  to{opacity:1; transform:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  html.animatsiya .kir,
+  html.animatsiya .slayd.faol .kir{opacity:1; transform:none; animation:none}
+  #chiziqcha{transition:none}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .slayd{padding:64px 0}
+  #reyka{display:none}
+  #maslahat{display:none}
+  .oqim-zanjir{flex-direction:column}
+  .bosqich+.bosqich{border-left:1px solid var(--chiziq); border-top:none}
+  /* Agentlar va bo'limlar — telefonda ikki ustun. Bitta ustunda
+     15 ta karta 2160 px ga cho'zilib ketardi. */
+  .s4{grid-template-columns:1fr 1fr; gap:8px}
+  /* Video bilan yonma-yon turgan ustunlar telefonda bir-birining ostiga. */
+  .ikki{grid-template-columns:1fr !important}
+  .s3q{grid-template-columns:1fr 1fr}
+  .agent{padding:10px 11px}
+  .agent .ism{font-size:14px}
+  .agent .lav{font-size:11.5px}
+  .agent .kod{font-size:9px}
+  /* Ekrandan uzun slaydda `mandatory` snap odamni qamab qo'yadi —
+     telefonda yumshoqroq `proximity` ishlatiladi. */
+  #lenta{scroll-snap-type:y proximity}
+  .slayd{scroll-snap-stop:normal}
+}

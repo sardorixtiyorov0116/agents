@@ -1,0 +1,112 @@
+# Havo almashinuvi normalari — Loyihachi muhandis Rustam uchun.
+#
+# DIQQAT: bular UMUMIY AMALIYOTDA qo'llanadigan qiymatlar, rasmiy
+# normativ hujjatning ko'chirmasi EMAS. Har loyihada kompaniyaning o'z
+# normativ bazasi (QMQ / SNiP, buyurtmachi texnik topshirig'i) bilan
+# solishtirilishi shart. Rustam har javobda buni ochiq aytadi.
+#
+# Qiymatni o'zgartirsangiz — tizimni qayta ishga tushirish shart emas,
+# fayl har hisobda o'qiladi.
+#
+# Maydonlar:
+#   karrali       — soatiga havo almashinuvi karraligi (1/soat)
+#   odam_boshiga  — bir odamga m³/soat
+#   izoh          — qaysi xona nazarda tutilgan
+#
+# Hisob: L = max(karrali × hajm, odam_boshiga × odamlar)
+#
+# Manbalar (2026-08-19 da qo'shilgan restoran/kafe uchun):
+#   - ASHRAE 62.1, Table 6-1 «Restaurant dining rooms»: 7.5 cfm/kishi +
+#     0.18 cfm/ft² tashqi havo; «Cafeteria/fast-food dining» ham shu
+#     me'yorda, lekin odam zichligi yuqoriroq.
+#   - MDH amaliyoti (СП 60.13330 asosidagi loyiha jadvallari): obed zallari
+#     ~8 karrali, umumiy ovqatlanish oshxonalari 15-20 karrali.
+#   Manbalar bir-biridan farq qiladi (ba'zi jadvallarda zal uchun 3-4 karrali
+#   ham uchraydi) — quyidagi qiymatlar shu oraliqning o'rtasi va shu
+#   fayldagi qolgan turlar shkalasiga moslangan (60 m³/soat bir odamga).
+
+turlar:
+  ofis:
+    karrali: 3.0
+    odam_boshiga: 60
+    izoh: "ofis xonalari, ish kabinetlari"
+
+  majlis:
+    karrali: 6.0
+    odam_boshiga: 60
+    izoh: "majlis va konferens xonalari"
+
+  ombor:
+    karrali: 2.0
+    izoh: "quruq mahsulot ombori"
+
+  ishlab_chiqarish:
+    karrali: 4.0
+    izoh: "ishlab chiqarish sexi (zararli chiqindisiz)"
+
+  oshxona:
+    karrali: 15.0
+    izoh: "umumiy ovqatlanish oshxonasi (issiqlik ajralishi katta)"
+
+  # DIQQAT: restoran/kafe IKKI ZONADAN iborat — mehmonlar zali va oshxona.
+  # Ularning normasi keskin farq qiladi (8 va 15 karrali). Butun maydonni
+  # bitta tur bilan hisoblash xato beradi: oshxona bo'yicha olsak ortiqcha,
+  # zal bo'yicha olsak oshxona yetarli so'rilmaydi.
+  # Rustam oshxona maydoni alohida aytilganmi deb SO'RAShI kerak.
+  restoran:
+    karrali: 8.0
+    odam_boshiga: 60
+    izoh: "restoran mehmonlar zali (oshxona ALOHIDA, `oshxona` turi bilan)"
+
+  kafe:
+    karrali: 6.0
+    odam_boshiga: 60
+    izoh: "kafe zali (oshxonasi bo'lsa ALOHIDA, `oshxona` turi bilan)"
+
+  # `restoran` bilan bir xil normada: katta odam zichligi, uzoq davomli
+  # tadbir. Bu tur qo'shilmasdan oldin "to'yxona" so'zi ro'yxatda yo'q
+  # edi va hisob JIM ravishda ofis normasiga (3.0 karrali) tushib
+  # qolardi — 500 kishilik zalda ~25% kam havo sarfi chiqardi.
+  to'yxona:
+    karrali: 8.0
+    odam_boshiga: 60
+    izoh: "to'yxona / banket zali (oshxonasi bo'lsa ALOHIDA, `oshxona` turi bilan)"
+
+  # FAQAT SO'RISH. Sanuzelga havo ALOHIDA quvur bilan berilmaydi — u
+  # yonidagi xonalardan o'z-o'zidan kiradi. Maqsad shu: xonada bosim
+  # PAST bo'lsin, shunda hid tashqariga chiqmaydi. Kirish tarmog'i
+  # qo'yilsa bosim ko'tariladi va hid koridorga tarqaladi.
+  sanuzel:
+    karrali: 10.0
+    faqat_sorish: true
+    izoh: "sanitariya tugunlari — faqat so'rish"
+
+  dokon:
+    karrali: 3.0
+    odam_boshiga: 60
+    izoh: "savdo zali"
+
+  # Avtoturargoh ham asosan SO'RISHGA quriladi (is gazini chiqarish),
+  # lekin katta yopiq turargohlarda kirish tarmog'i ham bo'lishi mumkin —
+  # shuning uchun `faqat_sorish` QO'YILMAGAN, faqat ogohlantiriladi.
+  avtoturargoh:
+    karrali: 6.0
+    izoh: "yopiq avtoturargoh (is gazi chiqarish)"
+
+  sport_zali:
+    karrali: 6.0
+    odam_boshiga: 80
+    izoh: "sport zali — nafas olish jadal"
+
+  laboratoriya:
+    karrali: 8.0
+    izoh: "laboratoriya (mahalliy so'rish alohida hisoblanadi)"
+
+  kinoteatr:
+    karrali: 8.0
+    odam_boshiga: 60
+    izoh: "tomoshabinlar zali"
+
+  serverxona:
+    karrali: 10.0
+    izoh: "server xonasi — issiqlikni chiqarish bo'yicha alohida hisob kerak"

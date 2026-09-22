@@ -1,0 +1,266 @@
+[
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР100",
+  "sap_name": "",
+  "price": 56.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР1000",
+  "sap_name": "",
+  "price": 282.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР110",
+  "sap_name": "",
+  "price": 48.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР150",
+  "sap_name": "",
+  "price": 59.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР180",
+  "sap_name": "",
+  "price": 60.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР200",
+  "sap_name": "",
+  "price": 69.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР250",
+  "sap_name": "",
+  "price": 84.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР300",
+  "sap_name": "",
+  "price": 83.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР315",
+  "sap_name": "",
+  "price": 79.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР350",
+  "sap_name": "",
+  "price": 81.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР400",
+  "sap_name": "",
+  "price": 81.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР450",
+  "sap_name": "",
+  "price": 92.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР500",
+  "sap_name": "",
+  "price": 110.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР550",
+  "sap_name": "",
+  "price": 117.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР600",
+  "sap_name": "",
+  "price": 144.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР630",
+  "sap_name": "",
+  "price": 131.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР710",
+  "sap_name": "",
+  "price": 191.0
+ },
+ {
+  "product_model_id": 275,
+  "in_model_name": "ДР800",
+  "sap_name": "",
+  "price": 221.0
+ },
+ {
+  "product_model_id": 107,
+  "in_model_name": "РКВ-150",
+  "sap_name": "",
+  "price": 1154.0
+ },
+ {
+  "product_model_id": 107,
+  "in_model_name": "РКВ1-260",
+  "sap_name": "",
+  "price": 1607.0
+ },
+ {
+  "product_model_id": 267,
+  "in_model_name": "1РЩ 1000х52",
+  "sap_name": "",
+  "price": 20.0
+ },
+ {
+  "product_model_id": 267,
+  "in_model_name": "2РЩ 1000х92",
+  "sap_name": "",
+  "price": 25.0
+ },
+ {
+  "product_model_id": 267,
+  "in_model_name": "3РЩ 1000х132",
+  "sap_name": "",
+  "price": 32.0
+ },
+ {
+  "product_model_id": 267,
+  "in_model_name": "4РЩ 1000х172",
+  "sap_name": "",
+  "price": 40.0
+ },
+ {
+  "product_model_id": 267,
+  "in_model_name": "5РЩ 1000х213",
+  "sap_name": "",
+  "price": 48.0
+ },
+ {
+  "product_model_id": 267,
+  "in_model_name": "6РЩ 1000х292 RAL",
+  "sap_name": "",
+  "price": 64.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 287х287х45",
+  "sap_name": "",
+  "price": 10.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 305х305х45",
+  "sap_name": "",
+  "price": 10.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 490х287х45",
+  "sap_name": "",
+  "price": 12.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 500х500х100",
+  "sap_name": "",
+  "price": 20.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 500х500х45",
+  "sap_name": "",
+  "price": 15.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 592х287х45",
+  "sap_name": "",
+  "price": 13.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 592х490х100",
+  "sap_name": "",
+  "price": 18.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 592х490х45",
+  "sap_name": "",
+  "price": 16.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 592х592х100",
+  "sap_name": "",
+  "price": 22.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 592х592х45",
+  "sap_name": "",
+  "price": 19.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 592х592х45",
+  "sap_name": "",
+  "price": 19.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 610х305х45",
+  "sap_name": "",
+  "price": 13.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 610х610х100",
+  "sap_name": "",
+  "price": 22.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 610х610х45",
+  "sap_name": "",
+  "price": 19.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 892х287х45",
+  "sap_name": "",
+  "price": 16.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 892х490х100",
+  "sap_name": "",
+  "price": 24.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 892х490х45",
+  "sap_name": "",
+  "price": 20.0
+ },
+ {
+  "product_model_id": 278,
+  "in_model_name": "ФЯГ 892х592х45",
+  "sap_name": "",
+  "price": 23.0
+ }
+]

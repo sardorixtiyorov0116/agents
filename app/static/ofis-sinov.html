@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ofis — dizayn sinovi</title>
+  <link rel="stylesheet" href="/statik/panel.css">
+  <link rel="stylesheet" href="/statik/ofis.css">
+  <style>
+    /* Sinov sahifasi: faqat sahna ko'rinsin, panel kartalarisiz. */
+    body { margin: 0; }
+    /* Panelda sahna balandligi `min(70vh, 640px)` — sinovda esa butun
+       oynani egallasin, aks holda pastda qora yo'l qolib, kompozitsiyani
+       baholab bo'lmaydi. */
+    .kanvas-orash { height: 100vh; border: 0; border-radius: 0; }
+    #ofis-3d { height: 100vh; }
+  </style>
+</head>
+<body>
+
+<!--
+  DIZAYN SINOVI uchun sahifa. Serverdagi `/ofis` panel bilan birga
+  keladi va parol talab qiladi; bu yerda esa faqat SAHNA turadi va
+  agentlar SOXTA holat bilan to'ldiriladi.
+
+  Maqsad: ko'rinish ustida ishlaganda har safar butun tizimni ishga
+  tushirish shart bo'lmasin.
+-->
+<div class="kanvas-orash">
+  <div id="ofis-3d"></div>
+</div>
+
+<script type="module" src="/statik/ofis3d.js"></script>
+<script type="module">
+  // Soxta agentlar — haqiqiy tarkib bilan bir xil bo'lishi SHART:
+  //   `amalga_oshirilgan` — busiz `ofisdami` false bo'lib, figura
+  //                         umuman qurilmaydi (sahna bo'sh chiqadi);
+  //   `ism`               — bosh ustidagi yorliqqa yoziladi;
+  //   `oxirgi_holat`      — bosh uzra rangli nuqta shu maydondan.
+  const HOLATLAR = [
+    'bosh', 'ishlayapti', 'tugadi', 'tasdiq_kutilmoqda', 'aniqlik_kerak', 'xato',
+  ];
+  const XODIMLAR = [
+    ['proposal-builder', 'Temur'], ['sales-strategy', 'Bekzod'],
+    ['tender-watch', 'Jasur'], ['kp-tracker', 'Aziza'],
+    ['marketing', 'Malika'], ['competitor-watch', 'Karim'],
+    ['smm-analyst', 'Nilufar'], ['product-spec', 'Sardor'],
+    ['catalog-admin', 'Nodira'], ['price-monitor', 'Zara'],
+    ['data-query', 'Doston'], ['hvac-calc', 'Rustam'],
+    ['hr-assist', 'Hilola'], ['legal-review', 'Laziz'],
+  ];
+
+  const royxat = XODIMLAR.map(([rol, ism], i) => ({
+    rol,
+    ism,
+    korinish: ism,
+    amalga_oshirilgan: true,
+    // Majlis holatlari (`tasdiq_kutilmoqda`/`aniqlik_kerak`) butun
+    // jamoani majlis xonasiga yig'adi — ish stollari bo'shab qoladi.
+    // Dizayn sinovida odamlar O'Z JOYIDA tursin.
+    oxirgi_holat: HOLATLAR[i % 3],
+  }));
+
+  // Modul skript DOM tahlilidan KEYIN ishlaydi, ya'ni `DOMContentLoaded`
+  // allaqachon o'tib ketgan bo'lishi mumkin — o'shanda tinglovchi hech
+  // qachon chaqirilmaydi va sahna bo'sh qoladi. Shuning uchun hodisani
+  // kutmasdan, `ofisYangilandi` paydo bo'lishini so'rab turamiz.
+  const urin = () => {
+    if (typeof window.ofisYangilandi === 'function') {
+      window.ofisYangilandi(royxat, new Set(['product-spec']), null);
+    } else {
+      setTimeout(urin, 60);
+    }
+  };
+  urin();
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+# Mahsulot narxlari — KP uchun narx manbai.
+#
+# Ichki API'da narxlar hozircha to'ldirilmagan, shuning uchun narx shu yerda
+# qo'lda yuritiladi. API'ga narx qo'shilgach, bu fayl zaxira bo'lib qoladi.
+#
+# QOIDALAR:
+#   - Narxi bu yerda YO'Q mahsulot uchun KP da narx ustuni BO'SH qoladi.
+#     Taxminiy raqam yozilmaydi.
+#   - Har narxda `sana` bo'lishi shart — KP da narx sanasi ko'rsatiladi.
+#   - `amal_qilish_kuni` dan eski narx ESKIRGAN hisoblanadi va ishlatilmaydi.
+#
+# `kod` — mahsulot modeli yoki nomining bir qismi (kirill/lotin farqi
+# hisobga olinmaydi, qidiruv moslashuvchan).
+
+valyuta: UZS
+# Narx shuncha kundan keyin eskirgan hisoblanadi.
+amal_qilish_kuni: 90
+
+# QQS stavkasi (foizda). KP da alohida qator bo'lib chiqadi.
+qqs_foizi: 12
+
+narxlar:
+  # NAMUNA YOZUVLAR — haqiqiy narxlar bilan almashtiring.
+  # Narx bo'lmagan mahsulot uchun KP da ustun bo'sh qoladi va
+  # "narx to'ldirilishi kerak" deb belgilanadi.
+  - kod: "ВК-250П"
+    nomi: "Kanal ventilyatori ВК-250П"
+    narx: 0
+    sana: ""
+    izoh: "narx to'ldirilmagan — namuna yozuv"
+
+# Narx shuncha kun amal qiladi (KP da "от … по …" bo'lib chiqadi).
+narx_amal_kuni: 30
+
+# KP ning pastki qismidagi matn. Namunaviy KP'dagidek — bo'lim sarlavhalarisiz,
+# yaxlit abzas. Har element alohida abzas bo'lib chiqadi.
+shartlar_matni:
+  ru:
+    - >
+      Товар сертифицирован. Предоплата 100%, с учетом НДС 12%. Поставка в
+      течение 21 банковских дней после оплаты. Условия поставки самовывоз с
+      завода (EXW Инкотермс 2020). Гарантия: 12 месяцев с даты отгрузки.
+      Гарантия действительна только при условии строгого соблюдения правил
+      эксплуатации и графиков технического обслуживания, указанных в паспорте
+      оборудования (изделия).
+    - >
+      Гарантия не распространяется на расходные материалы (фильтры, лампы,
+      фреон и т.д.), а также на повреждения, полученные при транспортировке,
+      скачках напряжения или хранении на стройплощадке до запуска.
+  uz:
+    - >
+      Tovar sertifikatlangan. To'lov 100% oldindan, QQS 12% hisobga olingan
+      holda. Yetkazib berish to'lovdan keyin 21 bank kuni ichida. Yetkazish
+      sharti — zavoddan o'zi olib ketish (EXW Incoterms 2020). Kafolat:
+      jo'natilgan sanadan 12 oy. Kafolat uskuna pasportida ko'rsatilgan
+      ekspluatatsiya qoidalari va texnik xizmat jadvallariga qat'iy rioya
+      qilingan taqdirdagina amal qiladi.
+    - >
+      Kafolat sarf materiallariga (filtrlar, lampalar, freon va h.k.), shuningdek
+      tashishda, kuchlanish sakrashida yoki ishga tushirilgunga qadar qurilish
+      maydonchasida saqlashda olingan shikastlanishlarga tatbiq etilmaydi.
+
+# Kirish jumlasi (sarlavhadan keyin).
+kirish_matni:
+  ru: >
+    имеет возможность изготовить и реализовать вентиляционное оборудование
+    по Вашим заявкам:
+  uz: >
+    Sizning so'rovlaringiz bo'yicha ventilyatsiya uskunalarini ishlab chiqarish
+    va yetkazib berish imkoniyatiga ega:

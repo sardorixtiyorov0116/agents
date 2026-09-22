@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Jihozvent agentlar tizimi — savdo menejerlari uchun qo'llanma">
+<title>Menejer qo'llanmasi — Jihozvent agentlar tizimi</title>
+
+<style>
+  /* ---- Tokenlar: yorug' (asos) ------------------------------------ */
+  :root {
+    --qogoz:      #FBFAF8;
+    --sirt:       #FFFFFF;
+    --sirt-2:     #F3F1ED;
+    --siyoh:      #1A1D21;
+    --siyoh-2:    #4A5058;
+    --kulrang:    #767C85;
+    --chegara:    #E3DFD8;
+    --chegara-2:  #CFCAC1;
+    --urgu:       #0F6E5C;
+    --urgu-fon:   #E4F0EC;
+    --diqqat:     #A84B16;
+    --diqqat-fon: #F7EBE2;
+    --mijoz-fon:  #EFEDE8;
+    --bot-fon:    #E4F0EC;
+    --soya:       0 1px 2px rgba(26,29,33,.06), 0 4px 12px rgba(26,29,33,.04);
+
+    --sans: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+  }
+
+  /* ---- Tokenlar: qorong'i (tizim sozlamasi) ------------------------ */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --qogoz:      #14161A;
+      --sirt:       #1B1E23;
+      --sirt-2:     #23272D;
+      --siyoh:      #E9E7E2;
+      --siyoh-2:    #B4B8BF;
+      --kulrang:    #878D96;
+      --chegara:    #2C3138;
+      --chegara-2:  #3B424A;
+      --urgu:       #4DB89B;
+      --urgu-fon:   #14312A;
+      --diqqat:     #D98A55;
+      --diqqat-fon: #33231A;
+      --mijoz-fon:  #24282E;
+      --bot-fon:    #14312A;
+      --soya:       0 1px 2px rgba(0,0,0,.4), 0 4px 14px rgba(0,0,0,.3);
+    }
+  }
+
+  /* ---- Tokenlar: qorong'i (aniq tanlangan) ------------------------- */
+  :root[data-theme="dark"] {
+    --qogoz:      #14161A;
+    --sirt:       #1B1E23;
+    --sirt-2:     #23272D;
+    --siyoh:      #E9E7E2;
+    --siyoh-2:    #B4B8BF;
+    --kulrang:    #878D96;
+    --chegara:    #2C3138;
+    --chegara-2:  #3B424A;
+    --urgu:       #4DB89B;
+    --urgu-fon:   #14312A;
+    --diqqat:     #D98A55;
+    --diqqat-fon: #33231A;
+    --mijoz-fon:  #24282E;
+    --bot-fon:    #14312A;
+    --soya:       0 1px 2px rgba(0,0,0,.4), 0 4px 14px rgba(0,0,0,.3);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--qogoz);
+    color: var(--siyoh);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sahifa {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 20px 96px;
+  }
+
+  /* ---- Sarlavha bloki --------------------------------------------- */
+  .bosh {
+    padding: 56px 0 32px;
+    border-bottom: 2px solid var(--siyoh);
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--urgu);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: var(--sans);
+    font-size: clamp(30px, 6vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -.022em;
+    font-weight: 700;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+  .yetakchi {
+    font-size: 19px;
+    color: var(--siyoh-2);
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  /* ---- Bo'limlar --------------------------------------------------- */
+  section { margin-bottom: 52px; scroll-margin-top: 24px; }
+
+  h2 {
+    font-family: var(--sans);
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: -.014em;
+    margin: 0 0 6px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    text-wrap: balance;
+  }
+  h2 .raqam {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--urgu);
+    letter-spacing: .04em;
+    flex: none;
+  }
+  h2 + .izoh {
+    color: var(--kulrang);
+    font-size: 15.5px;
+    margin: 0 0 22px 34px;
+  }
+  h3 {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .002em;
+    margin: 28px 0 10px;
+  }
+  p { margin: 0 0 16px; }
+  .sahifa > section > p,
+  .sahifa > section > ul,
+  .sahifa > section > ol { max-width: 66ch; }
+
+  strong { font-weight: 700; }
+  a { color: var(--urgu); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--urgu);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  ul, ol { margin: 0 0 16px; padding-left: 22px; }
+  li { margin-bottom: 7px; }
+  li::marker { color: var(--kulrang); }
+
+  code {
+    font-family: var(--mono);
+    font-size: .86em;
+    background: var(--sirt-2);
+    border: 1px solid var(--chegara);
+    border-radius: 4px;
+    padding: 1px 5px;
+    white-space: nowrap;
+  }
+
+  /* ---- Telegram suhbat namunasi ------------------------------------ */
+  .suhbat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0 0 20px;
+    padding: 16px;
+    background: var(--sirt);
+    border: 1px solid var(--chegara);
+    border-radius: 12px;
+    box-shadow: var(--soya);
+  }
+  .puf {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 9px 13px;
+    border-radius: 14px;
+    max-width: 88%;
+    white-space: pre-line;
+  }
+  .puf.men {
+    align-self: flex-end;
+    background: var(--mijoz-fon);
+    border-bottom-right-radius: 4px;
+  }
+  .puf.bot {
+    align-self: flex-start;
+    background: var(--bot-fon);
+    border-bottom-left-radius: 4px;
+  }
+  .puf .kim {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--kulrang);
+    margin-bottom: 3px;
+  }
+
+  /* ---- Jadval ------------------------------------------------------ */
+  .jadval-o {
+    overflow-x: auto;
+    margin: 0 0 20px;
+    border: 1px solid var(--chegara);
+    border-radius: 10px;
+    background: var(--sirt);
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: var(--sans);
+    font-size: 15px;
+  }
+  th, td {
+    text-align: left;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--chegara);
+    vertical-align: top;
+  }
+  thead th {
+    font-size: 11.5px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--kulrang);
+    font-weight: 600;
+    background: var(--sirt-2);
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td code { white-space: nowrap; }
+  .son { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* ---- To'ldirilganlik ko'rsatkichi -------------------------------- */
+  .olcham { min-width: 190px; }
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .bar-yol {
+    flex: 1;
+    height: 7px;
+    min-width: 62px;
+    background: var(--sirt-2);
+    border: 1px solid var(--chegara);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .bar-ich {
+    display: block;
+    height: 100%;
+    background: var(--diqqat);
+    border-radius: 3px;
+  }
+  .bar-son {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    font-variant-numeric: tabular-nums;
+    color: var(--siyoh-2);
+    white-space: nowrap;
+  }
+
+  /* ---- Chaqiruv bloklari ------------------------------------------- */
+  .qayd {
+    border-left: 3px solid var(--urgu);
+    background: var(--urgu-fon);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 0 0 20px;
+    font-size: 16px;
+  }
+  .qayd.ogoh {
+    border-left-color: var(--diqqat);
+    background: var(--diqqat-fon);
+  }
+  .qayd p:last-child { margin-bottom: 0; }
+  .qayd .sarlavha {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--urgu);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .qayd.ogoh .sarlavha { color: var(--diqqat); }
+
+  /* ---- Qadamlar ---------------------------------------------------- */
+  .qadamlar { list-style: none; padding: 0; margin: 0 0 20px; counter-reset: q; }
+  .qadamlar > li {
+    counter-increment: q;
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 18px;
+  }
+  .qadamlar > li::before {
+    content: counter(q);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--urgu);
+    color: var(--qogoz);
+    font-family: var(--mono);
+    font-size: 13px;
+    display: grid;
+    place-items: center;
+  }
+
+  /* ---- Savol ro'yxatlari ------------------------------------------- */
+  .savollar { list-style: none; padding: 0; margin: 0 0 8px; }
+  .savollar li {
+    font-family: var(--sans);
+    font-size: 15.5px;
+    padding: 8px 0 8px 20px;
+    border-bottom: 1px dashed var(--chegara);
+    position: relative;
+    color: var(--siyoh-2);
+  }
+  .savollar li:last-child { border-bottom: none; }
+  .savollar li::before {
+    content: "›";
+    position: absolute;
+    left: 2px;
+    color: var(--urgu);
+    font-weight: 700;
+  }
+
+  details {
+    border: 1px solid var(--chegara);
+    border-radius: 10px;
+    padding: 0 16px;
+    margin: 0 0 12px;
+    background: var(--sirt);
+  }
+  summary {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px 0;
+    cursor: pointer;
+  }
+  details[open] summary { border-bottom: 1px solid var(--chegara); margin-bottom: 14px; }
+  details > *:last-child { margin-bottom: 16px; }
+
+  .oxir {
+    margin-top: 56px;
+    padding-top: 22px;
+    border-top: 1px solid var(--chegara);
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--kulrang);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 560px) {
+    body { font-size: 16.5px; }
+    .bosh { padding-top: 36px; }
+    h2 + .izoh { margin-left: 0; }
+    .puf { max-width: 95%; }
+  }
+</style>
+</head>
+<body>
+<div class="sahifa">
+
+  <header class="bosh">
+    <p class="eyebrow">Jihozvent · agentlar tizimi</p>
+    <h1>Menejer qo'llanmasi</h1>
+    <p class="yetakchi">Telegram botga oddiy gap bilan yozasiz — tizim
+    o'zi kerakli mutaxassisni topadi, hisoblaydi va tijorat taklifini
+    tayyorlaydi. Buyruq eslab qolish shart emas.</p>
+  </header>
+
+  <section id="boshlash">
+    <h2><span class="raqam">01</span> Boshlash — bir marta</h2>
+    <p class="izoh">Uch qadam, taxminan ikki daqiqa.</p>
+
+    <ol class="qadamlar">
+      <li><strong>Botga bitta xabar yozing.</strong> U sizni tanimaydi va
+      javob beradi: <em>«Sizda bu tizimga ruxsat yo'q. Sizning ID:
+      123456789»</em></li>
+      <li><strong>O'sha raqamni administratorga yuboring.</strong> U sizni
+      ro'yxatga qo'shadi.</li>
+      <li><strong>O'z ismingizni bir marta kiriting:</strong>
+        <div class="suhbat" style="margin-top:10px">
+          <div class="puf men"><span class="kim">Siz</span>/menejer Karimov Aziz +998 90 123 45 67</div>
+          <div class="puf bot"><span class="kim">Bot</span>✅ Yangilandi:
+
+Karimov Aziz
++998 90 123 45 67</div>
+        </div>
+        Shundan keyin siz tuzgan har bir taklifning pastida <strong>aynan
+        sizning</strong> ismingiz va telefoningiz chiqadi.</li>
+    </ol>
+  </section>
+
+  <section id="asosiy">
+    <h2><span class="raqam">02</span> Asosiy qoida</h2>
+    <p class="izoh">Oddiy gap bilan yozing — qaysi agent kerakligini bilish shart emas.</p>
+
+    <div class="suhbat">
+      <div class="puf men"><span class="kim">Siz</span>Tolibjon MCHJ uchun 800 m² omborxona, balandligi 5 metr, ruschada KP qilib ber</div>
+      <div class="puf bot"><span class="kim">Bot</span>🧭 Reja: Rustam → Temur ishlaydi
+1. Loyihachi muhandis Rustam
+2. Tijorat menejeri Temur (tasdiq kerak)</div>
+      <div class="puf bot"><span class="kim">Bot</span>⏸ Tijorat taklifi № 12951/8
+Mijoz: Толибжон МЧЖ
+
+1. Вентилятор ВЦ 14-46-5-1
+   Q = 5 000–8 400 м³/ч, P = 860–1 070 Па
+
+Tasdiqlaysizmi?  [✅] [❌]</div>
+    </div>
+
+    <p>Javobdan oldin <strong>kim ishlayotgani</strong> ko'rsatiladi. Ish
+    tugagach Word va PDF fayl keladi — lekin faqat siz <strong>✅</strong>
+    bosgandan keyin.</p>
+  </section>
+
+  <section id="savollar">
+    <h2><span class="raqam">03</span> Nima so'rash mumkin</h2>
+    <p class="izoh">Har bo'limni ochib ko'ring — ishlaydigan misollar.</p>
+
+    <details open>
+      <summary>Tijorat taklifi</summary>
+      <ul class="savollar">
+        <li>Tolibjon MCHJ uchun 800 m² ombor uchun KP qilib ber</li>
+        <li>menejer Sardor Rahimxon, ruschada qilib ber</li>
+        <li>1-tovarga 5 mln so'm qilib ber <em>— tayyor KP narxini o'zgartiradi</em></li>
+        <li>bekor qil <em>— tasdiqni rad etadi</em></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Ventilyatsiya hisobi</summary>
+      <ul class="savollar">
+        <li>120 m² ofis, balandligi 3 metr, 15 kishi — havo sarfi qancha?</li>
+        <li>800 m² omborga qanday ventilyator kerak?</li>
+        <li>Ø400 kanalga qancha havo sig'adi?</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Katalog va mahsulot</summary>
+      <ul class="savollar">
+        <li>ВК-250С haqida ayting</li>
+        <li>Ø315 kanal uchun nima bor?</li>
+        <li>ВЦ 14-46 seriyasida qanday modellar bor?</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Montaj va nosozlik</summary>
+      <ul class="savollar">
+        <li>Omborga ventilyatorni qayerga o'rnatamiz?</li>
+        <li>Ventilyator ishlayapti, lekin havo yo'q — sababi nima?</li>
+        <li>Bino gudullab turibdi, nima qilish kerak?</li>
+        <li>Tizim topshirishdan oldin nimalarni o'lchash kerak?</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Soha savollari</summary>
+      <ul class="savollar">
+        <li>Yog'och sexida aspiratsiya — siklon qanday tanlanadi?</li>
+        <li>Qozon uchun dud so'rgich qanday tanlanadi?</li>
+        <li>VRF bilan chiller-fankoylning farqi nima?</li>
+        <li>Shovqinni qanday kamaytiramiz?</li>
+        <li>Basseyn uchun nima kerak?</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Bozor, hujjat, baza</summary>
+      <ul class="savollar">
+        <li>Raqiblar qanday aksiya o'tkazyapti?</li>
+        <li>Shartnomaning shu bandini ko'rib bering</li>
+        <li>Qaysi shahardagi mijozlar ko'p buyurtma bergan?</li>
+      </ul>
+    </details>
+  </section>
+
+  <section id="buyruqlar">
+    <h2><span class="raqam">04</span> Buyruqlar</h2>
+    <p class="izoh">Yodlash shart emas — <code>/start</code> hammasini ko'rsatadi.</p>
+
+    <div class="jadval-o">
+      <table>
+        <thead>
+          <tr><th>Buyruq</th><th>Nima qiladi</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>/start</code></td><td>Boshlash, yordam</td></tr>
+          <tr><td><code>/menejer</code></td><td>KP dagi ismingizni o'rnatadi</td></tr>
+          <tr><td><code>/agentlar</code></td><td>Kim nima qiladi</td></tr>
+          <tr><td><code>/tasdiq</code></td><td>Tasdiq kutayotgan ishlar</td></tr>
+          <tr><td><code>/tender</code></td><td>Xarid e'lonlarini hoziroq tekshirish</td></tr>
+          <tr><td><code>/murojaatlar</code></td><td>Mijozlar botiga kelgan savollar</td></tr>
+          <tr><td><code>/hisobot</code></td><td>O'tgan hafta hisoboti</td></tr>
+          <tr><td><code>/hisobot 2 hafta</code></td><td>Oxirgi 14 kun</td></tr>
+          <tr><td><code>/hisobot oy</code></td><td>Oxirgi 30 kun</td></tr>
+          <tr><td><code>/bekor</code></td><td>Joriy ishni bekor qiladi</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>O'zi keladigan xabarlar</h3>
+    <ul>
+      <li><strong>Har kuni 09:00</strong> — yangi xarid e'lonlari (mos e'lon bo'lsa)</li>
+      <li><strong>Dushanba 09:00</strong> — haftalik hisobot</li>
+      <li><strong>Mijoz botga yozsa</strong> — darhol xabar: savoli va bot javobi bilan</li>
+      <li><strong>KP tayyor bo'lsa</strong> — tasdiq tugmalari bilan</li>
+    </ul>
+  </section>
+
+  <section id="sifat">
+    <h2><span class="raqam">05</span> Javobni yaxshilash</h2>
+    <p class="izoh">Tizim taxmin qilmaydi — yetishmasa so'raydi.</p>
+
+    <p>Birdan to'liq yozsangiz tezroq bo'ladi:</p>
+
+    <div class="suhbat">
+      <div class="puf men"><span class="kim">Kam ma'lumot</span>ombor uchun ventilyator kerak</div>
+      <div class="puf men"><span class="kim">Yaxshi</span>Tolibjon MCHJ uchun 800 m², balandligi 5 metr quruq mahsulot ombori. Kanal tortiladi, filtr kerak emas. Ruschada KP.</div>
+    </div>
+
+    <p>Foydali bo'ladigan ma'lumotlar: <strong>maydon va balandlik</strong>
+    (ikkalasi ham), <strong>ichida nima bo'ladi</strong> (quruq mahsulot,
+    sovutilgan, kimyoviy), <strong>odamlar soni</strong>, <strong>kanal
+    bormi</strong> yoki devordan to'g'ridan-to'g'rimi, <strong>shovqin
+    talabi</strong>.</p>
+
+    <div class="qayd">
+      <span class="sarlavha">Suhbat davom etadi</span>
+      <p>Savolga javob bergach qaytadan yozish shart emas — «3 metr, 15 kishi»
+      deb yozsangiz yetadi. Mavzuni o'zgartirsangiz eskisi tashlanadi.</p>
+    </div>
+  </section>
+
+  <section id="chegaralar">
+    <h2><span class="raqam">06</span> Nima ishlamaydi</h2>
+    <p class="izoh">Ataylab qilinmaydigan ishlar — oldindan bilib qo'ying.</p>
+
+    <div class="jadval-o">
+      <table>
+        <thead>
+          <tr><th>Nima</th><th>Nega</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Yong'in ventilyatsiyasi, dud chiqarish</td><td>Litsenziyali loyihachi ishi</td></tr>
+          <tr><td>Ko'taruvchi konstruksiya hisobi</td><td>Konstruktor ishi</td></tr>
+          <tr><td>Elektr sxemasi, kabel kesimi</td><td>Elektrik ishi</td></tr>
+          <tr><td>Normativ band raqami</td><td>Tekshira olmaydi — yozmaydi</td></tr>
+          <tr><td>Mijozga xabar yuborish</td><td><strong>Hech qachon.</strong> Faqat hujjat tayyorlaydi</td></tr>
+          <tr><td>Narx belgilash, chegirma</td><td>Faqat narx ro'yxatidan oladi</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="qayd">
+      <span class="sarlavha">Oxirgi so'z sizniki</span>
+      <p>Har tijorat taklifi inson tasdig'idan o'tadi. Siz <strong>✅</strong>
+      bosmaguningizcha hech narsa chiqmaydi.</p>
+    </div>
+  </section>
+
+  <section id="katalog">
+    <h2><span class="raqam">07</span> Katalogda nima yetishmaydi</h2>
+    <p class="izoh">Katalogda yo'q narsani tizim to'qib chiqarmaydi — «yo'q» deb aytadi.</p>
+
+    <p>Shuning uchun ba'zi javoblar chala chiqadi. Hozirgi holat —
+    <strong>1 482 model</strong> bo'yicha:</p>
+
+    <div class="jadval-o">
+      <table>
+        <thead>
+          <tr><th>Ma'lumot</th><th class="olcham">To'ldirilgan</th><th>Ta'siri</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Narx</td>
+            <td class="olcham"><div class="bar"><span class="bar-yol"><span class="bar-ich" style="width:1.7%"></span></span><span class="bar-son">25 / 1482</span></div></td>
+            <td>Har KP «narx to'ldirilishi kerak» deb chiqadi</td>
+          </tr>
+          <tr>
+            <td>SAP kodi</td>
+            <td class="olcham"><div class="bar"><span class="bar-yol"><span class="bar-ich" style="width:12.3%"></span></span><span class="bar-son">183 / 1482</span></div></td>
+            <td>KP da SAP kodi ko'rsatilmaydi</td>
+          </tr>
+          <tr>
+            <td>Havo sarfi</td>
+            <td class="olcham"><div class="bar"><span class="bar-yol"><span class="bar-ich" style="width:8.2%"></span></span><span class="bar-son">122 / 1482</span></div></td>
+            <td>Ventilyator tanlash cheklangan</td>
+          </tr>
+          <tr>
+            <td>Bosim</td>
+            <td class="olcham"><div class="bar"><span class="bar-yol"><span class="bar-ich" style="width:4.9%"></span></span><span class="bar-son">72 / 1482</span></div></td>
+            <td>Xuddi shunday</td>
+          </tr>
+          <tr>
+            <td>Ombor qoldig'i</td>
+            <td class="olcham"><div class="bar"><span class="bar-yol"><span class="bar-ich" style="width:0"></span></span><span class="bar-son">0 / 1482</span></div></td>
+            <td>«Nechta bor?» degan savolga javob yo'q</td>
+          </tr>
+          <tr>
+            <td>Shovqin (dB)</td>
+            <td class="olcham"><div class="bar"><span class="bar-yol"><span class="bar-ich" style="width:0"></span></span><span class="bar-son">0 / 1482</span></div></td>
+            <td>Mijozning eng ko'p e'tiroziga javob yo'q</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="qayd ogoh">
+      <span class="sarlavha">Eng katta to'siq</span>
+      <p>Narx. U to'ldirilsa tijorat taklifi <strong>to'liq</strong> chiqadi —
+      hozir har biri buxgalteriyaga borib qaytadi. Bundan tashqari
+      <strong>41 ta mahsulotning modeli yo'q</strong> — ular KP ga umuman
+      tusha olmaydi.</p>
+    </div>
+
+    <h3>Siz nima qila olasiz</h3>
+    <ul>
+      <li><strong>Shovqin ma'lumoti</strong> — ishlab chiqarishdan so'rang.
+      «Tinch bo'lsinmi?» degan savolga javob berish uchun kerak.</li>
+      <li><strong>Ventilyator tavsif egri chiziqlari</strong> — hozir faqat
+      maksimal nuqta bor. Grafik bo'lsa tizim aniq ish nuqtasini
+      hisoblaydi.</li>
+      <li><strong>Bajarilgan obyektlar</strong> — qayerda nima o'rnatilgani,
+      qanday muammo chiqqani. Bu tizimni «umumiy bilim»dan «bizning
+      tajriba»ga o'tkazadi.</li>
+    </ul>
+
+    <p>Yangi ma'lumot topsangiz — administratorga ayting, u katalogga
+    yoki bilim bazasiga qo'shadi.</p>
+  </section>
+
+  <section id="muammo">
+    <h2><span class="raqam">08</span> Muammo bo'lsa</h2>
+
+    <div class="jadval-o">
+      <table>
+        <thead>
+          <tr><th>Alomat</th><th>Nima qilish</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Bot javob bermayapti</td><td>Ro'yxatga qo'shilganingizni tekshiring — <code>/start</code> yozing</td></tr>
+          <tr><td>Javob noto'g'ri</td><td>Screenshot bilan administratorga yuboring. Har so'rov saqlanadi, sababini topish mumkin</td></tr>
+          <tr><td>Uzoq kutyapti</td><td>Ba'zi ishlar 2–3 daqiqa oladi. Reja xabarida oldindan aytiladi</td></tr>
+          <tr><td>«Mos agent topilmadi»</td><td>Savolni boshqacha yozib ko'ring yoki administratorga ayting</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <p class="oxir">
+    Jihozvent MChJ · agentlar tizimi<br>
+    Qo'llanma 2026-08-11 holatiga ko'ra. Katalog raqamlari jonli
+    o'lchovdan olingan va vaqt o'tishi bilan o'zgaradi.
+  </p>
+
+</div>
+</body>
+</html>

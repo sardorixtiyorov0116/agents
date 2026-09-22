@@ -1,0 +1,539 @@
+{
+ "model_jadvalida": [
+  {
+   "oila": "РКВ",
+   "model": "РКВ-150",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 1154.0,
+   "backend_id": 1573
+  },
+  {
+   "oila": "РКВ",
+   "model": "РКВ1-260",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 1607.0,
+   "backend_id": 1575
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР100",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 56.0,
+   "backend_id": 228
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР110",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 48.0,
+   "backend_id": 229
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР150",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 59.0,
+   "backend_id": 231
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР180",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 60.0,
+   "backend_id": 232
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР200",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 69.0,
+   "backend_id": 233
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР250",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 84.0,
+   "backend_id": 235
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР300",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 83.0,
+   "backend_id": 236
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР315",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 79.0,
+   "backend_id": 237
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР350",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 81.0,
+   "backend_id": 238
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР400",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 81.0,
+   "backend_id": 239
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР450",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 92.0,
+   "backend_id": 240
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР500",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 110.0,
+   "backend_id": 241
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР550",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 117.0,
+   "backend_id": 242
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР600",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 144.0,
+   "backend_id": 243
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР630",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 131.0,
+   "backend_id": 244
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР710",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 191.0,
+   "backend_id": 246
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР800",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 221.0,
+   "backend_id": 248
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР1000",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 282.0,
+   "backend_id": 250
+  }
+ ],
+ "umuman_yoq": [
+  {
+   "oila": "ВЦ 14-46",
+   "model": "ВЦ 14-46 №2",
+   "quvvat": 0.25,
+   "aylanish": 1500,
+   "narx": 160.33
+  },
+  {
+   "oila": "ВР",
+   "model": "Вентилятор ВР 2,5 А",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 196.23
+  },
+  {
+   "oila": "ВР",
+   "model": "Вентилятор ВР 3 А",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 264.39
+  },
+  {
+   "oila": "ВР",
+   "model": "Вентилятор ВР 3,5 А",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 375.06
+  },
+  {
+   "oila": "ВКПП",
+   "model": "ВКПП/ВКПП-Ш 40х20-1,8",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 206.0
+  },
+  {
+   "oila": "ВКПП",
+   "model": "ВКПП 70х40-2DM31",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 432.0
+  },
+  {
+   "oila": "ВКПП",
+   "model": "ВКПП 80х50-4D40",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 608.0
+  },
+  {
+   "oila": "КПР",
+   "model": "КПР 40-20",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 222.0
+  },
+  {
+   "oila": "КПР",
+   "model": "КПР 50-30",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 307.0
+  },
+  {
+   "oila": "КПР",
+   "model": "КПР 60-30",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 353.0
+  },
+  {
+   "oila": "КПР",
+   "model": "КПР 80-50",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": 506.0
+  }
+ ],
+ "narxi_yoq": [
+  {
+   "oila": "ВКП",
+   "model": "ВКП 80х50-4D40",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "ВКП",
+   "model": "ВКП 90х50-4D45",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "ВКПП",
+   "model": "ВКПП 90х50-4D40",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "РКВ",
+   "model": "РКВ-038",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "РКВ",
+   "model": "РКВ-060",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "РКВ",
+   "model": "РКВ-075",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "РКВ",
+   "model": "РКВ-110",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "РКВ",
+   "model": "РКВ1-160",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "РКВ",
+   "model": "РКВ1-310",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "РКВ",
+   "model": "РКВ1-400",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "КПР",
+   "model": "КПР 50-25",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "КПР",
+   "model": "КПР 60-35",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "КПР",
+   "model": "КПР 70-40",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "КПР",
+   "model": "КПР 90-50",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "КПР",
+   "model": "КПР 100-50",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР120",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР230",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР650",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР750",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР900",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР1100",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  },
+  {
+   "oila": "ДР",
+   "model": "ДР1200",
+   "quvvat": null,
+   "aylanish": null,
+   "narx": null
+  }
+ ],
+ "vc475": [
+  {
+   "oila": "ВЦ 4-75",
+   "model": "ВЦ 4-75-2,5",
+   "quvvat": 0.37,
+   "aylanish": 1500,
+   "narx": 174.51
+  },
+  {
+   "oila": "ВЦ 4-75",
+   "model": "ВЦ 4-75-3,15",
+   "quvvat": 1.1,
+   "aylanish": 3000,
+   "narx": 235.14
+  },
+  {
+   "oila": "ВЦ 4-75",
+   "model": "ВЦ 4-75-4",
+   "quvvat": 0.25,
+   "aylanish": 1000,
+   "narx": 260.52
+  },
+  {
+   "oila": "ВЦ 4-75",
+   "model": "ВЦ 4-75-8",
+   "quvvat": 5.5,
+   "aylanish": 1000,
+   "narx": 1326.23
+  },
+  {
+   "oila": "ВЦ 4-75",
+   "model": "ВЦ 4-75-10",
+   "quvvat": 5.5,
+   "aylanish": 750,
+   "narx": 2038.11
+  },
+  {
+   "oila": "ВЦ 4-75",
+   "model": "ВЦ 4-75-12,5",
+   "quvvat": 15.0,
+   "aylanish": 750,
+   "narx": 3811.15
+  }
+ ],
+ "takror": [
+  [
+   [
+    445,
+    "ГТП 200x100 1000"
+   ],
+   [
+    945,
+    "ГТП 200x100х1000"
+   ]
+  ],
+  [
+   [
+    446,
+    "ГТП 300x200 1000"
+   ],
+   [
+    946,
+    "ГТП 300x200х1000"
+   ]
+  ],
+  [
+   [
+    447,
+    "ГТП 400x200 1000"
+   ],
+   [
+    947,
+    "ГТП 400x200х1000"
+   ]
+  ],
+  [
+   [
+    448,
+    "ГТП 400x300 1000"
+   ],
+   [
+    948,
+    "ГТП 400x300х1000"
+   ]
+  ],
+  [
+   [
+    449,
+    "ГТП 400x400 1000"
+   ],
+   [
+    949,
+    "ГТП 400x400х1000"
+   ]
+  ],
+  [
+   [
+    498,
+    "КОГ 400х400"
+   ],
+   [
+    499,
+    "КОГ 400х400"
+   ]
+  ],
+  [
+   [
+    619,
+    "КГП 30-15 (10)"
+   ],
+   [
+    621,
+    "КГП 30-15 (10)"
+   ]
+  ],
+  [
+   [
+    620,
+    "КГП 40-20 (10)"
+   ],
+   [
+    622,
+    "КГП 40-20 (10)"
+   ]
+  ],
+  [
+   [
+    644,
+    "ДКСп 500х300х350"
+   ],
+   [
+    645,
+    "ДКСп 500х300х350"
+   ],
+   [
+    655,
+    "ДКСп 600х300х350"
+   ]
+  ]
+ ]
+}

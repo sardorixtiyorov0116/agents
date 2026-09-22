@@ -1,0 +1,78 @@
+# Havo taqsimlash panjaralari — jonli kesim yuzasi va tanlash qoidasi.
+#
+# NEGA BU FAYL BOR
+# ----------------
+# `/kp` obyekt tavsifidan ventilyator tanlaydi, lekin panjara KP ga
+# tushmasdi. Menejer "kanalli tizim, PANJARALAR bilan" ni tanlagan
+# bo'lsa ham, KP da bitta ventilyator chiqardi — tanlov nomi bilan
+# hujjat mazmuni bir-biriga zid edi (jonli holat 2026-08-21).
+#
+# MANBA
+# -----
+# Jonli kesim yuzasi jadvallari — JIHOZVENT bosma katalogi 2021:
+#   РВН — 227-sahifa, РВИ — 228-sahifa.
+# Obsidian nusxasi: `02-Mahsulotlar/Katalog-2021/РВН — panjara.md`.
+#
+# Tezlik chegarasi — o'sha vaultdagi `Havo taqsimlash — panjara va
+# sxemalar.md`: "Ish zonasiga yaqin bo'lsa 1,5-2 m/s, uzoqroq bo'lsa
+# 2-3 m/s. Undan yuqori — shovqin va shamol shikoyati."
+#
+# DIQQAT: katalogda panjara IXTIYORIY o'lchamda ham yasaladi
+# ("как стандартных, так и произвольных размеров по заявке
+# Заказчика"). Bu yerda faqat backendda NARXI BOR standart
+# o'lchamlar turadi.
+
+# Panjaradagi havo tezligi, m/s.
+tezlik:
+  # Ish zonasiga yaqin joylashtirilganda.
+  yaqin: [1.5, 2.0]
+  # Ish zonasidan uzoqroq (shift ostida, balandda).
+  uzoq: [2.0, 3.0]
+  # Hisobda ishlatiladigan standart qiymat — ikkala oraliqqa ham
+  # tushadi, shuning uchun xavfsiz.
+  standart: 2.0
+
+turlar:
+  РВН:
+    nomi: "tashqi panjara РВН"
+    vazifa: "kirish va so'rish"
+    izoh: >-
+      Qo'zg'almas gorizontal jalyuzili tashqi panjara. Kanalga yoki
+      devorga (qurilish tuynugiga) o'rnatiladi, yog'ingarchilikni
+      to'sadi. Kirish va so'rish tizimida ham ishlatiladi.
+    # Jonli kesim yuzasi, m². Birinchi kalit — balandlik A (mm),
+    # ikkinchisi — uzunlik B (mm).
+    #
+    # OCR TUZATISHI: bosma jadvalda 500x400 katagida "0,87" turadi.
+    # Bu nol tushib qolgan xato: jadval simmetrik va 400x500 katagida
+    # 0,087 yozilgan. Shuning uchun bu yerda 0.087 olindi.
+    yuza:
+      300: {300: 0.033, 400: 0.047, 500: 0.061, 600: 0.075, 700: 0.090, 800: 0.103, 900: 0.118, 1000: 0.132}
+      400: {300: 0.047, 400: 0.067, 500: 0.087, 600: 0.109, 700: 0.127, 800: 0.148, 900: 0.168, 1000: 0.188}
+      500: {300: 0.061, 400: 0.087, 500: 0.114, 600: 0.139, 700: 0.166, 800: 0.192, 900: 0.218, 1000: 0.244}
+      600: {300: 0.075, 400: 0.109, 500: 0.139, 600: 0.172, 700: 0.204, 800: 0.236, 900: 0.268, 1000: 0.300}
+      700: {300: 0.090, 400: 0.127, 500: 0.166, 600: 0.204, 700: 0.242, 800: 0.280, 900: 0.318, 1000: 0.357}
+      800: {300: 0.103, 400: 0.148, 500: 0.192, 600: 0.236, 700: 0.280, 800: 0.324, 900: 0.369, 1000: 0.412}
+      900: {300: 0.118, 400: 0.168, 500: 0.218, 600: 0.268, 700: 0.318, 800: 0.369, 900: 0.418, 1000: 0.469}
+      1000: {300: 0.132, 400: 0.188, 500: 0.244, 600: 0.300, 700: 0.357, 800: 0.412, 900: 0.469, 1000: 0.525}
+
+  РВИ:
+    nomi: "inertsion panjara РВИ"
+    # FAQAT SO'RISH. Katalog aniq aytadi: "предназначены для удаления
+    # воздuha". Jalyuzi havo oqimi bilan ochiladi, tizim to'xtaganda
+    # og'irlik kuchi bilan yopiladi — ya'ni teskari klapan vazifasini
+    # bajaradi. Kirish tizimiga qo'yilsa ochilmaydi.
+    vazifa: "faqat so'rish"
+    izoh: >-
+      Qo'zg'aluvchan jalyuzili inertsion panjara, teskari klapan
+      vazifasini bajaradi. Faqat havo SO'RISH uchun; kirish tizimiga
+      yaramaydi.
+    yuza:
+      300: {300: 0.052, 400: 0.074, 500: 0.096, 600: 0.119, 700: 0.141, 800: 0.163, 900: 0.185, 1000: 0.207}
+      400: {300: 0.074, 400: 0.106, 500: 0.137, 600: 0.169, 700: 0.201, 800: 0.232, 900: 0.264, 1000: 0.296}
+      500: {300: 0.096, 400: 0.137, 500: 0.178, 600: 0.219, 700: 0.260, 800: 0.302, 900: 0.343, 1000: 0.384}
+      600: {300: 0.119, 400: 0.169, 500: 0.219, 600: 0.270, 700: 0.320, 800: 0.371, 900: 0.421, 1000: 0.472}
+      700: {300: 0.141, 400: 0.201, 500: 0.260, 600: 0.320, 700: 0.380, 800: 0.440, 900: 0.500, 1000: 0.560}
+      800: {300: 0.163, 400: 0.232, 500: 0.302, 600: 0.371, 700: 0.440, 800: 0.500, 900: 0.579, 1000: 0.648}
+      900: {300: 0.185, 400: 0.264, 500: 0.343, 600: 0.421, 700: 0.500, 800: 0.579, 900: 0.657, 1000: 0.736}
+      1000: {300: 0.207, 400: 0.296, 500: 0.384, 600: 0.472, 700: 0.560, 800: 0.648, 900: 0.736, 1000: 0.824}

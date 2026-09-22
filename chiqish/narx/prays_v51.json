@@ -1,0 +1,10144 @@
+[
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 12,
+  "usd_ustun": 12,
+  "narx": 156.76,
+  "model": "ВЦ 4-75 №2,5 0.12 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 2.5,
+  "quvvat": 0.12
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 13,
+  "usd_ustun": 12,
+  "narx": 158.99,
+  "model": "ВЦ 4-75 №2,5 0.18 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 2.5,
+  "quvvat": 0.18
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 14,
+  "usd_ustun": 12,
+  "narx": 170.93,
+  "model": "ВЦ 4-75 №2,5 0.25 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 2.5,
+  "quvvat": 0.25
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 15,
+  "usd_ustun": 12,
+  "narx": 174.51,
+  "model": "ВЦ 4-75 №2,5 0.37 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 2.5,
+  "quvvat": 0.37
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 16,
+  "usd_ustun": 12,
+  "narx": 174.51,
+  "model": "ВЦ 4-75 №2,5 0.55 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 2.5,
+  "quvvat": 0.55
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 17,
+  "usd_ustun": 12,
+  "narx": 199.33,
+  "model": "ВЦ 4-75 №2,5 0.75 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 2.5,
+  "quvvat": 0.75
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 18,
+  "usd_ustun": 12,
+  "narx": 196.05,
+  "model": "ВЦ 4-75 №3,15 0.25 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 3.15,
+  "quvvat": 0.25
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 19,
+  "usd_ustun": 12,
+  "narx": 199.63,
+  "model": "ВЦ 4-75 №3,15 0.37 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 3.15,
+  "quvvat": 0.37
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 20,
+  "usd_ustun": 12,
+  "narx": 235.14,
+  "model": "ВЦ 4-75 №3,15 1.1 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 3.15,
+  "quvvat": 1.1
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 21,
+  "usd_ustun": 12,
+  "narx": 254.4,
+  "model": "ВЦ 4-75 №3,15 1.5 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 3.15,
+  "quvvat": 1.5
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 22,
+  "usd_ustun": 12,
+  "narx": 264.61,
+  "model": "ВЦ 4-75 №3,15 2.2 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 3.15,
+  "quvvat": 2.2
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 23,
+  "usd_ustun": 12,
+  "narx": 260.52,
+  "model": "ВЦ 4-75 №4 0.25 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 4.0,
+  "quvvat": 0.25
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 24,
+  "usd_ustun": 12,
+  "narx": 278.24,
+  "model": "ВЦ 4-75 №4 0.37 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 4.0,
+  "quvvat": 0.37
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 25,
+  "usd_ustun": 12,
+  "narx": 271.11,
+  "model": "ВЦ 4-75 №4 0.55 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 4.0,
+  "quvvat": 0.55
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 26,
+  "usd_ustun": 12,
+  "narx": 281.8,
+  "model": "ВЦ 4-75 №4 0.75 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 4.0,
+  "quvvat": 0.75
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 27,
+  "usd_ustun": 12,
+  "narx": 297.78,
+  "model": "ВЦ 4-75 №4 1.1 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 4.0,
+  "quvvat": 1.1
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 28,
+  "usd_ustun": 12,
+  "narx": 406.8,
+  "model": "ВЦ 4-75 №4 4.0 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 4.0,
+  "quvvat": 4.0
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 29,
+  "usd_ustun": 12,
+  "narx": 409.09,
+  "model": "ВЦ 4-75 №4 5.5 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 4.0,
+  "quvvat": 5.5
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 30,
+  "usd_ustun": 12,
+  "narx": 515.78,
+  "model": "ВЦ 4-75 №4 7.5 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 4.0,
+  "quvvat": 7.5
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 31,
+  "usd_ustun": 12,
+  "narx": 354.32,
+  "model": "ВЦ 4-75 №5 0.75 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 5.0,
+  "quvvat": 0.75
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 32,
+  "usd_ustun": 12,
+  "narx": 367.9,
+  "model": "ВЦ 4-75 №5 1.1 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 5.0,
+  "quvvat": 1.1
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 33,
+  "usd_ustun": 12,
+  "narx": 436.07,
+  "model": "ВЦ 4-75 №5 2.2 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 5.0,
+  "quvvat": 2.2
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 34,
+  "usd_ustun": 12,
+  "narx": 470.16,
+  "model": "ВЦ 4-75 №5 3.0 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 5.0,
+  "quvvat": 3.0
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 35,
+  "usd_ustun": 12,
+  "narx": 571.34,
+  "model": "ВЦ 4-75 №6,3 2.2 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 6.3,
+  "quvvat": 2.2
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 36,
+  "usd_ustun": 12,
+  "narx": 742.09,
+  "model": "ВЦ 4-75 №6,3 3.0 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 6.3,
+  "quvvat": 3.0
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 37,
+  "usd_ustun": 12,
+  "narx": 811.34,
+  "model": "ВЦ 4-75 №6,3 7.5 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 6.3,
+  "quvvat": 7.5
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 38,
+  "usd_ustun": 12,
+  "narx": 1303.62,
+  "model": "ВЦ 4-75 №8 3.0 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 8.0,
+  "quvvat": 3.0
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 39,
+  "usd_ustun": 12,
+  "narx": 1495.6,
+  "model": "ВЦ 4-75 №8 4.0 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 8.0,
+  "quvvat": 4.0
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 40,
+  "usd_ustun": 12,
+  "narx": 1326.23,
+  "model": "ВЦ 4-75 №8 5.5 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 8.0,
+  "quvvat": 5.5
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 41,
+  "usd_ustun": 12,
+  "narx": 1503.28,
+  "model": "ВЦ 4-75 №8 7.5 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 8.0,
+  "quvvat": 7.5
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 42,
+  "usd_ustun": 12,
+  "narx": 1870.7,
+  "model": "ВЦ 4-75 №8 11.0 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 8.0,
+  "quvvat": 11.0
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 43,
+  "usd_ustun": 12,
+  "narx": 2038.11,
+  "model": "ВЦ 4-75 №10 5.5 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 10.0,
+  "quvvat": 5.5
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 44,
+  "usd_ustun": 12,
+  "narx": 2389.68,
+  "model": "ВЦ 4-75 №10 7.5 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 10.0,
+  "quvvat": 7.5
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 46,
+  "usd_ustun": 12,
+  "narx": 2475.07,
+  "model": "ВЦ 4-75 №10 18.5 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 10.0,
+  "quvvat": 18.5
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 47,
+  "usd_ustun": 12,
+  "narx": 3023.17,
+  "model": "ВЦ 4-75 №10 22.0 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 10.0,
+  "quvvat": 22.0
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 48,
+  "usd_ustun": 12,
+  "narx": 3811.15,
+  "model": "ВЦ 4-75 №12,5 15.0 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 12.5,
+  "quvvat": 15.0
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 49,
+  "usd_ustun": 12,
+  "narx": 4601.23,
+  "model": "ВЦ 4-75 №12,5 18.5 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 12.5,
+  "quvvat": 18.5
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 50,
+  "usd_ustun": 12,
+  "narx": 4745.89,
+  "model": "ВЦ 4-75 №12,5 22.0 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 12.5,
+  "quvvat": 22.0
+ },
+ {
+  "varaq": "ВЦ 4-75",
+  "qator": 51,
+  "usd_ustun": 12,
+  "narx": 4432.46,
+  "model": "ВЦ 4-75 №12,5 30.0 kVt",
+  "oila": "ВЦ 4-75",
+  "olcham": 12.5,
+  "quvvat": 30.0
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 12,
+  "usd_ustun": 12,
+  "narx": 160.33,
+  "model": "ВЦ 14-46 №2 0.25 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 2.0,
+  "quvvat": 0.25
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 13,
+  "usd_ustun": 12,
+  "narx": 163.67,
+  "model": "ВЦ 14-46 №2 0.37 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 2.0,
+  "quvvat": 0.37
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 14,
+  "usd_ustun": 12,
+  "narx": 216.51,
+  "model": "ВЦ 14-46 №2 1.5 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 2.0,
+  "quvvat": 1.5
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 15,
+  "usd_ustun": 12,
+  "narx": 225.52,
+  "model": "ВЦ 14-46 №2 2.2 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 2.0,
+  "quvvat": 2.2
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 16,
+  "usd_ustun": 12,
+  "narx": 202.44,
+  "model": "ВЦ 14-46 №2,5 0.55 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 2.5,
+  "quvvat": 0.55
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 17,
+  "usd_ustun": 12,
+  "narx": 223.82,
+  "model": "ВЦ 14-46 №2,5 0.75 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 2.5,
+  "quvvat": 0.75
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 18,
+  "usd_ustun": 12,
+  "narx": 237.34,
+  "model": "ВЦ 14-46 №2,5 1.1 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 2.5,
+  "quvvat": 1.1
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 19,
+  "usd_ustun": 12,
+  "narx": 351.26,
+  "model": "ВЦ 14-46 №2,5 4.0 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 2.5,
+  "quvvat": 4.0
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 20,
+  "usd_ustun": 12,
+  "narx": 367.18,
+  "model": "ВЦ 14-46 №2,5 5.5 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 2.5,
+  "quvvat": 5.5
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 21,
+  "usd_ustun": 12,
+  "narx": 438.38,
+  "model": "ВЦ 14-46 №2,5 7.5 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 2.5,
+  "quvvat": 7.5
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 22,
+  "usd_ustun": 12,
+  "narx": 245.74,
+  "model": "ВЦ 14-46 №3,15 0.55 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 3.15,
+  "quvvat": 0.55
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 23,
+  "usd_ustun": 12,
+  "narx": 263.77,
+  "model": "ВЦ 14-46 №3,15 0.75 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 3.15,
+  "quvvat": 0.75
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 24,
+  "usd_ustun": 12,
+  "narx": 275.78,
+  "model": "ВЦ 14-46 №3,15 1.1 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 3.15,
+  "quvvat": 1.1
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 25,
+  "usd_ustun": 12,
+  "narx": 269.78,
+  "model": "ВЦ 14-46 №3,15 1.5 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 3.15,
+  "quvvat": 1.5
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 26,
+  "usd_ustun": 12,
+  "narx": 341.88,
+  "model": "ВЦ 14-46 №3,15 2.2 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 3.15,
+  "quvvat": 2.2
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 27,
+  "usd_ustun": 12,
+  "narx": 371.92,
+  "model": "ВЦ 14-46 №3,15 3.0 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 3.15,
+  "quvvat": 3.0
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 28,
+  "usd_ustun": 12,
+  "narx": 399.37,
+  "model": "ВЦ 14-46 №4 1.5 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 4.0,
+  "quvvat": 1.5
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 29,
+  "usd_ustun": 12,
+  "narx": 435.42,
+  "model": "ВЦ 14-46 №4 2.2 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 4.0,
+  "quvvat": 2.2
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 30,
+  "usd_ustun": 12,
+  "narx": 522.54,
+  "model": "ВЦ 14-46 №4 3.0 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 4.0,
+  "quvvat": 3.0
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 31,
+  "usd_ustun": 12,
+  "narx": 537.56,
+  "model": "ВЦ 14-46 №4 5.5 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 4.0,
+  "quvvat": 5.5
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 32,
+  "usd_ustun": 12,
+  "narx": 636.7,
+  "model": "ВЦ 14-46 №4 7.5 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 4.0,
+  "quvvat": 7.5
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 33,
+  "usd_ustun": 12,
+  "narx": 738.84,
+  "model": "ВЦ 14-46 №4 11.0 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 4.0,
+  "quvvat": 11.0
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 34,
+  "usd_ustun": 12,
+  "narx": 765.78,
+  "model": "ВЦ 14-46 №5 5.5 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 5.0,
+  "quvvat": 5.5
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 35,
+  "usd_ustun": 12,
+  "narx": 828.86,
+  "model": "ВЦ 14-46 №5 7.5 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 5.0,
+  "quvvat": 7.5
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 36,
+  "usd_ustun": 12,
+  "narx": 1069.2,
+  "model": "ВЦ 14-46 №5 11.0 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 5.0,
+  "quvvat": 11.0
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 37,
+  "usd_ustun": 12,
+  "narx": 1060.18,
+  "model": "ВЦ 14-46 №5 15.0 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 5.0,
+  "quvvat": 15.0
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 38,
+  "usd_ustun": 12,
+  "narx": 1177.35,
+  "model": "ВЦ 14-46 №5 18.5 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 5.0,
+  "quvvat": 18.5
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 39,
+  "usd_ustun": 12,
+  "narx": 1177.35,
+  "model": "ВЦ 14-46 №5 22.0 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 5.0,
+  "quvvat": 22.0
+ },
+ {
+  "varaq": "ВЦ 14-46",
+  "qator": 40,
+  "usd_ustun": 12,
+  "narx": 1450.73,
+  "model": "ВЦ 14-46 №5 30.0 kVt",
+  "oila": "ВЦ 14-46",
+  "olcham": 5.0,
+  "quvvat": 30.0
+ },
+ {
+  "varaq": "ВР 12-26",
+  "qator": 12,
+  "usd_ustun": 11,
+  "narx": 196.23,
+  "model": "ВР 12-26 №2,5 0.55 kVt",
+  "oila": "ВР 12-26",
+  "olcham": 2.5,
+  "quvvat": 0.55
+ },
+ {
+  "varaq": "ВР 12-26",
+  "qator": 13,
+  "usd_ustun": 11,
+  "narx": 264.39,
+  "model": "ВР 12-26 №3 1.5 kVt",
+  "oila": "ВР 12-26",
+  "olcham": 3.0,
+  "quvvat": 1.5
+ },
+ {
+  "varaq": "ВР 12-26",
+  "qator": 14,
+  "usd_ustun": 11,
+  "narx": 375.06,
+  "model": "ВР 12-26 №3,5 2.2 kVt",
+  "oila": "ВР 12-26",
+  "olcham": 3.5,
+  "quvvat": 2.2
+ },
+ {
+  "varaq": "ВКП",
+  "qator": 13,
+  "usd_ustun": 15,
+  "narx": 181.0,
+  "model": "ВКП 40х20-4E20"
+ },
+ {
+  "varaq": "ВКП",
+  "qator": 15,
+  "usd_ustun": 15,
+  "narx": 232.0,
+  "model": "ВКП 50х25-4E22,5"
+ },
+ {
+  "varaq": "ВКП",
+  "qator": 16,
+  "usd_ustun": 15,
+  "narx": 281.0,
+  "model": "ВКП 50х30-4E25"
+ },
+ {
+  "varaq": "ВКП",
+  "qator": 17,
+  "usd_ustun": 15,
+  "narx": 277.0,
+  "model": "ВКП 50х30-4D25"
+ },
+ {
+  "varaq": "ВКП",
+  "qator": 18,
+  "usd_ustun": 15,
+  "narx": 446.0,
+  "model": "ВКП 60х30-4D28"
+ },
+ {
+  "varaq": "ВКП",
+  "qator": 19,
+  "usd_ustun": 15,
+  "narx": 478.0,
+  "model": "ВКП 60х35-4D31,5"
+ },
+ {
+  "varaq": "ВКП",
+  "qator": 21,
+  "usd_ustun": 15,
+  "narx": 587.0,
+  "model": "ВКП 70х40-4D35,5"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 9,
+  "usd_ustun": 13,
+  "narx": 206.0,
+  "model": "ВКПП/ВКПП-Ш 40х20-1,8"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 10,
+  "usd_ustun": 13,
+  "narx": 228.0,
+  "model": "ВКПП 50х25-2D20"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 11,
+  "usd_ustun": 13,
+  "narx": 252.0,
+  "model": "ВКПП 50х25-2D22"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 12,
+  "usd_ustun": 13,
+  "narx": 262.0,
+  "model": "ВКПП 50х30-2D22"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 13,
+  "usd_ustun": 13,
+  "narx": 287.0,
+  "model": "ВКПП 50х30-2D25"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 14,
+  "usd_ustun": 13,
+  "narx": 298.0,
+  "model": "ВКПП 60х30-2D25"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 15,
+  "usd_ustun": 13,
+  "narx": 304.0,
+  "model": "ВКПП 60х30-2D28"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 16,
+  "usd_ustun": 13,
+  "narx": 315.0,
+  "model": "ВКПП 60х35-2D28"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 17,
+  "usd_ustun": 13,
+  "narx": 381.0,
+  "model": "ВКПП 60х35-2D31"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 18,
+  "usd_ustun": 13,
+  "narx": 432.0,
+  "model": "ВКПП 70х40-2DM31"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 19,
+  "usd_ustun": 13,
+  "narx": 423.0,
+  "model": "ВКПП 70х40-2D31"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 20,
+  "usd_ustun": 13,
+  "narx": 521.0,
+  "model": "ВКПП 70х40-2D35"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 21,
+  "usd_ustun": 13,
+  "narx": 558.0,
+  "model": "ВКПП 80х50-2D35"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 22,
+  "usd_ustun": 13,
+  "narx": 608.0,
+  "model": "ВКПП 80х50-4D40"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 23,
+  "usd_ustun": 13,
+  "narx": 579.0,
+  "model": "ВКПП 90х50-2D35"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 24,
+  "usd_ustun": 13,
+  "narx": 671.0,
+  "model": "ВКПП 90х50-2D40"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 26,
+  "usd_ustun": 13,
+  "narx": 751.0,
+  "model": "ВКПП 100х50-2D40"
+ },
+ {
+  "varaq": "ВКПП+ВКПП-Ш.",
+  "qator": 27,
+  "usd_ustun": 13,
+  "narx": 701.0,
+  "model": "ВКПП 100х50-4D45"
+ },
+ {
+  "varaq": "РКВ",
+  "qator": 15,
+  "usd_ustun": 16,
+  "narx": 1154.0,
+  "model": "РКВ-150"
+ },
+ {
+  "varaq": "РКВ",
+  "qator": 17,
+  "usd_ustun": 16,
+  "narx": 1607.0,
+  "model": "РКВ1-260"
+ },
+ {
+  "varaq": "КПР",
+  "qator": 12,
+  "usd_ustun": 14,
+  "narx": 222.0,
+  "model": "КПР 40-20"
+ },
+ {
+  "varaq": "КПР",
+  "qator": 14,
+  "usd_ustun": 14,
+  "narx": 307.0,
+  "model": "КПР 50-30"
+ },
+ {
+  "varaq": "КПР",
+  "qator": 15,
+  "usd_ustun": 14,
+  "narx": 353.0,
+  "model": "КПР 60-30"
+ },
+ {
+  "varaq": "КПР",
+  "qator": 18,
+  "usd_ustun": 14,
+  "narx": 506.0,
+  "model": "КПР 80-50"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 11,
+  "usd_ustun": 11,
+  "narx": 56.0,
+  "model": "ДР100"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 12,
+  "usd_ustun": 11,
+  "narx": 48.0,
+  "model": "ДР110"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 14,
+  "usd_ustun": 11,
+  "narx": 59.0,
+  "model": "ДР150"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 15,
+  "usd_ustun": 11,
+  "narx": 60.0,
+  "model": "ДР180"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 16,
+  "usd_ustun": 11,
+  "narx": 69.0,
+  "model": "ДР200"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 18,
+  "usd_ustun": 11,
+  "narx": 84.0,
+  "model": "ДР250"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 19,
+  "usd_ustun": 11,
+  "narx": 83.0,
+  "model": "ДР300"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 20,
+  "usd_ustun": 11,
+  "narx": 79.0,
+  "model": "ДР315"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 21,
+  "usd_ustun": 11,
+  "narx": 81.0,
+  "model": "ДР350"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 22,
+  "usd_ustun": 11,
+  "narx": 81.0,
+  "model": "ДР400"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 23,
+  "usd_ustun": 11,
+  "narx": 92.0,
+  "model": "ДР450"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 24,
+  "usd_ustun": 11,
+  "narx": 110.0,
+  "model": "ДР500"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 25,
+  "usd_ustun": 11,
+  "narx": 117.0,
+  "model": "ДР550"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 26,
+  "usd_ustun": 11,
+  "narx": 144.0,
+  "model": "ДР600"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 27,
+  "usd_ustun": 11,
+  "narx": 131.0,
+  "model": "ДР630"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 29,
+  "usd_ustun": 11,
+  "narx": 191.0,
+  "model": "ДР710"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 31,
+  "usd_ustun": 11,
+  "narx": 221.0,
+  "model": "ДР800"
+ },
+ {
+  "varaq": "ДР",
+  "qator": 33,
+  "usd_ustun": 11,
+  "narx": 282.0,
+  "model": "ДР1000"
+ },
+ {
+  "varaq": "ПВН",
+  "qator": 12,
+  "usd_ustun": 12,
+  "narx": 106.0,
+  "model": "ПВН 400-200/2"
+ },
+ {
+  "varaq": "ПВН",
+  "qator": 14,
+  "usd_ustun": 12,
+  "narx": 136.0,
+  "model": "ПВН 500-250/2"
+ },
+ {
+  "varaq": "ПВН",
+  "qator": 16,
+  "usd_ustun": 12,
+  "narx": 155.0,
+  "model": "ПВН 500-300/2"
+ },
+ {
+  "varaq": "ПВН",
+  "qator": 18,
+  "usd_ustun": 12,
+  "narx": 177.0,
+  "model": "ПВН 600-300/2"
+ },
+ {
+  "varaq": "ПВН",
+  "qator": 20,
+  "usd_ustun": 12,
+  "narx": 197.0,
+  "model": "ПВН 600-350/2"
+ },
+ {
+  "varaq": "ПВН",
+  "qator": 22,
+  "usd_ustun": 12,
+  "narx": 232.0,
+  "model": "ПВН 700-400/2"
+ },
+ {
+  "varaq": "ПВН",
+  "qator": 24,
+  "usd_ustun": 12,
+  "narx": 327.0,
+  "model": "ПВН 800-500/2"
+ },
+ {
+  "varaq": "ПВН",
+  "qator": 26,
+  "usd_ustun": 12,
+  "narx": 352.0,
+  "model": "ПВН 900-500/2"
+ },
+ {
+  "varaq": "ПВН",
+  "qator": 28,
+  "usd_ustun": 12,
+  "narx": 377.0,
+  "model": "ПВН 1000-500/2"
+ },
+ {
+  "varaq": "ПВФ",
+  "qator": 11,
+  "usd_ustun": 11,
+  "narx": 353.0,
+  "model": "ПВФ 40-20"
+ },
+ {
+  "varaq": "ПВФ",
+  "qator": 13,
+  "usd_ustun": 11,
+  "narx": 427.0,
+  "model": "ПВФ 50-25"
+ },
+ {
+  "varaq": "ПВФ",
+  "qator": 15,
+  "usd_ustun": 11,
+  "narx": 476.0,
+  "model": "ПВФ 50-30"
+ },
+ {
+  "varaq": "ПВФ",
+  "qator": 17,
+  "usd_ustun": 11,
+  "narx": 523.0,
+  "model": "ПВФ 60-30"
+ },
+ {
+  "varaq": "ПВФ",
+  "qator": 19,
+  "usd_ustun": 11,
+  "narx": 581.0,
+  "model": "ПВФ 60-35"
+ },
+ {
+  "varaq": "ПВФ",
+  "qator": 21,
+  "usd_ustun": 11,
+  "narx": 705.0,
+  "model": "ПВФ 70-40"
+ },
+ {
+  "varaq": "ПВФ",
+  "qator": 23,
+  "usd_ustun": 11,
+  "narx": 905.0,
+  "model": "ПВФ 80-50"
+ },
+ {
+  "varaq": "ПВФ",
+  "qator": 25,
+  "usd_ustun": 11,
+  "narx": 981.0,
+  "model": "ПВФ 90-50"
+ },
+ {
+  "varaq": "ПВФ",
+  "qator": 27,
+  "usd_ustun": 11,
+  "narx": 1056.0,
+  "model": "ПВФ 100-50"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 40,
+  "usd_ustun": 14,
+  "narx": 130.0,
+  "model": "АВКв 200х200"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 41,
+  "usd_ustun": 14,
+  "narx": 134.0,
+  "model": "АВКв 300х200"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 42,
+  "usd_ustun": 14,
+  "narx": 138.0,
+  "model": "АВКв 400х200"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 43,
+  "usd_ustun": 14,
+  "narx": 143.0,
+  "model": "АВКв 300х300"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 44,
+  "usd_ustun": 14,
+  "narx": 148.0,
+  "model": "АВКв 400х300"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 45,
+  "usd_ustun": 14,
+  "narx": 153.0,
+  "model": "АВКв 500х300"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 46,
+  "usd_ustun": 14,
+  "narx": 157.0,
+  "model": "АВКв 400х400"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 47,
+  "usd_ustun": 14,
+  "narx": 163.0,
+  "model": "АВКв 500х400"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 48,
+  "usd_ustun": 14,
+  "narx": 170.0,
+  "model": "АВКв 600х400"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 49,
+  "usd_ustun": 14,
+  "narx": 174.0,
+  "model": "АВКв 500х500"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 50,
+  "usd_ustun": 14,
+  "narx": 185.0,
+  "model": "АВКв 600х500"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 51,
+  "usd_ustun": 14,
+  "narx": 188.0,
+  "model": "АВКв 700х500"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 52,
+  "usd_ustun": 14,
+  "narx": 193.0,
+  "model": "АВКв 600х600"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 53,
+  "usd_ustun": 14,
+  "narx": 201.0,
+  "model": "АВКв 700х600"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 54,
+  "usd_ustun": 14,
+  "narx": 209.0,
+  "model": "АВКв 800х600"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 55,
+  "usd_ustun": 14,
+  "narx": 213.0,
+  "model": "АВКв 700х700"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 56,
+  "usd_ustun": 14,
+  "narx": 222.0,
+  "model": "АВКв 800х700"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 57,
+  "usd_ustun": 14,
+  "narx": 226.0,
+  "model": "АВКв 900х700"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 58,
+  "usd_ustun": 14,
+  "narx": 235.0,
+  "model": "АВКв 800х800"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 59,
+  "usd_ustun": 14,
+  "narx": 248.0,
+  "model": "АВКв 900х800"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 60,
+  "usd_ustun": 14,
+  "narx": 258.0,
+  "model": "АВКв 1000х800"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 61,
+  "usd_ustun": 14,
+  "narx": 263.0,
+  "model": "АВКв 900х900"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 62,
+  "usd_ustun": 14,
+  "narx": 274.0,
+  "model": "АВКв 1000х900"
+ },
+ {
+  "varaq": "АВКв",
+  "qator": 63,
+  "usd_ustun": 14,
+  "narx": 289.0,
+  "model": "АВКв 1000х1000"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 12,
+  "usd_ustun": 14,
+  "narx": 9.0,
+  "model": "ДКСп 150х150х200"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 13,
+  "usd_ustun": 14,
+  "narx": 11.0,
+  "model": "ДКСп 200х150х200"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 14,
+  "usd_ustun": 14,
+  "narx": 11.0,
+  "model": "ДКСп 250х150х200"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 15,
+  "usd_ustun": 14,
+  "narx": 13.0,
+  "model": "ДКСп 200х200х250"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 16,
+  "usd_ustun": 14,
+  "narx": 13.0,
+  "model": "ДКСп 250х200х250"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 17,
+  "usd_ustun": 14,
+  "narx": 14.0,
+  "model": "ДКСп 300х200х250"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 18,
+  "usd_ustun": 14,
+  "narx": 16.0,
+  "model": "ДКСп 400х200х250"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 19,
+  "usd_ustun": 14,
+  "narx": 16.0,
+  "model": "ДКСп 250х250х300"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 20,
+  "usd_ustun": 14,
+  "narx": 16.0,
+  "model": "ДКСп 300х250х300"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 21,
+  "usd_ustun": 14,
+  "narx": 17.0,
+  "model": "ДКСп 400х250х300"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 22,
+  "usd_ustun": 14,
+  "narx": 20.0,
+  "model": "ДКСп 500х250х300"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 23,
+  "usd_ustun": 14,
+  "narx": 18.0,
+  "model": "ДКСп 300х300х350"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 24,
+  "usd_ustun": 14,
+  "narx": 20.0,
+  "model": "ДКСп 400х300х350"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 25,
+  "usd_ustun": 14,
+  "narx": 23.0,
+  "model": "ДКСп 500х300х350"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 26,
+  "usd_ustun": 14,
+  "narx": 24.0,
+  "model": "ДКСп 600х300х350"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 27,
+  "usd_ustun": 14,
+  "narx": 25.0,
+  "model": "ДКСп 400х400х250"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 28,
+  "usd_ustun": 14,
+  "narx": 25.0,
+  "model": "ДКСп 500х400х250"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 29,
+  "usd_ustun": 14,
+  "narx": 26.0,
+  "model": "ДКСп 600х400х250"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 30,
+  "usd_ustun": 14,
+  "narx": 30.0,
+  "model": "ДКСп 800х400х250"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 31,
+  "usd_ustun": 14,
+  "narx": 31.0,
+  "model": "ДКСп 500х500х250"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 32,
+  "usd_ustun": 14,
+  "narx": 33.0,
+  "model": "ДКСп 600х500х250"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 33,
+  "usd_ustun": 14,
+  "narx": 35.0,
+  "model": "ДКСп 800х500х250"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 34,
+  "usd_ustun": 14,
+  "narx": 33.0,
+  "model": "ДКСп 600х600х250"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 35,
+  "usd_ustun": 14,
+  "narx": 40.0,
+  "model": "ДКСп 800х600х250"
+ },
+ {
+  "varaq": "ДКСП",
+  "qator": 36,
+  "usd_ustun": 14,
+  "narx": 50.0,
+  "model": "ДКСп 800х800х250"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 14,
+  "usd_ustun": 15,
+  "narx": 13.92,
+  "model": "КОП 150х150х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 15,
+  "usd_ustun": 15,
+  "narx": 14.71,
+  "model": "КОП 200х200х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 16,
+  "usd_ustun": 15,
+  "narx": 15.15,
+  "model": "КОП 250х200х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 17,
+  "usd_ustun": 15,
+  "narx": 15.6,
+  "model": "КОП 300х200х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 18,
+  "usd_ustun": 15,
+  "narx": 15.54,
+  "model": "КОП 250х250х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 19,
+  "usd_ustun": 15,
+  "narx": 15.95,
+  "model": "КОП 300х250х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 20,
+  "usd_ustun": 15,
+  "narx": 19.55,
+  "model": "КОП 400х250х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 21,
+  "usd_ustun": 15,
+  "narx": 19.38,
+  "model": "КОП 300х300х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 22,
+  "usd_ustun": 15,
+  "narx": 22.15,
+  "model": "КОП 400х300х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 23,
+  "usd_ustun": 15,
+  "narx": 26.24,
+  "model": "КОП 400х400х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 24,
+  "usd_ustun": 15,
+  "narx": 27.45,
+  "model": "КОП 500х400х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 25,
+  "usd_ustun": 15,
+  "narx": 28.68,
+  "model": "КОП 600х400х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 26,
+  "usd_ustun": 15,
+  "narx": 29.42,
+  "model": "КОП 500х500х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 27,
+  "usd_ustun": 15,
+  "narx": 37.56,
+  "model": "КОП 800х500х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 28,
+  "usd_ustun": 15,
+  "narx": 46.9,
+  "model": "КОП 1000х500х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 29,
+  "usd_ustun": 15,
+  "narx": 37.01,
+  "model": "КОП 600х600х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 30,
+  "usd_ustun": 15,
+  "narx": 41.13,
+  "model": "КОП 800х600х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 32,
+  "usd_ustun": 15,
+  "narx": 47.02,
+  "model": "КОП 800х800х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 33,
+  "usd_ustun": 15,
+  "narx": 69.67,
+  "model": "КОП 1000х1000х120"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 34,
+  "usd_ustun": 15,
+  "narx": 17.86,
+  "model": "КОПв 150х150"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 35,
+  "usd_ustun": 15,
+  "narx": 20.12,
+  "model": "КОПв 200х200"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 37,
+  "usd_ustun": 15,
+  "narx": 21.88,
+  "model": "КОПв 300х200"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 39,
+  "usd_ustun": 15,
+  "narx": 22.3,
+  "model": "КОПв 300х250"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 43,
+  "usd_ustun": 15,
+  "narx": 39.51,
+  "model": "КОПв 400х400"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 46,
+  "usd_ustun": 15,
+  "narx": 46.9,
+  "model": "КОПв 500х500"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 48,
+  "usd_ustun": 15,
+  "narx": 63.59,
+  "model": "КОПв 1000х500"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 49,
+  "usd_ustun": 15,
+  "narx": 52.69,
+  "model": "КОПв 600х600"
+ },
+ {
+  "varaq": "КОП",
+  "qator": 53,
+  "usd_ustun": 15,
+  "narx": 111.35,
+  "model": "КОПв 1000х1000"
+ },
+ {
+  "varaq": "КО",
+  "qator": 11,
+  "usd_ustun": 14,
+  "narx": 23.0,
+  "model": "КО 200"
+ },
+ {
+  "varaq": "КО",
+  "qator": 12,
+  "usd_ustun": 14,
+  "narx": 26.0,
+  "model": "КО 250"
+ },
+ {
+  "varaq": "КО",
+  "qator": 13,
+  "usd_ustun": 14,
+  "narx": 29.0,
+  "model": "КО 280"
+ },
+ {
+  "varaq": "КО",
+  "qator": 14,
+  "usd_ustun": 14,
+  "narx": 30.0,
+  "model": "КО 315"
+ },
+ {
+  "varaq": "КО",
+  "qator": 15,
+  "usd_ustun": 14,
+  "narx": 31.0,
+  "model": "КО 350"
+ },
+ {
+  "varaq": "КО",
+  "qator": 16,
+  "usd_ustun": 14,
+  "narx": 32.0,
+  "model": "КО 400"
+ },
+ {
+  "varaq": "КО",
+  "qator": 17,
+  "usd_ustun": 14,
+  "narx": 34.0,
+  "model": "КО 450"
+ },
+ {
+  "varaq": "КО",
+  "qator": 18,
+  "usd_ustun": 14,
+  "narx": 37.0,
+  "model": "КО 500"
+ },
+ {
+  "varaq": "КО",
+  "qator": 19,
+  "usd_ustun": 14,
+  "narx": 38.0,
+  "model": "КО 560"
+ },
+ {
+  "varaq": "КО",
+  "qator": 20,
+  "usd_ustun": 14,
+  "narx": 43.0,
+  "model": "КО 630"
+ },
+ {
+  "varaq": "КО",
+  "qator": 21,
+  "usd_ustun": 14,
+  "narx": 45.0,
+  "model": "КО 710"
+ },
+ {
+  "varaq": "КО",
+  "qator": 22,
+  "usd_ustun": 14,
+  "narx": 54.0,
+  "model": "КО 800"
+ },
+ {
+  "varaq": "КО",
+  "qator": 23,
+  "usd_ustun": 14,
+  "narx": 63.0,
+  "model": "КО 900"
+ },
+ {
+  "varaq": "КО",
+  "qator": 24,
+  "usd_ustun": 14,
+  "narx": 144.0,
+  "model": "КО 1000"
+ },
+ {
+  "varaq": "КО",
+  "qator": 25,
+  "usd_ustun": 14,
+  "narx": 222.0,
+  "model": "КО 1250"
+ },
+ {
+  "varaq": "КОГ",
+  "qator": 12,
+  "usd_ustun": 8,
+  "narx": 87.0,
+  "model": "КОГ 150х150"
+ },
+ {
+  "varaq": "КОГ",
+  "qator": 14,
+  "usd_ustun": 8,
+  "narx": 99.0,
+  "model": "КОГ 200х200"
+ },
+ {
+  "varaq": "КОГ",
+  "qator": 15,
+  "usd_ustun": 8,
+  "narx": 99.0,
+  "model": "КОГ 250х200"
+ },
+ {
+  "varaq": "КОГ",
+  "qator": 18,
+  "usd_ustun": 8,
+  "narx": 107.0,
+  "model": "КОГ 250х250"
+ },
+ {
+  "varaq": "КОГ",
+  "qator": 20,
+  "usd_ustun": 8,
+  "narx": 126.0,
+  "model": "КОГ 400х250"
+ },
+ {
+  "varaq": "КОГ",
+  "qator": 22,
+  "usd_ustun": 8,
+  "narx": 164.0,
+  "model": "КОГ 400х300"
+ },
+ {
+  "varaq": "КОГ",
+  "qator": 24,
+  "usd_ustun": 8,
+  "narx": 170.0,
+  "model": "КОГ 400х400"
+ },
+ {
+  "varaq": "КОГ",
+  "qator": 25,
+  "usd_ustun": 8,
+  "narx": 243.0,
+  "model": "КОГ 500х400"
+ },
+ {
+  "varaq": "КОГ",
+  "qator": 26,
+  "usd_ustun": 8,
+  "narx": 263.0,
+  "model": "КОГ 600х400"
+ },
+ {
+  "varaq": "КОГ",
+  "qator": 28,
+  "usd_ustun": 8,
+  "narx": 250.0,
+  "model": "КОГ 500х500"
+ },
+ {
+  "varaq": "КОГ",
+  "qator": 31,
+  "usd_ustun": 8,
+  "narx": 290.0,
+  "model": "КОГ 600х600"
+ },
+ {
+  "varaq": "КОГ",
+  "qator": 33,
+  "usd_ustun": 8,
+  "narx": 467.0,
+  "model": "КОГ 1000х600"
+ },
+ {
+  "varaq": "КОГ",
+  "qator": 34,
+  "usd_ustun": 8,
+  "narx": 452.0,
+  "model": "КОГ 800х800"
+ },
+ {
+  "varaq": "КВУ",
+  "qator": 11,
+  "usd_ustun": 8,
+  "narx": 6.0,
+  "model": "КВУ 2-140"
+ },
+ {
+  "varaq": "КВУ",
+  "qator": 14,
+  "usd_ustun": 8,
+  "narx": 42.0,
+  "model": "КВУ 400х400-140"
+ },
+ {
+  "varaq": "КИД",
+  "qator": 12,
+  "usd_ustun": 11,
+  "narx": 48.0,
+  "model": "КИД 150х150х200"
+ },
+ {
+  "varaq": "КИД",
+  "qator": 15,
+  "usd_ustun": 11,
+  "narx": 54.0,
+  "model": "КИД 300х200х200"
+ },
+ {
+  "varaq": "КИД",
+  "qator": 21,
+  "usd_ustun": 11,
+  "narx": 42.0,
+  "model": "КИД 400х400х150"
+ },
+ {
+  "varaq": "КИД",
+  "qator": 22,
+  "usd_ustun": 11,
+  "narx": 44.0,
+  "model": "КИД 500х400х150"
+ },
+ {
+  "varaq": "КИД",
+  "qator": 23,
+  "usd_ustun": 11,
+  "narx": 58.0,
+  "model": "КИД 600х600х150"
+ },
+ {
+  "varaq": "КИД",
+  "qator": 24,
+  "usd_ustun": 11,
+  "narx": 60.0,
+  "model": "КИД 700х700х150"
+ },
+ {
+  "varaq": "КИД",
+  "qator": 25,
+  "usd_ustun": 11,
+  "narx": 63.0,
+  "model": "КИД 800х800х150"
+ },
+ {
+  "varaq": "КИД",
+  "qator": 26,
+  "usd_ustun": 11,
+  "narx": 73.0,
+  "model": "КИД 900х900х150"
+ },
+ {
+  "varaq": "КС",
+  "qator": 12,
+  "usd_ustun": 12,
+  "narx": 50.0,
+  "model": "КС 500"
+ },
+ {
+  "varaq": "КС",
+  "qator": 13,
+  "usd_ustun": 12,
+  "narx": 57.0,
+  "model": "КС 630"
+ },
+ {
+  "varaq": "КС",
+  "qator": 14,
+  "usd_ustun": 12,
+  "narx": 74.0,
+  "model": "КС 800"
+ },
+ {
+  "varaq": "КС",
+  "qator": 15,
+  "usd_ustun": 12,
+  "narx": 101.0,
+  "model": "КС 900"
+ },
+ {
+  "varaq": "КС",
+  "qator": 16,
+  "usd_ustun": 12,
+  "narx": 123.0,
+  "model": "КС 1000"
+ },
+ {
+  "varaq": "КС",
+  "qator": 17,
+  "usd_ustun": 12,
+  "narx": 125.0,
+  "model": "КС 1250"
+ },
+ {
+  "varaq": "КЛ",
+  "qator": 12,
+  "usd_ustun": 14,
+  "narx": 42.0,
+  "model": "КЛ 400"
+ },
+ {
+  "varaq": "КЛ",
+  "qator": 13,
+  "usd_ustun": 14,
+  "narx": 64.0,
+  "model": "КЛ 500"
+ },
+ {
+  "varaq": "КЛ",
+  "qator": 14,
+  "usd_ustun": 14,
+  "narx": 75.0,
+  "model": "КЛ 630"
+ },
+ {
+  "varaq": "КЛ",
+  "qator": 15,
+  "usd_ustun": 14,
+  "narx": 91.0,
+  "model": "КЛ 800"
+ },
+ {
+  "varaq": "КЛ",
+  "qator": 16,
+  "usd_ustun": 14,
+  "narx": 115.0,
+  "model": "КЛ 1000"
+ },
+ {
+  "varaq": "ЛД",
+  "qator": 15,
+  "usd_ustun": 9,
+  "narx": 1971.0,
+  "model": "ЛД 1000х1000"
+ },
+ {
+  "varaq": "ЛД",
+  "qator": 24,
+  "usd_ustun": 9,
+  "narx": 2340.0,
+  "model": "ЛД 1700х2800"
+ },
+ {
+  "varaq": "ЛД",
+  "qator": 25,
+  "usd_ustun": 9,
+  "narx": 2110.0,
+  "model": "ЛД 2200х2800"
+ },
+ {
+  "varaq": "RSK",
+  "qator": 12,
+  "usd_ustun": 12,
+  "narx": 5.0,
+  "model": "RSK-100"
+ },
+ {
+  "varaq": "RSK",
+  "qator": 13,
+  "usd_ustun": 12,
+  "narx": 5.0,
+  "model": "RSK-125"
+ },
+ {
+  "varaq": "RSK",
+  "qator": 14,
+  "usd_ustun": 12,
+  "narx": 6.0,
+  "model": "RSK-160"
+ },
+ {
+  "varaq": "RSK",
+  "qator": 15,
+  "usd_ustun": 12,
+  "narx": 6.0,
+  "model": "RSK-200"
+ },
+ {
+  "varaq": "RSK",
+  "qator": 16,
+  "usd_ustun": 12,
+  "narx": 7.0,
+  "model": "RSK-250"
+ },
+ {
+  "varaq": "RSK",
+  "qator": 17,
+  "usd_ustun": 12,
+  "narx": 26.0,
+  "model": "RSK-315"
+ },
+ {
+  "varaq": "РЩ",
+  "qator": 11,
+  "usd_ustun": 12,
+  "narx": 20.0,
+  "model": "1РЩ 1000х52"
+ },
+ {
+  "varaq": "РЩ",
+  "qator": 12,
+  "usd_ustun": 12,
+  "narx": 25.0,
+  "model": "2РЩ 1000х92"
+ },
+ {
+  "varaq": "РЩ",
+  "qator": 13,
+  "usd_ustun": 12,
+  "narx": 32.0,
+  "model": "3РЩ 1000х132"
+ },
+ {
+  "varaq": "РЩ",
+  "qator": 14,
+  "usd_ustun": 12,
+  "narx": 40.0,
+  "model": "4РЩ 1000х172"
+ },
+ {
+  "varaq": "РЩ",
+  "qator": 15,
+  "usd_ustun": 12,
+  "narx": 48.0,
+  "model": "5РЩ 1000х213"
+ },
+ {
+  "varaq": "РЩ",
+  "qator": 16,
+  "usd_ustun": 12,
+  "narx": 64.0,
+  "model": "6РЩ 1000х292 RAL"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 12,
+  "usd_ustun": 9,
+  "narx": 10.0,
+  "model": "4РВП 250х250"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 13,
+  "usd_ustun": 9,
+  "narx": 11.0,
+  "model": "4РВП 300х300"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 14,
+  "usd_ustun": 9,
+  "narx": 13.0,
+  "model": "4РВП 350х350"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 15,
+  "usd_ustun": 9,
+  "narx": 15.0,
+  "model": "4РВП 400х400"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 16,
+  "usd_ustun": 9,
+  "narx": 16.0,
+  "model": "4РВП 450х450"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 17,
+  "usd_ustun": 9,
+  "narx": 19.0,
+  "model": "4РВП 500х500"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 18,
+  "usd_ustun": 9,
+  "narx": 20.0,
+  "model": "4РВП 550х550"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 19,
+  "usd_ustun": 9,
+  "narx": 26.0,
+  "model": "4РВП 600х600"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 20,
+  "usd_ustun": 9,
+  "narx": 30.0,
+  "model": "4РВП 650х650"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 21,
+  "usd_ustun": 9,
+  "narx": 31.0,
+  "model": "4РВП 700х700"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 22,
+  "usd_ustun": 9,
+  "narx": 34.0,
+  "model": "4РВП 750х750"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 23,
+  "usd_ustun": 9,
+  "narx": 38.0,
+  "model": "4РВП 800х800"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 24,
+  "usd_ustun": 9,
+  "narx": 42.0,
+  "model": "4РВП 850х850"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 25,
+  "usd_ustun": 9,
+  "narx": 46.0,
+  "model": "4РВП 900х900"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 26,
+  "usd_ustun": 9,
+  "narx": 50.0,
+  "model": "4РВП 950х950"
+ },
+ {
+  "varaq": "4РВП.",
+  "qator": 27,
+  "usd_ustun": 9,
+  "narx": 54.0,
+  "model": "4РВП 1000х1000"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 15,
+  "usd_ustun": 20,
+  "narx": 14.0,
+  "model": "РВИ 300х300"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 16,
+  "usd_ustun": 20,
+  "narx": 16.0,
+  "model": "РВИ 300х400"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 17,
+  "usd_ustun": 20,
+  "narx": 18.0,
+  "model": "РВИ 300х500"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 18,
+  "usd_ustun": 20,
+  "narx": 20.0,
+  "model": "РВИ 300х600"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 19,
+  "usd_ustun": 20,
+  "narx": 22.0,
+  "model": "РВИ 300х700"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 20,
+  "usd_ustun": 20,
+  "narx": 24.0,
+  "model": "РВИ 300х800"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 21,
+  "usd_ustun": 20,
+  "narx": 26.0,
+  "model": "РВИ 300х900"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 22,
+  "usd_ustun": 20,
+  "narx": 28.0,
+  "model": "РВИ 300х1000"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 23,
+  "usd_ustun": 20,
+  "narx": 15.0,
+  "model": "РВИ 400х300"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 24,
+  "usd_ustun": 20,
+  "narx": 18.0,
+  "model": "РВИ 400х400"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 25,
+  "usd_ustun": 20,
+  "narx": 20.0,
+  "model": "РВИ 400х500"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 26,
+  "usd_ustun": 20,
+  "narx": 22.0,
+  "model": "РВИ 400х600"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 27,
+  "usd_ustun": 20,
+  "narx": 25.0,
+  "model": "РВИ 400х700"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 28,
+  "usd_ustun": 20,
+  "narx": 27.0,
+  "model": "РВИ 400х800"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 29,
+  "usd_ustun": 20,
+  "narx": 29.0,
+  "model": "РВИ 400х900"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 30,
+  "usd_ustun": 20,
+  "narx": 32.0,
+  "model": "РВИ 400х1000"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 31,
+  "usd_ustun": 20,
+  "narx": 16.0,
+  "model": "РВИ 500х300"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 32,
+  "usd_ustun": 20,
+  "narx": 19.0,
+  "model": "РВИ 500х400"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 33,
+  "usd_ustun": 20,
+  "narx": 22.0,
+  "model": "РВИ 500х500"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 34,
+  "usd_ustun": 20,
+  "narx": 24.0,
+  "model": "РВИ 500х600"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 35,
+  "usd_ustun": 20,
+  "narx": 27.0,
+  "model": "РВИ 500х700"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 36,
+  "usd_ustun": 20,
+  "narx": 30.0,
+  "model": "РВИ 500х800"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 37,
+  "usd_ustun": 20,
+  "narx": 32.0,
+  "model": "РВИ 500х900"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 38,
+  "usd_ustun": 20,
+  "narx": 35.0,
+  "model": "РВИ 500х1000"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 39,
+  "usd_ustun": 20,
+  "narx": 17.0,
+  "model": "РВИ 600х300"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 40,
+  "usd_ustun": 20,
+  "narx": 21.0,
+  "model": "РВИ 600х400"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 41,
+  "usd_ustun": 20,
+  "narx": 24.0,
+  "model": "РВИ 600х500"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 42,
+  "usd_ustun": 20,
+  "narx": 26.0,
+  "model": "РВИ 600х600"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 43,
+  "usd_ustun": 20,
+  "narx": 30.0,
+  "model": "РВИ 600х700"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 44,
+  "usd_ustun": 20,
+  "narx": 32.0,
+  "model": "РВИ 600х800"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 45,
+  "usd_ustun": 20,
+  "narx": 35.0,
+  "model": "РВИ 600х900"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 46,
+  "usd_ustun": 20,
+  "narx": 39.0,
+  "model": "РВИ 600х1000"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 47,
+  "usd_ustun": 20,
+  "narx": 19.0,
+  "model": "РВИ 700х300"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 48,
+  "usd_ustun": 20,
+  "narx": 23.0,
+  "model": "РВИ 700х400"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 49,
+  "usd_ustun": 20,
+  "narx": 25.0,
+  "model": "РВИ 700х500"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 50,
+  "usd_ustun": 20,
+  "narx": 29.0,
+  "model": "РВИ 700х600"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 51,
+  "usd_ustun": 20,
+  "narx": 32.0,
+  "model": "РВИ 700х700"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 52,
+  "usd_ustun": 20,
+  "narx": 35.0,
+  "model": "РВИ 700х800"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 53,
+  "usd_ustun": 20,
+  "narx": 38.0,
+  "model": "РВИ 700х900"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 54,
+  "usd_ustun": 20,
+  "narx": 42.0,
+  "model": "РВИ 700х1000"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 55,
+  "usd_ustun": 20,
+  "narx": 20.0,
+  "model": "РВИ 800х300"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 56,
+  "usd_ustun": 20,
+  "narx": 24.0,
+  "model": "РВИ 800х400"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 57,
+  "usd_ustun": 20,
+  "narx": 27.0,
+  "model": "РВИ 800х500"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 58,
+  "usd_ustun": 20,
+  "narx": 31.0,
+  "model": "РВИ 800х600"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 59,
+  "usd_ustun": 20,
+  "narx": 35.0,
+  "model": "РВИ 800х700"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 60,
+  "usd_ustun": 20,
+  "narx": 38.0,
+  "model": "РВИ 800х800"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 61,
+  "usd_ustun": 20,
+  "narx": 41.0,
+  "model": "РВИ 800х900"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 62,
+  "usd_ustun": 20,
+  "narx": 45.0,
+  "model": "РВИ 800х1000"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 63,
+  "usd_ustun": 20,
+  "narx": 21.0,
+  "model": "РВИ 900х300"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 64,
+  "usd_ustun": 20,
+  "narx": 26.0,
+  "model": "РВИ 900х400"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 65,
+  "usd_ustun": 20,
+  "narx": 29.0,
+  "model": "РВИ 900х500"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 66,
+  "usd_ustun": 20,
+  "narx": 33.0,
+  "model": "РВИ 900х600"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 67,
+  "usd_ustun": 20,
+  "narx": 37.0,
+  "model": "РВИ 900х700"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 68,
+  "usd_ustun": 20,
+  "narx": 41.0,
+  "model": "РВИ 900х800"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 69,
+  "usd_ustun": 20,
+  "narx": 44.0,
+  "model": "РВИ 900х900"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 70,
+  "usd_ustun": 20,
+  "narx": 49.0,
+  "model": "РВИ 900х1000"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 71,
+  "usd_ustun": 20,
+  "narx": 22.0,
+  "model": "РВИ 1000х300"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 72,
+  "usd_ustun": 20,
+  "narx": 28.0,
+  "model": "РВИ 1000х400"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 73,
+  "usd_ustun": 20,
+  "narx": 31.0,
+  "model": "РВИ 1000х500"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 74,
+  "usd_ustun": 20,
+  "narx": 35.0,
+  "model": "РВИ 1000х600"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 75,
+  "usd_ustun": 20,
+  "narx": 40.0,
+  "model": "РВИ 1000х700"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 76,
+  "usd_ustun": 20,
+  "narx": 44.0,
+  "model": "РВИ 1000х800"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 77,
+  "usd_ustun": 20,
+  "narx": 47.0,
+  "model": "РВИ 1000х900"
+ },
+ {
+  "varaq": "РВИ",
+  "qator": 78,
+  "usd_ustun": 20,
+  "narx": 52.0,
+  "model": "РВИ 1000х1000"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 15,
+  "usd_ustun": 22,
+  "narx": 14.0,
+  "model": "РВН 300х300"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 16,
+  "usd_ustun": 22,
+  "narx": 16.0,
+  "model": "РВН 300х400"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 17,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВН 300х500"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 18,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВН 300х600"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 19,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВН 300х700"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 20,
+  "usd_ustun": 22,
+  "narx": 30.0,
+  "model": "РВН 300х800"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 21,
+  "usd_ustun": 22,
+  "narx": 29.0,
+  "model": "РВН 300х900"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 22,
+  "usd_ustun": 22,
+  "narx": 44.0,
+  "model": "РВН 300х1000"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 23,
+  "usd_ustun": 22,
+  "narx": 12.0,
+  "model": "РВН 400х300"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 24,
+  "usd_ustun": 22,
+  "narx": 17.0,
+  "model": "РВН 400х400"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 25,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВН 400х500"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 26,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВН 400х600"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 27,
+  "usd_ustun": 22,
+  "narx": 27.0,
+  "model": "РВН 400х700"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 28,
+  "usd_ustun": 22,
+  "narx": 30.0,
+  "model": "РВН 400х800"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 29,
+  "usd_ustun": 22,
+  "narx": 33.0,
+  "model": "РВН 400х900"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 30,
+  "usd_ustun": 22,
+  "narx": 36.0,
+  "model": "РВН 400х1000"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 31,
+  "usd_ustun": 22,
+  "narx": 16.0,
+  "model": "РВН 500х300"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 32,
+  "usd_ustun": 22,
+  "narx": 16.0,
+  "model": "РВН 500х400"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 33,
+  "usd_ustun": 22,
+  "narx": 33.0,
+  "model": "РВН 500х500"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 34,
+  "usd_ustun": 22,
+  "narx": 29.0,
+  "model": "РВН 500х600"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 35,
+  "usd_ustun": 22,
+  "narx": 33.0,
+  "model": "РВН 500х700"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 36,
+  "usd_ustun": 22,
+  "narx": 46.0,
+  "model": "РВН 500х800"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 37,
+  "usd_ustun": 22,
+  "narx": 40.0,
+  "model": "РВН 500х900"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 38,
+  "usd_ustun": 22,
+  "narx": 43.0,
+  "model": "РВН 500х1000"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 39,
+  "usd_ustun": 22,
+  "narx": 15.0,
+  "model": "РВН 600х300"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 40,
+  "usd_ustun": 22,
+  "narx": 22.0,
+  "model": "РВН 600х400"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 41,
+  "usd_ustun": 22,
+  "narx": 27.0,
+  "model": "РВН 600х500"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 42,
+  "usd_ustun": 22,
+  "narx": 31.0,
+  "model": "РВН 600х600"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 43,
+  "usd_ustun": 22,
+  "narx": 37.0,
+  "model": "РВН 600х700"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 44,
+  "usd_ustun": 22,
+  "narx": 41.0,
+  "model": "РВН 600х800"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 45,
+  "usd_ustun": 22,
+  "narx": 59.0,
+  "model": "РВН 600х900"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 46,
+  "usd_ustun": 22,
+  "narx": 49.0,
+  "model": "РВН 600х1000"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 47,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВН 700х300"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 48,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВН 700х400"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 49,
+  "usd_ustun": 22,
+  "narx": 42.0,
+  "model": "РВН 700х500"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 50,
+  "usd_ustun": 22,
+  "narx": 49.0,
+  "model": "РВН 700х600"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 51,
+  "usd_ustun": 22,
+  "narx": 38.0,
+  "model": "РВН 700х700"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 52,
+  "usd_ustun": 22,
+  "narx": 62.0,
+  "model": "РВН 700х800"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 53,
+  "usd_ustun": 22,
+  "narx": 69.0,
+  "model": "РВН 700х900"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 54,
+  "usd_ustun": 22,
+  "narx": 55.0,
+  "model": "РВН 700х1000"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 55,
+  "usd_ustun": 22,
+  "narx": 22.0,
+  "model": "РВН 800х300"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 56,
+  "usd_ustun": 22,
+  "narx": 26.0,
+  "model": "РВН 800х400"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 57,
+  "usd_ustun": 22,
+  "narx": 32.0,
+  "model": "РВН 800х500"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 58,
+  "usd_ustun": 22,
+  "narx": 37.0,
+  "model": "РВН 800х600"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 59,
+  "usd_ustun": 22,
+  "narx": 65.0,
+  "model": "РВН 800х700"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 60,
+  "usd_ustun": 22,
+  "narx": 68.0,
+  "model": "РВН 800х800"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 61,
+  "usd_ustun": 22,
+  "narx": 55.0,
+  "model": "РВН 800х900"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 62,
+  "usd_ustun": 22,
+  "narx": 60.0,
+  "model": "РВН 800х1000"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 63,
+  "usd_ustun": 22,
+  "narx": 33.0,
+  "model": "РВН 900х300"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 64,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВН 900х400"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 65,
+  "usd_ustun": 22,
+  "narx": 54.0,
+  "model": "РВН 900х500"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 66,
+  "usd_ustun": 22,
+  "narx": 41.0,
+  "model": "РВН 900х600"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 67,
+  "usd_ustun": 22,
+  "narx": 49.0,
+  "model": "РВН 900х700"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 68,
+  "usd_ustun": 22,
+  "narx": 80.0,
+  "model": "РВН 900х800"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 69,
+  "usd_ustun": 22,
+  "narx": 85.0,
+  "model": "РВН 900х900"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 70,
+  "usd_ustun": 22,
+  "narx": 66.0,
+  "model": "РВН 900х1000"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 71,
+  "usd_ustun": 22,
+  "narx": 39.0,
+  "model": "РВН 1000х300"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 72,
+  "usd_ustun": 22,
+  "narx": 31.0,
+  "model": "РВН 1000х400"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 73,
+  "usd_ustun": 22,
+  "narx": 30.0,
+  "model": "РВН 1000х500"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 74,
+  "usd_ustun": 22,
+  "narx": 34.0,
+  "model": "РВН 1000х600"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 75,
+  "usd_ustun": 22,
+  "narx": 49.0,
+  "model": "РВН 1000х700"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 76,
+  "usd_ustun": 22,
+  "narx": 88.0,
+  "model": "РВН 1000х800"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 77,
+  "usd_ustun": 22,
+  "narx": 97.0,
+  "model": "РВН 1000х900"
+ },
+ {
+  "varaq": "РВН",
+  "qator": 78,
+  "usd_ustun": 22,
+  "narx": 52.0,
+  "model": "РВН 1000х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 12,
+  "usd_ustun": 22,
+  "narx": 9.0,
+  "model": "РВ-1 150х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 13,
+  "usd_ustun": 22,
+  "narx": 10.0,
+  "model": "РВ-1 150х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 14,
+  "usd_ustun": 22,
+  "narx": 11.0,
+  "model": "РВ-1 150х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 15,
+  "usd_ustun": 22,
+  "narx": 12.0,
+  "model": "РВ-1 150х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 16,
+  "usd_ustun": 22,
+  "narx": 13.0,
+  "model": "РВ-1 150х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 17,
+  "usd_ustun": 22,
+  "narx": 14.0,
+  "model": "РВ-1 150х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 18,
+  "usd_ustun": 22,
+  "narx": 15.0,
+  "model": "РВ-1 150х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 19,
+  "usd_ustun": 22,
+  "narx": 16.0,
+  "model": "РВ-1 150х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 20,
+  "usd_ustun": 22,
+  "narx": 17.0,
+  "model": "РВ-1 150х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 21,
+  "usd_ustun": 22,
+  "narx": 18.0,
+  "model": "РВ-1 150х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 22,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВ-1 150х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 23,
+  "usd_ustun": 22,
+  "narx": 20.0,
+  "model": "РВ-1 150х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 24,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 150х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 25,
+  "usd_ustun": 22,
+  "narx": 22.0,
+  "model": "РВ-1 150х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 26,
+  "usd_ustun": 22,
+  "narx": 23.0,
+  "model": "РВ-1 150х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 27,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВ-1 150х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 28,
+  "usd_ustun": 22,
+  "narx": 25.0,
+  "model": "РВ-1 150х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 29,
+  "usd_ustun": 22,
+  "narx": 26.0,
+  "model": "РВ-1 150х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 30,
+  "usd_ustun": 22,
+  "narx": 27.0,
+  "model": "РВ-1 150х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 31,
+  "usd_ustun": 22,
+  "narx": 10.0,
+  "model": "РВ-1 200х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 32,
+  "usd_ustun": 22,
+  "narx": 11.0,
+  "model": "РВ-1 200х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 33,
+  "usd_ustun": 22,
+  "narx": 12.0,
+  "model": "РВ-1 200х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 34,
+  "usd_ustun": 22,
+  "narx": 13.0,
+  "model": "РВ-1 200х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 35,
+  "usd_ustun": 22,
+  "narx": 14.0,
+  "model": "РВ-1 200х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 36,
+  "usd_ustun": 22,
+  "narx": 15.0,
+  "model": "РВ-1 200х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 37,
+  "usd_ustun": 22,
+  "narx": 16.0,
+  "model": "РВ-1 200х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 38,
+  "usd_ustun": 22,
+  "narx": 17.0,
+  "model": "РВ-1 200х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 39,
+  "usd_ustun": 22,
+  "narx": 18.0,
+  "model": "РВ-1 200х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 40,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВ-1 200х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 41,
+  "usd_ustun": 22,
+  "narx": 20.0,
+  "model": "РВ-1 200х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 42,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 200х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 43,
+  "usd_ustun": 22,
+  "narx": 22.0,
+  "model": "РВ-1 200х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 44,
+  "usd_ustun": 22,
+  "narx": 23.0,
+  "model": "РВ-1 200х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 45,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВ-1 200х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 46,
+  "usd_ustun": 22,
+  "narx": 26.0,
+  "model": "РВ-1 200х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 47,
+  "usd_ustun": 22,
+  "narx": 27.0,
+  "model": "РВ-1 200х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 48,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 200х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 49,
+  "usd_ustun": 22,
+  "narx": 29.0,
+  "model": "РВ-1 200х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 51,
+  "usd_ustun": 22,
+  "narx": 11.0,
+  "model": "РВ-1 250х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 52,
+  "usd_ustun": 22,
+  "narx": 12.0,
+  "model": "РВ-1 250х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 53,
+  "usd_ustun": 22,
+  "narx": 14.0,
+  "model": "РВ-1 250х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 54,
+  "usd_ustun": 22,
+  "narx": 15.0,
+  "model": "РВ-1 250х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 55,
+  "usd_ustun": 22,
+  "narx": 16.0,
+  "model": "РВ-1 250х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 56,
+  "usd_ustun": 22,
+  "narx": 17.0,
+  "model": "РВ-1 250х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 57,
+  "usd_ustun": 22,
+  "narx": 18.0,
+  "model": "РВ-1 250х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 58,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВ-1 250х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 59,
+  "usd_ustun": 22,
+  "narx": 20.0,
+  "model": "РВ-1 250х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 60,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 250х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 61,
+  "usd_ustun": 22,
+  "narx": 23.0,
+  "model": "РВ-1 250х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 62,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВ-1 250х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 63,
+  "usd_ustun": 22,
+  "narx": 25.0,
+  "model": "РВ-1 250х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 64,
+  "usd_ustun": 22,
+  "narx": 26.0,
+  "model": "РВ-1 250х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 65,
+  "usd_ustun": 22,
+  "narx": 27.0,
+  "model": "РВ-1 250х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 66,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 250х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 67,
+  "usd_ustun": 22,
+  "narx": 30.0,
+  "model": "РВ-1 250х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 68,
+  "usd_ustun": 22,
+  "narx": 31.0,
+  "model": "РВ-1 250х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 69,
+  "usd_ustun": 22,
+  "narx": 10.0,
+  "model": "РВ-1 300х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 70,
+  "usd_ustun": 22,
+  "narx": 12.0,
+  "model": "РВ-1 300х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 71,
+  "usd_ustun": 22,
+  "narx": 13.0,
+  "model": "РВ-1 300х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 72,
+  "usd_ustun": 22,
+  "narx": 14.0,
+  "model": "РВ-1 300х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 73,
+  "usd_ustun": 22,
+  "narx": 15.0,
+  "model": "РВ-1 300х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 74,
+  "usd_ustun": 22,
+  "narx": 17.0,
+  "model": "РВ-1 300х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 75,
+  "usd_ustun": 22,
+  "narx": 18.0,
+  "model": "РВ-1 300х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 76,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВ-1 300х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 77,
+  "usd_ustun": 22,
+  "narx": 20.0,
+  "model": "РВ-1 300х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 78,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 300х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 79,
+  "usd_ustun": 22,
+  "narx": 23.0,
+  "model": "РВ-1 300х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 80,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВ-1 300х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 81,
+  "usd_ustun": 22,
+  "narx": 25.0,
+  "model": "РВ-1 300х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 82,
+  "usd_ustun": 22,
+  "narx": 26.0,
+  "model": "РВ-1 300х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 83,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 300х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 84,
+  "usd_ustun": 22,
+  "narx": 29.0,
+  "model": "РВ-1 300х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 85,
+  "usd_ustun": 22,
+  "narx": 30.0,
+  "model": "РВ-1 300х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 86,
+  "usd_ustun": 22,
+  "narx": 31.0,
+  "model": "РВ-1 300х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 87,
+  "usd_ustun": 22,
+  "narx": 33.0,
+  "model": "РВ-1 300х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 88,
+  "usd_ustun": 22,
+  "narx": 11.0,
+  "model": "РВ-1 400х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 89,
+  "usd_ustun": 22,
+  "narx": 13.0,
+  "model": "РВ-1 400х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 90,
+  "usd_ustun": 22,
+  "narx": 14.0,
+  "model": "РВ-1 400х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 91,
+  "usd_ustun": 22,
+  "narx": 16.0,
+  "model": "РВ-1 400х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 92,
+  "usd_ustun": 22,
+  "narx": 17.0,
+  "model": "РВ-1 400х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 93,
+  "usd_ustun": 22,
+  "narx": 18.0,
+  "model": "РВ-1 400х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 94,
+  "usd_ustun": 22,
+  "narx": 20.0,
+  "model": "РВ-1 400х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 95,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 400х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 96,
+  "usd_ustun": 22,
+  "narx": 22.0,
+  "model": "РВ-1 400х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 97,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВ-1 400х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 98,
+  "usd_ustun": 22,
+  "narx": 25.0,
+  "model": "РВ-1 400х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 99,
+  "usd_ustun": 22,
+  "narx": 27.0,
+  "model": "РВ-1 400х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 100,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 400х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 101,
+  "usd_ustun": 22,
+  "narx": 29.0,
+  "model": "РВ-1 400х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 102,
+  "usd_ustun": 22,
+  "narx": 31.0,
+  "model": "РВ-1 400х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 103,
+  "usd_ustun": 22,
+  "narx": 32.0,
+  "model": "РВ-1 400х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 104,
+  "usd_ustun": 22,
+  "narx": 34.0,
+  "model": "РВ-1 400х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 105,
+  "usd_ustun": 22,
+  "narx": 35.0,
+  "model": "РВ-1 400х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 106,
+  "usd_ustun": 22,
+  "narx": 36.0,
+  "model": "РВ-1 400х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 107,
+  "usd_ustun": 22,
+  "narx": 12.0,
+  "model": "РВ-1 450х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 108,
+  "usd_ustun": 22,
+  "narx": 13.0,
+  "model": "РВ-1 450х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 109,
+  "usd_ustun": 22,
+  "narx": 15.0,
+  "model": "РВ-1 450х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 110,
+  "usd_ustun": 22,
+  "narx": 16.0,
+  "model": "РВ-1 450х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 111,
+  "usd_ustun": 22,
+  "narx": 18.0,
+  "model": "РВ-1 450х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 112,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВ-1 450х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 113,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 450х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 114,
+  "usd_ustun": 22,
+  "narx": 22.0,
+  "model": "РВ-1 450х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 115,
+  "usd_ustun": 22,
+  "narx": 23.0,
+  "model": "РВ-1 450х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 116,
+  "usd_ustun": 22,
+  "narx": 25.0,
+  "model": "РВ-1 450х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 117,
+  "usd_ustun": 22,
+  "narx": 26.0,
+  "model": "РВ-1 450х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 118,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 450х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 119,
+  "usd_ustun": 22,
+  "narx": 29.0,
+  "model": "РВ-1 450х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 120,
+  "usd_ustun": 22,
+  "narx": 31.0,
+  "model": "РВ-1 450х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 121,
+  "usd_ustun": 22,
+  "narx": 32.0,
+  "model": "РВ-1 450х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 122,
+  "usd_ustun": 22,
+  "narx": 34.0,
+  "model": "РВ-1 450х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 123,
+  "usd_ustun": 22,
+  "narx": 35.0,
+  "model": "РВ-1 450х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 124,
+  "usd_ustun": 22,
+  "narx": 37.0,
+  "model": "РВ-1 450х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 125,
+  "usd_ustun": 22,
+  "narx": 38.0,
+  "model": "РВ-1 450х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 126,
+  "usd_ustun": 22,
+  "narx": 12.0,
+  "model": "РВ-1 500х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 127,
+  "usd_ustun": 22,
+  "narx": 14.0,
+  "model": "РВ-1 500х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 128,
+  "usd_ustun": 22,
+  "narx": 15.0,
+  "model": "РВ-1 500х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 129,
+  "usd_ustun": 22,
+  "narx": 17.0,
+  "model": "РВ-1 500х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 130,
+  "usd_ustun": 22,
+  "narx": 18.0,
+  "model": "РВ-1 500х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 131,
+  "usd_ustun": 22,
+  "narx": 20.0,
+  "model": "РВ-1 500х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 132,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 500х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 133,
+  "usd_ustun": 22,
+  "narx": 23.0,
+  "model": "РВ-1 500х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 134,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВ-1 500х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 135,
+  "usd_ustun": 22,
+  "narx": 26.0,
+  "model": "РВ-1 500х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 136,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 500х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 137,
+  "usd_ustun": 22,
+  "narx": 29.0,
+  "model": "РВ-1 500х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 138,
+  "usd_ustun": 22,
+  "narx": 31.0,
+  "model": "РВ-1 500х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 139,
+  "usd_ustun": 22,
+  "narx": 32.0,
+  "model": "РВ-1 500х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 140,
+  "usd_ustun": 22,
+  "narx": 34.0,
+  "model": "РВ-1 500х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 141,
+  "usd_ustun": 22,
+  "narx": 35.0,
+  "model": "РВ-1 500х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 142,
+  "usd_ustun": 22,
+  "narx": 37.0,
+  "model": "РВ-1 500х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 143,
+  "usd_ustun": 22,
+  "narx": 39.0,
+  "model": "РВ-1 500х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 144,
+  "usd_ustun": 22,
+  "narx": 40.0,
+  "model": "РВ-1 500х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 145,
+  "usd_ustun": 22,
+  "narx": 12.0,
+  "model": "РВ-1 550х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 146,
+  "usd_ustun": 22,
+  "narx": 14.0,
+  "model": "РВ-1 550х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 147,
+  "usd_ustun": 22,
+  "narx": 16.0,
+  "model": "РВ-1 550х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 148,
+  "usd_ustun": 22,
+  "narx": 17.0,
+  "model": "РВ-1 550х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 149,
+  "usd_ustun": 22,
+  "narx": 25.0,
+  "model": "РВ-1 550х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 150,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 550х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 151,
+  "usd_ustun": 22,
+  "narx": 22.0,
+  "model": "РВ-1 550х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 152,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВ-1 550х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 153,
+  "usd_ustun": 22,
+  "narx": 25.0,
+  "model": "РВ-1 550х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 154,
+  "usd_ustun": 22,
+  "narx": 27.0,
+  "model": "РВ-1 550х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 155,
+  "usd_ustun": 22,
+  "narx": 29.0,
+  "model": "РВ-1 550х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 156,
+  "usd_ustun": 22,
+  "narx": 30.0,
+  "model": "РВ-1 550х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 157,
+  "usd_ustun": 22,
+  "narx": 32.0,
+  "model": "РВ-1 550х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 158,
+  "usd_ustun": 22,
+  "narx": 34.0,
+  "model": "РВ-1 550х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 159,
+  "usd_ustun": 22,
+  "narx": 35.0,
+  "model": "РВ-1 550х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 160,
+  "usd_ustun": 22,
+  "narx": 37.0,
+  "model": "РВ-1 550х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 161,
+  "usd_ustun": 22,
+  "narx": 39.0,
+  "model": "РВ-1 550х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 162,
+  "usd_ustun": 22,
+  "narx": 40.0,
+  "model": "РВ-1 550х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 163,
+  "usd_ustun": 22,
+  "narx": 42.0,
+  "model": "РВ-1 550х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 164,
+  "usd_ustun": 22,
+  "narx": 13.0,
+  "model": "РВ-1 600х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 165,
+  "usd_ustun": 22,
+  "narx": 15.0,
+  "model": "РВ-1 600х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 166,
+  "usd_ustun": 22,
+  "narx": 16.0,
+  "model": "РВ-1 600х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 167,
+  "usd_ustun": 22,
+  "narx": 18.0,
+  "model": "РВ-1 600х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 168,
+  "usd_ustun": 22,
+  "narx": 20.0,
+  "model": "РВ-1 600х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 169,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 600х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 170,
+  "usd_ustun": 22,
+  "narx": 23.0,
+  "model": "РВ-1 600х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 171,
+  "usd_ustun": 22,
+  "narx": 25.0,
+  "model": "РВ-1 600х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 172,
+  "usd_ustun": 22,
+  "narx": 27.0,
+  "model": "РВ-1 600х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 173,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 600х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 174,
+  "usd_ustun": 22,
+  "narx": 30.0,
+  "model": "РВ-1 600х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 175,
+  "usd_ustun": 22,
+  "narx": 32.0,
+  "model": "РВ-1 600х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 176,
+  "usd_ustun": 22,
+  "narx": 34.0,
+  "model": "РВ-1 600х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 177,
+  "usd_ustun": 22,
+  "narx": 35.0,
+  "model": "РВ-1 600х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 178,
+  "usd_ustun": 22,
+  "narx": 37.0,
+  "model": "РВ-1 600х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 179,
+  "usd_ustun": 22,
+  "narx": 39.0,
+  "model": "РВ-1 600х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 180,
+  "usd_ustun": 22,
+  "narx": 41.0,
+  "model": "РВ-1 600х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 181,
+  "usd_ustun": 22,
+  "narx": 42.0,
+  "model": "РВ-1 600х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 182,
+  "usd_ustun": 22,
+  "narx": 44.0,
+  "model": "РВ-1 600х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 183,
+  "usd_ustun": 22,
+  "narx": 13.0,
+  "model": "РВ-1 650х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 184,
+  "usd_ustun": 22,
+  "narx": 15.0,
+  "model": "РВ-1 650х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 185,
+  "usd_ustun": 22,
+  "narx": 17.0,
+  "model": "РВ-1 650х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 186,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВ-1 650х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 187,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 650х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 188,
+  "usd_ustun": 22,
+  "narx": 22.0,
+  "model": "РВ-1 650х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 189,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВ-1 650х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 190,
+  "usd_ustun": 22,
+  "narx": 26.0,
+  "model": "РВ-1 650х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 191,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 650х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 192,
+  "usd_ustun": 22,
+  "narx": 29.0,
+  "model": "РВ-1 650х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 193,
+  "usd_ustun": 22,
+  "narx": 31.0,
+  "model": "РВ-1 650х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 194,
+  "usd_ustun": 22,
+  "narx": 33.0,
+  "model": "РВ-1 650х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 196,
+  "usd_ustun": 22,
+  "narx": 37.0,
+  "model": "РВ-1 650х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 197,
+  "usd_ustun": 22,
+  "narx": 39.0,
+  "model": "РВ-1 650х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 198,
+  "usd_ustun": 22,
+  "narx": 40.0,
+  "model": "РВ-1 650х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 199,
+  "usd_ustun": 22,
+  "narx": 42.0,
+  "model": "РВ-1 650х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 200,
+  "usd_ustun": 22,
+  "narx": 44.0,
+  "model": "РВ-1 650х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 201,
+  "usd_ustun": 22,
+  "narx": 46.0,
+  "model": "РВ-1 650х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 202,
+  "usd_ustun": 22,
+  "narx": 14.0,
+  "model": "РВ-1 700х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 203,
+  "usd_ustun": 22,
+  "narx": 16.0,
+  "model": "РВ-1 700х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 204,
+  "usd_ustun": 22,
+  "narx": 18.0,
+  "model": "РВ-1 700х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 205,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВ-1 700х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 206,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 700х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 207,
+  "usd_ustun": 22,
+  "narx": 23.0,
+  "model": "РВ-1 700х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 208,
+  "usd_ustun": 22,
+  "narx": 25.0,
+  "model": "РВ-1 700х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 209,
+  "usd_ustun": 22,
+  "narx": 27.0,
+  "model": "РВ-1 700х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 210,
+  "usd_ustun": 22,
+  "narx": 29.0,
+  "model": "РВ-1 700х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 211,
+  "usd_ustun": 22,
+  "narx": 31.0,
+  "model": "РВ-1 700х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 212,
+  "usd_ustun": 22,
+  "narx": 33.0,
+  "model": "РВ-1 700х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 213,
+  "usd_ustun": 22,
+  "narx": 34.0,
+  "model": "РВ-1 700х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 214,
+  "usd_ustun": 22,
+  "narx": 36.0,
+  "model": "РВ-1 700х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 215,
+  "usd_ustun": 22,
+  "narx": 38.0,
+  "model": "РВ-1 700х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 216,
+  "usd_ustun": 22,
+  "narx": 40.0,
+  "model": "РВ-1 700х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 217,
+  "usd_ustun": 22,
+  "narx": 42.0,
+  "model": "РВ-1 700х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 218,
+  "usd_ustun": 22,
+  "narx": 44.0,
+  "model": "РВ-1 700х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 219,
+  "usd_ustun": 22,
+  "narx": 46.0,
+  "model": "РВ-1 700х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 220,
+  "usd_ustun": 22,
+  "narx": 48.0,
+  "model": "РВ-1 700х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 221,
+  "usd_ustun": 22,
+  "narx": 14.0,
+  "model": "РВ-1 750х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 222,
+  "usd_ustun": 22,
+  "narx": 16.0,
+  "model": "РВ-1 750х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 223,
+  "usd_ustun": 22,
+  "narx": 18.0,
+  "model": "РВ-1 750х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 224,
+  "usd_ustun": 22,
+  "narx": 20.0,
+  "model": "РВ-1 750х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 225,
+  "usd_ustun": 22,
+  "narx": 22.0,
+  "model": "РВ-1 750х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 226,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВ-1 750х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 227,
+  "usd_ustun": 22,
+  "narx": 26.0,
+  "model": "РВ-1 750х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 228,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 750х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 229,
+  "usd_ustun": 22,
+  "narx": 30.0,
+  "model": "РВ-1 750х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 230,
+  "usd_ustun": 22,
+  "narx": 32.0,
+  "model": "РВ-1 750х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 231,
+  "usd_ustun": 22,
+  "narx": 34.0,
+  "model": "РВ-1 750х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 232,
+  "usd_ustun": 22,
+  "narx": 36.0,
+  "model": "РВ-1 750х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 233,
+  "usd_ustun": 22,
+  "narx": 38.0,
+  "model": "РВ-1 750х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 234,
+  "usd_ustun": 22,
+  "narx": 40.0,
+  "model": "РВ-1 750х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 235,
+  "usd_ustun": 22,
+  "narx": 42.0,
+  "model": "РВ-1 750х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 236,
+  "usd_ustun": 22,
+  "narx": 44.0,
+  "model": "РВ-1 750х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 237,
+  "usd_ustun": 22,
+  "narx": 46.0,
+  "model": "РВ-1 750х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 238,
+  "usd_ustun": 22,
+  "narx": 48.0,
+  "model": "РВ-1 750х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 239,
+  "usd_ustun": 22,
+  "narx": 50.0,
+  "model": "РВ-1 750х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 240,
+  "usd_ustun": 22,
+  "narx": 16.0,
+  "model": "РВ-1 800х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 241,
+  "usd_ustun": 22,
+  "narx": 18.0,
+  "model": "РВ-1 800х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 242,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 800х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 243,
+  "usd_ustun": 22,
+  "narx": 23.0,
+  "model": "РВ-1 800х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 244,
+  "usd_ustun": 22,
+  "narx": 25.0,
+  "model": "РВ-1 800х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 245,
+  "usd_ustun": 22,
+  "narx": 27.0,
+  "model": "РВ-1 800х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 246,
+  "usd_ustun": 22,
+  "narx": 30.0,
+  "model": "РВ-1 800х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 247,
+  "usd_ustun": 22,
+  "narx": 32.0,
+  "model": "РВ-1 800х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 248,
+  "usd_ustun": 22,
+  "narx": 34.0,
+  "model": "РВ-1 800х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 249,
+  "usd_ustun": 22,
+  "narx": 36.0,
+  "model": "РВ-1 800х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 250,
+  "usd_ustun": 22,
+  "narx": 38.0,
+  "model": "РВ-1 800х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 251,
+  "usd_ustun": 22,
+  "narx": 41.0,
+  "model": "РВ-1 800х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 252,
+  "usd_ustun": 22,
+  "narx": 43.0,
+  "model": "РВ-1 800х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 253,
+  "usd_ustun": 22,
+  "narx": 45.0,
+  "model": "РВ-1 800х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 254,
+  "usd_ustun": 22,
+  "narx": 48.0,
+  "model": "РВ-1 800х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 255,
+  "usd_ustun": 22,
+  "narx": 50.0,
+  "model": "РВ-1 800х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 256,
+  "usd_ustun": 22,
+  "narx": 52.0,
+  "model": "РВ-1 800х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 257,
+  "usd_ustun": 22,
+  "narx": 54.0,
+  "model": "РВ-1 800х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 258,
+  "usd_ustun": 22,
+  "narx": 57.0,
+  "model": "РВ-1 800х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 259,
+  "usd_ustun": 22,
+  "narx": 17.0,
+  "model": "РВ-1 850х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 260,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВ-1 850х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 261,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 850х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 262,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВ-1 850х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 263,
+  "usd_ustun": 22,
+  "narx": 26.0,
+  "model": "РВ-1 850х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 264,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 850х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 265,
+  "usd_ustun": 22,
+  "narx": 30.0,
+  "model": "РВ-1 850х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 266,
+  "usd_ustun": 22,
+  "narx": 33.0,
+  "model": "РВ-1 850х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 267,
+  "usd_ustun": 22,
+  "narx": 35.0,
+  "model": "РВ-1 850х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 268,
+  "usd_ustun": 22,
+  "narx": 37.0,
+  "model": "РВ-1 850х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 269,
+  "usd_ustun": 22,
+  "narx": 40.0,
+  "model": "РВ-1 850х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 270,
+  "usd_ustun": 22,
+  "narx": 42.0,
+  "model": "РВ-1 850х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 271,
+  "usd_ustun": 22,
+  "narx": 44.0,
+  "model": "РВ-1 850х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 272,
+  "usd_ustun": 22,
+  "narx": 47.0,
+  "model": "РВ-1 850х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 273,
+  "usd_ustun": 22,
+  "narx": 49.0,
+  "model": "РВ-1 850х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 274,
+  "usd_ustun": 22,
+  "narx": 52.0,
+  "model": "РВ-1 850х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 275,
+  "usd_ustun": 22,
+  "narx": 54.0,
+  "model": "РВ-1 850х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 276,
+  "usd_ustun": 22,
+  "narx": 56.0,
+  "model": "РВ-1 850х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 277,
+  "usd_ustun": 22,
+  "narx": 59.0,
+  "model": "РВ-1 850х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 278,
+  "usd_ustun": 22,
+  "narx": 17.0,
+  "model": "РВ-1 900х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 279,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВ-1 900х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 280,
+  "usd_ustun": 22,
+  "narx": 22.0,
+  "model": "РВ-1 900х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 281,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВ-1 900х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 282,
+  "usd_ustun": 22,
+  "narx": 27.0,
+  "model": "РВ-1 900х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 283,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 900х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 284,
+  "usd_ustun": 22,
+  "narx": 31.0,
+  "model": "РВ-1 900х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 285,
+  "usd_ustun": 22,
+  "narx": 34.0,
+  "model": "РВ-1 900х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 286,
+  "usd_ustun": 22,
+  "narx": 36.0,
+  "model": "РВ-1 900х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 287,
+  "usd_ustun": 22,
+  "narx": 38.0,
+  "model": "РВ-1 900х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 288,
+  "usd_ustun": 22,
+  "narx": 41.0,
+  "model": "РВ-1 900х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 289,
+  "usd_ustun": 22,
+  "narx": 43.0,
+  "model": "РВ-1 900х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 290,
+  "usd_ustun": 22,
+  "narx": 46.0,
+  "model": "РВ-1 900х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 291,
+  "usd_ustun": 22,
+  "narx": 48.0,
+  "model": "РВ-1 900х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 292,
+  "usd_ustun": 22,
+  "narx": 51.0,
+  "model": "РВ-1 900х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 293,
+  "usd_ustun": 22,
+  "narx": 53.0,
+  "model": "РВ-1 900х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 294,
+  "usd_ustun": 22,
+  "narx": 56.0,
+  "model": "РВ-1 900х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 295,
+  "usd_ustun": 22,
+  "narx": 58.0,
+  "model": "РВ-1 900х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 296,
+  "usd_ustun": 22,
+  "narx": 61.0,
+  "model": "РВ-1 900х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 297,
+  "usd_ustun": 22,
+  "narx": 17.0,
+  "model": "РВ-1 950х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 298,
+  "usd_ustun": 22,
+  "narx": 20.0,
+  "model": "РВ-1 950х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 299,
+  "usd_ustun": 22,
+  "narx": 22.0,
+  "model": "РВ-1 950х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 300,
+  "usd_ustun": 22,
+  "narx": 25.0,
+  "model": "РВ-1 950х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 301,
+  "usd_ustun": 22,
+  "narx": 27.0,
+  "model": "РВ-1 950х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 302,
+  "usd_ustun": 22,
+  "narx": 30.0,
+  "model": "РВ-1 950х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 303,
+  "usd_ustun": 22,
+  "narx": 32.0,
+  "model": "РВ-1 950х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 304,
+  "usd_ustun": 22,
+  "narx": 35.0,
+  "model": "РВ-1 950х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 305,
+  "usd_ustun": 22,
+  "narx": 37.0,
+  "model": "РВ-1 950х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 306,
+  "usd_ustun": 22,
+  "narx": 40.0,
+  "model": "РВ-1 950х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 307,
+  "usd_ustun": 22,
+  "narx": 42.0,
+  "model": "РВ-1 950х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 308,
+  "usd_ustun": 22,
+  "narx": 45.0,
+  "model": "РВ-1 950х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 309,
+  "usd_ustun": 22,
+  "narx": 47.0,
+  "model": "РВ-1 950х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 310,
+  "usd_ustun": 22,
+  "narx": 50.0,
+  "model": "РВ-1 950х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 311,
+  "usd_ustun": 22,
+  "narx": 52.0,
+  "model": "РВ-1 950х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 312,
+  "usd_ustun": 22,
+  "narx": 55.0,
+  "model": "РВ-1 950х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 313,
+  "usd_ustun": 22,
+  "narx": 57.0,
+  "model": "РВ-1 950х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 314,
+  "usd_ustun": 22,
+  "narx": 60.0,
+  "model": "РВ-1 950х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 315,
+  "usd_ustun": 22,
+  "narx": 62.0,
+  "model": "РВ-1 950х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 316,
+  "usd_ustun": 22,
+  "narx": 18.0,
+  "model": "РВ-1 1000х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 317,
+  "usd_ustun": 22,
+  "narx": 20.0,
+  "model": "РВ-1 1000х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 318,
+  "usd_ustun": 22,
+  "narx": 23.0,
+  "model": "РВ-1 1000х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 319,
+  "usd_ustun": 22,
+  "narx": 26.0,
+  "model": "РВ-1 1000х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 320,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 1000х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 321,
+  "usd_ustun": 22,
+  "narx": 31.0,
+  "model": "РВ-1 1000х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 322,
+  "usd_ustun": 22,
+  "narx": 33.0,
+  "model": "РВ-1 1000х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 323,
+  "usd_ustun": 22,
+  "narx": 36.0,
+  "model": "РВ-1 1000х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 324,
+  "usd_ustun": 22,
+  "narx": 38.0,
+  "model": "РВ-1 1000х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 325,
+  "usd_ustun": 22,
+  "narx": 41.0,
+  "model": "РВ-1 1000х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 326,
+  "usd_ustun": 22,
+  "narx": 43.0,
+  "model": "РВ-1 1000х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 327,
+  "usd_ustun": 22,
+  "narx": 46.0,
+  "model": "РВ-1 1000х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 328,
+  "usd_ustun": 22,
+  "narx": 49.0,
+  "model": "РВ-1 1000х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 329,
+  "usd_ustun": 22,
+  "narx": 51.0,
+  "model": "РВ-1 1000х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 330,
+  "usd_ustun": 22,
+  "narx": 54.0,
+  "model": "РВ-1 1000х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 331,
+  "usd_ustun": 22,
+  "narx": 56.0,
+  "model": "РВ-1 1000х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 332,
+  "usd_ustun": 22,
+  "narx": 59.0,
+  "model": "РВ-1 1000х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 333,
+  "usd_ustun": 22,
+  "narx": 62.0,
+  "model": "РВ-1 1000х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 334,
+  "usd_ustun": 22,
+  "narx": 64.0,
+  "model": "РВ-1 1000х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 335,
+  "usd_ustun": 22,
+  "narx": 18.0,
+  "model": "РВ-1 1050х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 336,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 1050х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 337,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВ-1 1050х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 338,
+  "usd_ustun": 22,
+  "narx": 26.0,
+  "model": "РВ-1 1050х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 339,
+  "usd_ustun": 22,
+  "narx": 29.0,
+  "model": "РВ-1 1050х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 340,
+  "usd_ustun": 22,
+  "narx": 31.0,
+  "model": "РВ-1 1050х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 341,
+  "usd_ustun": 22,
+  "narx": 34.0,
+  "model": "РВ-1 1050х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 342,
+  "usd_ustun": 22,
+  "narx": 37.0,
+  "model": "РВ-1 1050х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 343,
+  "usd_ustun": 22,
+  "narx": 39.0,
+  "model": "РВ-1 1050х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 344,
+  "usd_ustun": 22,
+  "narx": 42.0,
+  "model": "РВ-1 1050х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 345,
+  "usd_ustun": 22,
+  "narx": 45.0,
+  "model": "РВ-1 1050х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 346,
+  "usd_ustun": 22,
+  "narx": 47.0,
+  "model": "РВ-1 1050х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 347,
+  "usd_ustun": 22,
+  "narx": 50.0,
+  "model": "РВ-1 1050х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 348,
+  "usd_ustun": 22,
+  "narx": 53.0,
+  "model": "РВ-1 1050х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 349,
+  "usd_ustun": 22,
+  "narx": 55.0,
+  "model": "РВ-1 1050х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 350,
+  "usd_ustun": 22,
+  "narx": 58.0,
+  "model": "РВ-1 1050х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 351,
+  "usd_ustun": 22,
+  "narx": 61.0,
+  "model": "РВ-1 1050х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 352,
+  "usd_ustun": 22,
+  "narx": 64.0,
+  "model": "РВ-1 1050х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 353,
+  "usd_ustun": 22,
+  "narx": 66.0,
+  "model": "РВ-1 1050х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 354,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВ-1 1100х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 355,
+  "usd_ustun": 22,
+  "narx": 21.0,
+  "model": "РВ-1 1100х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 356,
+  "usd_ustun": 22,
+  "narx": 24.0,
+  "model": "РВ-1 1100х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 357,
+  "usd_ustun": 22,
+  "narx": 27.0,
+  "model": "РВ-1 1100х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 358,
+  "usd_ustun": 22,
+  "narx": 30.0,
+  "model": "РВ-1 1100х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 359,
+  "usd_ustun": 22,
+  "narx": 32.0,
+  "model": "РВ-1 1100х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 360,
+  "usd_ustun": 22,
+  "narx": 35.0,
+  "model": "РВ-1 1100х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 361,
+  "usd_ustun": 22,
+  "narx": 38.0,
+  "model": "РВ-1 1100х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 362,
+  "usd_ustun": 22,
+  "narx": 40.0,
+  "model": "РВ-1 1100х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 363,
+  "usd_ustun": 22,
+  "narx": 43.0,
+  "model": "РВ-1 1100х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 364,
+  "usd_ustun": 22,
+  "narx": 46.0,
+  "model": "РВ-1 1100х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 365,
+  "usd_ustun": 22,
+  "narx": 49.0,
+  "model": "РВ-1 1100х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 366,
+  "usd_ustun": 22,
+  "narx": 51.0,
+  "model": "РВ-1 1100х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 367,
+  "usd_ustun": 22,
+  "narx": 54.0,
+  "model": "РВ-1 1100х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 368,
+  "usd_ustun": 22,
+  "narx": 57.0,
+  "model": "РВ-1 1100х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 369,
+  "usd_ustun": 22,
+  "narx": 60.0,
+  "model": "РВ-1 1100х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 370,
+  "usd_ustun": 22,
+  "narx": 63.0,
+  "model": "РВ-1 1100х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 371,
+  "usd_ustun": 22,
+  "narx": 65.0,
+  "model": "РВ-1 1100х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 372,
+  "usd_ustun": 22,
+  "narx": 68.0,
+  "model": "РВ-1 1100х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 373,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВ-1 1150х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 374,
+  "usd_ustun": 22,
+  "narx": 22.0,
+  "model": "РВ-1 1150х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 375,
+  "usd_ustun": 22,
+  "narx": 25.0,
+  "model": "РВ-1 1150х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 376,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 1150х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 377,
+  "usd_ustun": 22,
+  "narx": 30.0,
+  "model": "РВ-1 1150х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 378,
+  "usd_ustun": 22,
+  "narx": 33.0,
+  "model": "РВ-1 1150х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 379,
+  "usd_ustun": 22,
+  "narx": 36.0,
+  "model": "РВ-1 1150х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 380,
+  "usd_ustun": 22,
+  "narx": 39.0,
+  "model": "РВ-1 1150х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 381,
+  "usd_ustun": 22,
+  "narx": 41.0,
+  "model": "РВ-1 1150х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 382,
+  "usd_ustun": 22,
+  "narx": 44.0,
+  "model": "РВ-1 1150х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 383,
+  "usd_ustun": 22,
+  "narx": 47.0,
+  "model": "РВ-1 1150х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 384,
+  "usd_ustun": 22,
+  "narx": 50.0,
+  "model": "РВ-1 1150х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 385,
+  "usd_ustun": 22,
+  "narx": 53.0,
+  "model": "РВ-1 1150х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 386,
+  "usd_ustun": 22,
+  "narx": 56.0,
+  "model": "РВ-1 1150х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 387,
+  "usd_ustun": 22,
+  "narx": 59.0,
+  "model": "РВ-1 1150х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 388,
+  "usd_ustun": 22,
+  "narx": 61.0,
+  "model": "РВ-1 1150х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 389,
+  "usd_ustun": 22,
+  "narx": 64.0,
+  "model": "РВ-1 1150х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 390,
+  "usd_ustun": 22,
+  "narx": 67.0,
+  "model": "РВ-1 1150х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 391,
+  "usd_ustun": 22,
+  "narx": 70.0,
+  "model": "РВ-1 1150х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 392,
+  "usd_ustun": 22,
+  "narx": 19.0,
+  "model": "РВ-1 1200х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 393,
+  "usd_ustun": 22,
+  "narx": 22.0,
+  "model": "РВ-1 1200х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 394,
+  "usd_ustun": 22,
+  "narx": 25.0,
+  "model": "РВ-1 1200х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 395,
+  "usd_ustun": 22,
+  "narx": 28.0,
+  "model": "РВ-1 1200х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 396,
+  "usd_ustun": 22,
+  "narx": 31.0,
+  "model": "РВ-1 1200х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 397,
+  "usd_ustun": 22,
+  "narx": 34.0,
+  "model": "РВ-1 1200х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 398,
+  "usd_ustun": 22,
+  "narx": 37.0,
+  "model": "РВ-1 1200х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 399,
+  "usd_ustun": 22,
+  "narx": 40.0,
+  "model": "РВ-1 1200х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 400,
+  "usd_ustun": 22,
+  "narx": 42.0,
+  "model": "РВ-1 1200х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 401,
+  "usd_ustun": 22,
+  "narx": 45.0,
+  "model": "РВ-1 1200х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 402,
+  "usd_ustun": 22,
+  "narx": 48.0,
+  "model": "РВ-1 1200х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 403,
+  "usd_ustun": 22,
+  "narx": 51.0,
+  "model": "РВ-1 1200х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 404,
+  "usd_ustun": 22,
+  "narx": 54.0,
+  "model": "РВ-1 1200х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 405,
+  "usd_ustun": 22,
+  "narx": 57.0,
+  "model": "РВ-1 1200х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 406,
+  "usd_ustun": 22,
+  "narx": 60.0,
+  "model": "РВ-1 1200х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 407,
+  "usd_ustun": 22,
+  "narx": 63.0,
+  "model": "РВ-1 1200х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 408,
+  "usd_ustun": 22,
+  "narx": 66.0,
+  "model": "РВ-1 1200х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 409,
+  "usd_ustun": 22,
+  "narx": 69.0,
+  "model": "РВ-1 1200х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 410,
+  "usd_ustun": 22,
+  "narx": 72.0,
+  "model": "РВ-1 1200х1050"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 411,
+  "usd_ustun": 22,
+  "narx": 20.0,
+  "model": "РВ-1 1250х150"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 412,
+  "usd_ustun": 22,
+  "narx": 23.0,
+  "model": "РВ-1 1250х200"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 413,
+  "usd_ustun": 22,
+  "narx": 26.0,
+  "model": "РВ-1 1250х250"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 414,
+  "usd_ustun": 22,
+  "narx": 29.0,
+  "model": "РВ-1 1250х300"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 415,
+  "usd_ustun": 22,
+  "narx": 32.0,
+  "model": "РВ-1 1250х350"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 416,
+  "usd_ustun": 22,
+  "narx": 35.0,
+  "model": "РВ-1 1250х400"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 417,
+  "usd_ustun": 22,
+  "narx": 38.0,
+  "model": "РВ-1 1250х450"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 418,
+  "usd_ustun": 22,
+  "narx": 41.0,
+  "model": "РВ-1 1250х500"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 419,
+  "usd_ustun": 22,
+  "narx": 44.0,
+  "model": "РВ-1 1250х550"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 420,
+  "usd_ustun": 22,
+  "narx": 47.0,
+  "model": "РВ-1 1250х600"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 421,
+  "usd_ustun": 22,
+  "narx": 50.0,
+  "model": "РВ-1 1250х650"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 422,
+  "usd_ustun": 22,
+  "narx": 53.0,
+  "model": "РВ-1 1250х700"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 423,
+  "usd_ustun": 22,
+  "narx": 56.0,
+  "model": "РВ-1 1250х750"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 424,
+  "usd_ustun": 22,
+  "narx": 59.0,
+  "model": "РВ-1 1250х800"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 425,
+  "usd_ustun": 22,
+  "narx": 62.0,
+  "model": "РВ-1 1250х850"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 426,
+  "usd_ustun": 22,
+  "narx": 65.0,
+  "model": "РВ-1 1250х900"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 427,
+  "usd_ustun": 22,
+  "narx": 68.0,
+  "model": "РВ-1 1250х950"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 428,
+  "usd_ustun": 22,
+  "narx": 71.0,
+  "model": "РВ-1 1250х1000"
+ },
+ {
+  "varaq": "РВ-1",
+  "qator": 429,
+  "usd_ustun": 22,
+  "narx": 74.0,
+  "model": "РВ-1 1250х1050"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 12,
+  "usd_ustun": 16,
+  "narx": 7.0,
+  "model": "РВр-1 100х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 13,
+  "usd_ustun": 16,
+  "narx": 8.0,
+  "model": "РВр-1 100х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 14,
+  "usd_ustun": 16,
+  "narx": 9.0,
+  "model": "РВр-1 100х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 15,
+  "usd_ustun": 16,
+  "narx": 10.0,
+  "model": "РВр-1 100х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 16,
+  "usd_ustun": 16,
+  "narx": 11.0,
+  "model": "РВр-1 100х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 17,
+  "usd_ustun": 16,
+  "narx": 12.0,
+  "model": "РВр-1 100х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 18,
+  "usd_ustun": 16,
+  "narx": 13.0,
+  "model": "РВр-1 100х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 19,
+  "usd_ustun": 16,
+  "narx": 14.0,
+  "model": "РВр-1 100х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 20,
+  "usd_ustun": 16,
+  "narx": 15.0,
+  "model": "РВр-1 100х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 21,
+  "usd_ustun": 16,
+  "narx": 7.0,
+  "model": "РВр-1 150х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 22,
+  "usd_ustun": 16,
+  "narx": 8.0,
+  "model": "РВр-1 150х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 23,
+  "usd_ustun": 16,
+  "narx": 9.0,
+  "model": "РВр-1 150х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 24,
+  "usd_ustun": 16,
+  "narx": 10.0,
+  "model": "РВр-1 150х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 25,
+  "usd_ustun": 16,
+  "narx": 11.0,
+  "model": "РВр-1 150х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 26,
+  "usd_ustun": 16,
+  "narx": 12.0,
+  "model": "РВр-1 150х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 27,
+  "usd_ustun": 16,
+  "narx": 14.0,
+  "model": "РВр-1 150х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 28,
+  "usd_ustun": 16,
+  "narx": 15.0,
+  "model": "РВр-1 150х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 29,
+  "usd_ustun": 16,
+  "narx": 16.0,
+  "model": "РВр-1 150х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 30,
+  "usd_ustun": 16,
+  "narx": 8.0,
+  "model": "РВр-1 200х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 31,
+  "usd_ustun": 16,
+  "narx": 9.0,
+  "model": "РВр-1 200х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 32,
+  "usd_ustun": 16,
+  "narx": 10.0,
+  "model": "РВр-1 200х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 33,
+  "usd_ustun": 16,
+  "narx": 11.0,
+  "model": "РВр-1 200х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 34,
+  "usd_ustun": 16,
+  "narx": 12.0,
+  "model": "РВр-1 200х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 35,
+  "usd_ustun": 16,
+  "narx": 13.0,
+  "model": "РВр-1 200х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 36,
+  "usd_ustun": 16,
+  "narx": 14.0,
+  "model": "РВр-1 200х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 37,
+  "usd_ustun": 16,
+  "narx": 16.0,
+  "model": "РВр-1 200х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 38,
+  "usd_ustun": 16,
+  "narx": 16.0,
+  "model": "РВр-1 200х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 39,
+  "usd_ustun": 16,
+  "narx": 8.0,
+  "model": "РВр-1 250х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 40,
+  "usd_ustun": 16,
+  "narx": 9.0,
+  "model": "РВр-1 250х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 41,
+  "usd_ustun": 16,
+  "narx": 10.0,
+  "model": "РВр-1 250х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 42,
+  "usd_ustun": 16,
+  "narx": 12.0,
+  "model": "РВр-1 250х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 43,
+  "usd_ustun": 16,
+  "narx": 13.0,
+  "model": "РВр-1 250х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 44,
+  "usd_ustun": 16,
+  "narx": 14.0,
+  "model": "РВр-1 250х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 45,
+  "usd_ustun": 16,
+  "narx": 15.0,
+  "model": "РВр-1 250х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 46,
+  "usd_ustun": 16,
+  "narx": 16.0,
+  "model": "РВр-1 250х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 47,
+  "usd_ustun": 16,
+  "narx": 17.0,
+  "model": "РВр-1 250х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 48,
+  "usd_ustun": 16,
+  "narx": 8.0,
+  "model": "РВр-1 300х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 49,
+  "usd_ustun": 16,
+  "narx": 10.0,
+  "model": "РВр-1 300х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 50,
+  "usd_ustun": 16,
+  "narx": 11.0,
+  "model": "РВр-1 300х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 51,
+  "usd_ustun": 16,
+  "narx": 12.0,
+  "model": "РВр-1 300х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 52,
+  "usd_ustun": 16,
+  "narx": 13.0,
+  "model": "РВр-1 300х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 53,
+  "usd_ustun": 16,
+  "narx": 14.0,
+  "model": "РВр-1 300х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 54,
+  "usd_ustun": 16,
+  "narx": 16.0,
+  "model": "РВр-1 300х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 55,
+  "usd_ustun": 16,
+  "narx": 17.0,
+  "model": "РВр-1 300х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 56,
+  "usd_ustun": 16,
+  "narx": 18.0,
+  "model": "РВр-1 300х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 57,
+  "usd_ustun": 16,
+  "narx": 9.0,
+  "model": "РВр-1 350х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 58,
+  "usd_ustun": 16,
+  "narx": 10.0,
+  "model": "РВр-1 350х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 59,
+  "usd_ustun": 16,
+  "narx": 11.0,
+  "model": "РВр-1 350х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 60,
+  "usd_ustun": 16,
+  "narx": 13.0,
+  "model": "РВр-1 350х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 61,
+  "usd_ustun": 16,
+  "narx": 14.0,
+  "model": "РВр-1 350х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 62,
+  "usd_ustun": 16,
+  "narx": 15.0,
+  "model": "РВр-1 350х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 63,
+  "usd_ustun": 16,
+  "narx": 16.0,
+  "model": "РВр-1 350х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 64,
+  "usd_ustun": 16,
+  "narx": 18.0,
+  "model": "РВр-1 350х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 65,
+  "usd_ustun": 16,
+  "narx": 19.0,
+  "model": "РВр-1 350х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 66,
+  "usd_ustun": 16,
+  "narx": 9.0,
+  "model": "РВр-1 400х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 67,
+  "usd_ustun": 16,
+  "narx": 10.0,
+  "model": "РВр-1 400х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 68,
+  "usd_ustun": 16,
+  "narx": 12.0,
+  "model": "РВр-1 400х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 69,
+  "usd_ustun": 16,
+  "narx": 13.0,
+  "model": "РВр-1 400х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 70,
+  "usd_ustun": 16,
+  "narx": 14.0,
+  "model": "РВр-1 400х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 71,
+  "usd_ustun": 16,
+  "narx": 16.0,
+  "model": "РВр-1 400х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 72,
+  "usd_ustun": 16,
+  "narx": 17.0,
+  "model": "РВр-1 400х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 73,
+  "usd_ustun": 16,
+  "narx": 18.0,
+  "model": "РВр-1 400х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 74,
+  "usd_ustun": 16,
+  "narx": 20.0,
+  "model": "РВр-1 400х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 75,
+  "usd_ustun": 16,
+  "narx": 9.0,
+  "model": "РВр-1 450х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 76,
+  "usd_ustun": 16,
+  "narx": 11.0,
+  "model": "РВр-1 450х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 77,
+  "usd_ustun": 16,
+  "narx": 12.0,
+  "model": "РВр-1 450х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 78,
+  "usd_ustun": 16,
+  "narx": 14.0,
+  "model": "РВр-1 450х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 79,
+  "usd_ustun": 16,
+  "narx": 15.0,
+  "model": "РВр-1 450х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 80,
+  "usd_ustun": 16,
+  "narx": 16.0,
+  "model": "РВр-1 450х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 81,
+  "usd_ustun": 16,
+  "narx": 18.0,
+  "model": "РВр-1 450х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 82,
+  "usd_ustun": 16,
+  "narx": 19.0,
+  "model": "РВр-1 450х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 83,
+  "usd_ustun": 16,
+  "narx": 20.0,
+  "model": "РВр-1 450х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 84,
+  "usd_ustun": 16,
+  "narx": 10.0,
+  "model": "РВр-1 500х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 85,
+  "usd_ustun": 16,
+  "narx": 11.0,
+  "model": "РВр-1 500х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 86,
+  "usd_ustun": 16,
+  "narx": 13.0,
+  "model": "РВр-1 500х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 87,
+  "usd_ustun": 16,
+  "narx": 14.0,
+  "model": "РВр-1 500х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 88,
+  "usd_ustun": 16,
+  "narx": 16.0,
+  "model": "РВр-1 500х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 89,
+  "usd_ustun": 16,
+  "narx": 17.0,
+  "model": "РВр-1 500х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 90,
+  "usd_ustun": 16,
+  "narx": 19.0,
+  "model": "РВр-1 500х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 91,
+  "usd_ustun": 16,
+  "narx": 20.0,
+  "model": "РВр-1 500х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 92,
+  "usd_ustun": 16,
+  "narx": 24.0,
+  "model": "РВр-1 500х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 12,
+  "usd_ustun": 28,
+  "narx": 13.0,
+  "model": "РВр-1 100х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 13,
+  "usd_ustun": 28,
+  "narx": 15.0,
+  "model": "РВр-1 100х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 14,
+  "usd_ustun": 28,
+  "narx": 17.0,
+  "model": "РВр-1 100х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 15,
+  "usd_ustun": 28,
+  "narx": 19.0,
+  "model": "РВр-1 100х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 16,
+  "usd_ustun": 28,
+  "narx": 21.0,
+  "model": "РВр-1 100х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 17,
+  "usd_ustun": 28,
+  "narx": 23.0,
+  "model": "РВр-1 100х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 18,
+  "usd_ustun": 28,
+  "narx": 25.0,
+  "model": "РВр-1 100х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 19,
+  "usd_ustun": 28,
+  "narx": 27.0,
+  "model": "РВр-1 100х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 20,
+  "usd_ustun": 28,
+  "narx": 28.0,
+  "model": "РВр-1 100х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 21,
+  "usd_ustun": 28,
+  "narx": 14.0,
+  "model": "РВр-1 150х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 22,
+  "usd_ustun": 28,
+  "narx": 10.0,
+  "model": "РВр-1 150х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 23,
+  "usd_ustun": 28,
+  "narx": 18.0,
+  "model": "РВр-1 150х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 24,
+  "usd_ustun": 28,
+  "narx": 21.0,
+  "model": "РВр-1 150х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 25,
+  "usd_ustun": 28,
+  "narx": 23.0,
+  "model": "РВр-1 150х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 26,
+  "usd_ustun": 28,
+  "narx": 25.0,
+  "model": "РВр-1 150х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 27,
+  "usd_ustun": 28,
+  "narx": 27.0,
+  "model": "РВр-1 150х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 28,
+  "usd_ustun": 28,
+  "narx": 29.0,
+  "model": "РВр-1 150х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 29,
+  "usd_ustun": 28,
+  "narx": 31.0,
+  "model": "РВр-1 150х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 30,
+  "usd_ustun": 28,
+  "narx": 15.0,
+  "model": "РВр-1 200х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 31,
+  "usd_ustun": 28,
+  "narx": 17.0,
+  "model": "РВр-1 200х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 32,
+  "usd_ustun": 28,
+  "narx": 19.0,
+  "model": "РВр-1 200х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 33,
+  "usd_ustun": 28,
+  "narx": 22.0,
+  "model": "РВр-1 200х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 34,
+  "usd_ustun": 28,
+  "narx": 24.0,
+  "model": "РВр-1 200х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 35,
+  "usd_ustun": 28,
+  "narx": 26.0,
+  "model": "РВр-1 200х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 36,
+  "usd_ustun": 28,
+  "narx": 29.0,
+  "model": "РВр-1 200х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 37,
+  "usd_ustun": 28,
+  "narx": 33.0,
+  "model": "РВр-1 200х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 38,
+  "usd_ustun": 28,
+  "narx": 33.0,
+  "model": "РВр-1 200х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 39,
+  "usd_ustun": 28,
+  "narx": 16.0,
+  "model": "РВр-1 250х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 40,
+  "usd_ustun": 28,
+  "narx": 18.0,
+  "model": "РВр-1 250х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 41,
+  "usd_ustun": 28,
+  "narx": 21.0,
+  "model": "РВр-1 250х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 42,
+  "usd_ustun": 28,
+  "narx": 24.0,
+  "model": "РВр-1 250х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 43,
+  "usd_ustun": 28,
+  "narx": 26.0,
+  "model": "РВр-1 250х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 44,
+  "usd_ustun": 28,
+  "narx": 28.0,
+  "model": "РВр-1 250х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 45,
+  "usd_ustun": 28,
+  "narx": 31.0,
+  "model": "РВр-1 250х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 46,
+  "usd_ustun": 28,
+  "narx": 34.0,
+  "model": "РВр-1 250х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 47,
+  "usd_ustun": 28,
+  "narx": 36.0,
+  "model": "РВр-1 250х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 48,
+  "usd_ustun": 28,
+  "narx": 17.0,
+  "model": "РВр-1 300х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 49,
+  "usd_ustun": 28,
+  "narx": 19.0,
+  "model": "РВр-1 300х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 50,
+  "usd_ustun": 28,
+  "narx": 22.0,
+  "model": "РВр-1 300х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 51,
+  "usd_ustun": 28,
+  "narx": 25.0,
+  "model": "РВр-1 300х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 52,
+  "usd_ustun": 28,
+  "narx": 19.0,
+  "model": "РВр-1 300х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 53,
+  "usd_ustun": 28,
+  "narx": 30.0,
+  "model": "РВр-1 300х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 54,
+  "usd_ustun": 28,
+  "narx": 33.0,
+  "model": "РВр-1 300х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 55,
+  "usd_ustun": 28,
+  "narx": 35.0,
+  "model": "РВр-1 300х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 56,
+  "usd_ustun": 28,
+  "narx": 38.0,
+  "model": "РВр-1 300х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 57,
+  "usd_ustun": 28,
+  "narx": 18.0,
+  "model": "РВр-1 350х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 58,
+  "usd_ustun": 28,
+  "narx": 21.0,
+  "model": "РВр-1 350х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 59,
+  "usd_ustun": 28,
+  "narx": 24.0,
+  "model": "РВр-1 350х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 60,
+  "usd_ustun": 28,
+  "narx": 26.0,
+  "model": "РВр-1 350х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 61,
+  "usd_ustun": 28,
+  "narx": 29.0,
+  "model": "РВр-1 350х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 62,
+  "usd_ustun": 28,
+  "narx": 32.0,
+  "model": "РВр-1 350х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 63,
+  "usd_ustun": 28,
+  "narx": 35.0,
+  "model": "РВр-1 350х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 64,
+  "usd_ustun": 28,
+  "narx": 38.0,
+  "model": "РВр-1 350х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 65,
+  "usd_ustun": 28,
+  "narx": 40.0,
+  "model": "РВр-1 350х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 66,
+  "usd_ustun": 28,
+  "narx": 18.0,
+  "model": "РВр-1 400х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 67,
+  "usd_ustun": 28,
+  "narx": 22.0,
+  "model": "РВр-1 400х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 68,
+  "usd_ustun": 28,
+  "narx": 25.0,
+  "model": "РВр-1 400х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 69,
+  "usd_ustun": 28,
+  "narx": 28.0,
+  "model": "РВр-1 400х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 70,
+  "usd_ustun": 28,
+  "narx": 30.0,
+  "model": "РВр-1 400х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 71,
+  "usd_ustun": 28,
+  "narx": 33.0,
+  "model": "РВр-1 400х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 72,
+  "usd_ustun": 28,
+  "narx": 37.0,
+  "model": "РВр-1 400х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 73,
+  "usd_ustun": 28,
+  "narx": 40.0,
+  "model": "РВр-1 400х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 74,
+  "usd_ustun": 28,
+  "narx": 42.0,
+  "model": "РВр-1 400х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 75,
+  "usd_ustun": 28,
+  "narx": 19.0,
+  "model": "РВр-1 450х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 76,
+  "usd_ustun": 28,
+  "narx": 22.0,
+  "model": "РВр-1 450х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 77,
+  "usd_ustun": 28,
+  "narx": 26.0,
+  "model": "РВр-1 450х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 78,
+  "usd_ustun": 28,
+  "narx": 29.0,
+  "model": "РВр-1 450х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 79,
+  "usd_ustun": 28,
+  "narx": 32.0,
+  "model": "РВр-1 450х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 80,
+  "usd_ustun": 28,
+  "narx": 35.0,
+  "model": "РВр-1 450х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 81,
+  "usd_ustun": 28,
+  "narx": 38.0,
+  "model": "РВр-1 450х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 82,
+  "usd_ustun": 28,
+  "narx": 41.0,
+  "model": "РВр-1 450х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 83,
+  "usd_ustun": 28,
+  "narx": 44.0,
+  "model": "РВр-1 450х500"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 84,
+  "usd_ustun": 28,
+  "narx": 20.0,
+  "model": "РВр-1 500х100"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 85,
+  "usd_ustun": 28,
+  "narx": 24.0,
+  "model": "РВр-1 500х150"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 86,
+  "usd_ustun": 28,
+  "narx": 21.0,
+  "model": "РВр-1 500х200"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 87,
+  "usd_ustun": 28,
+  "narx": 37.0,
+  "model": "РВр-1 500х250"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 88,
+  "usd_ustun": 28,
+  "narx": 34.0,
+  "model": "РВр-1 500х300"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 89,
+  "usd_ustun": 28,
+  "narx": 37.0,
+  "model": "РВр-1 500х350"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 90,
+  "usd_ustun": 28,
+  "narx": 41.0,
+  "model": "РВр-1 500х400"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 91,
+  "usd_ustun": 28,
+  "narx": 44.0,
+  "model": "РВр-1 500х450"
+ },
+ {
+  "varaq": "РВр-1",
+  "qator": 92,
+  "usd_ustun": 28,
+  "narx": 52.0,
+  "model": "РВр-1 500х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 12,
+  "usd_ustun": 23,
+  "narx": 10.0,
+  "model": "РВр-2 100х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 13,
+  "usd_ustun": 23,
+  "narx": 11.0,
+  "model": "РВр-2 100х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 14,
+  "usd_ustun": 23,
+  "narx": 13.0,
+  "model": "РВр-2 100х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 15,
+  "usd_ustun": 23,
+  "narx": 14.0,
+  "model": "РВр-2 100х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 16,
+  "usd_ustun": 23,
+  "narx": 15.0,
+  "model": "РВр-2 100х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 17,
+  "usd_ustun": 23,
+  "narx": 17.0,
+  "model": "РВр-2 100х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 18,
+  "usd_ustun": 23,
+  "narx": 18.0,
+  "model": "РВр-2 100х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 19,
+  "usd_ustun": 23,
+  "narx": 19.0,
+  "model": "РВр-2 100х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 20,
+  "usd_ustun": 23,
+  "narx": 22.0,
+  "model": "РВр-2 100х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 21,
+  "usd_ustun": 23,
+  "narx": 10.0,
+  "model": "РВр-2 150х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 22,
+  "usd_ustun": 23,
+  "narx": 12.0,
+  "model": "РВр-2 150х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 23,
+  "usd_ustun": 23,
+  "narx": 14.0,
+  "model": "РВр-2 150х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 24,
+  "usd_ustun": 23,
+  "narx": 16.0,
+  "model": "РВр-2 150х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 25,
+  "usd_ustun": 23,
+  "narx": 17.0,
+  "model": "РВр-2 150х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 26,
+  "usd_ustun": 23,
+  "narx": 19.0,
+  "model": "РВр-2 150х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 27,
+  "usd_ustun": 23,
+  "narx": 20.0,
+  "model": "РВр-2 150х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 28,
+  "usd_ustun": 23,
+  "narx": 22.0,
+  "model": "РВр-2 150х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 29,
+  "usd_ustun": 23,
+  "narx": 26.0,
+  "model": "РВр-2 150х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 30,
+  "usd_ustun": 23,
+  "narx": 11.0,
+  "model": "РВр-2 200х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 31,
+  "usd_ustun": 23,
+  "narx": 13.0,
+  "model": "РВр-2 200х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 32,
+  "usd_ustun": 23,
+  "narx": 15.0,
+  "model": "РВр-2 200х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 33,
+  "usd_ustun": 23,
+  "narx": 17.0,
+  "model": "РВр-2 200х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 34,
+  "usd_ustun": 23,
+  "narx": 19.0,
+  "model": "РВр-2 200х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 35,
+  "usd_ustun": 23,
+  "narx": 21.0,
+  "model": "РВр-2 200х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 36,
+  "usd_ustun": 23,
+  "narx": 23.0,
+  "model": "РВр-2 200х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 37,
+  "usd_ustun": 23,
+  "narx": 25.0,
+  "model": "РВр-2 200х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 38,
+  "usd_ustun": 23,
+  "narx": 29.0,
+  "model": "РВр-2 200х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 39,
+  "usd_ustun": 23,
+  "narx": 12.0,
+  "model": "РВр-2 250х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 40,
+  "usd_ustun": 23,
+  "narx": 14.0,
+  "model": "РВр-2 250х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 41,
+  "usd_ustun": 23,
+  "narx": 17.0,
+  "model": "РВр-2 250х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 42,
+  "usd_ustun": 23,
+  "narx": 19.0,
+  "model": "РВр-2 250х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 43,
+  "usd_ustun": 23,
+  "narx": 21.0,
+  "model": "РВр-2 250х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 44,
+  "usd_ustun": 23,
+  "narx": 24.0,
+  "model": "РВр-2 250х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 45,
+  "usd_ustun": 23,
+  "narx": 26.0,
+  "model": "РВр-2 250х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 46,
+  "usd_ustun": 23,
+  "narx": 28.0,
+  "model": "РВр-2 250х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 47,
+  "usd_ustun": 23,
+  "narx": 32.0,
+  "model": "РВр-2 250х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 48,
+  "usd_ustun": 23,
+  "narx": 13.0,
+  "model": "РВр-2 300х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 49,
+  "usd_ustun": 23,
+  "narx": 16.0,
+  "model": "РВр-2 300х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 50,
+  "usd_ustun": 23,
+  "narx": 18.0,
+  "model": "РВр-2 300х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 51,
+  "usd_ustun": 23,
+  "narx": 21.0,
+  "model": "РВр-2 300х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 52,
+  "usd_ustun": 23,
+  "narx": 24.0,
+  "model": "РВр-2 300х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 53,
+  "usd_ustun": 23,
+  "narx": 26.0,
+  "model": "РВр-2 300х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 54,
+  "usd_ustun": 23,
+  "narx": 29.0,
+  "model": "РВр-2 300х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 55,
+  "usd_ustun": 23,
+  "narx": 31.0,
+  "model": "РВр-2 300х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 56,
+  "usd_ustun": 23,
+  "narx": 36.0,
+  "model": "РВр-2 300х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 57,
+  "usd_ustun": 23,
+  "narx": 14.0,
+  "model": "РВр-2 350х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 58,
+  "usd_ustun": 23,
+  "narx": 17.0,
+  "model": "РВр-2 350х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 59,
+  "usd_ustun": 23,
+  "narx": 20.0,
+  "model": "РВр-2 350х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 60,
+  "usd_ustun": 23,
+  "narx": 23.0,
+  "model": "РВр-2 350х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 61,
+  "usd_ustun": 23,
+  "narx": 26.0,
+  "model": "РВр-2 350х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 62,
+  "usd_ustun": 23,
+  "narx": 28.0,
+  "model": "РВр-2 350х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 63,
+  "usd_ustun": 23,
+  "narx": 31.0,
+  "model": "РВр-2 350х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 64,
+  "usd_ustun": 23,
+  "narx": 34.0,
+  "model": "РВр-2 350х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 65,
+  "usd_ustun": 23,
+  "narx": 39.0,
+  "model": "РВр-2 350х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 66,
+  "usd_ustun": 23,
+  "narx": 15.0,
+  "model": "РВр-2 400х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 67,
+  "usd_ustun": 23,
+  "narx": 18.0,
+  "model": "РВр-2 400х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 68,
+  "usd_ustun": 23,
+  "narx": 21.0,
+  "model": "РВр-2 400х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 69,
+  "usd_ustun": 23,
+  "narx": 25.0,
+  "model": "РВр-2 400х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 70,
+  "usd_ustun": 23,
+  "narx": 28.0,
+  "model": "РВр-2 400х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 71,
+  "usd_ustun": 23,
+  "narx": 31.0,
+  "model": "РВр-2 400х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 72,
+  "usd_ustun": 23,
+  "narx": 34.0,
+  "model": "РВр-2 400х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 73,
+  "usd_ustun": 23,
+  "narx": 37.0,
+  "model": "РВр-2 400х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 74,
+  "usd_ustun": 23,
+  "narx": 42.0,
+  "model": "РВр-2 400х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 75,
+  "usd_ustun": 23,
+  "narx": 16.0,
+  "model": "РВр-2 450х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 76,
+  "usd_ustun": 23,
+  "narx": 19.0,
+  "model": "РВр-2 450х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 77,
+  "usd_ustun": 23,
+  "narx": 23.0,
+  "model": "РВр-2 450х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 78,
+  "usd_ustun": 23,
+  "narx": 27.0,
+  "model": "РВр-2 450х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 79,
+  "usd_ustun": 23,
+  "narx": 30.0,
+  "model": "РВр-2 450х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 80,
+  "usd_ustun": 23,
+  "narx": 33.0,
+  "model": "РВр-2 450х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 81,
+  "usd_ustun": 23,
+  "narx": 37.0,
+  "model": "РВр-2 450х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 82,
+  "usd_ustun": 23,
+  "narx": 40.0,
+  "model": "РВр-2 450х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 83,
+  "usd_ustun": 23,
+  "narx": 46.0,
+  "model": "РВр-2 450х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 84,
+  "usd_ustun": 23,
+  "narx": 17.0,
+  "model": "РВр-2 500х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 85,
+  "usd_ustun": 23,
+  "narx": 21.0,
+  "model": "РВр-2 500х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 86,
+  "usd_ustun": 23,
+  "narx": 25.0,
+  "model": "РВр-2 500х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 87,
+  "usd_ustun": 23,
+  "narx": 29.0,
+  "model": "РВр-2 500х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 88,
+  "usd_ustun": 23,
+  "narx": 32.0,
+  "model": "РВр-2 500х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 89,
+  "usd_ustun": 23,
+  "narx": 36.0,
+  "model": "РВр-2 500х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 90,
+  "usd_ustun": 23,
+  "narx": 40.0,
+  "model": "РВр-2 500х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 91,
+  "usd_ustun": 23,
+  "narx": 43.0,
+  "model": "РВр-2 500х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 92,
+  "usd_ustun": 23,
+  "narx": 53.0,
+  "model": "РВр-2 500х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 12,
+  "usd_ustun": 36,
+  "narx": 16.0,
+  "model": "РВр-2 100х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 13,
+  "usd_ustun": 36,
+  "narx": 18.0,
+  "model": "РВр-2 100х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 14,
+  "usd_ustun": 36,
+  "narx": 20.0,
+  "model": "РВр-2 100х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 15,
+  "usd_ustun": 36,
+  "narx": 23.0,
+  "model": "РВр-2 100х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 16,
+  "usd_ustun": 36,
+  "narx": 25.0,
+  "model": "РВр-2 100х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 17,
+  "usd_ustun": 36,
+  "narx": 27.0,
+  "model": "РВр-2 100х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 18,
+  "usd_ustun": 36,
+  "narx": 30.0,
+  "model": "РВр-2 100х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 19,
+  "usd_ustun": 36,
+  "narx": 32.0,
+  "model": "РВр-2 100х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 20,
+  "usd_ustun": 36,
+  "narx": 37.0,
+  "model": "РВр-2 100х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 21,
+  "usd_ustun": 36,
+  "narx": 17.0,
+  "model": "РВр-2 150х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 22,
+  "usd_ustun": 36,
+  "narx": 20.0,
+  "model": "РВр-2 150х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 23,
+  "usd_ustun": 36,
+  "narx": 23.0,
+  "model": "РВр-2 150х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 24,
+  "usd_ustun": 36,
+  "narx": 26.0,
+  "model": "РВр-2 150х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 25,
+  "usd_ustun": 36,
+  "narx": 28.0,
+  "model": "РВр-2 150х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 26,
+  "usd_ustun": 36,
+  "narx": 31.0,
+  "model": "РВр-2 150х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 27,
+  "usd_ustun": 36,
+  "narx": 34.0,
+  "model": "РВр-2 150х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 28,
+  "usd_ustun": 36,
+  "narx": 36.0,
+  "model": "РВр-2 150х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 29,
+  "usd_ustun": 36,
+  "narx": 42.0,
+  "model": "РВр-2 150х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 30,
+  "usd_ustun": 36,
+  "narx": 18.0,
+  "model": "РВр-2 200х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 31,
+  "usd_ustun": 36,
+  "narx": 22.0,
+  "model": "РВр-2 200х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 32,
+  "usd_ustun": 36,
+  "narx": 25.0,
+  "model": "РВр-2 200х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 33,
+  "usd_ustun": 36,
+  "narx": 28.0,
+  "model": "РВр-2 200х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 34,
+  "usd_ustun": 36,
+  "narx": 31.0,
+  "model": "РВр-2 200х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 35,
+  "usd_ustun": 36,
+  "narx": 34.0,
+  "model": "РВр-2 200х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 36,
+  "usd_ustun": 36,
+  "narx": 37.0,
+  "model": "РВр-2 200х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 37,
+  "usd_ustun": 36,
+  "narx": 40.0,
+  "model": "РВр-2 200х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 38,
+  "usd_ustun": 36,
+  "narx": 47.0,
+  "model": "РВр-2 200х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 39,
+  "usd_ustun": 36,
+  "narx": 20.0,
+  "model": "РВр-2 250х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 40,
+  "usd_ustun": 36,
+  "narx": 24.0,
+  "model": "РВр-2 250х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 41,
+  "usd_ustun": 36,
+  "narx": 27.0,
+  "model": "РВр-2 250х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 42,
+  "usd_ustun": 36,
+  "narx": 31.0,
+  "model": "РВр-2 250х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 43,
+  "usd_ustun": 36,
+  "narx": 35.0,
+  "model": "РВр-2 250х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 44,
+  "usd_ustun": 36,
+  "narx": 38.0,
+  "model": "РВр-2 250х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 45,
+  "usd_ustun": 36,
+  "narx": 42.0,
+  "model": "РВр-2 250х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 46,
+  "usd_ustun": 36,
+  "narx": 45.0,
+  "model": "РВр-2 250х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 47,
+  "usd_ustun": 36,
+  "narx": 52.0,
+  "model": "РВр-2 250х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 48,
+  "usd_ustun": 36,
+  "narx": 22.0,
+  "model": "РВр-2 300х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 49,
+  "usd_ustun": 36,
+  "narx": 26.0,
+  "model": "РВр-2 300х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 50,
+  "usd_ustun": 36,
+  "narx": 30.0,
+  "model": "РВр-2 300х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 51,
+  "usd_ustun": 36,
+  "narx": 34.0,
+  "model": "РВр-2 300х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 52,
+  "usd_ustun": 36,
+  "narx": 38.0,
+  "model": "РВр-2 300х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 53,
+  "usd_ustun": 36,
+  "narx": 42.0,
+  "model": "РВр-2 300х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 54,
+  "usd_ustun": 36,
+  "narx": 46.0,
+  "model": "РВр-2 300х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 55,
+  "usd_ustun": 36,
+  "narx": 49.0,
+  "model": "РВр-2 300х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 56,
+  "usd_ustun": 36,
+  "narx": 57.0,
+  "model": "РВр-2 300х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 57,
+  "usd_ustun": 36,
+  "narx": 23.0,
+  "model": "РВр-2 350х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 58,
+  "usd_ustun": 36,
+  "narx": 28.0,
+  "model": "РВр-2 350х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 59,
+  "usd_ustun": 36,
+  "narx": 32.0,
+  "model": "РВр-2 350х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 60,
+  "usd_ustun": 36,
+  "narx": 37.0,
+  "model": "РВр-2 350х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 61,
+  "usd_ustun": 36,
+  "narx": 41.0,
+  "model": "РВр-2 350х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 62,
+  "usd_ustun": 36,
+  "narx": 46.0,
+  "model": "РВр-2 350х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 63,
+  "usd_ustun": 36,
+  "narx": 50.0,
+  "model": "РВр-2 350х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 64,
+  "usd_ustun": 36,
+  "narx": 54.0,
+  "model": "РВр-2 350х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 65,
+  "usd_ustun": 36,
+  "narx": 62.0,
+  "model": "РВр-2 350х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 66,
+  "usd_ustun": 36,
+  "narx": 25.0,
+  "model": "РВр-2 400х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 67,
+  "usd_ustun": 36,
+  "narx": 30.0,
+  "model": "РВр-2 400х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 68,
+  "usd_ustun": 36,
+  "narx": 35.0,
+  "model": "РВр-2 400х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 69,
+  "usd_ustun": 36,
+  "narx": 40.0,
+  "model": "РВр-2 400х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 70,
+  "usd_ustun": 36,
+  "narx": 44.0,
+  "model": "РВр-2 400х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 71,
+  "usd_ustun": 36,
+  "narx": 49.0,
+  "model": "РВр-2 400х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 72,
+  "usd_ustun": 36,
+  "narx": 54.0,
+  "model": "РВр-2 400х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 73,
+  "usd_ustun": 36,
+  "narx": 58.0,
+  "model": "РВр-2 400х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 74,
+  "usd_ustun": 36,
+  "narx": 67.0,
+  "model": "РВр-2 400х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 75,
+  "usd_ustun": 36,
+  "narx": 26.0,
+  "model": "РВр-2 450х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 76,
+  "usd_ustun": 36,
+  "narx": 32.0,
+  "model": "РВр-2 450х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 77,
+  "usd_ustun": 36,
+  "narx": 37.0,
+  "model": "РВр-2 450х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 78,
+  "usd_ustun": 36,
+  "narx": 43.0,
+  "model": "РВр-2 450х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 79,
+  "usd_ustun": 36,
+  "narx": 47.0,
+  "model": "РВр-2 450х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 80,
+  "usd_ustun": 36,
+  "narx": 52.0,
+  "model": "РВр-2 450х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 81,
+  "usd_ustun": 36,
+  "narx": 58.0,
+  "model": "РВр-2 450х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 82,
+  "usd_ustun": 36,
+  "narx": 62.0,
+  "model": "РВр-2 450х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 83,
+  "usd_ustun": 36,
+  "narx": 71.0,
+  "model": "РВр-2 450х500"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 84,
+  "usd_ustun": 36,
+  "narx": 26.0,
+  "model": "РВр-2 500х100"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 85,
+  "usd_ustun": 36,
+  "narx": 32.0,
+  "model": "РВр-2 500х150"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 86,
+  "usd_ustun": 36,
+  "narx": 37.0,
+  "model": "РВр-2 500х200"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 87,
+  "usd_ustun": 36,
+  "narx": 43.0,
+  "model": "РВр-2 500х250"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 88,
+  "usd_ustun": 36,
+  "narx": 47.0,
+  "model": "РВр-2 500х300"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 89,
+  "usd_ustun": 36,
+  "narx": 52.0,
+  "model": "РВр-2 500х350"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 90,
+  "usd_ustun": 36,
+  "narx": 58.0,
+  "model": "РВр-2 500х400"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 91,
+  "usd_ustun": 36,
+  "narx": 62.0,
+  "model": "РВр-2 500х450"
+ },
+ {
+  "varaq": "РВр-2",
+  "qator": 92,
+  "usd_ustun": 36,
+  "narx": 71.0,
+  "model": "РВр-2 500х500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 9,
+  "usd_ustun": 11,
+  "narx": 147.0,
+  "model": "КПУ НО 100х100"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 10,
+  "usd_ustun": 11,
+  "narx": 154.0,
+  "model": "КПУ НО 100х200"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 11,
+  "usd_ustun": 11,
+  "narx": 158.0,
+  "model": "КПУ НО 100х300"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 25,
+  "usd_ustun": 11,
+  "narx": 152.0,
+  "model": "КПУ НО 200х100"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 27,
+  "usd_ustun": 11,
+  "narx": 167.0,
+  "model": "КПУ НО 200х300"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 28,
+  "usd_ustun": 11,
+  "narx": 210.0,
+  "model": "КПУ НО 200х400"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 41,
+  "usd_ustun": 11,
+  "narx": 163.0,
+  "model": "КПУ НО 300х100"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 42,
+  "usd_ustun": 11,
+  "narx": 169.0,
+  "model": "КПУ НО 300х200"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 43,
+  "usd_ustun": 11,
+  "narx": 174.0,
+  "model": "КПУ НО 300х300"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 46,
+  "usd_ustun": 11,
+  "narx": 223.0,
+  "model": "КПУ НО 300х600"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 58,
+  "usd_ustun": 11,
+  "narx": 169.0,
+  "model": "КПУ НО 400х200"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 59,
+  "usd_ustun": 11,
+  "narx": 177.0,
+  "model": "КПУ НО 400х300"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 60,
+  "usd_ustun": 11,
+  "narx": 222.0,
+  "model": "КПУ НО 400х400"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 73,
+  "usd_ustun": 11,
+  "narx": 176.0,
+  "model": "КПУ НО 500х100"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 74,
+  "usd_ustun": 11,
+  "narx": 178.0,
+  "model": "КПУ НО 500х200"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 75,
+  "usd_ustun": 11,
+  "narx": 184.0,
+  "model": "КПУ НО 500х300"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 76,
+  "usd_ustun": 11,
+  "narx": 230.0,
+  "model": "КПУ НО 500х400"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 77,
+  "usd_ustun": 11,
+  "narx": 238.0,
+  "model": "КПУ НО 500х500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 79,
+  "usd_ustun": 11,
+  "narx": 261.0,
+  "model": "КПУ НО 500х700"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 90,
+  "usd_ustun": 11,
+  "narx": 195.0,
+  "model": "КПУ НО 600х200"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 91,
+  "usd_ustun": 11,
+  "narx": 197.0,
+  "model": "КПУ НО 600х300"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 92,
+  "usd_ustun": 11,
+  "narx": 247.0,
+  "model": "КПУ НО 600х400"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 93,
+  "usd_ustun": 11,
+  "narx": 254.0,
+  "model": "КПУ НО 600х500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 94,
+  "usd_ustun": 11,
+  "narx": 267.0,
+  "model": "КПУ НО 600х600"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 105,
+  "usd_ustun": 11,
+  "narx": 188.0,
+  "model": "КПУ НО 700х100"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 106,
+  "usd_ustun": 11,
+  "narx": 196.0,
+  "model": "КПУ НО 700х200"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 107,
+  "usd_ustun": 11,
+  "narx": 206.0,
+  "model": "КПУ НО 700х300"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 108,
+  "usd_ustun": 11,
+  "narx": 249.0,
+  "model": "КПУ НО 700х400"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 109,
+  "usd_ustun": 11,
+  "narx": 257.0,
+  "model": "КПУ НО 700х500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 110,
+  "usd_ustun": 11,
+  "narx": 265.0,
+  "model": "КПУ НО 700х600"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 111,
+  "usd_ustun": 11,
+  "narx": 350.0,
+  "model": "КПУ НО 700х700"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 122,
+  "usd_ustun": 11,
+  "narx": 202.0,
+  "model": "КПУ НО 800х200"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 123,
+  "usd_ustun": 11,
+  "narx": 213.0,
+  "model": "КПУ НО 800х300"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 124,
+  "usd_ustun": 11,
+  "narx": 257.0,
+  "model": "КПУ НО 800х400"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 125,
+  "usd_ustun": 11,
+  "narx": 265.0,
+  "model": "КПУ НО 800х500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 126,
+  "usd_ustun": 11,
+  "narx": 308.0,
+  "model": "КПУ НО 800х600"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 127,
+  "usd_ustun": 11,
+  "narx": 382.0,
+  "model": "КПУ НО 800х700"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 129,
+  "usd_ustun": 11,
+  "narx": 421.0,
+  "model": "КПУ НО 800х900"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 138,
+  "usd_ustun": 11,
+  "narx": 219.0,
+  "model": "КПУ НО 900х200"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 139,
+  "usd_ustun": 11,
+  "narx": 221.0,
+  "model": "КПУ НО 900х300"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 140,
+  "usd_ustun": 11,
+  "narx": 279.0,
+  "model": "КПУ НО 900х400"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 141,
+  "usd_ustun": 11,
+  "narx": 274.0,
+  "model": "КПУ НО 900х500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 142,
+  "usd_ustun": 11,
+  "narx": 299.0,
+  "model": "КПУ НО 900х600"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 143,
+  "usd_ustun": 11,
+  "narx": 331.0,
+  "model": "КПУ НО 900х700"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 144,
+  "usd_ustun": 11,
+  "narx": 371.0,
+  "model": "КПУ НО 900х800"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 153,
+  "usd_ustun": 11,
+  "narx": 210.0,
+  "model": "КПУ НО 1000х100"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 154,
+  "usd_ustun": 11,
+  "narx": 214.0,
+  "model": "КПУ НО 1000х200"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 155,
+  "usd_ustun": 11,
+  "narx": 234.0,
+  "model": "КПУ НО 1000х300"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 156,
+  "usd_ustun": 11,
+  "narx": 282.0,
+  "model": "КПУ НО 1000х400"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 157,
+  "usd_ustun": 11,
+  "narx": 293.0,
+  "model": "КПУ НО 1000х500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 158,
+  "usd_ustun": 11,
+  "narx": 326.0,
+  "model": "КПУ НО 1000х600"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 159,
+  "usd_ustun": 11,
+  "narx": 426.0,
+  "model": "КПУ НО 1000х700"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 160,
+  "usd_ustun": 11,
+  "narx": 436.0,
+  "model": "КПУ НО 1000х800"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 162,
+  "usd_ustun": 11,
+  "narx": 457.0,
+  "model": "КПУ НО 1000х1000"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 171,
+  "usd_ustun": 11,
+  "narx": 287.0,
+  "model": "КПУ НО 1100х300"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 173,
+  "usd_ustun": 11,
+  "narx": 419.0,
+  "model": "КПУ НО 1100х500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 174,
+  "usd_ustun": 11,
+  "narx": 433.0,
+  "model": "КПУ НО 1100х600"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 175,
+  "usd_ustun": 11,
+  "narx": 475.0,
+  "model": "КПУ НО 1100х700"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 176,
+  "usd_ustun": 11,
+  "narx": 510.0,
+  "model": "КПУ НО 1100х800"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 187,
+  "usd_ustun": 11,
+  "narx": 290.0,
+  "model": "КПУ НО 1200х300"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 188,
+  "usd_ustun": 11,
+  "narx": 396.0,
+  "model": "КПУ НО 1200х400"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 189,
+  "usd_ustun": 11,
+  "narx": 431.0,
+  "model": "КПУ НО 1200х500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 190,
+  "usd_ustun": 11,
+  "narx": 446.0,
+  "model": "КПУ НО 1200х600"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 191,
+  "usd_ustun": 11,
+  "narx": 461.0,
+  "model": "КПУ НО 1200х700"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 192,
+  "usd_ustun": 11,
+  "narx": 556.0,
+  "model": "КПУ НО 1200х800"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 194,
+  "usd_ustun": 11,
+  "narx": 858.0,
+  "model": "КПУ НО 1200х1000"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 196,
+  "usd_ustun": 11,
+  "narx": 1012.0,
+  "model": "КПУ НО 1200х1200"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 204,
+  "usd_ustun": 11,
+  "narx": 426.0,
+  "model": "КПУ НО 1300х400"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 205,
+  "usd_ustun": 11,
+  "narx": 442.0,
+  "model": "КПУ НО 1300х500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 206,
+  "usd_ustun": 11,
+  "narx": 457.0,
+  "model": "КПУ НО 1300х600"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 207,
+  "usd_ustun": 11,
+  "narx": 542.0,
+  "model": "КПУ НО 1300х700"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 208,
+  "usd_ustun": 11,
+  "narx": 573.0,
+  "model": "КПУ НО 1300х800"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 210,
+  "usd_ustun": 11,
+  "narx": 712.0,
+  "model": "КПУ НО 1300х1000"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 219,
+  "usd_ustun": 11,
+  "narx": 326.0,
+  "model": "КПУ НО 1400х300"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 220,
+  "usd_ustun": 11,
+  "narx": 405.0,
+  "model": "КПУ НО 1400х400"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 221,
+  "usd_ustun": 11,
+  "narx": 415.0,
+  "model": "КПУ НО 1400х500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 222,
+  "usd_ustun": 11,
+  "narx": 443.0,
+  "model": "КПУ НО 1400х600"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 223,
+  "usd_ustun": 11,
+  "narx": 528.0,
+  "model": "КПУ НО 1400х700"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 224,
+  "usd_ustun": 11,
+  "narx": 587.0,
+  "model": "КПУ НО 1400х800"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 225,
+  "usd_ustun": 11,
+  "narx": 990.0,
+  "model": "КПУ НО 1400х900"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 237,
+  "usd_ustun": 11,
+  "narx": 462.0,
+  "model": "КПУ НО 1500х500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 238,
+  "usd_ustun": 11,
+  "narx": 480.0,
+  "model": "КПУ НО 1500х600"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 240,
+  "usd_ustun": 11,
+  "narx": 1032.0,
+  "model": "КПУ НО 1500х800"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 241,
+  "usd_ustun": 11,
+  "narx": 1049.0,
+  "model": "КПУ НО 1500х900"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 242,
+  "usd_ustun": 11,
+  "narx": 1062.0,
+  "model": "КПУ НО 1500х1000"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 247,
+  "usd_ustun": 11,
+  "narx": 1404.0,
+  "model": "КПУ НО 1500х1500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 252,
+  "usd_ustun": 11,
+  "narx": 443.0,
+  "model": "КПУ НО 1600х400"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 253,
+  "usd_ustun": 11,
+  "narx": 474.0,
+  "model": "КПУ НО 1600х500"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 254,
+  "usd_ustun": 11,
+  "narx": 510.0,
+  "model": "КПУ НО 1600х600"
+ },
+ {
+  "varaq": "КПУ НО",
+  "qator": 256,
+  "usd_ustun": 11,
+  "narx": 872.0,
+  "model": "КПУ НО 1600х800"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 25,
+  "usd_ustun": 11,
+  "narx": 153.0,
+  "model": "КПД НЗ 200х100"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 26,
+  "usd_ustun": 11,
+  "narx": 156.0,
+  "model": "КПД НЗ 200х200"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 27,
+  "usd_ustun": 11,
+  "narx": 159.0,
+  "model": "КПД НЗ 200х300"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 42,
+  "usd_ustun": 11,
+  "narx": 160.0,
+  "model": "КПД НЗ 300х200"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 43,
+  "usd_ustun": 11,
+  "narx": 164.0,
+  "model": "КПД НЗ 300х300"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 58,
+  "usd_ustun": 11,
+  "narx": 162.0,
+  "model": "КПД НЗ 400х200"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 74,
+  "usd_ustun": 11,
+  "narx": 170.0,
+  "model": "КПД НЗ 500х200"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 75,
+  "usd_ustun": 11,
+  "narx": 173.0,
+  "model": "КПД НЗ 500х300"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 76,
+  "usd_ustun": 11,
+  "narx": 213.0,
+  "model": "КПД НЗ 500х400"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 77,
+  "usd_ustun": 11,
+  "narx": 211.0,
+  "model": "КПД НЗ 500х500"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 78,
+  "usd_ustun": 11,
+  "narx": 224.0,
+  "model": "КПД НЗ 500х600"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 79,
+  "usd_ustun": 11,
+  "narx": 261.0,
+  "model": "КПД НЗ 500х700"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 90,
+  "usd_ustun": 11,
+  "narx": 175.0,
+  "model": "КПД НЗ 600х200"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 91,
+  "usd_ustun": 11,
+  "narx": 176.0,
+  "model": "КПД НЗ 600х300"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 92,
+  "usd_ustun": 11,
+  "narx": 219.0,
+  "model": "КПД НЗ 600х400"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 93,
+  "usd_ustun": 11,
+  "narx": 224.0,
+  "model": "КПД НЗ 600х500"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 96,
+  "usd_ustun": 11,
+  "narx": 270.0,
+  "model": "КПД НЗ 600х800"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 111,
+  "usd_ustun": 11,
+  "narx": 269.0,
+  "model": "КПД НЗ 700х700"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 114,
+  "usd_ustun": 11,
+  "narx": 300.0,
+  "model": "КПД НЗ 700х1000"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 122,
+  "usd_ustun": 11,
+  "narx": 185.0,
+  "model": "КПД НЗ 800х200"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 126,
+  "usd_ustun": 11,
+  "narx": 247.0,
+  "model": "КПД НЗ 800х600"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 128,
+  "usd_ustun": 11,
+  "narx": 294.0,
+  "model": "КПД НЗ 800х800"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 138,
+  "usd_ustun": 11,
+  "narx": 192.0,
+  "model": "КПД НЗ 900х200"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 139,
+  "usd_ustun": 11,
+  "narx": 192.0,
+  "model": "КПД НЗ 900х300"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 140,
+  "usd_ustun": 11,
+  "narx": 238.0,
+  "model": "КПД НЗ 900х400"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 141,
+  "usd_ustun": 11,
+  "narx": 239.0,
+  "model": "КПД НЗ 900х500"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 144,
+  "usd_ustun": 11,
+  "narx": 307.0,
+  "model": "КПД НЗ 900х800"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 145,
+  "usd_ustun": 11,
+  "narx": 307.0,
+  "model": "КПД НЗ 900х900"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 155,
+  "usd_ustun": 11,
+  "narx": 202.0,
+  "model": "КПД НЗ 1000х300"
+ },
+ {
+  "varaq": "КПД НЗ",
+  "qator": 253,
+  "usd_ustun": 11,
+  "narx": 371.0,
+  "model": "КПД НЗ 1600х500"
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 55,
+  "usd_ustun": 27,
+  "narx": 12.0,
+  "model": "ФЯК 287x287x300-3",
+  "sinf": "G4 (EU4)",
+  "a": 287,
+  "b": 287,
+  "l": 300,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 58,
+  "usd_ustun": 27,
+  "narx": 12.0,
+  "model": "ФЯК 305x305x300-3",
+  "sinf": "G4 (EU4)",
+  "a": 305,
+  "b": 305,
+  "l": 300,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 65,
+  "usd_ustun": 27,
+  "narx": 21.0,
+  "model": "ФЯК 500x500x360-5",
+  "sinf": "G4 (EU4)",
+  "a": 500,
+  "b": 500,
+  "l": 360,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 67,
+  "usd_ustun": 27,
+  "narx": 18.0,
+  "model": "ФЯК 592x287x300-3",
+  "sinf": "G4 (EU4)",
+  "a": 592,
+  "b": 287,
+  "l": 300,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 68,
+  "usd_ustun": 27,
+  "narx": 23.0,
+  "model": "ФЯК 592x287x360-3",
+  "sinf": "G4 (EU4)",
+  "a": 592,
+  "b": 287,
+  "l": 360,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 70,
+  "usd_ustun": 27,
+  "narx": 27.0,
+  "model": "ФЯК 592x490x300-5",
+  "sinf": "G4 (EU4)",
+  "a": 592,
+  "b": 490,
+  "l": 300,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 71,
+  "usd_ustun": 27,
+  "narx": 24.0,
+  "model": "ФЯК 592x490x360-5",
+  "sinf": "G4 (EU4)",
+  "a": 592,
+  "b": 490,
+  "l": 360,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 73,
+  "usd_ustun": 27,
+  "narx": 28.0,
+  "model": "ФЯК 592x592x300-6",
+  "sinf": "G4 (EU4)",
+  "a": 592,
+  "b": 592,
+  "l": 300,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 74,
+  "usd_ustun": 27,
+  "narx": 26.0,
+  "model": "ФЯК 592x592x360-6",
+  "sinf": "G4 (EU4)",
+  "a": 592,
+  "b": 592,
+  "l": 360,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 75,
+  "usd_ustun": 27,
+  "narx": 32.0,
+  "model": "ФЯК 592x592x500-6",
+  "sinf": "G4 (EU4)",
+  "a": 592,
+  "b": 592,
+  "l": 500,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 79,
+  "usd_ustun": 27,
+  "narx": 28.0,
+  "model": "ФЯК 610x610x300-6",
+  "sinf": "G4 (EU4)",
+  "a": 610,
+  "b": 610,
+  "l": 300,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 80,
+  "usd_ustun": 27,
+  "narx": 29.0,
+  "model": "ФЯК 610x610x360-6",
+  "sinf": "G4 (EU4)",
+  "a": 610,
+  "b": 610,
+  "l": 360,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 81,
+  "usd_ustun": 27,
+  "narx": 32.0,
+  "model": "ФЯК 610x610x500-6",
+  "sinf": "G4 (EU4)",
+  "a": 610,
+  "b": 610,
+  "l": 500,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 86,
+  "usd_ustun": 27,
+  "narx": 25.0,
+  "model": "ФЯК 892x490x360-5",
+  "sinf": "G4 (EU4)",
+  "a": 892,
+  "b": 490,
+  "l": 360,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 88,
+  "usd_ustun": 27,
+  "narx": 37.0,
+  "model": "ФЯК 892x592x300-6",
+  "sinf": "G4 (EU4)",
+  "a": 892,
+  "b": 592,
+  "l": 300,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 127,
+  "usd_ustun": 27,
+  "narx": 14.0,
+  "model": "ФЯК 287x287x300-3",
+  "sinf": "F6 (М6, EU6)",
+  "a": 287,
+  "b": 287,
+  "l": 300,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 134,
+  "usd_ustun": 27,
+  "narx": 21.0,
+  "model": "ФЯК 490x287x360-5",
+  "sinf": "F6 (М6, EU6)",
+  "a": 490,
+  "b": 287,
+  "l": 360,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 139,
+  "usd_ustun": 27,
+  "narx": 16.0,
+  "model": "ФЯК 592x287x300-3",
+  "sinf": "F6 (М6, EU6)",
+  "a": 592,
+  "b": 287,
+  "l": 300,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 141,
+  "usd_ustun": 27,
+  "narx": 32.0,
+  "model": "ФЯК 592x287x500-3",
+  "sinf": "F6 (М6, EU6)",
+  "a": 592,
+  "b": 287,
+  "l": 500,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 143,
+  "usd_ustun": 27,
+  "narx": 28.0,
+  "model": "ФЯК 592x490x360-5",
+  "sinf": "F6 (М6, EU6)",
+  "a": 592,
+  "b": 490,
+  "l": 360,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 144,
+  "usd_ustun": 27,
+  "narx": 29.0,
+  "model": "ФЯК 592x490x500-5",
+  "sinf": "F6 (М6, EU6)",
+  "a": 592,
+  "b": 490,
+  "l": 500,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 145,
+  "usd_ustun": 27,
+  "narx": 30.0,
+  "model": "ФЯК 592x592x300-6",
+  "sinf": "F6 (М6, EU6)",
+  "a": 592,
+  "b": 592,
+  "l": 300,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 146,
+  "usd_ustun": 27,
+  "narx": 31.0,
+  "model": "ФЯК 592x592x360-6",
+  "sinf": "F6 (М6, EU6)",
+  "a": 592,
+  "b": 592,
+  "l": 360,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 147,
+  "usd_ustun": 27,
+  "narx": 33.0,
+  "model": "ФЯК 592x592x500-6",
+  "sinf": "F6 (М6, EU6)",
+  "a": 592,
+  "b": 592,
+  "l": 500,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 149,
+  "usd_ustun": 27,
+  "narx": 21.0,
+  "model": "ФЯК 610x305x360-3",
+  "sinf": "F6 (М6, EU6)",
+  "a": 610,
+  "b": 305,
+  "l": 360,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 152,
+  "usd_ustun": 27,
+  "narx": 24.0,
+  "model": "ФЯК 610x610x360-6",
+  "sinf": "F6 (М6, EU6)",
+  "a": 610,
+  "b": 610,
+  "l": 360,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 157,
+  "usd_ustun": 27,
+  "narx": 64.0,
+  "model": "ФЯК 892x490x300-5",
+  "sinf": "F6 (М6, EU6)",
+  "a": 892,
+  "b": 490,
+  "l": 300,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 163,
+  "usd_ustun": 27,
+  "narx": 14.0,
+  "model": "ФЯК 287x287x300-3",
+  "sinf": "F7 (EU7)",
+  "a": 287,
+  "b": 287,
+  "l": 300,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 165,
+  "usd_ustun": 27,
+  "narx": 15.0,
+  "model": "ФЯК 287x287x500-3",
+  "sinf": "F7 (EU7)",
+  "a": 287,
+  "b": 287,
+  "l": 500,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 166,
+  "usd_ustun": 27,
+  "narx": 17.0,
+  "model": "ФЯК 305x305x300-3",
+  "sinf": "F7 (EU7)",
+  "a": 305,
+  "b": 305,
+  "l": 300,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 167,
+  "usd_ustun": 27,
+  "narx": 16.0,
+  "model": "ФЯК 305x305x360-3",
+  "sinf": "F7 (EU7)",
+  "a": 305,
+  "b": 305,
+  "l": 360,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 171,
+  "usd_ustun": 27,
+  "narx": 26.0,
+  "model": "ФЯК 490x287x500-5",
+  "sinf": "F7 (EU7)",
+  "a": 490,
+  "b": 287,
+  "l": 500,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 172,
+  "usd_ustun": 27,
+  "narx": 25.0,
+  "model": "ФЯК 500x500x300-5",
+  "sinf": "F7 (EU7)",
+  "a": 500,
+  "b": 500,
+  "l": 300,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 173,
+  "usd_ustun": 27,
+  "narx": 26.0,
+  "model": "ФЯК 500x500x360-5",
+  "sinf": "F7 (EU7)",
+  "a": 500,
+  "b": 500,
+  "l": 360,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 175,
+  "usd_ustun": 27,
+  "narx": 23.0,
+  "model": "ФЯК 592x287x300-3",
+  "sinf": "F7 (EU7)",
+  "a": 592,
+  "b": 287,
+  "l": 300,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 176,
+  "usd_ustun": 27,
+  "narx": 20.0,
+  "model": "ФЯК 592x287x360-3",
+  "sinf": "F7 (EU7)",
+  "a": 592,
+  "b": 287,
+  "l": 360,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 178,
+  "usd_ustun": 27,
+  "narx": 21.0,
+  "model": "ФЯК 592x490x300-5",
+  "sinf": "F7 (EU7)",
+  "a": 592,
+  "b": 490,
+  "l": 300,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 180,
+  "usd_ustun": 27,
+  "narx": 32.0,
+  "model": "ФЯК 592x490x500-5",
+  "sinf": "F7 (EU7)",
+  "a": 592,
+  "b": 490,
+  "l": 500,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 181,
+  "usd_ustun": 27,
+  "narx": 29.0,
+  "model": "ФЯК 592x592x300-6",
+  "sinf": "F7 (EU7)",
+  "a": 592,
+  "b": 592,
+  "l": 300,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 182,
+  "usd_ustun": 27,
+  "narx": 31.0,
+  "model": "ФЯК 592x592x360-6",
+  "sinf": "F7 (EU7)",
+  "a": 592,
+  "b": 592,
+  "l": 360,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 183,
+  "usd_ustun": 27,
+  "narx": 33.0,
+  "model": "ФЯК 592x592x500-6",
+  "sinf": "F7 (EU7)",
+  "a": 592,
+  "b": 592,
+  "l": 500,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 185,
+  "usd_ustun": 27,
+  "narx": 24.0,
+  "model": "ФЯК 610x305x360-3",
+  "sinf": "F7 (EU7)",
+  "a": 610,
+  "b": 305,
+  "l": 360,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 187,
+  "usd_ustun": 27,
+  "narx": 30.0,
+  "model": "ФЯК 610x610x300-6",
+  "sinf": "F7 (EU7)",
+  "a": 610,
+  "b": 610,
+  "l": 300,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 188,
+  "usd_ustun": 27,
+  "narx": 31.0,
+  "model": "ФЯК 610x610x360-6",
+  "sinf": "F7 (EU7)",
+  "a": 610,
+  "b": 610,
+  "l": 360,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 194,
+  "usd_ustun": 27,
+  "narx": 28.0,
+  "model": "ФЯК 892x490x360-5",
+  "sinf": "F7 (EU7)",
+  "a": 892,
+  "b": 490,
+  "l": 360,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 197,
+  "usd_ustun": 27,
+  "narx": 33.0,
+  "model": "ФЯК 892x592x360-6",
+  "sinf": "F7 (EU7)",
+  "a": 892,
+  "b": 592,
+  "l": 360,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 201,
+  "usd_ustun": 27,
+  "narx": 19.0,
+  "model": "ФЯК 287x287x500-3",
+  "sinf": "F8 (EU8)",
+  "a": 287,
+  "b": 287,
+  "l": 500,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 203,
+  "usd_ustun": 27,
+  "narx": 14.0,
+  "model": "ФЯК 305x305x360-3",
+  "sinf": "F8 (EU8)",
+  "a": 305,
+  "b": 305,
+  "l": 360,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 209,
+  "usd_ustun": 27,
+  "narx": 24.0,
+  "model": "ФЯК 500x500x360-5",
+  "sinf": "F8 (EU8)",
+  "a": 500,
+  "b": 500,
+  "l": 360,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 213,
+  "usd_ustun": 27,
+  "narx": 26.0,
+  "model": "ФЯК 592x287x500-3",
+  "sinf": "F8 (EU8)",
+  "a": 592,
+  "b": 287,
+  "l": 500,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 217,
+  "usd_ustun": 27,
+  "narx": 31.0,
+  "model": "ФЯК 592x592x300-6",
+  "sinf": "F8 (EU8)",
+  "a": 592,
+  "b": 592,
+  "l": 300,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 218,
+  "usd_ustun": 27,
+  "narx": 24.0,
+  "model": "ФЯК 592x592x360-6",
+  "sinf": "F8 (EU8)",
+  "a": 592,
+  "b": 592,
+  "l": 360,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 219,
+  "usd_ustun": 27,
+  "narx": 39.0,
+  "model": "ФЯК 592x592x500-6",
+  "sinf": "F8 (EU8)",
+  "a": 592,
+  "b": 592,
+  "l": 500,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 220,
+  "usd_ustun": 27,
+  "narx": 21.0,
+  "model": "ФЯК 610x305x300-3",
+  "sinf": "F8 (EU8)",
+  "a": 610,
+  "b": 305,
+  "l": 300,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 242,
+  "usd_ustun": 27,
+  "narx": 21.0,
+  "model": "ФЯК 490x287x360-5",
+  "sinf": "F9 (EU9)",
+  "a": 490,
+  "b": 287,
+  "l": 360,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 247,
+  "usd_ustun": 27,
+  "narx": 18.0,
+  "model": "ФЯК 592x287x300-3",
+  "sinf": "F9 (EU9)",
+  "a": 592,
+  "b": 287,
+  "l": 300,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 249,
+  "usd_ustun": 27,
+  "narx": 33.0,
+  "model": "ФЯК 592x287x500-3",
+  "sinf": "F9 (EU9)",
+  "a": 592,
+  "b": 287,
+  "l": 500,
+  "karman": 3
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 253,
+  "usd_ustun": 27,
+  "narx": 33.0,
+  "model": "ФЯК 592x592x300-6",
+  "sinf": "F9 (EU9)",
+  "a": 592,
+  "b": 592,
+  "l": 300,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 254,
+  "usd_ustun": 27,
+  "narx": 32.0,
+  "model": "ФЯК 592x592x360-6",
+  "sinf": "F9 (EU9)",
+  "a": 592,
+  "b": 592,
+  "l": 360,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 255,
+  "usd_ustun": 27,
+  "narx": 48.0,
+  "model": "ФЯК 592x592x500-6",
+  "sinf": "F9 (EU9)",
+  "a": 592,
+  "b": 592,
+  "l": 500,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 260,
+  "usd_ustun": 27,
+  "narx": 31.0,
+  "model": "ФЯК 610x610x360-6",
+  "sinf": "F9 (EU9)",
+  "a": 610,
+  "b": 610,
+  "l": 360,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 266,
+  "usd_ustun": 27,
+  "narx": 28.0,
+  "model": "ФЯК 892x490x360-5",
+  "sinf": "F9 (EU9)",
+  "a": 892,
+  "b": 490,
+  "l": 360,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 267,
+  "usd_ustun": 27,
+  "narx": 32.0,
+  "model": "ФЯК 892x490x500-5",
+  "sinf": "F9 (EU9)",
+  "a": 892,
+  "b": 490,
+  "l": 500,
+  "karman": 5
+ },
+ {
+  "varaq": "ФЯК.",
+  "qator": 270,
+  "usd_ustun": 27,
+  "narx": 28.0,
+  "model": "ФЯК 892x592x500-6",
+  "sinf": "F9 (EU9)",
+  "a": 892,
+  "b": 592,
+  "l": 500,
+  "karman": 6
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 28,
+  "usd_ustun": 11,
+  "narx": 10.0,
+  "model": "ФЯГ 287x287x45",
+  "a": 287,
+  "b": 287,
+  "l": 45
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 32,
+  "usd_ustun": 11,
+  "narx": 10.0,
+  "model": "ФЯГ 305x305x45",
+  "a": 305,
+  "b": 305,
+  "l": 45
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 36,
+  "usd_ustun": 11,
+  "narx": 12.0,
+  "model": "ФЯГ 490x287x45",
+  "a": 490,
+  "b": 287,
+  "l": 45
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 40,
+  "usd_ustun": 11,
+  "narx": 15.0,
+  "model": "ФЯГ 500x500x45",
+  "a": 500,
+  "b": 500,
+  "l": 45
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 41,
+  "usd_ustun": 11,
+  "narx": 20.0,
+  "model": "ФЯГ 500x500x100",
+  "a": 500,
+  "b": 500,
+  "l": 100
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 44,
+  "usd_ustun": 11,
+  "narx": 13.0,
+  "model": "ФЯГ 592x287x45",
+  "a": 592,
+  "b": 287,
+  "l": 45
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 48,
+  "usd_ustun": 11,
+  "narx": 16.0,
+  "model": "ФЯГ 592x490x45",
+  "a": 592,
+  "b": 490,
+  "l": 45
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 49,
+  "usd_ustun": 11,
+  "narx": 18.0,
+  "model": "ФЯГ 592x490x100",
+  "a": 592,
+  "b": 490,
+  "l": 100
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 50,
+  "usd_ustun": 11,
+  "narx": 19.0,
+  "model": "ФЯГ 592x592x45",
+  "a": 592,
+  "b": 592,
+  "l": 45
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 52,
+  "usd_ustun": 11,
+  "narx": 19.0,
+  "model": "ФЯГ 592x592x45",
+  "a": 592,
+  "b": 592,
+  "l": 45
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 53,
+  "usd_ustun": 11,
+  "narx": 22.0,
+  "model": "ФЯГ 592x592x100",
+  "a": 592,
+  "b": 592,
+  "l": 100
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 56,
+  "usd_ustun": 11,
+  "narx": 13.0,
+  "model": "ФЯГ 610x305x45",
+  "a": 610,
+  "b": 305,
+  "l": 45
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 60,
+  "usd_ustun": 11,
+  "narx": 19.0,
+  "model": "ФЯГ 610x610x45",
+  "a": 610,
+  "b": 610,
+  "l": 45
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 61,
+  "usd_ustun": 11,
+  "narx": 22.0,
+  "model": "ФЯГ 610x610x100",
+  "a": 610,
+  "b": 610,
+  "l": 100
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 64,
+  "usd_ustun": 11,
+  "narx": 16.0,
+  "model": "ФЯГ 892x287x45",
+  "a": 892,
+  "b": 287,
+  "l": 45
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 68,
+  "usd_ustun": 11,
+  "narx": 20.0,
+  "model": "ФЯГ 892x490x45",
+  "a": 892,
+  "b": 490,
+  "l": 45
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 69,
+  "usd_ustun": 11,
+  "narx": 24.0,
+  "model": "ФЯГ 892x490x100",
+  "a": 892,
+  "b": 490,
+  "l": 100
+ },
+ {
+  "varaq": "ФЯГ.",
+  "qator": 72,
+  "usd_ustun": 11,
+  "narx": 23.0,
+  "model": "ФЯГ 892x592x45",
+  "a": 892,
+  "b": 592,
+  "l": 45
+ }
+]

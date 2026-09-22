@@ -1,0 +1,77 @@
+[
+ {
+  "kod": "Виброизоляторы ДО, montaj burchagi, lyuk",
+  "tavsif": "butlovchi qismlar",
+  "bet": 253,
+  "bolim": "Butlovchi qismlar",
+  "kodlar": [
+   "ДО"
+  ]
+ },
+ {
+  "kod": "Egiluvchan qo'shimcha va butlovchilar",
+  "tavsif": "butlovchi qismlar",
+  "bet": 254,
+  "bolim": "Butlovchi qismlar",
+  "kodlar": []
+ },
+ {
+  "kod": "IXCHAM",
+  "tavsif": "ixcham havo tayyorlash qurilmasi",
+  "bet": 30,
+  "bolim": "Konditsionerlar",
+  "kodlar": [
+   "IXCHAM"
+  ]
+ },
+ {
+  "kod": "В-2",
+  "tavsif": "maxsus ventilyator",
+  "bet": 163,
+  "bolim": "Maxsus ventilyatorlar",
+  "kodlar": []
+ },
+ {
+  "kod": "В-3",
+  "tavsif": "maxsus ventilyator",
+  "bet": 165,
+  "bolim": "Maxsus ventilyatorlar",
+  "kodlar": []
+ },
+ {
+  "kod": "ВОД-ДУ",
+  "tavsif": "o'qli tutun ventilyatori",
+  "bet": 156,
+  "bolim": "O'qli ventilyatorlar",
+  "kodlar": [
+   "ВОД-ДУ"
+  ]
+ },
+ {
+  "kod": "ВКР-ДУ",
+  "tavsif": "tom tutun ventilyatori",
+  "bet": 130,
+  "bolim": "Tomga o'rnatiladigan ventilyatorlar",
+  "kodlar": [
+   "ВКР-ДУ"
+  ]
+ },
+ {
+  "kod": "ВКРВ-ДУ",
+  "tavsif": "tom tutun ventilyatori, vertikal",
+  "bet": 134,
+  "bolim": "Tomga o'rnatiladigan ventilyatorlar",
+  "kodlar": [
+   "ВКРВ-ДУ"
+  ]
+ },
+ {
+  "kod": "4РВП",
+  "tavsif": "panjara",
+  "bet": 226,
+  "bolim": "Ventilyatsiya panjaralari",
+  "kodlar": [
+   "РВП"
+  ]
+ }
+]

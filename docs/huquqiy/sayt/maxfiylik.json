@@ -1,0 +1,136 @@
+{
+ "tur": "maxfiylik",
+ "kind": "privacy",
+ "yol": "/maxfiylik",
+ "versiya": "1.0",
+ "sana": "15.09.2026",
+ "sarlavha": "Maxfiylik siyosati",
+ "uz": {
+  "intro": "",
+  "sections": [
+   {
+    "h": "Umumiy qoidalar",
+    "body": [
+     "1.1. Ushbu siyosat «CLIMAVENT» MChJ (keyingi oʻrinlarda — «Operator») climavent.uz platformasi (keyingi oʻrinlarda — «Platforma») foydalanuvchilarining shaxsga doir maʼlumotlarini qanday yigʻishi, ishlashi, saqlashi va himoya qilishini belgilaydi.",
+     "1.2. Siyosat «Shaxsga doir maʼlumotlar toʻgʻrisida»gi Oʻzbekiston Respublikasi Qonuniga muvofiq tuzilgan.",
+     "1.3. Shaxsga doir maʼlumotlar boʻyicha murojaatlar: climaventuz@outlook.com, +998 90 354 78 88. Operator manzili: Toshkent shahri, Shota Rustaveli koʻchasi, 115."
+    ]
+   },
+   {
+    "h": "Qanday maʼlumotlar yigʻiladi",
+    "body": [
+     [
+      "Xaridor — Ism va familiya, telefon raqami, elektron pochta, viloyat va shahar, yetkazib berish manzili; Roʻyxatdan oʻtish va Buyurtma berishda oʻzingiz kiritasiz",
+      "Xaridor — Buyurtmalar, savatdagi tovarlar, sevimlilar, sharh va baholar; Platformadan foydalanish davomida",
+      "Sotuvchi vakili — Rahbar va masʼul shaxsning F.I.Sh., lavozimi, telefoni, elektron pochtasi; rahbarning pasporti yoki ID-karta nusxasi; YaTT uchun STIR yoki JShShIR; Ariza topshirishda",
+      "Barcha tashrif buyuruvchilar — IP-manzil, qurilma va brauzer turi, cookie-fayllar, koʻrilgan sahifalar va tashrif vaqti; Avtomatik, shu jumladan Google Analytics orqali",
+      "Murojaat qilganlar — Murojaat mazmuni va aloqa maʼlumotlari; Telefon, elektron pochta yoki messenjer orqali yozganda"
+     ],
+     "2.2. Operator biometrik maʼlumotlarni, shuningdek sogʻliq, diniy yoki siyosiy qarashlar kabi maxsus toifadagi maʼlumotlarni yigʻmaydi. Bank kartasi maʼlumotlari Platformada saqlanmaydi."
+    ]
+   },
+   {
+    "h": "Maʼlumotlar nima uchun ishlatiladi",
+    "body": [
+     [
+      "hisob yaratish va unga kirishni taʼminlash;",
+      "Buyurtmani qabul qilish va uni tovar Sotuvchisiga yetkazish;",
+      "Sotuvchi arizasini tekshirish va Sotuvchi kabinetini ochish;",
+      "Buyurtma holati, xavfsizlik va shartlar oʻzgarishi haqida xabar berish;",
+      "murojaatlarga javob berish va nizolarni hal qilish;",
+      "firibgarlik va Platformaga hujumlarning oldini olish;",
+      "Platformani yaxshilash uchun umumlashtirilgan statistika tayyorlash;",
+      "reklama va yangiliklar yuborish — faqat alohida roziligingiz boʻlsa; bu rozilikni istalgan vaqtda qaytarib olishingiz mumkin;",
+      "qonunchilik talablarini bajarish."
+     ]
+    ]
+   },
+   {
+    "h": "Ishlash asoslari va rozilik",
+    "body": [
+     "4.1. Maʼlumotlar quyidagi asoslarda ishlanadi: roʻyxatdan oʻtishda yoki ariza topshirishda bergan roziligingiz; siz bilan tuzilgan shartnomani bajarish zarurati; Operatorning qonunda belgilangan majburiyatlari.",
+     "4.2. Rozilik roʻyxatdan oʻtish va ariza shakllarida alohida belgi bilan beriladi. Belgi oldindan qoʻyilmaydi va usiz shaklni yuborib boʻlmaydi.",
+     "4.3. Rozilikni climaventuz@outlook.com ga yozib qaytarib olishingiz mumkin. Bu holda hisobingiz oʻchiriladi, qonunda saqlash talab qilingan maʼlumotlar bundan mustasno."
+    ]
+   },
+   {
+    "h": "Maʼlumotlar kimga beriladi",
+    "body": [
+     "5.1. Sotuvchiga — faqat uning tovarlariga oid harakatlaringiz boʻyicha: Buyurtma, savatga qoʻshilgan yoki sevimlilarga qoʻshilgan tovar, sharh. Bunda Sotuvchi ismingiz, telefon raqamingiz va Buyurtmadagi yetkazib berish manzilini koʻradi. Boshqa Sotuvchilarning tovarlariga oid harakatlaringizni koʻrmaydi.",
+     "5.2. Texnik xizmat koʻrsatuvchilarga — faqat xizmat koʻrsatish uchun zarur hajmda va maxfiylik majburiyati asosida:",
+     [
+      "server va maʼlumotlar bazasi — Railway;",
+      "sayt va boshqaruv paneli xostingi — Vercel;",
+      "fayl va rasmlarni saqlash — Cloudflare R2, Cloudinary;",
+      "SMS-kod yuborish xizmati;",
+      "tashriflar statistikasi — Google Analytics (Google LLC)."
+     ],
+     "5.3. Davlat organlariga — qonunda belgilangan hollarda va tartibda.",
+     "5.4. Operator shaxsiy maʼlumotlarni sotmaydi va reklama maqsadida uchinchi shaxslarga bermaydi."
+    ]
+   },
+   {
+    "h": "Saqlash joyi va muddati",
+    "body": [
+     "6.1. Maʼlumotlar 5.2-bandda koʻrsatilgan provayderlar serverlarida saqlanadi. Bu serverlarning bir qismi Oʻzbekiston Respublikasi hududidan tashqarida joylashgan. Operator maʼlumotlarni Oʻzbekiston Respublikasi hududida saqlash boʻyicha qonunchilik talablariga rioya qiladi.",
+     "6.2. Hisob maʼlumotlari hisob faol boʻlgan davrda va oʻchirilganidan keyin 3 yil saqlanadi. Buyurtma va toʻlovga oid maʼlumotlar soliq va buxgalteriya qonunchiligida belgilangan muddat saqlanadi.",
+     "6.3. Sotuvchi arizasiga ilova qilingan pasport va ID-karta nusxalari Ariza boʻyicha qaror qabul qilinganidan keyin 30 kun ichida oʻchiriladi.",
+     "6.4. Muddat tugagach, maʼlumotlar oʻchiriladi yoki shaxsni aniqlab boʻlmaydigan holga keltiriladi."
+    ]
+   },
+   {
+    "h": "Sizning huquqlaringiz",
+    "body": [
+     [
+      "maʼlumotlaringiz ishlanayotgani va ularning tarkibi haqida axborot olish;",
+      "notoʻgʻri maʼlumotni tuzatish;",
+      "maʼlumotlarni oʻchirish yoki ishlashni toʻxtatishni talab qilish;",
+      "rozilikni qaytarib olish;",
+      "reklama xabarlaridan voz kechish;",
+      "Operator harakatlari ustidan vakolatli davlat organiga yoki sudga shikoyat qilish."
+     ],
+     "7.2. Soʻrovingizni climaventuz@outlook.com ga yuboring. Operator qonunda belgilangan muddatda, lekin 10 kalendar kundan kechiktirmay javob beradi."
+    ]
+   },
+   {
+    "h": "Xavfsizlik",
+    "body": [
+     "8.1. Maʼlumotlar tarmoq orqali shifrlangan (HTTPS) holda uzatiladi.",
+     "8.2. Kirish huquqi rollar boʻyicha cheklangan: Sotuvchi faqat oʻz tovarlariga oid maʼlumotni koʻradi, Operator xodimlari esa faqat vazifasi uchun zarur maʼlumotga kiradi.",
+     "8.3. Xaridorlar hisobiga parolsiz, telefon raqamiga yuboriladigan bir martalik SMS-kod orqali kiriladi. Sotuvchi kabineti shaxsiy login va parol bilan himoyalangan; parol oʻrnatish havolalari bir martalik va muddatli.",
+     "8.4. Maʼlumotlar sizib chiqqani aniqlansa, Operator qonunchilikda belgilangan tartibda vakolatli organni va zarar koʻrgan foydalanuvchilarni xabardor qiladi."
+    ]
+   },
+   {
+    "h": "Cookie-fayllar",
+    "body": [
+     "9.1. Zarur cookie-fayllar hisobga kirishni saqlash, til tanlovini va savatni eslab qolish uchun ishlatiladi. Ularsiz Platforma toʻgʻri ishlamaydi, shuning uchun ular uchun rozilik soʻralmaydi.",
+     "9.2. Analitik cookie-fayllar (Google Analytics) qaysi sahifalar koʻrilgani va sayt qanday ishlatilishi haqida umumlashtirilgan statistika yigʻadi. Ular faqat saytdagi cookie ogohlantirishida roziligingizni bildirganingizdan keyin ishlatiladi.",
+     "9.3. Tanlovingizni istalgan vaqtda sayt pastidagi «Cookie sozlamalari» havolasi orqali oʻzgartirishingiz yoki brauzer sozlamalarida cookie-fayllarni oʻchirishingiz mumkin. Zarur cookie-fayllar oʻchirilsa, Platformaning ayrim funksiyalari ishlamasligi mumkin.",
+     "9.4. Reklama va kuzatuv (retargeting) cookie-fayllari ishlatilmaydi."
+    ]
+   },
+   {
+    "h": "Voyaga yetmaganlar",
+    "body": [
+     "10.1. Platforma 18 yoshga toʻlmagan shaxslar uchun moʻljallanmagan. Bunday shaxsning maʼlumoti ota-onasining roziligisiz berilgani aniqlansa, u oʻchiriladi."
+    ]
+   },
+   {
+    "h": "Oʻzgarishlar va aloqa",
+    "body": [
+     "11.1. Siyosatning yangi versiyasi Platformada eʼlon qilinadi. Muhim oʻzgarishlar haqida roʻyxatdan oʻtgan foydalanuvchilarga xabar beriladi.",
+     "11.2. Operator: «CLIMAVENT» MChJ, manzil: Toshkent shahri, Shota Rustaveli koʻchasi, 115, elektron pochta: climaventuz@outlook.com, telefon: +998 90 354 78 88."
+    ]
+   }
+  ]
+ },
+ "ru": {
+  "intro": "",
+  "sections": []
+ },
+ "en": {
+  "intro": "",
+  "sections": []
+ }
+}
