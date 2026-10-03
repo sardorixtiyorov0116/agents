@@ -46,6 +46,8 @@ class XabarTanasi(BaseModel):
     text: str = Field(min_length=1, max_length=MAKS_MATN * 2)
     # Ilova tili. 0.8.1 va undan eski ilova yubormaydi — o'zbekcha.
     lang: str = "uz"
+    # Ilovada suhbat bo'sh — server ham oldingi kontekstni unutadi.
+    fresh: bool = False
 
 
 def _menejerga_yasa(s):
@@ -160,5 +162,6 @@ async def xabar(
     except ConnectionError as xato:
         raise HTTPException(status_code=503, detail="backend unavailable") from xato
 
-    javob = await request.app.state.yordamchi.javob(kim, tana.text, til_ol(tana.lang))
+    javob = await request.app.state.yordamchi.javob(
+        kim, tana.text, til_ol(tana.lang), yangi=tana.fresh)
     return javob.json()

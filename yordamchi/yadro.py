@@ -232,8 +232,18 @@ class Yordamchi:
         self.telefon = telefon
         self.tarjimon = tarjimon
 
-    async def javob(self, kim: Foydalanuvchi, matn: str, til: str = ASOSIY) -> Javob:
-        """`til` — ilova tili (`yordamchi/til.py`). Menejerga xabar har doim o'zbekcha."""
+    async def javob(self, kim: Foydalanuvchi, matn: str, til: str = ASOSIY,
+                    yangi: bool = False) -> Javob:
+        """`til` — ilova tili (`yordamchi/til.py`). Menejerga xabar har doim o'zbekcha.
+
+        `yangi` — ilovada suhbat bo'sh (birinchi xabar yoki «tozalash» dan keyin).
+        JONLI XATO (2026-10-03): ilova tarixni tozalasa ham server oldingi
+        «120 m² ofis» so'rovini eslab qolgan va «250 mm ventilyator» savoliga
+        xona balandligini so'ragan. Mijoz ekranda bo'sh suhbatni ko'rib turibdi —
+        server ham toza boshlashi kerak.
+        """
+        if yangi:
+            await suhbat.tozala(self.baza, suhbat.ILOVA, kim.id)
         matn = (matn or "").strip()[:MAKS_MATN]
         if not matn:
             return Javob(tmatn("bosh", til), holat="chegara")

@@ -455,3 +455,14 @@ async def test_ozbek_tiliga_llm_chaqirilmaydi():
     llm = _SoxtaLlm()
     assert await tarjimon_yasa(llm)("matn", "uz") == "matn"
     assert llm.soro is None
+
+
+async def test_yangi_suhbat_eski_kontekstni_unutadi(baza):
+    """JONLI XATO (2026-10-03): ilova tozalangan, server esa eski so'rovni qo'shib yuborgan."""
+    savol = natija_yasa(Holat.ANIQLIK_KERAK, {"savollar": ["Balandligi?"]}, kim="hvac-calc")
+    orkestr = SoxtaOrkestr(savol, rollar=("hvac-calc",))
+    y = yordamchi_yasa(baza, orkestr)
+    await y.javob(KIM, "120 m² ofis")
+    await y.javob(KIM, "250 mm ventilyator", yangi=True)
+
+    assert orkestr.sorovlar[1] == "250 mm ventilyator"
