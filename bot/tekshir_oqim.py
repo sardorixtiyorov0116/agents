@@ -53,7 +53,13 @@ class Seans:
     kp_tavsif: str = ""
     tz: list[Path] = field(default_factory=list)
     tz_tavsif: list[str] = field(default_factory=list)
+    # Rasm / skan TZ — tekshiruv paytida model bilan o'qiladi.
+    rasmlar: list[Path] = field(default_factory=list)
     boshlangan: float = field(default_factory=time.monotonic)
+
+    @property
+    def tz_soni(self) -> int:
+        return len(self.tz) + len(self.rasmlar)
 
     @property
     def eskirganmi(self) -> bool:
@@ -86,7 +92,7 @@ def faolmi(tg_id: int) -> bool:
 
 async def boshla(xabar, tg_id: int) -> None:
     """`/tekshir`. Seans ochiq va fayl bor bo'lsa — darhol tekshiradi."""
-    if faolmi(tg_id) and _seanslar[tg_id].kp is not None and _seanslar[tg_id].tz:
+    if faolmi(tg_id) and _seanslar[tg_id].kp is not None and _seanslar[tg_id].tz_soni:
         await ishga_tushir(xabar, tg_id)
         return
     _yop(tg_id)
@@ -99,7 +105,8 @@ async def boshla(xabar, tg_id: int) -> None:
         "• KP — Climavent KP PDF (bitta)\n"
         "• TZ — Excel (spetsifikatsiya, ro'yxat, zayavka) yoki VENTAS tanlov PDF "
         "(bir nechta bo'lishi mumkin)\n\n"
-        "Hozircha O'QILMAYDI: rasm, skan PDF, DWG, arxiv.\n"
+        "Rasm va skan PDF ham bo'ladi (jadval o'qiladi). DWG chizma — faqat uskuna "
+        "TURLARI solishtiriladi. Arxiv (zip/rar) — ochib yuboring.\n"
         "Tashlab bo'lgach «Tekshirish» ni bosing.\n\n"
         "Hech narsa tuzatilmaydi va mijozga yuborilmaydi — faqat farqlar ro'yxati.",
         reply_markup=_tugmalar(),
@@ -107,12 +114,22 @@ async def boshla(xabar, tg_id: int) -> None:
 
 
 def _tani(yol: Path) -> tuple[str, str]:
-    """Fayl turi: ("kp" | "tz" | "", tavsif). Sinxron — thread da chaqiriladi."""
+    """Fayl turi: ("kp" | "tz" | "rasm" | "", tavsif). Sinxron — thread da chaqiriladi."""
     from kp.kp_pdf import kp_oqi
+    from kp.ol_pdf import ol_oqi
     from kp.tz_jadval import jadval_oqi
+    from kp.tz_rasm import RASM_KENGAYTMALARI, rasmlar
     from kp.ventas import ventas_oqi
 
     kengaytma = yol.suffix.lower()
+    if kengaytma == ".dwg":
+        from kp.dwg import dastur_yoli
+
+        if dastur_yoli() is None:
+            return "", "DWG o'qish dasturi (LibreDWG) o'rnatilmagan — PDF qilib yuboring"
+        return "tz", "chizma (DWG) — uskuna TURLARI solishtiriladi"
+    if kengaytma in RASM_KENGAYTMALARI:
+        return "rasm", "rasm — jadval tekshiruvda o'qiladi"
     if kengaytma == ".xlsx":
         j = jadval_oqi(yol)
         if not j.qatorlar:
@@ -129,7 +146,12 @@ def _tani(yol: Path) -> tuple[str, str]:
         if kp is not None and kp.raqam and kp.qatorlar:
             mijoz = f", {kp.mijoz}" if kp.mijoz else ""
             return "kp", f"KP №{kp.raqam}{mijoz} — {len(kp.mahsulotlar)} mahsulot qatori"
-        return "", "na KP, na tanlov ma'lumotnomasi (skan chizma bo'lishi mumkin)"
+        ol = ol_oqi(yol)
+        if ol:
+            return "tz", f"TZ (so'rovnoma varaqasi): {len(ol)} qator"
+        if rasmlar(yol):
+            return "rasm", "skan PDF — jadval tekshiruvda o'qiladi"
+        return "", "na KP, na TZ jadvali"
     if kengaytma == ".xls":
         return "", "eski .xls format — Excel da «.xlsx» qilib saqlab yuboring"
     return "", f"«{kengaytma}» hozircha o'qilmaydi (rasm, DWG, arxiv — keyingi bosqichda)"
@@ -140,14 +162,16 @@ async def hujjat(xabar, tg_id: int, fayl, fayl_nomi: str, hajm: int = 0) -> bool
     if not faolmi(tg_id):
         return False
     seans = _seanslar[tg_id]
-    if len(seans.tz) + (1 if seans.kp else 0) >= MAKS_FAYL:
+    if seans.tz_soni + (1 if seans.kp else 0) >= MAKS_FAYL:
         await xabar.reply_text(f"⚠️ {MAKS_FAYL} tadan ko'p fayl olinmaydi — «Tekshirish» ni bosing.")
         return True
     if hajm and hajm > MAKS_HAJM:
         await xabar.reply_text(f"⚠️ {fayl_nomi}: fayl {MAKS_HAJM // 1024 // 1024} MB dan katta.")
         return True
 
-    yol = seans.papka / f"{len(seans.tz) + 1:02d}_{Path(fayl_nomi).name}"
+    # Telegram rasmlari hammasi «rasm.jpg» bo'lib keladi — tartib raqami
+    # nomlar to'qnashmasligi uchun.
+    yol = seans.papka / f"{sum(1 for _ in seans.papka.iterdir()) + 1:02d}_{Path(fayl_nomi).name}"
     try:
         await fayl.download_to_drive(str(yol))
     except Exception as xato:                       # noqa: BLE001
@@ -168,13 +192,16 @@ async def hujjat(xabar, tg_id: int, fayl, fayl_nomi: str, hajm: int = 0) -> bool
     elif turi == "tz":
         seans.tz.append(yol)
         seans.tz_tavsif.append(tavsif)
+    elif turi == "rasm":
+        seans.rasmlar.append(yol)
+        seans.tz_tavsif.append(tavsif)
     else:
         await xabar.reply_text(f"⚠️ {fayl_nomi}: {tavsif}")
         return True
 
     holat = [f"✓ {fayl_nomi}: {tavsif}", ""]
     holat.append(f"KP: {seans.kp_tavsif or '— hali yo‘q'}")
-    holat.append(f"TZ fayllari: {len(seans.tz)}")
+    holat.append(f"TZ fayllari: {seans.tz_soni}")
     await xabar.reply_text("\n".join(holat), reply_markup=_tugmalar())
     return True
 
@@ -199,15 +226,31 @@ async def ishga_tushir(xabar, tg_id: int) -> None:
         await xabar.reply_text("Seans yo'q yoki eskirgan — /tekshir dan boshlang.")
         return
     seans = _seanslar[tg_id]
-    if seans.kp is None or not seans.tz:
+    if seans.kp is None or not seans.tz_soni:
         yetishmaydi = "KP (PDF)" if seans.kp is None else "TZ fayli"
         await xabar.reply_text(f"⚠️ Hali {yetishmaydi} yo'q — faylni tashlang.",
                                reply_markup=_tugmalar())
         return
 
     await xabar.reply_text("⏳ Solishtirilmoqda…")
+    # Rasm / skan TZ — model faqat jadvalni ko'chiradi (`kp/tz_rasm.py`);
+    # `/kp` dagi bilan bir xil funksiya (faqat Gemini).
+    rasm_qatorlari: list = []
+    rasm_ogohlari: list[str] = []
+    for rasm in seans.rasmlar:
+        from bot import kp_oqim
+
+        try:
+            qatorlar, ogohlar = await kp_oqim._rasm_ajrat(rasm)
+            rasm_qatorlari += qatorlar
+            rasm_ogohlari += ogohlar
+        except Exception as xato:                   # noqa: BLE001
+            log.warning("tekshir: rasm o'qilmadi", exc_info=True)
+            rasm_ogohlari.append(f"rasm o'qilmadi: {xato}")
     try:
-        natija, ogoh = await asyncio.to_thread(fayllarni_tekshir, seans.kp, seans.tz)
+        natija, ogoh = await asyncio.to_thread(
+            fayllarni_tekshir, seans.kp, seans.tz, rasm_qatorlari)
+        ogoh = rasm_ogohlari + ogoh
     except Exception as xato:                       # noqa: BLE001
         log.exception("tekshir: solishtirishda xato")
         await xabar.reply_text(f"⚠️ Solishtirib bo'lmadi: {xato}")

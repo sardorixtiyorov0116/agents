@@ -491,6 +491,18 @@ tashqi blok — TZ nomi parametrlari bilan qoladi). Etalon o'lchovi
 (`kp_bilan_qamrov`): qoralama haqiqiy KP miqdorining qanchasini takrorlaydi —
 `tests/test_tz_qoralama.py` pasayishga yo'l qo'ymaydi.
 
+**Boshqa TZ turlari.** VRF so'rovnoma varaqasi (`kp/ol_pdf.py`) -> JVI/JVO
+bloklari. Rasm va skan PDF (`kp/tz_rasm.py`) — Gemini faqat jadvalni
+KO'CHIRADI, aylantirish kodda (faqat Gemini: Groq rasm olmaydi). DWG
+(`kp/dwg.py`) — qoralama YASALMAYDI (yozuvlar soni dona emas): `/kp` da
+uskuna turlari ro'yxati, `/tekshir` da «chizmada bor, KP da butunlay yo'q».
+
+**DWG dasturi — LibreDWG** (GNU, bepul). Windows: GitHub relizidan
+`libredwg-<versiya>-win64.zip` ni `asboblar/libredwg/` ga oching (git ga
+kirmaydi). Linux/server: `dwg2dxf` ni tizimga o'rnating yoki `DWG2DXF`
+muhit o'zgaruvchisida yo'lini bering. Dastur topilmasa bot buni ochiq
+aytadi va chizmani PDF qilib so'raydi. Dockerfile ga hali QO'SHILMAGAN.
+
 ## 19. Xaridor ilovasidagi yordamchi (`yordamchi/`)
 
 Climavent xaridor ilovasida «Climavent yordamchi» chati bor. Mijoz kechasi

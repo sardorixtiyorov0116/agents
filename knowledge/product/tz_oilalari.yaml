@@ -66,14 +66,17 @@ oilalar:
 
   - kod: kop
     nomi: "Teskari klapan"
-    tz: ['обратн', '\bКОП\b']
+    # «обратн» o'zi yetmaydi — chizmada «Обратный коллектор» (isitish) bor.
+    tz: ['обратн\w*\s+клапан', 'клапан\w*\s+обратн', '\bКОП']
     kp: ['\bКОП\b', 'Клапан обратный']
     kalit: olcham
     olcham_shart: true
 
   - kod: panjara_metall
     nomi: "Metall / dekorativ panjara"
-    tz: ['решетка\s+пожарн', 'металлическ', 'декоратив']
+    # «металлическ» o'zi yetmaydi — chizmada «Конструкции металлические» bor.
+    tz: ['решетка\s+пожарн', 'реш[её]тк\w*\s+(\w+\s+)?металлическ', 'металлическ\w*\s+реш[её]тк',
+         'декоратив\w*\s+реш[её]тк', 'реш[её]тк\w*\s+декоратив', 'РКДМ']
     kp: ['Решетка металлическ']
     kalit: olcham
     olcham_shart: true
@@ -87,7 +90,8 @@ oilalar:
 
   - kod: panjara_shift
     nomi: "Shift panjarasi"
-    tz: ['АП[НР]', '4АПР', '4РВП', 'потолочн\w*\s+(\w+\s+)?решет']
+    # Qisqartmalar ALOHIDA SO'Z bo'lishi shart: «ЗАПРОЕКТИРОВАННОГО» da ham «АПР» bor.
+    tz: ['\bАП[НР]\b', '4АПР', '4РВП', 'потолочн\w*\s+(\w+\s+)?решет']
     kp: ['4РВП', 'потолочная']
     kalit: olcham
     olcham_shart: true
@@ -101,7 +105,8 @@ oilalar:
 
   - kod: panjara_devor
     nomi: "Devor / tirqishli panjara"
-    tz: ['АД[НР]', 'АРС', 'РВР', 'щелев']
+    # Alohida so'z: «по адресу» da ham «адр» bor.
+    tz: ['\bАД[НР]\b', '\bАРС\b', 'РВР', 'щелев']
     tz_umumiy: ['реш[её]тк']
     kp: ['РВР', 'щелевая', '\bРШ\b', 'Решетка вентиляционная регулируемая']
     kalit: olcham
@@ -128,7 +133,8 @@ oilalar:
 
   - kod: vent_maishiy
     nomi: "Maishiy ventilyator (panjarali)"
-    tz: ['вентилятор с решеткой', 'compa[ck]t']
+    # «Compact 20», «Compakt 200» — model; «COMPACTOR» (chizmadagi xona) emas.
+    tz: ['вентилятор с решеткой', 'compa[ck]t\s*\d']
     kp: ['Compact', 'Compakt']
     kalit: belgi
 

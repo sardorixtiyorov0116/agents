@@ -794,12 +794,18 @@ def _qurilma_parametrlari(natija: Natija, q: Qurilma, k: _KpKckp) -> None:
 
 
 def fayllarni_tekshir(kp_yoli: str | Path,
-                      tz_yollari: list[str | Path]) -> tuple[Natija | None, list[str]]:
+                      tz_yollari: list[str | Path],
+                      qoshimcha_qatorlar: list[TzQator] | None = None,
+                      ) -> tuple[Natija | None, list[str]]:
     """KP PDF + TZ fayllari -> (natija, ogohlantirishlar).
 
     Natija `None` — solishtiradigan TZ topilmadi (sababi ogohlantirishda).
     Skript (`skriptlar/tz_tekshir.py`) ham, bot (`bot/tekshir_oqim.py`) ham
     shu funksiyani chaqiradi — qoidalar bitta joyda.
+
+    `qoshimcha_qatorlar` — fayldan emas, oldindan o'qilgan TZ qatorlari
+    (rasm/skan: model bilan o'qiladi, bu funksiya esa sinxron).
+    DWG chizma — faqat TUR darajasida: chizmada bor, KP da butunlay yo'q.
     """
     from .kp_pdf import kp_oqi
     from .tz_jadval import jadval_oqi
@@ -813,8 +819,9 @@ def fayllarni_tekshir(kp_yoli: str | Path,
         ogoh.append("KP qatorlari yig'indisi «Итого» bilan mos emas — PDF to'liq "
                     "o'qilmagan bo'lishi mumkin")
 
-    jadval_qatorlari: list[TzQator] = []
+    jadval_qatorlari: list[TzQator] = list(qoshimcha_qatorlar or [])
     qurilmalar: list[Qurilma] = []
+    chizma_farqlari: list[Farq] = []
     for yol in map(Path, tz_yollari):
         if yol.resolve() == Path(kp_yoli).resolve():
             continue    # TZ papkasida KP ning o'zi ham turgan bo'lishi mumkin
@@ -835,17 +842,29 @@ def fayllarni_tekshir(kp_yoli: str | Path,
             else:
                 ogoh.append(f"{yol.name}: tanlov ma'lumotnomasi emas (skan chizma yoki "
                             "boshqa PDF) — hozircha o'qilmaydi")
+        elif kengaytma == ".dwg":
+            from .dwg import DwgXatosi, dwg_yozuvlari, kp_bilan_farqlar, xulosa
+
+            try:
+                chizma_farqlari += kp_bilan_farqlar(xulosa(dwg_yozuvlari(yol)), kp)
+            except DwgXatosi as xato:
+                ogoh.append(f"{yol.name}: {xato}")
         else:
-            ogoh.append(f"{yol.name}: «{kengaytma}» hozircha o'qilmaydi "
-                        "(rasm, DWG, arxiv — keyingi bosqichda)")
+            ogoh.append(f"{yol.name}: «{kengaytma}» hozircha o'qilmaydi")
 
     if jadval_qatorlari:
         if qurilmalar:
             ogoh.append("TZ da ham Excel, ham tanlov PDF bor — faqat Excel solishtirildi")
-        return solishtir(jadval_qatorlari, kp), ogoh
-    if qurilmalar:
-        return ventas_solishtir(qurilmalar, kp), ogoh
-    return None, ogoh
+        natija = solishtir(jadval_qatorlari, kp)
+    elif qurilmalar:
+        natija = ventas_solishtir(qurilmalar, kp)
+    elif chizma_farqlari or any(Path(y).suffix.lower() == ".dwg" for y in tz_yollari):
+        # Faqat chizma berilgan — jadval solishtiruvi yo'q, faqat tur darajasi.
+        natija = Natija(kp_qatorlar=len(kp.mahsulotlar), farqlar=kp_ichki_tekshiruv(kp))
+    else:
+        return None, ogoh
+    natija.farqlar += chizma_farqlari
+    return natija, ogoh
 
 
 # --- hisobot ------------------------------------------------------------------------
@@ -862,10 +881,15 @@ def hisobot(natija: Natija, sarlavha: str = "") -> str:
     satrlar = []
     if sarlavha:
         satrlar.append(sarlavha)
-    satrlar.append(
-        f"TZ: {natija.tz_qatorlar} qator, KP: {natija.kp_qatorlar} mahsulot qatori. "
-        f"Mos guruhlar: {natija.mos_guruhlar}/{natija.tz_guruhlar} "
-        f"({natija.moslik_foizi:.0f}%).")
+    if natija.tz_guruhlar:
+        satrlar.append(
+            f"TZ: {natija.tz_qatorlar} qator, KP: {natija.kp_qatorlar} mahsulot qatori. "
+            f"Mos guruhlar: {natija.mos_guruhlar}/{natija.tz_guruhlar} "
+            f"({natija.moslik_foizi:.0f}%).")
+    else:
+        satrlar.append(
+            f"KP: {natija.kp_qatorlar} mahsulot qatori. TZ jadvali yo'q — faqat chizmadagi "
+            "uskuna TURLARI va KP ning o'zi tekshirildi.")
     for daraja in (JIDDIY, TEKSHIRING, MALUMOT):
         farqlar = [f for f in natija.farqlar if f.daraja == daraja]
         if not farqlar:

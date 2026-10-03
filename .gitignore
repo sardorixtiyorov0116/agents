@@ -12,3 +12,7 @@ ishga_tushir.log
 # Haqiqiy TZ/KP etalon to'plami — mijoz hujjatlari, git ga KIRMAYDI.
 # tests/test_tz_tekshiruv.py u yo'q bo'lsa etalon testlarini o'tkazib yuboradi.
 tests/etalon_tz/
+
+# Tashqi dasturlar (LibreDWG — DWG o'qish). Ikkilik fayllar, git ga KIRMAYDI.
+# Qanday olinadi: README, 18a bo'lim.
+asboblar/

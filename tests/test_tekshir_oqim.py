@@ -102,13 +102,13 @@ async def test_KP_siz_tekshiruv_boshlanmaydi(tmp_path):
 
 
 async def test_tanilmagan_fayl_ochiq_aytiladi(tmp_path):
-    rasm = tmp_path / "skrinshot.png"
-    rasm.write_bytes(b"\x89PNG")
+    arxiv = tmp_path / "tz.zip"
+    arxiv.write_bytes(b"PK")
     xabar = SoxtaXabar()
     await tekshir_oqim.boshla(xabar, TG)
-    await tekshir_oqim.hujjat(xabar, TG, SoxtaFayl(rasm), "skrinshot.png")
+    await tekshir_oqim.hujjat(xabar, TG, SoxtaFayl(arxiv), "tz.zip")
     assert "o'qilmaydi" in xabar.matnlar[-1]
-    assert tekshir_oqim._seanslar[TG].tz == []
+    assert tekshir_oqim._seanslar[TG].tz_soni == 0
 
 
 async def test_katta_fayl_yuklab_olinmaydi():
@@ -173,3 +173,41 @@ async def test_etalon_ventas_papkasi():
     # Yana /tekshir — fayllar bor, darhol tekshiradi.
     await tekshir_oqim.boshla(xabar, TG)
     assert "HEF-01" in xabar.hammasi and "H14" in xabar.hammasi
+
+
+@pytest.mark.skipif(not ETALON.is_dir(), reason="tests/etalon_tz/ yo'q")
+async def test_etalon_rasm_TZ_tekshiruvda_oqiladi(monkeypatch):
+    """Nirvana skrinshoti: model (soxta) jadvalni ko'chiradi, tekshiruvchi solishtiradi."""
+    from bot import kp_oqim
+    from kp.tz_jadval import jadval_oqi
+
+    async def soxta(yol):
+        return jadval_oqi(ETALON / "6-nirvana" / "tz_qolda.xlsx").qatorlar, ["rasmdan o'qildi"]
+
+    monkeypatch.setattr(kp_oqim, "_rasm_ajrat", soxta)
+    xabar = SoxtaXabar()
+    await tekshir_oqim.boshla(xabar, TG)
+    await tekshir_oqim.hujjat(xabar, TG, SoxtaFayl(ETALON / "6-nirvana" / "kp.pdf"), "kp.pdf")
+    await tekshir_oqim.hujjat(xabar, TG, SoxtaFayl(ETALON / "6-nirvana" / "tz_skrinshot.png"),
+                              "rasm.jpg")
+    assert "rasm" in xabar.matnlar[-1] and "TZ fayllari: 1" in xabar.matnlar[-1]
+    await tekshir_oqim.tugma(SoxtaSoro(tekshir_oqim.TUGMA_TEKSHIR, xabar), TG)
+    assert "rasmdan o'qildi" in xabar.hammasi
+    assert "150х150" in xabar.hammasi and "300х300" in xabar.hammasi
+
+
+@pytest.mark.skipif(not (ETALON / "7-provik-ventas" / "chizma_pid.dwg").is_file(),
+                    reason="etalon chizma yo'q")
+async def test_etalon_DWG_tekshiruvda():
+    from kp.dwg import dastur_yoli
+
+    if dastur_yoli() is None:
+        pytest.skip("LibreDWG yo'q")
+    xabar = SoxtaXabar()
+    await tekshir_oqim.boshla(xabar, TG)
+    papka = ETALON / "7-provik-ventas"
+    await tekshir_oqim.hujjat(xabar, TG, SoxtaFayl(papka / "kp.pdf"), "kp.pdf")
+    await tekshir_oqim.hujjat(xabar, TG, SoxtaFayl(papka / "chizma_pid.dwg"), "pid.dwg")
+    assert "DWG" in xabar.matnlar[-1]
+    await tekshir_oqim.tugma(SoxtaSoro(tekshir_oqim.TUGMA_TEKSHIR, xabar), TG)
+    assert "HEF-01" in xabar.hammasi and "faqat chizmadagi" in xabar.hammasi

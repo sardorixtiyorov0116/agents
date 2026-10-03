@@ -936,6 +936,9 @@ class Bot:
         if not xabar.photo:
             return
         fayl = await xabar.photo[-1].get_file()     # eng katta o'lcham
+        if tekshir_oqim.faolmi(tg_id):
+            await tekshir_oqim.hujjat(xabar, tg_id, fayl, "rasm.jpg")
+            return
         await kp_oqim.hujjat(self.baza, xabar, tg_id, fayl, "rasm.jpg")
 
     async def tekshir(self, update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:

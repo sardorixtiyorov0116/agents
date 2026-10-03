@@ -225,6 +225,12 @@ async def hujjat(baza, xabar, tg_id: int, fayl, fayl_nomi: str) -> bool:
     # bilan o'qiladi va har qator Climavent nomiga aylantiriladi
     # (`kp/tz_qoralama.py`). Ilgari Excel ham matn bo'lib modelga ketardi:
     # 20 ta nom, hammasiga miqdor 1, raqib nomlari o'zgarishsiz.
+    # DWG CHIZMA — qoralama YASALMAYDI (yozuvlar soni dona emas). Menejerga
+    # chizmada qanday uskuna borligi ko'rsatiladi (`kp/dwg.py`).
+    if yol.suffix.lower() == ".dwg":
+        await _chizmadan(xabar, yol)
+        return True
+
     # PDF bo'lsa — konditsioner so'rovnoma varaqasi (ОЛ) bo'lishi mumkin.
     if yol.suffix.lower() in (".xlsx", ".pdf"):
         import asyncio
@@ -350,6 +356,36 @@ async def _taklifni_qolla(baza, xabar, tg_id: int, taklif) -> None:
     await xabar.reply_text("\n".join(qatorlar), parse_mode="Markdown")
 
     await _keyingisi(baza, xabar, tg_id, Shakl(javoblar=javoblar))
+
+
+async def _chizmadan(xabar, yol: Path) -> None:
+    """DWG: chizmadagi uskuna turlari ro'yxati. Shaklga hech narsa yozilmaydi."""
+    import asyncio
+
+    from kp.dwg import DwgXatosi, dwg_yozuvlari, xulosa
+
+    await xabar.reply_text("📐 Chizma o'qilmoqda (bir necha soniya)…")
+    try:
+        x = await asyncio.to_thread(lambda: xulosa(dwg_yozuvlari(yol)))
+    except DwgXatosi as xato:
+        await xabar.reply_text(f"⚠️ {xato}")
+        return
+    except Exception:                               # noqa: BLE001
+        log.exception("DWG o'qilmadi")
+        await xabar.reply_text("⚠️ Chizmani o'qib bo'lmadi — PDF qilib yuboring.")
+        return
+    satrlar = x.satrlar(eng_kam=2)
+    if not satrlar:
+        await xabar.reply_text(
+            "📐 Chizmada ventilyatsiya/konditsioner uskunasi belgilari topilmadi.")
+        return
+    # Markdownsiz: chizma yozuvlarida «*» bor («КПД-4-01-600х500-2*ф»).
+    await xabar.reply_text(
+        "📐 Chizmada topilgan uskunalar — YOZUVLAR SONI, dona emas:\n\n"
+        + "\n".join(f"• {s}" for s in satrlar[:20])
+        + "\n\nKP qoralamasi chizmadan YASALMAYDI: bitta uskuna chizmada bir necha "
+          "marta yoziladi. Spetsifikatsiyani Excel, PDF yoki rasm qilib yuboring. "
+          "Tayyor KP ni chizma bilan solishtirish — /tekshir.")
 
 
 async def _rasmdan(baza, xabar, tg_id: int, yol: Path) -> None:
