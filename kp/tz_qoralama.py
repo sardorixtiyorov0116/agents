@@ -124,6 +124,32 @@ def _konditsioner(q: TzQator, oila_kod: str, qoida: dict[str, Any],
     return qatorlar
 
 
+def tashqi_kombinatsiyalar(quvvat: float, modullar: list[dict[str, Any]],
+                           maks_modul: int = 4, farq_foizi: float = 1.5) -> list[list[str]]:
+    """Yig'indisi `quvvat` ga AYNAN teng HAMMA kombinatsiyalar (kam modullisi oldin).
+
+    BITTASINI O'ZIMIZ TANLAMAYMIZ. 128,5 kVt ni 725T + 560T ham, 615T + 335T
+    × 2 ham beradi — menejer KP 13173 da ikkinchisini olgan. Qaysi biri
+    to'g'riligi (modullar mosligi, zaxira) — muhandis qarori. Shuning uchun
+    bitta variant bo'lsa — qo'yiladi, bir nechta bo'lsa — ro'yxat ko'rsatiladi.
+    Taxminiy (katta yoki kichik) kombinatsiya qaytarilmaydi.
+    """
+    from itertools import combinations_with_replacement
+
+    chegara = quvvat * farq_foizi / 100
+    natija: list[list[str]] = []
+    for soni in range(1, maks_modul + 1):
+        for k in combinations_with_replacement(sorted(modullar, key=lambda m: -m["kvt"]), soni):
+            if abs(sum(m["kvt"] for m in k) - quvvat) <= chegara:
+                natija.append([m["kod"] for m in k])
+    return natija
+
+
+def _kombinatsiya_matni(kodlar: list[str]) -> str:
+    return " + ".join(f"{kod} × {kodlar.count(kod)}" if kodlar.count(kod) > 1 else kod
+                      for kod in dict.fromkeys(kodlar))
+
+
 def _qator(q: TzQator, ei_yoq: list[str]) -> tuple[list[dict[str, Any]], str]:
     from .qisqartma import qollash
 
@@ -154,6 +180,32 @@ def _qator(q: TzQator, ei_yoq: list[str]) -> tuple[list[dict[str, Any]], str]:
         qatorlar = _konditsioner(q, oila.kod, qoida, yozuv)
         if qatorlar is not None:
             return qatorlar, ANALOG
+
+    # 3) VRF tashqi blok: modullar kombinatsiyasi — faqat YAGONA aniq bo'lsa.
+    if oila.kod == "vrf_tashqi" and qoida.get("modullar"):
+        quvvat = kvt(matn)
+        variantlar = tashqi_kombinatsiyalar(
+            quvvat, qoida["modullar"], qoida.get("maks_modul", 4),
+            qoida.get("farq_foizi", 1.5)) if quvvat else []
+        if len(variantlar) == 1:
+            kodlar = variantlar[0]
+            qatorlar = []
+            for kod in dict.fromkeys(kodlar):
+                qatorlar.append({
+                    **yozuv, "ogohlantirishlar": [],
+                    "nomi": qoida["qolip"].format(kod=kod),
+                    "miqdor": q.miqdor * kodlar.count(kod),
+                })
+            qatorlar[0]["ogohlantirishlar"] = [
+                f"«{q.nomi[:50]}»: {quvvat:g} kVt = {_kombinatsiya_matni(kodlar)} — "
+                "yagona aniq kombinatsiya, tasdiqlang"]
+            return qatorlar, ANALOG
+        if len(variantlar) > 1:
+            yozuv["ogohlantirishlar"] = [
+                f"«{q.nomi[:50]}»{' (' + q.tizim + ')' if q.tizim else ''}: {quvvat:g} kVt — "
+                f"{len(variantlar)} ta aniq kombinatsiya bor, tanlang: "
+                + "; ".join(_kombinatsiya_matni(v) for v in variantlar[:4])]
+            return [yozuv], TANLOV
 
     if qoida.get("tanlov") or not qoida.get("qoliplar"):
         parametr = _parametrlar_matni(q)
@@ -275,19 +327,39 @@ def kp_bilan_qamrov(mahsulotlar: list[dict[str, Any]], kp) -> tuple[float, float
             100.0 * aniq / len(kp.mahsulotlar) if kp.mahsulotlar else 0.0)
 
 
-def jadvaldan_taklif(yol: str | Path):
-    """Excel TZ -> `ShaklTaklifi` (yol=model). Jadval bo'lmasa `None`.
+def fayldan_taklif(yol: str | Path):
+    """TZ fayli -> `ShaklTaklifi` (yol=model). Tanilmasa `None`.
 
-    `None` qaytsa `/kp` eski yo'ldan ketadi (matn -> model): Excel da
-    jadval emas, xonalar tavsifi bo'lishi mumkin.
+    Excel jadval (`kp/tz_jadval.py`) yoki konditsioner so'rovnoma varaqasi
+    PDF (`kp/ol_pdf.py`). `None` qaytsa `/kp` eski yo'ldan ketadi (matn ->
+    model): fayl jadval emas, xonalar tavsifi bo'lishi mumkin.
     """
-    from .tz import ShaklTaklifi
+    yol = Path(yol)
+    kengaytma = yol.suffix.lower()
+    if kengaytma == ".xlsx":
+        return jadvaldan_taklif(yol)
+    if kengaytma == ".pdf":
+        from .ol_pdf import ol_oqi
+
+        qatorlar = ol_oqi(yol)
+        return qatorlardan_taklif(qatorlar, [], "So'rovnoma varaqasi (ОЛ)") if qatorlar else None
+    return None
+
+
+def jadvaldan_taklif(yol: str | Path):
+    """Excel TZ -> `ShaklTaklifi` (yol=model). Jadval bo'lmasa `None`."""
     from .tz_jadval import jadval_oqi
 
     j = jadval_oqi(yol)
     if not j.qatorlar:
         return None
-    q = qoralama(j.qatorlar)
+    return qatorlardan_taklif(j.qatorlar, j.ogohlantirishlar, "Jadval")
+
+
+def qatorlardan_taklif(qatorlar: list[TzQator], fayl_ogohlari: list[str], manba: str):
+    from .tz import ShaklTaklifi
+
+    q = qoralama(qatorlar)
     if q.turlar[QISQARTMA] + q.turlar[ANALOG] + q.turlar[TANLOV] == 0:
         return None     # hech bir qator ventilyatsiya mahsulotiga o'xshamadi
 
@@ -296,7 +368,7 @@ def jadvaldan_taklif(yol: str | Path):
     taklif.javoblar["mahsulotlar"] = q.mahsulotlar
     jami = len(q.mahsulotlar)
     taklif.topilganlar.append(
-        f"Jadval: {jami} qator, miqdorlari bilan")
+        f"{manba}: {jami} qator, miqdorlari bilan")
     taklif.topilganlar.append(
         f"Climavent nomiga aylandi: {q.turlar[QISQARTMA] + q.turlar[ANALOG]} "
         f"({q.tayyor_foizi:.0f}%)")
@@ -307,7 +379,7 @@ def jadvaldan_taklif(yol: str | Path):
         taklif.topilganlar.append(f"Tanilmadi (TZ nomi bilan qoldi): {q.turlar[TANILMADI]}")
     # Bot bu matnni Markdown bilan yuboradi: TZ dan kelgan «_», «*» (varaq
     # nomida, mahsulot nomida) xabarni BUZADI — Telegram uni rad etadi.
-    taklif.ogohlantirishlar += [_markdownsiz(o) for o in j.ogohlantirishlar + q.umumiy]
+    taklif.ogohlantirishlar += [_markdownsiz(o) for o in fayl_ogohlari + q.umumiy]
     return taklif
 
 

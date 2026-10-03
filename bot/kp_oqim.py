@@ -225,13 +225,14 @@ async def hujjat(baza, xabar, tg_id: int, fayl, fayl_nomi: str) -> bool:
     # bilan o'qiladi va har qator Climavent nomiga aylantiriladi
     # (`kp/tz_qoralama.py`). Ilgari Excel ham matn bo'lib modelga ketardi:
     # 20 ta nom, hammasiga miqdor 1, raqib nomlari o'zgarishsiz.
-    if yol.suffix.lower() == ".xlsx":
+    # PDF bo'lsa — konditsioner so'rovnoma varaqasi (ОЛ) bo'lishi mumkin.
+    if yol.suffix.lower() in (".xlsx", ".pdf"):
         import asyncio
 
-        from kp.tz_qoralama import jadvaldan_taklif
+        from kp.tz_qoralama import fayldan_taklif
 
         try:
-            taklif = await asyncio.to_thread(jadvaldan_taklif, yol)
+            taklif = await asyncio.to_thread(fayldan_taklif, yol)
         except Exception:                           # noqa: BLE001
             log.warning("Excel TZ jadval sifatida o'qilmadi", exc_info=True)
             taklif = None
@@ -292,12 +293,25 @@ async def _taklifni_qolla(baza, xabar, tg_id: int, taklif) -> None:
 
     saqlangan = await baza.kp_shakli(tg_id)
     javoblar = dict(saqlangan["javoblar"]) if saqlangan else {}
+    # TZ BIR NECHTA FAYL bo'lishi mumkin: zayavka + so'rovnoma varaqasi (ОЛ),
+    # qavatlar bo'yicha spetsifikatsiyalar. Ikkala tomon ham mahsulot
+    # ro'yxati bo'lsa — ro'yxat QO'SHILADI. Aks holda ikkinchi fayl «allaqachon
+    # javob berilgan» deb jimgina tashlab yuborilardi.
+    taklif_javoblari = dict(taklif.javoblar)
+    if (javoblar.get("yol") == "model" == taklif_javoblari.get("yol")
+            and javoblar.get("mahsulotlar") and taklif_javoblari.get("mahsulotlar")):
+        qoshilgan = taklif_javoblari.pop("mahsulotlar")
+        javoblar["mahsulotlar"] = list(javoblar["mahsulotlar"]) + list(qoshilgan)
+        taklif_javoblari.pop("yol")
+        taklif.topilganlar.append(
+            f"Oldingi ro'yxatga {len(qoshilgan)} qator QO'SHILDI — "
+            f"jami {len(javoblar['mahsulotlar'])}")
     # Menejer ALLAQACHON javob bergan savol ustidan yozilmaydi.
-    yangilar = {k: v for k, v in taklif.javoblar.items() if k not in javoblar}
+    yangilar = {k: v for k, v in taklif_javoblari.items() if k not in javoblar}
     # Nima TUSHIB QOLGANINI aytamiz. Fayl kechroq tashlansa, qo'lda
     # berilgan javoblar ustun turadi va menejer TZ dagi qiymat
     # ishlatilmaganini bilmay qoladi.
-    otkazilgan = [k for k in taklif.javoblar if k in javoblar]
+    otkazilgan = [k for k in taklif_javoblari if k in javoblar]
     javoblar.update(yangilar)
     await baza.kp_shakli_yoz(tg_id, javoblar)
 

@@ -126,9 +126,62 @@ def test_VRF_devoriy_panelsiz_va_standart_olcham():
     assert [m["nomi"] for m in natija.mahsulotlar] == ["Внутренний блок настенные типа VRF JVI-045W"]
 
 
-def test_VRF_tashqi_blok_tanlov():
+def test_VRF_tashqi_blok_yagona_kombinatsiya_qoyiladi():
     natija = qoralama([_tz("Наружный блок кондиционирования, напольная 56 кВт", 2)])
+    assert [(m["nomi"], m["miqdor"]) for m in natija.mahsulotlar] == [
+        ("Наружный блок VRF модель JVO-560T", 2)]
+    assert "tasdiqlang" in natija.mahsulotlar[0]["ogohlantirishlar"][0]
+
+
+def test_VRF_tashqi_blok_bir_nechta_kombinatsiya_TANLOV():
+    """128,5 kVt: 725T+560T ham, 615T+335T×2 ham (menejer tanlagani) — o'zimiz tanlamaymiz."""
+    natija = qoralama([_tz("Наружный блок инверторный 128,5 кВт")])
     assert natija.turlar[TANLOV] == 1
+    ogoh = natija.mahsulotlar[0]["ogohlantirishlar"][0]
+    assert "JVO-615T + JVO-335T × 2" in ogoh and "JVO-725T + JVO-560T" in ogoh
+
+
+def test_VRF_tashqi_blok_aniq_kombinatsiya_yoq():
+    natija = qoralama([_tz("Наружный блок кондиционирования 18 кВт")])
+    assert natija.turlar[TANLOV] == 1
+
+
+def test_katalog_uchinchi_olchami_nomga_qoyiladi():
+    from kp.shakldan import katalog_olchami
+
+    assert katalog_olchami("Дроссель клапан ДКСп 250х200",
+                           "ДКСп 250х200х250 (13 $ x 12600)") == "Дроссель клапан ДКСп 250х200х250"
+    # Narx boshqa o'lchamdan topilgan — nom O'ZGARMAYDI.
+    assert katalog_olchami("Дроссель клапан ДКСп 250х200",
+                           "ДКСп 300х200х250 (13 $)") == "Дроссель клапан ДКСп 250х200"
+    assert katalog_olchami("Решетка 4РВП 450х450мм", "4РВП 450х450 (16 $)") == "Решетка 4РВП 450х450мм"
+
+
+async def test_kp_oqimi_ikkinchi_TZ_fayli_royxatga_QOSHILADI(tmp_path, monkeypatch):
+    """Zayavka + so'rovnoma varaqasi — ikkinchi fayl tashlab yuborilmaydi."""
+    from app.baza import Baza
+    from bot import kp_oqim
+    from kp.tz import ShaklTaklifi
+
+    class Xabar:
+        def __init__(self):
+            self.matnlar = []
+
+        async def reply_text(self, matn, reply_markup=None, **_):
+            self.matnlar.append(matn)
+
+    baza = Baza(tmp_path / "b.db")
+    await baza.tayyorla()
+    xabar = Xabar()
+    await kp_oqim.boshla(baza, xabar, 4343)
+    for nom, miqdor in (("A", 1), ("B", 2)):
+        t = ShaklTaklifi()
+        t.javoblar = {"yol": "model", "mahsulotlar": [{"nomi": nom, "miqdor": miqdor}]}
+        t.topilganlar = ["x"]
+        await kp_oqim._taklifni_qolla(baza, xabar, 4343, t)
+    javoblar = (await baza.kp_shakli(4343))["javoblar"]
+    assert [m["nomi"] for m in javoblar["mahsulotlar"]] == ["A", "B"]
+    assert any("QO'SHILDI" in m for m in xabar.matnlar)
 
 
 def test_split_standart_quvvat():
@@ -264,6 +317,38 @@ def test_etalon_qoralama_haqiqiy_KP_ni_takrorlaydi(papka, nomga, qamrov):
     olchov, _ = kp_bilan_qamrov(natija.mahsulotlar, kp_oqi(ETALON / papka / "kp.pdf"))
     assert natija.tayyor_foizi >= nomga
     assert olchov >= qamrov
+
+
+@etalon
+def test_etalon_OL_dan_VRF_bloklari():
+    """5-juft ОЛ: menejer KP-13173 dagi ichki bloklar birma-bir chiqadi."""
+    from kp.kp_pdf import kp_oqi
+    from kp.ol_pdf import ol_oqi
+    from kp.tz_qoralama import fayldan_taklif
+
+    qatorlar = ol_oqi(ETALON / "5-enter-alm" / "tz_ol.pdf")
+    assert sum(q.miqdor for q in qatorlar if "Внутр" in q.nomi) == 30
+    natija = qoralama(qatorlar)
+    nomlar = {m["nomi"]: m["miqdor"] for m in natija.mahsulotlar if natija.mahsulotlar}
+    assert nomlar["Внутренний блок настенные типа VRF JVI-056W"] == 6
+    olchov, _ = kp_bilan_qamrov(natija.mahsulotlar, kp_oqi(ETALON / "5-enter-alm" / "kp.pdf"))
+    assert olchov >= 80
+    taklif = fayldan_taklif(ETALON / "5-enter-alm" / "tz_ol.pdf")
+    assert taklif.javoblar["yol"] == "model"
+    assert fayldan_taklif(ETALON / "5-enter-alm" / "kp.pdf") is None    # KP — ОЛ emas
+
+
+@etalon
+def test_etalon_alm_tekshiruvchi_OL_bilan():
+    """Zayavka + ОЛ: tashqi bloklar jami quvvat bo'yicha mos, 10 -> 11,2 kVt topiladi."""
+    from kp.solishtir import fayllarni_tekshir
+
+    papka = ETALON / "5-enter-alm"
+    natija, _ = fayllarni_tekshir(papka / "kp.pdf", [papka / "tz_zayavka.xlsx", papka / "tz_ol.pdf"])
+    matnlar = " | ".join(f.matn for f in natija.farqlar)
+    assert "285 kVt = KP 285 kVt" in matnlar
+    assert "10 kVt" in matnlar and "11.2 kVt" in matnlar
+    assert "Split" not in matnlar           # К1–К4 zayavkadagi tizim qatori bilan qoplangan
 
 
 @etalon

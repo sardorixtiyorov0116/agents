@@ -197,6 +197,34 @@ def _variantlar(katalog: list[dict[str, Any]], nom: str) -> list[dict[str, Any]]
     return aniq or keng
 
 
+_UCH_OLCHAM = re.compile(r"(\d{2,4})\s*[xхХ×]\s*(\d{2,4})\s*[xхХ×]\s*(\d{2,4})")
+_IKKI_OLCHAM = re.compile(r"(\d{2,4})\s*[xхХ×]\s*(\d{2,4})(?!\s*[xхХ×]\s*\d)")
+
+
+def katalog_olchami(nom: str, manba: str) -> str:
+    """Katalog variantidagi 3-o'lchamni nomga qo'yadi.
+
+    NEGA: TZ da «ДКСп 250x200» yoziladi, katalogda esa variant
+    «ДКСп 250х200х250» — uzunlik bilan. Menejer KP siga uzunlikni yozadi
+    (KP 13357: «ДКСп 250х200х250»), qoralama esa yozmasdi va menejer
+    40 ta qatorni qo'lda to'ldirardi.
+
+    FAQAT birinchi ikki o'lcham AYNAN mos bo'lsa qo'yiladi — narx boshqa
+    o'lchamdagi variantdan topilgan bo'lsa nom o'zgarmaydi (o'ylab
+    topilgan uzunlik yozilmaydi).
+
+    `manba` — `katalog_narxi` ning 2-qiymati: «ДКСп 250х200х250 (13 $ x 12600)».
+    """
+    variant = _UCH_OLCHAM.search((manba or "").split(" (")[0])
+    bizniki = _IKKI_OLCHAM.search(nom or "")
+    if variant is None or bizniki is None:
+        return nom
+    if (int(bizniki.group(1)), int(bizniki.group(2))) != (int(variant.group(1)), int(variant.group(2))):
+        return nom
+    toliq = f"{int(variant.group(1))}х{int(variant.group(2))}х{int(variant.group(3))}"
+    return nom[:bizniki.start()] + toliq + nom[bizniki.end():]
+
+
 def _quvvat(nom: str) -> str:
     """Variant nomidan quvvat va aylanish: `…-0,75/3000` -> `0,75 kVt / 3000`."""
     mos = re.search(r"-([\d,\.]+)/(\d+)\s*$", nom)
@@ -255,6 +283,10 @@ def _qatorlar_modeldan(
         topilgan = katalog_narxi_xavfsiz(katalog, nom, kurs, qqs)
         if topilgan is None:
             narxsiz.append(nom)
+        else:
+            # ДКСп uzunligi, КОП chuqurligi — TZ da yo'q, katalogda bor.
+            # Narx aynan o'sha variantdan olingan, nom ham unga mos bo'lsin.
+            nom = katalog_olchami(nom, topilgan[1])
         # ASL NOM spetsifikatsiyada qoladi: menejer mijoz nima
         # so'raganini va biz nimaga aylantirganimizni yonma-yon ko'rsin.
         asl = str(xom.get("asl_nomi") or "").strip()

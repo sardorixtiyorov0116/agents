@@ -394,13 +394,57 @@ def solishtir(tz: list[TzQator], kp: KpHujjat) -> Natija:
                 YOQ_KPDA, TEKSHIRING,
                 f"TZ: VRF tizimi {kalit[2] or '(belgisiz)'} — KP da bunday tizim bo'limi yo'q",
                 oila="vrf_tizim", kalit=kalit[2]))
+    # TZ da bloklar ALOHIDA ham berilgan bo'lsa (zayavka + so'rovnoma varaqasi),
+    # KP bloklari ular bilan solishtiriladi — tizim qatori ularni «yutmasin».
+    # Faqat TZ da alohida BERILMAGAN oila qatorlari qoplangan sanaladi
+    # (5-juft: К1–К4 splitlari ОЛ da yo'q, zayavkada tizim sifatida bor).
+    tz_oilalari = {k[0] for k in tzg}
     if qoplangan:
         for k in list(kpg):
+            if k[0] in tz_oilalari:
+                continue
             g = kpg[k]
             g.qatorlar = [q for q in g.qatorlar if id(q) not in qoplangan]
             g.miqdor = sum(q.miqdor for q in g.qatorlar)
             if not g.qatorlar:
                 del kpg[k]
+
+    # Quvvat bo'yicha oilalar (VRF, split): TZ da tizim belgisi umuman yo'q
+    # bo'lsa (so'rovnoma varaqasida faqat qavat) — KP ham tizimsiz yig'iladi.
+    for oila_kod in {k[0] for k in tzg if nomlar[k[0]].kalit == "kvt"}:
+        if all(k[1] == "" for k in tzg if k[0] == oila_kod):
+            for k in [k for k in kpg if k[0] == oila_kod and k[1]]:
+                g = kpg.pop(k)
+                umumiy = kpg[(oila_kod, "", k[2])]
+                umumiy.miqdor += g.miqdor
+                umumiy.qatorlar += g.qatorlar
+
+    # VRF tashqi bloklari: TZ da tizim quvvati («128,5 kVt»), KP da modullar
+    # (615T + 335T × 2). Bir-biriga bittalab mos kelmaydi — JAMI quvvat
+    # solishtiriladi (tizim bo'yicha, tizim yo'q bo'lsa hammasi).
+    for tizim in {k[1] for k in tzg if k[0] == "vrf_tashqi"}:
+        tz_k = [k for k in tzg if k[0] == "vrf_tashqi" and k[1] == tizim and k[2]]
+        kp_k = [k for k in kpg if k[0] == "vrf_tashqi" and k[1] == tizim and k[2]]
+        if not tz_k or not kp_k:
+            continue
+
+        def jami(guruhlar, kalitlar):
+            return sum(float(k[2].split()[0]) * guruhlar[k].miqdor for k in kalitlar)
+
+        tz_jami, kp_jami = jami(tzg, tz_k), jami(kpg, kp_k)
+        if abs(tz_jami - kp_jami) <= 0.02 * tz_jami:
+            kp_qatorlar = [q for k in kp_k for q in kpg[k].qatorlar]
+            for k in tz_k:
+                del tzg[k]
+            for k in kp_k:
+                del kpg[k]
+            natija.tz_guruhlar += 1
+            natija.mos_guruhlar += 1
+            natija.farqlar.append(Farq(
+                PARAMETR, MALUMOT,
+                f"VRF tashqi bloklar{' [' + tizim + ']' if tizim else ''}: jami quvvat "
+                f"TZ {tz_jami:g} kVt = KP {kp_jami:g} kVt (KP qatorlari: {_raqamlar(kp_qatorlar)})",
+                oila="vrf_tashqi"))
 
     # Belgili oilalar (ventilyatorlar): belgisi yo'q tomon bo'lsa — oila
     # darajasida (jami dona) solishtiriladi.
@@ -780,9 +824,14 @@ def fayllarni_tekshir(kp_yoli: str | Path,
             jadval_qatorlari += j.qatorlar
             ogoh += [f"{yol.name}: {o}" for o in j.ogohlantirishlar]
         elif kengaytma == ".pdf":
+            from .ol_pdf import ol_oqi
+
             q = ventas_oqi(yol)
+            ol = ol_oqi(yol) if q is None else None
             if q is not None:
                 qurilmalar.append(q)
+            elif ol:
+                jadval_qatorlari += ol
             else:
                 ogoh.append(f"{yol.name}: tanlov ma'lumotnomasi emas (skan chizma yoki "
                             "boshqa PDF) — hozircha o'qilmaydi")

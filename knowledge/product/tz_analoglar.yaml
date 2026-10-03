@@ -117,9 +117,24 @@ analoglar:
     tanlov: true
     izoh: "Ventilyator sarf, bosim va dvigatel bo'yicha tanlanadi (ВЦ / ВО)"
 
+  # VRF tashqi blok — modullar kombinatsiyasi. Faqat yig'indisi TZ quvvatiga
+  # AYNAN (1,5% gacha) teng bo'lsa olinadi, eng kam modulli kombinatsiya.
+  # Menejer KP larida shunday: 128,5 = 615T + 335T × 2; 156,5 = 615T × 2 +
+  # 335T; 56 = 560T; 73 -> 725T. Aniq kombinatsiya bo'lmasa — tanlov.
+  # Modul quvvati kod raqamidan (kVt × 10). Ro'yxat — KP larda uchragan
+  # modullar; katalogda JVO yo'q, yangi modul shu yerga qo'shiladi.
   vrf_tashqi:
-    tanlov: true
-    izoh: "VRF tashqi blok quvvat bo'yicha tanlanadi (JVO)"
+    manba: "KP 13173, 13321, 13508"
+    modullar:
+      - {kod: "JVO-335T", kvt: 33.5}
+      - {kod: "JVO-560T", kvt: 56.0}
+      - {kod: "JVO-615T", kvt: 61.5}
+      - {kod: "JVO-680T", kvt: 68.0}
+      - {kod: "JVO-725T", kvt: 72.5}
+    maks_modul: 4
+    farq_foizi: 1.5
+    qolip: "Наружный блок VRF модель {kod}"
+    izoh: "VRF tashqi blok quvvat bo'yicha tanlanadi (JVO) — aniq kombinatsiya topilmadi"
 
   # VRF ichki blok: kod = quvvat × 10 («JVI-071C» = 7,1 kVt). TZ quvvatidan
   # 5% gacha kichigi ham olinadi (14,07 -> 14,0), aks holda kattasi.
