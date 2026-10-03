@@ -281,10 +281,16 @@ def narxni_top(
         )
 
     # Narx yo'q — model KATALOGDA BORMI?
+    #
+    # Katalog nomi so'rov ichida uchrashi faqat nomda RAQAM bo'lsa
+    # hisoblanadi. JONLI XATO (2026-10-02): `characters[].title` da oila
+    # nomi turadi («ВКК»), u esa «вкк-250» ichida bor — natijada katalogda
+    # YO'Q model uchun «katalogimizda bor» deb javob berilardi.
     tekis = model.lower().replace(" ", "")
-    bor = any(tekis in nom.lower().replace(" ", "") or
-              nom.lower().replace(" ", "") in tekis
-              for nom in _nomlar(katalog))
+    bor = any(
+        tekis in nom_t or (nom_t in tekis and any(ch.isdigit() for ch in nom_t))
+        for nom_t in (nom.lower().replace(" ", "") for nom in _nomlar(katalog))
+    )
     if bor:
         return NarxJavobi(
             holat="narxsiz", model=model,

@@ -449,6 +449,13 @@ class Sozlama(BaseSettings):
     # xarajat esa bir necha barobar kamayadi.
     mijoz_bot_model: str = ""
 
+    # --- Xaridor ilovasidagi yordamchi (`yordamchi/`) ---------------------
+    # Ilovada kunlik chegara Telegramdagidan KATTA: u yerda har xaridor
+    # telefon bilan kirgan (anonim emas), va ilovada yordamchi asosiy
+    # yo'l — Telegramdagi `/bolimlar` so'rovnomasi bu yerda yo'q.
+    # Daqiqalik flood chegarasi umumiy: `mijoz_bot_limit`.
+    yordamchi_kunlik_limit: int = 20
+
     @property
     def mijoz_menejer_idlar(self) -> set[int]:
         """Lid xabari keladiganlar. Bo'sh bo'lsa — ichki bot ro'yxati."""

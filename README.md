@@ -457,3 +457,49 @@ shrifti ishlatiladi.
 
 **Tasdiq.** KP — mijozga ketadigan rasmiy hujjat, shuning uchun `tasdiq_kerak`
 har doim `true`. Tizim hujjatni hech qachon o'zi yubormaydi.
+
+## 19. Xaridor ilovasidagi yordamchi (`yordamchi/`)
+
+Climavent xaridor ilovasida «Climavent yordamchi» chati bor. Mijoz kechasi
+yozsa ham javob darhol keladi: yordamchi hisoblaydi, katalogdan mahsulot
+tanlaydi va ularni **kartochka** qilib qaytaradi. Mijoz kartochkadan savatga
+qo'shadi va KP ni ilovada darhol oladi.
+
+Bu mijozlar botining ilova yo'li. Zanjir o'sha-o'sha: ruxsat
+(`bot/mijoz_ruxsat.OCHIQ_AGENTLAR`), suhbat konteksti (`bot/suhbat.py`,
+kanal `ilova`), narx qidiruvi (`sorovnoma/narx_sorov.py`) va mijoz matni
+(`presenter`). Telegramdan farqi:
+
+- raqam so'ralmaydi, chunki ilovaga faqat telefon bilan kiriladi;
+- javob bilan katalog id'lari qaytadi, faqat ANIQ moslik bo'yicha;
+- har savol menejerga ichki bot orqali boradi (`💬 Ilovadan savol`).
+
+| Fayl | Vazifa |
+|---|---|
+| `yadro.py` | xabar → javob, Telegramsiz |
+| `kirish.py` | ilova tokenini backendning o'zida tekshiradi (`GET /api/users/one/{id}`), JWT ichidagi id ham solishtiriladi |
+| `api.py` | internetga ochiq server, faqat `POST /yordamchi/xabar` va `GET /salomat` |
+
+**Alohida server.** Ichki panel (`app.main`) faqat ichki tarmoqqa ochiladi.
+Yordamchi esa internetga ochiq, shuning uchun u ALOHIDA xizmat sifatida
+ishlaydi: o'sha Docker obraz, boshqa start buyrug'i.
+
+```bash
+.venv\Scripts\python -m yordamchi          # lokal, port 8000 (PORT bilan o'zgaradi)
+```
+
+Railway (yangi xizmat, shu repo):
+
+- Start command: `python -m yordamchi`, healthcheck: `/salomat`;
+- disk `/data` ga ulanadi (`BAZA_YOLI=/data/yordamchi.db`);
+- muhit: `ANTHROPIC_API_KEY`, `MIJOZ_BOT_MODEL`, `BOT_TOKEN` (lid xabarlari
+  uchun), `MIJOZ_BOT_MENEJER_ID`, `YORDAMCHI_KUNLIK_LIMIT`. Ichki xizmat
+  kalitlari (SAP, servis kaliti, Instagram) bu serverga BERILMAYDI.
+
+Murojaatlar shu serverning o'z bazasida qoladi (`tg_id = ilova:<id>`).
+Menejer ularni Telegram xabaridan ko'radi. Ichki botning `/murojaatlar`
+buyrug'i boshqa bazani o'qigani uchun ularni ko'rsatmaydi.
+
+Ilova tomoni: `climavent-xaridor/lib/features/assistant/`. Server manzili
+`--dart-define=ASSISTANT_BASE=https://...` bilan beriladi. Manzil berilmasa
+yordamchi ilovada umuman ko'rinmaydi.

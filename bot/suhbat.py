@@ -42,6 +42,10 @@ log = logging.getLogger("suhbat")
 # suhbatlari aralashib ketmasligi kerak.
 MIJOZ = "mijoz"
 ICHKI = "ichki"
+# Xaridor ilovasidagi «Climavent yordamchi» (`yordamchi/`). Kalit —
+# backenddagi foydalanuvchi id'si, Telegram id emas, shuning uchun
+# Telegram suhbati bilan bir kanalga tushmasligi SHART.
+ILOVA = "ilova"
 
 # Birlashtirilgan so'rovning maksimal uzunligi. Chegarasiz qo'yilsa,
 # uzun suhbatda so'rov matni o'sib, har chaqiruvda ko'proq token yeydi.

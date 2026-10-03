@@ -205,6 +205,15 @@ def test_raqamsiz_oila_KATALOGDAN_taniladi():
     assert model_ajrat("РКВ narxi qancha", KATALOG_RKV) == "РКВ"
 
 
+def test_OILA_nomi_katalogda_yoq_modelni_BOR_qilmaydi():
+    """JONLI XATO (2026-10-02): «РКВ-999 narxi» — katalogda faqat «РКВ»
+    oilasi bor, model esa yo'q. «Katalogimizda bor» deyilmasligi kerak."""
+    j = narxni_top(KATALOG_RKV, "РКВ-999 narxi qancha", kurs=12000.0)
+
+    assert j.holat == "topilmadi"
+    assert "РКВ-150" in j.takliflar
+
+
 def test_katalogsiz_raqamsiz_oila_TANILMAYDI():
     """Katalog berilmasa eski xatti-harakat — bu kutilgan."""
     from sorovnoma.narx_sorov import model_ajrat
