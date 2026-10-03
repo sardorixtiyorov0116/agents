@@ -483,6 +483,14 @@ git ga kirmaydi). `tests/test_tz_tekshiruv.py` ularda qo'lda tasdiqlangan
 farqlarni topishni talab qiladi; papka yo'q bo'lsa bu testlar o'tkazib
 yuboriladi. Hozircha o'qilmaydi: skan PDF, rasm, DWG, arxiv.
 
+**Excel TZ -> qoralama (`kp/tz_qoralama.py`).** `/kp` ga Excel tashlansa u
+modelga emas, jadval sifatida o'qiladi (miqdori bilan) va har qator
+Climavent nomiga aylantiriladi: bo'lim qisqartmasi -> qolip
+(`knowledge/product/tz_analoglar.yaml`) -> muhandis tanlovi (КЦКП, VRF
+tashqi blok — TZ nomi parametrlari bilan qoladi). Etalon o'lchovi
+(`kp_bilan_qamrov`): qoralama haqiqiy KP miqdorining qanchasini takrorlaydi —
+`tests/test_tz_qoralama.py` pasayishga yo'l qo'ymaydi.
+
 ## 19. Xaridor ilovasidagi yordamchi (`yordamchi/`)
 
 Climavent xaridor ilovasida «Climavent yordamchi» chati bor. Mijoz kechasi
