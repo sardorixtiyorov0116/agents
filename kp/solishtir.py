@@ -746,6 +746,59 @@ def _qurilma_parametrlari(natija: Natija, q: Qurilma, k: _KpKckp) -> None:
             kalit=q.nomi))
 
 
+# --- fayllardan --------------------------------------------------------------------
+
+
+def fayllarni_tekshir(kp_yoli: str | Path,
+                      tz_yollari: list[str | Path]) -> tuple[Natija | None, list[str]]:
+    """KP PDF + TZ fayllari -> (natija, ogohlantirishlar).
+
+    Natija `None` — solishtiradigan TZ topilmadi (sababi ogohlantirishda).
+    Skript (`skriptlar/tz_tekshir.py`) ham, bot (`bot/tekshir_oqim.py`) ham
+    shu funksiyani chaqiradi — qoidalar bitta joyda.
+    """
+    from .kp_pdf import kp_oqi
+    from .tz_jadval import jadval_oqi
+    from .ventas import ventas_oqi
+
+    kp = kp_oqi(kp_yoli)
+    ogoh: list[str] = []
+    if not kp.qatorlar:
+        ogoh.append("KP da jadval qatorlari topilmadi — bu Climavent KP PDF imi?")
+    elif not kp.yigindi_mosmi():
+        ogoh.append("KP qatorlari yig'indisi «Итого» bilan mos emas — PDF to'liq "
+                    "o'qilmagan bo'lishi mumkin")
+
+    jadval_qatorlari: list[TzQator] = []
+    qurilmalar: list[Qurilma] = []
+    for yol in map(Path, tz_yollari):
+        if yol.resolve() == Path(kp_yoli).resolve():
+            continue    # TZ papkasida KP ning o'zi ham turgan bo'lishi mumkin
+        kengaytma = yol.suffix.lower()
+        if kengaytma == ".xlsx":
+            j = jadval_oqi(yol)
+            jadval_qatorlari += j.qatorlar
+            ogoh += [f"{yol.name}: {o}" for o in j.ogohlantirishlar]
+        elif kengaytma == ".pdf":
+            q = ventas_oqi(yol)
+            if q is not None:
+                qurilmalar.append(q)
+            else:
+                ogoh.append(f"{yol.name}: tanlov ma'lumotnomasi emas (skan chizma yoki "
+                            "boshqa PDF) — hozircha o'qilmaydi")
+        else:
+            ogoh.append(f"{yol.name}: «{kengaytma}» hozircha o'qilmaydi "
+                        "(rasm, DWG, arxiv — keyingi bosqichda)")
+
+    if jadval_qatorlari:
+        if qurilmalar:
+            ogoh.append("TZ da ham Excel, ham tanlov PDF bor — faqat Excel solishtirildi")
+        return solishtir(jadval_qatorlari, kp), ogoh
+    if qurilmalar:
+        return ventas_solishtir(qurilmalar, kp), ogoh
+    return None, ogoh
+
+
 # --- hisobot ------------------------------------------------------------------------
 
 _SARLAVHA = {

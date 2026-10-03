@@ -55,7 +55,7 @@ from presenter.agentlar import AJRATGICH
 from bilim.qidiruv import transliteratsiya
 from app.agentlar.tijorat_menejeri import til_aniqla
 
-from . import kp_oqim, menyu, otkazilgan, suhbat, tender_keshi, xatolar
+from . import kp_oqim, menyu, otkazilgan, suhbat, tekshir_oqim, tender_keshi, xatolar
 from .ruxsat import Ruxsat
 
 logging.basicConfig(
@@ -81,6 +81,7 @@ Masalan:
 • Raqiblarning aksiyalarini ko'rib chiqing va kampaniya taklif qiling
 • Qaysi shahardagi mijozlar eng ko'p buyurtma bergan?
 
+/tekshir — tayyor KP ni TZ bilan solishtirish (farqlar ro'yxati)
 /agentlar — kim nima qiladi
 /tasdiq — tasdiq kutayotgan ishlar
 /menejer (yoki /manager) — KP da kimning nomi chiqishi
@@ -896,6 +897,16 @@ class Bot:
         hujjat = xabar.document
         if hujjat is None:
             return
+        # `/tekshir` seansi ochiq bo'lsa fayl O'SHANGA tegishli (KP yoki TZ).
+        if tekshir_oqim.faolmi(tg_id):
+            if (hujjat.file_size or 0) > tekshir_oqim.MAKS_HAJM:
+                await tekshir_oqim.hujjat(xabar, tg_id, None, hujjat.file_name or "fayl",
+                                          hujjat.file_size or 0)
+                return
+            fayl = await hujjat.get_file()
+            await tekshir_oqim.hujjat(xabar, tg_id, fayl, hujjat.file_name or "fayl",
+                                      hujjat.file_size or 0)
+            return
         fayl = await hujjat.get_file()
         await kp_oqim.hujjat(
             self.baza, xabar, tg_id, fayl, hujjat.file_name or "tz"
@@ -911,6 +922,24 @@ class Bot:
             await soro.edit_message_text("⛔ Sizda ruxsat yo'q.")
             return
         await kp_oqim.tugma(self.baza, soro, tg_id)
+
+    async def tekshir(self, update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:
+        """`/tekshir` — tayyor KP ni TZ bilan solishtirish (`bot/tekshir_oqim.py`)."""
+        tg_id = await self._ruxsatmi(update)
+        if tg_id is None:
+            return
+        await tekshir_oqim.boshla(update.effective_message, tg_id)
+
+    async def tekshir_tugmasi(self, update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:
+        soro = update.callback_query
+        if soro is None:
+            return
+        await soro.answer()
+        tg_id = update.effective_user.id if update.effective_user else None
+        if not self.ruxsat.foydalanuvchi(tg_id).ruxsat:
+            await soro.edit_message_text("⛔ Sizda ruxsat yo'q.")
+            return
+        await tekshir_oqim.tugma(soro, tg_id)
 
     async def menejer(self, update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
         """KP da kimning nomi chiqishini ko'rsatadi va o'zgartiradi.
@@ -997,6 +1026,8 @@ class Bot:
         # `/kp` shakli ochiq bo'lsa — birinchi navbatda o'shani to'xtatamiz.
         # Aks holda menejer "bekor" desa ham savollar davom etardi.
         if await kp_oqim.bekor(self.baza, xabar, tg_id):
+            return
+        if await tekshir_oqim.bekor(xabar, tg_id):
             return
         await suhbat.tozala(self.baza, suhbat.ICHKI, tg_id)
         await self.baza.savol_ochir(tg_id)
@@ -1477,6 +1508,8 @@ def yasa() -> Application:
                        lambda u, c: bot._bekor_qil(u, u.effective_user.id))
     )
     ilova.add_handler(CommandHandler("kp", bot.kp))
+    ilova.add_handler(CommandHandler("tekshir", bot.tekshir))
+    ilova.add_handler(CallbackQueryHandler(bot.tekshir_tugmasi, pattern=r"^tekshir:"))
     # KP shakli tugmalari `kp:` bilan boshlanadi — tasdiq tugmalaridan
     # OLDIN turishi shart, aks holda umumiy ishlovchi ularni yutib yuboradi.
     ilova.add_handler(CallbackQueryHandler(bot.kp_tugmasi, pattern=r"^kp:"))

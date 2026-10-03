@@ -40,6 +40,7 @@ log = logging.getLogger("bot.menyu")
 ICHKI: list[tuple[str, str]] = [
     ("start", "Boshlash — yangi mavzu"),
     ("kp", "KP tuzish — savol-javob bilan"),
+    ("tekshir", "KP ni TZ bilan solishtirish"),
     ("hisobot", "Hisobot — tizim qancha ish qildi"),
     ("tasdiq", "Tasdiq kutayotgan ishlar"),
     ("tender", "Tenderlarni hozir tekshirish"),
