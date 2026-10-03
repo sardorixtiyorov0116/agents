@@ -27,7 +27,7 @@ from pydantic import BaseModel, Field
 from app.baza import Baza
 from app.config import sozlama
 from app.kurs import yangila as kurs_yangila
-from app.llm import AnthropicLlm
+from app.llm import AnthropicLlm, llm_yasa, tez_llm
 from app.orkestr import Orkestr
 from app.profil import profil
 from app.sarf import yozuvchini_ol
@@ -35,6 +35,7 @@ from bot.mijoz_ruxsat import Tezlik, ochiq_kontraktlar
 from integrations.climavent_client import ClimaventKlient
 
 from .kirish import Kirish, KirishXatosi
+from .til import tarjimasiz, tarjimon_yasa, til as til_ol
 from .yadro import MAKS_MATN, Yordamchi
 
 log = logging.getLogger("yordamchi.api")
@@ -43,6 +44,8 @@ log = logging.getLogger("yordamchi.api")
 class XabarTanasi(BaseModel):
     user_id: int
     text: str = Field(min_length=1, max_length=MAKS_MATN * 2)
+    # Ilova tili. 0.8.1 va undan eski ilova yubormaydi — o'zbekcha.
+    lang: str = "uz"
 
 
 def _menejerga_yasa(s):
@@ -70,6 +73,13 @@ def _menejerga_yasa(s):
             except Exception:
                 log.warning("menejerga xabar ketmadi: id=%s", menejer_id)
     return yubor
+
+
+def _tarjima_llm(s, llm):
+    """Sozlamada model aytilgan bo'lsa — o'sha, bo'lmasa TEZ_MODEL zanjiri."""
+    if s.yordamchi_tarjima_model:
+        return llm_yasa(s.yordamchi_tarjima_model, llm)
+    return tez_llm(s.tez_modellar, llm)
 
 
 @asynccontextmanager
@@ -106,6 +116,8 @@ async def hayot(app: FastAPI):
         tezlik=Tezlik(s.mijoz_bot_limit, kunlik=s.yordamchi_kunlik_limit),
         menejerga=_menejerga_yasa(s),
         telefon=telefon,
+        # Tarjima — tez va arzon modelda: u faqat tilni almashtiradi.
+        tarjimon=tarjimon_yasa(_tarjima_llm(s, llm)) if llm else tarjimasiz,
     )
     # Sovuq katalog ~11 s oladi — birinchi mijoz buni kutmasin. Dollar
     # kursi ham shu yerda: narx saytdagi bilan bir xil kursda chiqsin.
@@ -148,5 +160,5 @@ async def xabar(
     except ConnectionError as xato:
         raise HTTPException(status_code=503, detail="backend unavailable") from xato
 
-    javob = await request.app.state.yordamchi.javob(kim, tana.text)
+    javob = await request.app.state.yordamchi.javob(kim, tana.text, til_ol(tana.lang))
     return javob.json()

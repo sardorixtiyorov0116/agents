@@ -41,6 +41,8 @@ from integrations.climavent_client import mahsulot_qisqa
 from presenter import mijoz_matni
 from sorovnoma.narx_sorov import NarxJavobi, narx_soralyaptimi, narxni_top
 
+from .til import ASOSIY, Tarjimon, matn as tmatn, tarjimasiz
+
 log = logging.getLogger("yordamchi")
 
 # Bitta javobda ko'rsatiladigan eng ko'p kartochka. Ko'prog'i ekranni
@@ -66,40 +68,6 @@ XAYRLASHUV = frozenset({
     "rahmat", "raxmat", "katta rahmat", "tashakkur", "spasibo", "спасибо",
     "xayr", "hayr", "ok", "ok rahmat", "yaxshi", "zo'r", "thanks",
 })
-
-SALOM_JAVOBI = (
-    "Assalomu alaykum! Men Climavent yordamchisiman.\n\n"
-    "Ventilyatsiya yoki konditsioner bo'yicha yozing: xona maydoni, "
-    "balandligi, necha kishi ishlashi — men hisoblab, katalogdan mos "
-    "uskunani topaman."
-)
-XAYR_JAVOBI = "Arzimaydi! Yana savolingiz bo'lsa — yozavering."
-
-# Javob oxiridagi eslatma: hisob TAXMINIY, va mijoz keyingi qadamni
-# bilishi kerak. Telegramdagi «menejer bog'lanadi» o'rniga — ilovada
-# KP ni o'zi darhol oladi.
-IZOH = (
-    "\n\nBu dastlabki hisob. Mahsulotni savatga qo'shib, KP ni darhol "
-    "olishingiz mumkin. Savol qolsa — menejerimiz bog'lanadi."
-)
-
-MENEJERGA = (
-    "Bu savolga menejerimiz aniqroq javob beradi. Savolingizni unga "
-    "yubordim — ish vaqtida siz bilan bog'lanadi.\n\n"
-    "Shoshilinch bo'lsa: {telefon}"
-)
-KUNLIK_CHEGARA = (
-    "Bugungi savollar chegarasiga yetdingiz.\n\n"
-    "Savolingizni menejerimizga yubordim — u bog'lanadi. Katalog va "
-    "savat esa cheklovsiz ishlaydi."
-)
-SEKINROQ = "Biroz sekinroq yozing — bir daqiqada bir necha savolga javob bera olaman."
-XATO = (
-    "Kechirasiz, hozir texnik nosozlik. Savolingizni menejerga yubordim.\n\n"
-    "Shoshilinch bo'lsa: {telefon}"
-)
-BOSH = "Savolingizni yozing."
-
 
 @dataclass(frozen=True)
 class Foydalanuvchi:
@@ -129,13 +97,13 @@ class Javob:
         return {"text": self.matn, "status": self.holat, "product_ids": self.mahsulotlar}
 
 
-def oddiy_javob(matn: str) -> str | None:
+def oddiy_javob(matn: str, til: str = ASOSIY) -> str | None:
     """Salom/rahmatga LLM siz javob. Mos kelmasa `None`."""
     toza = matn.lower().strip(" .!,?…\n")
     if toza in SALOMLASHISH:
-        return SALOM_JAVOBI
+        return tmatn("salom", til)
     if toza in XAYRLASHUV:
-        return XAYR_JAVOBI
+        return tmatn("xayr", til)
     return None
 
 
@@ -198,35 +166,34 @@ def mahsulot_idlari(nomlar: list[str], katalog: list[dict[str, Any]]) -> list[in
     return idlar
 
 
-def narx_matni(j: NarxJavobi) -> str:
-    """Narx javobi — ILOVA uchun.
+def narx_matni(j: NarxJavobi, til: str = ASOSIY) -> str:
+    """Narx javobi — ILOVA uchun, ilova tilida (model chaqirilmaydi).
 
     `narx_sorov.javob_matni` dan farqi: Markdown yo'q (ilova uni xom
     ko'rsatardi) va «raqamingizni qoldiring» yo'q — raqam bizda bor.
     """
     if j.holat == "narx":
         narx = f"{j.narx:,.0f}".replace(",", " ")
-        qatorlar = [j.model, "", f"Narxi: {narx} so'm (QQS bilan)"]
-        if j.manba:
+        qatorlar = [j.model, "", tmatn("narxi", til, narx=narx)]
+        # `manba` — narx qaysi ijrodan olingani (o'zbekcha, narx_sorov
+        # yozadi). Faqat o'zbek tilida qo'shiladi: ruscha javobga
+        # o'zbekcha qator tiqilmasin.
+        if j.manba and til == ASOSIY:
             qatorlar.append(j.manba)
-        qatorlar += ["", "Savatga qo'shsangiz, KP darhol tayyor bo'ladi."]
+        qatorlar += ["", tmatn("savatga", til)]
         return "\n".join(qatorlar)
 
     if j.holat == "narxsiz":
-        qatorlar = [f"{j.model} — katalogimizda bor."]
+        qatorlar = [tmatn("katalogda_bor", til, model=j.model)]
         if j.parametrlar:
             qatorlar.append("")
             qatorlar += [f"• {k}: {v}" for k, v in list(j.parametrlar.items())[:5]]
-        qatorlar += [
-            "",
-            "Bu model narxi buyurtma parametrlariga bog'liq (o'lcham, ijro, "
-            "miqdor). Savolingizni menejerga yubordim — u hisoblab beradi.",
-        ]
+        qatorlar += ["", tmatn("narx_menejerda", til)]
         return "\n".join(qatorlar)
 
-    qatorlar = [f"«{j.model}» nomli modelni katalogimizdan topa olmadim."]
+    qatorlar = [tmatn("topilmadi", til, model=j.model)]
     if j.takliflar:
-        qatorlar += ["", "Balki bulardan biri?"]
+        qatorlar += ["", tmatn("balki", til)]
         qatorlar += [f"• {t}" for t in j.takliflar]
     return "\n".join(qatorlar)
 
@@ -255,6 +222,7 @@ class Yordamchi:
         tezlik: Tezlik,
         menejerga: Menejerga = _jim,
         telefon: str = "",
+        tarjimon: Tarjimon = tarjimasiz,
     ) -> None:
         self.baza = baza
         self.orkestr = orkestr
@@ -262,21 +230,23 @@ class Yordamchi:
         self.tezlik = tezlik
         self.menejerga = menejerga
         self.telefon = telefon
+        self.tarjimon = tarjimon
 
-    async def javob(self, kim: Foydalanuvchi, matn: str) -> Javob:
+    async def javob(self, kim: Foydalanuvchi, matn: str, til: str = ASOSIY) -> Javob:
+        """`til` — ilova tili (`yordamchi/til.py`). Menejerga xabar har doim o'zbekcha."""
         matn = (matn or "").strip()[:MAKS_MATN]
         if not matn:
-            return Javob(BOSH, holat="chegara")
+            return Javob(tmatn("bosh", til), holat="chegara")
 
         # Kunlik kvota birinchi: u XARAJATNI himoya qiladi. Mijoz quruq
         # qaytmaydi — savol menejerga ketadi.
         if not self.tezlik.kunlik_ruxsatmi(kim.id):
             await self._lid(kim, matn, sabab="kunlik so'rov chegarasi")
-            return Javob(KUNLIK_CHEGARA, holat="chegara")
+            return Javob(tmatn("kunlik", til), holat="chegara")
         if not self.tezlik.ruxsatmi(kim.id):
-            return Javob(SEKINROQ, holat="chegara")
+            return Javob(tmatn("sekinroq", til), holat="chegara")
 
-        oddiy = oddiy_javob(matn)
+        oddiy = oddiy_javob(matn, til)
         if oddiy:
             await suhbat.tozala(self.baza, suhbat.ILOVA, kim.id)
             return Javob(oddiy)
@@ -292,7 +262,7 @@ class Yordamchi:
                     sabab="" if topilgan.holat == "narx" else "narx topilmadi",
                 )
                 return Javob(
-                    narx_matni(topilgan),
+                    narx_matni(topilgan, til),
                     mahsulotlar=mahsulot_idlari([topilgan.model], katalog),
                 )
 
@@ -310,13 +280,13 @@ class Yordamchi:
         try:
             natija = await self.orkestr().bajar(
                 davom.sorov,
-                kontekst={"mijoz_boti": True, "yangi_xabar": matn},
+                kontekst={"mijoz_boti": True, "yangi_xabar": matn, "til": til},
                 reja_tekshiruvi=rejani_kor,
             )
         except Exception:
             log.exception("yordamchi so'rovi bajarilmadi")
             await self._lid(kim, matn, sabab="texnik xato")
-            return Javob(XATO.format(telefon=self.telefon), holat="menejer")
+            return Javob(tmatn("xato", til, telefon=self.telefon), holat="menejer")
 
         await suhbat.yakunla(self.baza, suhbat.ILOVA, kim.id, davom, natija)
 
@@ -325,16 +295,17 @@ class Yordamchi:
                 kim, davom.sorov,
                 sabab=rad_sababi[0] if rad_sababi else natija.yakuniy.holat.value,
             )
-            return Javob(MENEJERGA.format(telefon=self.telefon), holat="menejer")
+            return Javob(tmatn("menejerga", til, telefon=self.telefon), holat="menejer")
 
         matn_javob = mijoz_matni(natija)
         if natija.yakuniy.holat is Holat.ANIQLIK_KERAK:
             # Savol berilyapti — hali hisob yo'q, kartochka ham, izoh ham yo'q.
-            return Javob(matn_javob, holat="savol")
+            return Javob(await self.tarjimon(matn_javob, til), holat="savol")
 
+        # Menejer o'zbekcha javobni ko'radi — tarjimadan OLDIN.
         await self._lid(kim, davom.sorov, javob=matn_javob)
         return Javob(
-            matn_javob + IZOH,
+            await self.tarjimon(matn_javob, til) + tmatn("izoh", til),
             mahsulotlar=mahsulot_idlari(_nomlar(natija.yakuniy.natija), katalog),
         )
 

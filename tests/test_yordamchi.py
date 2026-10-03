@@ -23,14 +23,16 @@ from bot.mijoz_ruxsat import Tezlik
 from sorovnoma.narx_sorov import NarxJavobi
 from yordamchi import yadro
 from yordamchi.kirish import Kirish, KirishXatosi, token_idsi
+from yordamchi.til import matn as tmatn, til as til_ol, tarjimon_yasa
 from yordamchi.yadro import (
-    IZOH,
     MAKS_MAHSULOT,
     Foydalanuvchi,
     Yordamchi,
     mahsulot_idlari,
     narx_matni,
 )
+
+IZOH = tmatn("izoh", "uz")
 
 KIM = Foydalanuvchi(id=62, telefon="+998901234567", ism="Ali Valiyev")
 
@@ -354,3 +356,102 @@ def test_server_tokensiz_401(tmp_path, monkeypatch):
         javob = mijoz.post("/yordamchi/xabar", json={"user_id": 62, "text": "salom"})
         assert javob.status_code == 401
         assert mijoz.get("/salomat").json()["holat"] == "ishlayapti"
+
+
+# --- til ----------------------------------------------------------------------
+
+
+class SoxtaTarjimon:
+    def __init__(self, xato: bool = False):
+        self.xato = xato
+        self.chaqiruvlar: list[tuple[str, str]] = []
+
+    async def __call__(self, matn, til):
+        self.chaqiruvlar.append((matn, til))
+        return f"[{til}] {matn}"
+
+
+def test_til_normallashadi():
+    assert til_ol("ru") == "ru"
+    assert til_ol("RU-ru") == "ru"
+    assert til_ol(None) == "uz"
+    assert til_ol("de") == "uz"
+
+
+async def test_ruscha_salom_modelsiz(baza):
+    javob = await yordamchi_yasa(baza, SoxtaOrkestr()).javob(KIM, "Привет", "ru")
+    assert "ассистент Climavent" in javob.matn
+
+
+async def test_ruscha_agent_javobi_tarjima_qilinadi_menejerga_ozbekcha(baza):
+    natija = natija_yasa(Holat.TUGADI, {"variantlar": [{"mahsulot": "x", "model": "ВКК-250"}]})
+    menejer: list[str] = []
+    y = yordamchi_yasa(baza, SoxtaOrkestr(natija), menejer=menejer)
+    y.tarjimon = SoxtaTarjimon()
+    javob = await y.javob(KIM, "Вентилятор 250 мм", "ru")
+
+    assert javob.matn.startswith("[ru] ")
+    assert javob.matn.endswith(tmatn("izoh", "ru"))
+    assert javob.mahsulotlar == [10]
+    assert "[ru]" not in menejer[0]  # menejer asl o'zbekcha javobni ko'radi
+
+
+async def test_ozbekcha_tarjima_chaqirilmaydi(baza):
+    natija = natija_yasa(Holat.TUGADI, {"variantlar": []})
+    y = yordamchi_yasa(baza, SoxtaOrkestr(natija))
+    tarjimon = SoxtaTarjimon()
+    y.tarjimon = tarjimon
+    await y.javob(KIM, "ventilyator kerak", "uz")
+    assert all(t == "uz" for _, t in tarjimon.chaqiruvlar)
+
+
+async def test_ruscha_menejerga_otkazish_matni(baza):
+    orkestr = SoxtaOrkestr(natija_yasa(Holat.TUGADI, kim="hr-assist"), rollar=("hr-assist",))
+    javob = await yordamchi_yasa(baza, orkestr).javob(KIM, "зарплата", "ru")
+    assert "менеджер" in javob.matn
+
+
+def test_ruscha_narx_matni():
+    matn = narx_matni(NarxJavobi(holat="narx", model="ВКК-250", narx=1250000.0, manba="5 variantdan eng arzoni"), "ru")
+    assert "Цена: 1 250 000 сум" in matn
+    assert "variantdan" not in matn  # o'zbekcha izoh ruscha javobga tiqilmaydi
+
+
+class _SoxtaLlm:
+    def __init__(self, xato=False):
+        self.xato = xato
+        self.soro = None
+
+    async def javob(self, **soro):
+        self.soro = soro
+        if self.xato:
+            raise RuntimeError("tarmoq")
+
+        class _Blok:
+            type = "text"
+            text = "Расчёт вентиляции"
+
+        class _Javob:
+            content = [_Blok()]
+
+        return _Javob()
+
+
+async def test_tarjimon_promptida_til_va_qoidalar():
+    llm = _SoxtaLlm()
+    natija = await tarjimon_yasa(llm)("Ventilyatsiya hisobi", "ru")
+    assert natija == "Расчёт вентиляции"
+    assert "Russian" in llm.soro["system"]
+    assert "model name" in llm.soro["system"]
+    assert "человек" in llm.soro["system"] and "12 people" not in llm.soro["system"]
+
+
+async def test_tarjima_yiqilsa_ozbekcha_qaytadi():
+    natija = await tarjimon_yasa(_SoxtaLlm(xato=True))("Ventilyatsiya hisobi", "en")
+    assert natija == "Ventilyatsiya hisobi"
+
+
+async def test_ozbek_tiliga_llm_chaqirilmaydi():
+    llm = _SoxtaLlm()
+    assert await tarjimon_yasa(llm)("matn", "uz") == "matn"
+    assert llm.soro is None

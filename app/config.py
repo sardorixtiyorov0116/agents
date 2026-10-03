@@ -455,6 +455,11 @@ class Sozlama(BaseSettings):
     # yo'l — Telegramdagi `/bolimlar` so'rovnomasi bu yerda yo'q.
     # Daqiqalik flood chegarasi umumiy: `mijoz_bot_limit`.
     yordamchi_kunlik_limit: int = 20
+    # Ruscha/inglizcha ilovada agent javobi shu model bilan tarjima qilinadi
+    # (`yordamchi/til.py`). Bo'sh bo'lsa — TEZ_MODEL zanjiri (yengil rollar
+    # bilan bir xil). JONLI (2026-10-03): Anthropic kaliti yaroqsiz bo'lib
+    # qolganda qat'iy Haiku tarjimani butunlay to'xtatgan edi.
+    yordamchi_tarjima_model: str = ""
 
     @property
     def mijoz_menejer_idlar(self) -> set[int]:
