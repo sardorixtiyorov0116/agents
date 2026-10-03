@@ -240,6 +240,23 @@ async def hujjat(baza, xabar, tg_id: int, fayl, fayl_nomi: str) -> bool:
             await _taklifni_qolla(baza, xabar, tg_id, taklif)
             return True
 
+    # RASM yoki SKAN PDF — model faqat jadvalni KO'CHIRADI (`kp/tz_rasm.py`),
+    # nomga aylantirish yana kodda. Ilgari skan PDF «matn topilmadi» bilan
+    # rad etilardi, rasm esa umuman qabul qilinmasdi.
+    import asyncio
+
+    from kp.tz_rasm import RASM_KENGAYTMALARI, rasmlar
+
+    try:
+        skanmi = yol.suffix.lower() in RASM_KENGAYTMALARI or (
+            yol.suffix.lower() == ".pdf" and bool(await asyncio.to_thread(rasmlar, yol)))
+    except Exception:                               # noqa: BLE001
+        log.warning("rasm tekshirilmadi", exc_info=True)
+        skanmi = False
+    if skanmi:
+        await _rasmdan(baza, xabar, tg_id, yol)
+        return True
+
     try:
         matn = matn_ol(yol)
     except TzXatosi as xato:
@@ -333,6 +350,52 @@ async def _taklifni_qolla(baza, xabar, tg_id: int, taklif) -> None:
     await xabar.reply_text("\n".join(qatorlar), parse_mode="Markdown")
 
     await _keyingisi(baza, xabar, tg_id, Shakl(javoblar=javoblar))
+
+
+async def _rasmdan(baza, xabar, tg_id: int, yol: Path) -> None:
+    """Rasm/skan TZ: model jadvalni ko'chiradi, kod qoralama yasaydi."""
+    from kp.tz_qoralama import qatorlardan_taklif
+    from kp.tz_rasm import RasmXatosi
+
+    await xabar.reply_text("🖼 Rasmdan jadval o'qilmoqda…")
+    try:
+        qatorlar, ogohlar = await _rasm_ajrat(yol)
+    except RasmXatosi as xato:
+        await xabar.reply_text(f"⚠️ {xato}")
+        return
+    except Exception as xato:                       # noqa: BLE001
+        from app.llm import llm_xato_matni
+
+        log.exception("rasmdan TZ o'qilmadi")
+        await xabar.reply_text(
+            "⚠️ Rasmdan jadvalni o'qib bo'lmadi.\n" + llm_xato_matni(xato)
+            + "\n\nRo'yxatni matn qilib yozing yoki Excel yuboring.")
+        return
+    taklif = qatorlardan_taklif(qatorlar, ogohlar, "Rasm") if qatorlar else None
+    if taklif is None:
+        await xabar.reply_text(
+            "⚠️ Rasmda ventilyatsiya mahsulotlari jadvali topilmadi."
+            + ("\n\n" + "\n".join(f"• {o}" for o in ogohlar) if ogohlar else ""))
+        return
+    await _taklifni_qolla(baza, xabar, tg_id, taklif)
+
+
+async def _rasm_ajrat(yol: Path):
+    """Rasm modeli (faqat Gemini) bilan jadvalni ko'chirish.
+
+    Alohida funksiya: testda soxtalashtirish oson bo'lsin.
+    """
+    from app.llm import tez_llm
+    from app.sarf import rol_bilan
+    from kp.tz_rasm import RasmXatosi, rasm_modellari, rasmdan_qatorlar
+
+    modellar = rasm_modellari(sozlama().tez_modellar)
+    if not modellar:
+        raise RasmXatosi(
+            "Rasm o'qish uchun Gemini modeli kerak — TEZ_MODEL da yo'q. "
+            "Ro'yxatni matn qilib yozing yoki Excel yuboring")
+    with rol_bilan("tz-rasm"):
+        return await rasmdan_qatorlar(yol, tez_llm(modellar))
 
 
 async def _tz_ajrat(tz_matni: str, turlar: list[str]):

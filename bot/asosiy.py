@@ -923,6 +923,21 @@ class Bot:
             return
         await kp_oqim.tugma(self.baza, soro, tg_id)
 
+    async def kp_rasmi(self, update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:
+        """`/kp` ochiq bo'lganda yuborilgan RASM (fayl emas) — TZ skrinshoti.
+
+        Telegram skrinshotni odatda «rasm» qilib yuboradi, hujjat qilib
+        emas — `kp_hujjati` uni ko'rmasdi va bot jim qolardi.
+        """
+        tg_id = await self._ruxsatmi(update)
+        if tg_id is None:
+            return
+        xabar = update.effective_message
+        if not xabar.photo:
+            return
+        fayl = await xabar.photo[-1].get_file()     # eng katta o'lcham
+        await kp_oqim.hujjat(self.baza, xabar, tg_id, fayl, "rasm.jpg")
+
     async def tekshir(self, update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:
         """`/tekshir` — tayyor KP ni TZ bilan solishtirish (`bot/tekshir_oqim.py`)."""
         tg_id = await self._ruxsatmi(update)
@@ -1519,6 +1534,7 @@ def yasa() -> Application:
     # TZ fayli — `/kp` shakli ochiq bo'lganda. Matn ishlovchisidan
     # OLDIN turadi, lekin ular kesishmaydi (`Document` va `TEXT`).
     ilova.add_handler(MessageHandler(filters.Document.ALL, bot.kp_hujjati))
+    ilova.add_handler(MessageHandler(filters.PHOTO, bot.kp_rasmi))
     ilova.add_handler(MessageHandler(filters.VOICE | filters.AUDIO, bot.ovoz))
     ilova.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, bot.sorov))
 
