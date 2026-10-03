@@ -29,13 +29,17 @@
 qisqartmalar:
 
   # --- Klapanlar ---
+  # «Клпн» — KP-13357 ro'yxatining asl yozilishi (skrinshot, 2026-10-03).
+  # Ilgari faqat «клп» bor edi va bu ikki bo'lim (88 ta klapan, KP ning
+  # eng qimmat qatorlari) katalog nomiga aylanmay qolardi.
   - belgilar: ["клапан огнезадерживающий", "клп огназадернивиший",
-               "клп огнезадерживающий", "клапан огнезадер"]
+               "клп огнезадерживающий", "клапан огнезадер",
+               "клпн огназадернивиший", "клпн огнезадерживающий"]
     nomi: "Yong'inga qarshi klapan (universal)"
     qolip: "Клапан противопожарный КПУ-НО-Н-EI90-{olcham}-КН-НУП-ЭМ-220"
 
   - belgilar: ["клапан пожарный", "клп пожарний", "клп пожарный",
-               "клапан дымовой"]
+               "клапан дымовой", "клпн пожарний", "клпн пожарный"]
     nomi: "Tutun klapani (elektr yuritmali)"
     qolip: "Клапан противопожарный КПД-НЗ-Н-EI90-{olcham}-КН-НУП-ЭР-220v"
     izoh: "Belimo BLF-220-ST yuritmasi bilan"

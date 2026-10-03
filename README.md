@@ -458,6 +458,31 @@ shrifti ishlatiladi.
 **Tasdiq.** KP — mijozga ketadigan rasmiy hujjat, shuning uchun `tasdiq_kerak`
 har doim `true`. Tizim hujjatni hech qachon o'zi yubormaydi.
 
+### 18a. TZ ↔ KP tekshiruvchi
+
+Menejer tuzgan KP ni TZ bilan solishtiradi va farqlarni ko'rsatadi:
+KP ga kirmagan qurilma, almashgan o'lcham, kuchlanish/filtr/rekuperator
+farqi, KP ichida nusxa qilingan tavsif. **Hech narsani tuzatmaydi** —
+farqning bir qismi menejerning ongli qarori bo'lishi mumkin.
+
+```
+kp/
+  kp_pdf.py     Climavent KP PDF -> qatorlar (pypdf, koordinata bo'yicha;
+                «Итого» bilan yig'indi tekshiriladi)
+  tz_jadval.py  Excel TZ -> qatorlar MIQDORI bilan (ro'yxat, spetsifikatsiya,
+                zayavka; bir xil varaqlar bir marta sanaladi)
+  ventas.py     VENTAS HVACCALC tanlov PDF -> qurilma parametrlari
+  solishtir.py  (oila, kalit) bo'yicha yig'ib solishtirish va hisobot
+knowledge/product/tz_oilalari.yaml   TZ nomi va KP nomini bir oilaga bog'lash
+```
+
+    python -m skriptlar.tz_tekshir KP.pdf TZ.xlsx [TZ2.xlsx | papka/]
+
+Etalon — 7 juft haqiqiy TZ va KP, `tests/etalon_tz/` (mijoz hujjatlari,
+git ga kirmaydi). `tests/test_tz_tekshiruv.py` ularda qo'lda tasdiqlangan
+farqlarni topishni talab qiladi; papka yo'q bo'lsa bu testlar o'tkazib
+yuboriladi. Hozircha o'qilmaydi: skan PDF, rasm, DWG, arxiv.
+
 ## 19. Xaridor ilovasidagi yordamchi (`yordamchi/`)
 
 Climavent xaridor ilovasida «Climavent yordamchi» chati bor. Mijoz kechasi

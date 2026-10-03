@@ -1,0 +1,184 @@
+# TZ va KP qatorlarini SOLISHTIRISH uchun mahsulot oilalari.
+#
+# NEGA KERAK
+# ----------
+# TZ da loyihachi o'z nomini yozadi («Клпн огназадернивиший 1000x400»,
+# «Огнезадерживающий клапан КЛОП-1 … FD 125x100»), KP da esa menejer
+# Climavent nomini yozadi («Клапан противопожарный КПУ-НО-Н-EI90-…»).
+# Tekshiruvchi (`kp/solishtir.py`) ikkalasini BIR OILA ekanini bilishi
+# kerak — shundan keyin o'lcham va miqdor solishtiriladi.
+#
+# Bu `loyiha_qisqartmalari.yaml` dan farq qiladi: u mijoz qisqartmasidan
+# KATALOG NOMINI yasaydi (generator). Bu yerda esa faqat «qaysi oila» —
+# nom yasalmaydi, shuning uchun oilalar ataylab KENG olingan: TZ dagi
+# АДН ham, АРС ham, KP dagi РВР-2 ham bitta «devor panjarasi».
+#
+# MANBA — 7 juft haqiqiy TZ va menejer KP si (tests/etalon_tz/, 2026-10-03).
+#
+# MAYDONLAR (qoliplar — regex, katta-kichik harf farqsiz; YAML da
+# BITTA qo'shtirnoqda yoziladi, shunda «\s» qochirilmaydi)
+#   tz:        TZ qatori yoki uning guruh sarlavhasi uchun KUCHLI belgilar
+#   tz_umumiy: KUCHSIZ belgilar («решетка») — faqat kuchli belgi hech
+#              qayerda topilmasa tekshiriladi. Sabab: «Решётки и
+#              диффузоры:» sarlavhasi ostidagi oddiy panjara «diffuzor»
+#              bo'lib qolmasin, «Решетка АПН» ostidagi «Решетка 150x150»
+#              esa devor panjarasi bo'lib qolmasin.
+#   kp:        KP qatori uchun belgilar
+#   kalit:     qatorlar nima bo'yicha solishtiriladi:
+#                olcham  — «AxB» (ДКСп dagi 3-o'lcham — uzunlik — e'tiborsiz)
+#                diametr — «Д125», «∅100», «DVS 125», «ДФА 100»
+#                kvt     — sovutish quvvati; VRF kodida kVt×10 («JVI-071C» = 7,1)
+#                sarf    — havo sarfi L, m³/soat
+#                belgi   — tizim belgisi (В1, ПД1, ДУ1)
+#   olcham_shart: true — qatorda o'lcham BO'LISHI SHART; KP nomida yo'q
+#              bo'lsa «nom to'liq emas» deb belgilanadi.
+#   aksessuar: true — KP ga menejer O'ZI qo'shadigan narsa (panel, pult).
+#              TZ da bo'lmasa ham «ortiqcha» hisoblanmaydi.
+#
+# TEKSHIRISH TARTIBI: qator nomi (kuchli) -> guruh sarlavhasi (kuchli) ->
+# qator nomi (kuchsiz). Har bosqichda RO'YXATDAGI birinchi mos oila
+# olinadi — torroq oila (tutun klapani) kengrog'idan oldin turadi.
+
+oilalar:
+
+  - kod: kpd
+    nomi: "Tutun klapani (normal yopiq)"
+    # «дымоудаления» o'zi yetmaydi: «Декоративная решетка для дымоудаления»
+    # ham, «Вентилятор дымоудаления» ham bor — klapan so'zi SHART.
+    tz: ['клап\w*[^,;]{0,40}дым[оа]', '\bКДУ\b', 'КПД', 'клап\w*-?\s*\(НЗ\)', 'клп[нa]?\s+пожарн', 'клапан\s+пожарн']
+    kp: ['КПД-']
+    kalit: olcham
+    olcham_shart: true
+
+  - kod: kpu
+    nomi: "Yong'inga qarshi klapan (normal ochiq)"
+    tz: ['огн[еа]задер', 'огназадер', 'огнезащит', 'КЛОП', 'КПУ', '\bFD\b']
+    kp: ['КПУ-']
+    kalit: olcham
+    olcham_shart: true
+
+  - kod: dks
+    nomi: "Drossel klapan"
+    tz: ['ДКС', 'дроссел']
+    kp: ['ДКСп', 'Дроссель']
+    kalit: olcham
+    olcham_shart: true
+
+  - kod: kop
+    nomi: "Teskari klapan"
+    tz: ['обратн', '\bКОП\b']
+    kp: ['\bКОП\b', 'Клапан обратный']
+    kalit: olcham
+    olcham_shart: true
+
+  - kod: panjara_metall
+    nomi: "Metall / dekorativ panjara"
+    tz: ['решетка\s+пожарн', 'металлическ', 'декоратив']
+    kp: ['Решетка металлическ']
+    kalit: olcham
+    olcham_shart: true
+
+  - kod: panjara_tashqi
+    nomi: "Tashqi panjara"
+    tz: ['РВН', 'решетка\s+наружн', 'воздухозаборн']
+    kp: ['РВН', 'наружная']
+    kalit: olcham
+    olcham_shart: true
+
+  - kod: panjara_shift
+    nomi: "Shift panjarasi"
+    tz: ['АП[НР]', '4АПР', '4РВП', 'потолочн\w*\s+(\w+\s+)?решет']
+    kp: ['4РВП', 'потолочная']
+    kalit: olcham
+    olcham_shart: true
+
+  - kod: diffuzor
+    nomi: "Diffuzor"
+    tz: ['ДПУ', 'диффузор', 'ДФА', 'DVS', 'решетка\s+д\d']
+    kp: ['диффузор', 'ДФА', 'DVS']
+    kalit: diametr
+    olcham_shart: true
+
+  - kod: panjara_devor
+    nomi: "Devor / tirqishli panjara"
+    tz: ['АД[НР]', 'АРС', 'РВР', 'щелев']
+    tz_umumiy: ['реш[её]тк']
+    kp: ['РВР', 'щелевая', '\bРШ\b', 'Решетка вентиляционная регулируемая']
+    kalit: olcham
+    olcham_shart: true
+
+  - kod: shovqin
+    nomi: "Shovqin so'ndirgich"
+    tz: ['шумоглуш', 'ГТП']
+    kp: ['Шумоглуш']
+    kalit: olcham
+    olcham_shart: true
+
+  - kod: rekuperator
+    nomi: "Kanal rekuperatori"
+    tz: ['рекуператор', 'VHR']
+    kp: ['Рекуператор', 'РКВ']
+    kalit: belgi
+
+  - kod: kckp
+    nomi: "Markaziy konditsioner (КЦКП / AHU)"
+    tz: ['компактн\w*\s+панельн', 'приточн\w*\s+установк', 'КЦКП', '\bAHU']
+    kp: ['КЦКП']
+    kalit: sarf
+
+  - kod: vent_maishiy
+    nomi: "Maishiy ventilyator (panjarali)"
+    tz: ['вентилятор с решеткой', 'compa[ck]t']
+    kp: ['Compact', 'Compakt']
+    kalit: belgi
+
+  - kod: vent_kanal
+    nomi: "Kanal ventilyatori"
+    tz: ['канальн\w*\s+вентилятор', '\bKV\d', 'ТТ\s*ПРО', '\bВК-']
+    kp: ['Вентилятор канальный', '\bВК-', '\bMF-']
+    kalit: belgi
+
+  - kod: vent_sanoat
+    nomi: "Radial / o'q ventilyatori"
+    tz: ['ВРАН', '\bОСА\b', '\bВЦ\b', '\bВО\s', 'вентилятор\s+подпор', 'вентилятор\s+дымоуд', 'вытяжн\w*\s+вентилятор']
+    tz_umumiy: ['^\s*вентилятор\b']
+    kp: ['Вентилятор ВЦ', 'Вентилятор ВО', 'Вентилятор ВР']
+    kalit: belgi
+
+  - kod: vrf_tashqi
+    nomi: "VRF tashqi blok"
+    tz: ['наружн\w*\s+блок']
+    kp: ['Наружный блок']
+    kalit: kvt
+
+  - kod: vrf_ichki
+    nomi: "VRF ichki blok"
+    tz: ['внутренн\w*\s+блок', 'вн\.?\s*блок', 'фанкойл']
+    kp: ['Внутрен\w*\s+блок', 'Фанкойл']
+    kalit: kvt
+
+  - kod: split
+    nomi: "Split konditsioner"
+    tz: ['сплит']
+    kp: ['Сплит']
+    kalit: kvt
+
+  - kod: vrf_tizim
+    nomi: "VRF tizimi (butun tizim bitta qatorda)"
+    tz: ['систем\w*\s+VRF', 'VRF\s+кондиц']
+    kp: []
+    kalit: belgi
+
+  - kod: panel
+    nomi: "Boshqaruv paneli / pult"
+    tz: []
+    kp: ['Панель', 'Пульт']
+    kalit: belgi
+    aksessuar: true
+
+  - kod: vibro
+    nomi: "Vibroizolyator"
+    tz: ['виброизол']
+    kp: ['Виброизолятор']
+    kalit: belgi
+    aksessuar: true

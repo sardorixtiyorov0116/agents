@@ -9,3 +9,6 @@ ishga_tushir.log
 .env.zaxira-20260827-1153
 .env.zaxira-20260828-1458
 .env.zaxira-20260907-160905
+# Haqiqiy TZ/KP etalon to'plami — mijoz hujjatlari, git ga KIRMAYDI.
+# tests/test_tz_tekshiruv.py u yo'q bo'lsa etalon testlarini o'tkazib yuboradi.
+tests/etalon_tz/
