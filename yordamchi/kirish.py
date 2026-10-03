@@ -44,8 +44,8 @@ class KirishXatosi(Exception):
     """Token yaroqsiz yoki backend uni tasdiqlamadi."""
 
 
-def token_idsi(token: str) -> str | None:
-    """JWT ichidagi foydalanuvchi id'si. JWT bo'lmasa yoki id yo'q — None."""
+def token_yuki(token: str) -> dict[str, Any] | None:
+    """JWT ichidagi ma'lumot (imzosiz o'qiladi). JWT bo'lmasa — None."""
     bolaklar = token.split(".")
     if len(bolaklar) != 3:
         return None
@@ -54,7 +54,13 @@ def token_idsi(token: str) -> str | None:
         malumot = json.loads(base64.urlsafe_b64decode(yuk))
     except (ValueError, json.JSONDecodeError):
         return None
-    if not isinstance(malumot, dict):
+    return malumot if isinstance(malumot, dict) else None
+
+
+def token_idsi(token: str) -> str | None:
+    """JWT ichidagi foydalanuvchi id'si. JWT bo'lmasa yoki id yo'q — None."""
+    malumot = token_yuki(token)
+    if malumot is None:
         return None
     for kalit in ID_KALITLARI:
         qiymat = malumot.get(kalit)
@@ -93,6 +99,11 @@ class Kirish:
         ichidagi = token_idsi(token)
         if ichidagi is not None and ichidagi != str(foydalanuvchi_id):
             raise KirishXatosi("token boshqa foydalanuvchiniki")
+        # Muddati o'tgan token backendga yuborilmaydi: ilova 401 ni ko'rib
+        # tokenni yangilaydi va qayta yuboradi.
+        muddat = (token_yuki(token) or {}).get("exp")
+        if isinstance(muddat, (int, float)) and muddat < time.time():
+            raise KirishXatosi("token muddati o'tgan")
 
         kalit = hashlib.sha256(f"{foydalanuvchi_id}:{token}".encode()).hexdigest()
         hozir = time.monotonic()
@@ -115,6 +126,11 @@ class Kirish:
             raise ConnectionError("backend javob bermadi") from xato
 
         if javob.status_code in (401, 403, 404):
+            # Tashxis uchun: token QIYMATI yozilmaydi, faqat ichidagi
+            # maydon nomlari va backend javobining boshi.
+            log.info("backend rad etdi: %s %s; token maydonlari=%s",
+                     javob.status_code, javob.text[:160],
+                     sorted((token_yuki(token) or {}).keys()))
             raise KirishXatosi(f"backend rad etdi ({javob.status_code})")
         if javob.status_code >= 400:
             raise ConnectionError(f"backend xatosi ({javob.status_code})")
