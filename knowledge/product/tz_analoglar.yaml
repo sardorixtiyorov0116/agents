@@ -1,0 +1,148 @@
+# TZ qatori -> Climavent KP nomi (qoralama uchun).
+#
+# NEGA KERAK
+# ----------
+# TZ da loyihachi raqib yoki umumiy nom yozadi: «Огнезадерживающий клапан
+# КЛОП-1 (Н/О) … FD 125x100», «Альюминевые решетка 4АПР-450х450мм.»,
+# «Канальный вентилятор KV315M». Menejer har birini qo'lda Climavent
+# nomiga aylantiradi. Bu jadval shu ishni qoralama sifatida qiladi.
+#
+# MANBA — TAXMIN EMAS: har qolip menejer KP laridan olingan
+# (tests/etalon_tz/, 2026-10-03). Qaysi KP dan — `manba` da.
+#
+# Bu `loyiha_qisqartmalari.yaml` ni ALMASHTIRMAYDI: u bo'lim sarlavhasi
+# («Решетка АДН») bo'yicha ishlaydi va BIRINCHI qo'llanadi. Bu jadval —
+# nom qatorning o'zida bo'lganda (spetsifikatsiya, zayavka).
+#
+# QOLIP O'RINLARI
+#   {olcham}  «300х200» yoki dumaloq bo'lsa «Ф200»
+#   {d}       diametr yoki modeldagi raqam (Д125 -> 125, KV315M -> 315)
+#   {ei}      olovbardoshlik: TZ da «EI60» bo'lsa o'sha, bo'lmasa `ei_standart`
+#             va ogohlantirish (jimgina qo'yilmaydi)
+#   {uzunlik} 3-o'lcham («250*150*1000» -> 1000), yo'q bo'lsa `uzunlik_standart`
+#
+# MAYDONLAR
+#   agar:     TZ matni bo'yicha regex — qaysi qolip olinishi (birinchi mosi)
+#   tanlov:   true — avtomatik nom YASALMAYDI, qator asl nomi bilan qoladi va
+#             «parametr bo'yicha tanlash kerak» deb belgilanadi (КЦКП, VRF,
+#             radial ventilyator — bular muhandis tanlovi).
+#   eng_kichik: shundan kichik o'lcham kattalashtiriladi va OGOHLANTIRILADI.
+
+ei_standart: "60"
+uzunlik_standart: "1000"
+
+analoglar:
+
+  kpu:
+    manba: "KP 12748 (КЛОП-1 -> КПУ-НО), KP 13357"
+    qoliplar:
+      - qolip: "Клапан противопожарный КПУ-НО-Н-EI{ei}-{olcham}-КН-НУП-ЭМ-220"
+
+  kpd:
+    manba: "KP 13603 (КПД4-01 -> КПД-НЗ-EI120), KP 12748 (Клапан-(НЗ) -> КПД-НЗ-EI60)"
+    qoliplar:
+      - qolip: "Клапан противопожарный КПД-НЗ-Н-EI{ei}-{olcham}-КН-НУП-ЭР-220v"
+
+  dks:
+    manba: "KP 12748, KP 13357"
+    qoliplar:
+      - agar: 'CAV|СAV|постоянн\w*\s+объем'
+        qolip: "Дроссель клапан ДКСп {olcham}"
+        ogohlantirish: "TZ da doimiy sarf (CAV) rostlagichi so'ralgan — oddiy ДКСп emas, tekshiring"
+      - qolip: "Дроссель клапан ДКСп {olcham}"
+
+  kop:
+    manba: "KP 12748 (Обратный клапан -> КОП)"
+    qoliplar:
+      - qolip: "Клапан обратный КОП {olcham}"
+
+  panjara_shift:
+    manba: "KP 12748 (4АПР -> 4РВП без КРВ)"
+    eng_kichik: "300х300"
+    qoliplar:
+      - agar: 'с\s*КРВ|с\s+клапан'
+        qolip: "Решетка вентиляционная потолочная 4РВП {olcham}мм с КРВ"
+      - qolip: "Решетка вентиляционная потолочная 4РВП {olcham}мм без КРВ"
+
+  panjara_devor:
+    manba: "KP 12748 (АРС 1700х150 -> РВР-2 1700х150, АДР -> РВР-2 без КРВ)"
+    qoliplar:
+      - agar: 'с\s*КРВ|с\s+клапан'
+        qolip: "Решетка вентиляционная регулируемая РВР-2 {olcham}мм с КРВ"
+      - qolip: "Решетка вентиляционная регулируемая РВР-2 {olcham}мм без КРВ"
+
+  diffuzor:
+    manba: "KP 12748 (ДПУ-М ∅100 -> ДФА 100)"
+    qoliplar:
+      - qolip: "Диффузор веерный ДФА {d}"
+
+  panjara_tashqi:
+    manba: "KP 12748 (РВН-Решетка наружная 400x350 -> РВН 400х350мм)"
+    qoliplar:
+      - qolip: "Решетка вентиляционная наружная РВН {olcham}мм"
+
+  panjara_metall:
+    manba: "KP 12748 (РКДМ -> декоративный), KP 13357 (пожарний -> РМ-Д-ОЦ)"
+    qoliplar:
+      - agar: 'пожарн'
+        qolip: "Решетка металлическая РМ-Д-ОЦ-{olcham}-НС-У1-СТ"
+      - qolip: "Решетка металлическая декоративный {olcham}"
+
+  shovqin:
+    manba: "KP 13603 (250*150*1000 ГТП1-3 -> ГТП 250х150-1000)"
+    qoliplar:
+      - qolip: "Шумоглушитель трубчатый прямоугольный ГТП {olcham}-{uzunlik}"
+
+  vent_kanal:
+    manba: "KP 13603 (KV315M -> ВК-315С; ВЕНТС ТТ ПРО 250 -> MF-250P)"
+    qoliplar:
+      - qolip: "Вентилятор канальный ВК-{d}С"
+        ogohlantirish: "Kanal ventilyatori diametri bo'yicha olindi — ВК-С yoki MF-P, sarf va bosimni tekshiring"
+
+  vent_maishiy:
+    manba: "KP 13603 — menejer KP ga KIRITMAGAN (Climavent ishlab chiqarmaydi)"
+    tanlov: true
+    izoh: "Maishiy ventilyator (Compact) — Climavent ishlab chiqarmaydi, KP dan chiqarish mumkin"
+
+  rekuperator:
+    manba: "KP 13508 (VENCO-VHR-25/20 -> РКВ1-260)"
+    tanlov: true
+    izoh: "Rekuperator sarf bo'yicha tanlanadi (РКВ)"
+
+  kckp:
+    tanlov: true
+    izoh: "КЦКП sarf, bosim, isitish/sovutish bo'yicha tanlanadi"
+
+  vent_sanoat:
+    tanlov: true
+    izoh: "Ventilyator sarf, bosim va dvigatel bo'yicha tanlanadi (ВЦ / ВО)"
+
+  vrf_tashqi:
+    tanlov: true
+    izoh: "VRF tashqi blok quvvat bo'yicha tanlanadi (JVO)"
+
+  # VRF ichki blok: kod = quvvat × 10 («JVI-071C» = 7,1 kVt). TZ quvvatidan
+  # 5% gacha kichigi ham olinadi (14,07 -> 14,0), aks holda kattasi.
+  # Kassetaga boshqaruv paneli qo'shiladi, devoriyga — yo'q (KP 13173,
+  # 13321, 13508 — hammasida shunday). Turi aniqlanmasa — tanlov.
+  vrf_ichki:
+    manba: "KP 13173 (7,1 kasseta -> JVI-071C, 2,8 devoriy -> JVI-028W, напольно-потолочный -> C), KP 13321"
+    olchamlar: [2.2, 2.8, 3.6, 4.5, 5.6, 7.1, 8.0, 9.0, 11.2, 14.0, 16.0]
+    turlar:
+      - agar: 'кассет|напольно|потолоч'
+        qolip: "Внутренний блок кассетного типа VRF JVI-{kod}C"
+        panel: true
+      - agar: 'настен'
+        qolip: "Внутренний блок настенные типа VRF JVI-{kod}W"
+    panel: "Состав панели JHPEE-G-NK управления для мультизонального кондиционера входит: 1) JHYRE-T03H -панель; 2) JHYE-W01 -пульт."
+    izoh: "VRF ichki blok quvvat va turi bo'yicha tanlanadi (JVI)"
+
+  split:
+    manba: "KP 13321 (2,64 -> 2,7 квт; 3,52 -> 3,6 квт)"
+    olchamlar: [2.7, 3.6, 5.3, 7.0]
+    qolip: "Сплит кондиционер {kvt} квт"
+    izoh: "Split konditsioner quvvat bo'yicha tanlanadi (7 kVt dan katta — mini-VRF)"
+
+  vrf_tizim:
+    tanlov: true
+    izoh: "VRF tizimi — bloklar so'rovnoma varaqasidan (ОЛ) tanlanadi"

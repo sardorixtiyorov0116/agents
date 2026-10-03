@@ -39,6 +39,33 @@ ORQAGA = "__orqaga__"
 # tugmani topmasdi.
 ANIQLIK_OGOH_SONI = 4
 
+# KP xulosasidagi ogohlantirishlar soni. Excel TZ dan qatorlar ko'p bo'ladi
+# va har biri ogohlantirish bersa, xulosa o'qib bo'lmas holga keladi.
+OGOH_XABARDA = 15
+
+# Telegram bitta xabar chegarasi 4096 — Markdown belgilari uchun zaxira.
+XABAR_CHEGARASI = 3800
+
+
+def _bolaklar(qatorlar: list[str]) -> list[str]:
+    """Qatorlarni Telegram chegarasidan oshmaydigan xabarlarga bo'ladi.
+
+    Qator o'rtasidan BO'LINMAYDI — Markdown (`*…*`) qator ichida yopiladi,
+    shuning uchun har bo'lak o'zicha to'g'ri formatlangan bo'ladi.
+    """
+    natija: list[str] = []
+    joriy: list[str] = []
+    uzunlik = 0
+    for qator in qatorlar:
+        if joriy and uzunlik + len(qator) + 1 > XABAR_CHEGARASI:
+            natija.append("\n".join(joriy))
+            joriy, uzunlik = [], 0
+        joriy.append(qator)
+        uzunlik += len(qator) + 1
+    if joriy:
+        natija.append("\n".join(joriy))
+    return natija
+
 # `Shakl` faqat `savollar()` ro'yxatidagi kalitlarni ko'radi (`Shakl.qadam`,
 # `.tugadimi` shundan hisoblanadi), shuning uchun bu KO'SHIMCHA kalitni
 # `javoblar` ichida saqlash xavfsiz — shaklning o'z mantig'iga ta'sir
@@ -193,6 +220,25 @@ async def hujjat(baza, xabar, tg_id: int, fayl, fayl_nomi: str) -> bool:
         return True
 
     await xabar.reply_text("📄 TZ o'qilmoqda…")
+
+    # EXCEL JADVAL — MODELSIZ. Spetsifikatsiya / ro'yxat / zayavka miqdori
+    # bilan o'qiladi va har qator Climavent nomiga aylantiriladi
+    # (`kp/tz_qoralama.py`). Ilgari Excel ham matn bo'lib modelga ketardi:
+    # 20 ta nom, hammasiga miqdor 1, raqib nomlari o'zgarishsiz.
+    if yol.suffix.lower() == ".xlsx":
+        import asyncio
+
+        from kp.tz_qoralama import jadvaldan_taklif
+
+        try:
+            taklif = await asyncio.to_thread(jadvaldan_taklif, yol)
+        except Exception:                           # noqa: BLE001
+            log.warning("Excel TZ jadval sifatida o'qilmadi", exc_info=True)
+            taklif = None
+        if taklif is not None:
+            await _taklifni_qolla(baza, xabar, tg_id, taklif)
+            return True
+
     try:
         matn = matn_ol(yol)
     except TzXatosi as xato:
@@ -225,6 +271,16 @@ async def _tzni_qolla(baza, xabar, tg_id: int, tz_matni: str) -> None:
         return
 
     taklif = shaklga_aylantir(natija, set(normalar()))
+    await _taklifni_qolla(baza, xabar, tg_id, taklif)
+
+
+async def _taklifni_qolla(baza, xabar, tg_id: int, taklif) -> None:
+    """TZ taklifini menejerga ko'rsatadi va shaklga yozadi.
+
+    Ikki manbadan keladi: modeldan (`kp/tz.py`, matnli TZ) va Excel
+    jadvaldan (`kp/tz_qoralama.py`). Qoida bir xil: qo'lda berilgan
+    javob ustidan yozilmaydi va nima topilgani ochiq aytiladi.
+    """
     if not taklif.bormi:
         await xabar.reply_text(
             "⚠️ TZ dan KP uchun yetarli ma'lumot topilmadi. "
@@ -687,9 +743,17 @@ async def _natijani_yubor(xabar, natija: Natija) -> None:
         )
     if kp.jami:
         qatorlar.append(f"\n*Jami (QQS bilan): {kp.jami:,.0f} so'm*".replace(",", " "))
-    for ogoh in kp.ogohlantirishlar:
+    # Excel TZ dan 200 qatorlik KP chiqishi mumkin: bir xil ogohlantirish
+    # takrorlanmasin va ro'yxat cheklansin — to'liq ro'yxat hujjatda.
+    ogohlar = list(dict.fromkeys(kp.ogohlantirishlar))
+    for ogoh in ogohlar[:OGOH_XABARDA]:
         qatorlar.append(f"\n⚠️ {ogoh}")
-    await xabar.reply_text("\n".join(qatorlar), parse_mode="Markdown")
+    if len(ogohlar) > OGOH_XABARDA:
+        qatorlar.append(f"\n_…va yana {len(ogohlar) - OGOH_XABARDA} ta ogohlantirish_")
+    # Telegram bitta xabarda 4096 belgidan ko'pini RAD ETADI — katta KP
+    # xulosasi bo'laklab yuboriladi, aks holda hujjat ham yetib bormasdi.
+    for bolak in _bolaklar(qatorlar):
+        await xabar.reply_text(bolak, parse_mode="Markdown")
 
     papka = Path(sozlama().kp_yoli)
     papka.mkdir(parents=True, exist_ok=True)

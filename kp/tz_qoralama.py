@@ -1,0 +1,315 @@
+"""Excel TZ -> KP qoralamasi (mahsulotlar ro'yxati).
+
+NEGA KERAK
+----------
+`/kp` ga Excel TZ tashlansa, ilgari u MATNGA aylantirilib modelga berilardi
+(`kp/tz.py`): model faqat 20 ta nom olardi, hammasiga miqdor 1 qo'yardi va
+raqib nomini (КЛОП-1, 4АПР, KV315M) Climavent nomiga aylantirmasdi.
+
+Endi Excel modelsiz o'qiladi (`kp/tz_jadval.py` — miqdori bilan), har
+qator esa Climavent nomiga aylantiriladi:
+
+  1. bo'lim sarlavhasi tanilsa — `kp/qisqartma.py` («Решетка АДН» ostidagi
+     «Решетка 300x150» -> «РВР-2 300х150мм без КРВ»);
+  2. qator nomi tanilsa — `knowledge/product/tz_analoglar.yaml` qolipi
+     («КЛОП-1 … FD 125x100» -> «КПУ-НО-Н-EI60-125х100-…»);
+  3. muhandis TANLOVI kerak bo'lsa (КЦКП, VRF, radial ventilyator) —
+     qator TZ nomi bilan qoladi va parametrlari bilan belgilanadi;
+  4. tanilmasa — TZ nomi bilan qoladi va belgilanadi.
+
+HECH NARSA JIMGINA QO'YILMAYDI: TZ da EI yozilmagan bo'lsa standart
+olinadi va bu aytiladi; o'lcham kattalashtirilsa — aytiladi. Qoralama —
+menejer uchun, mijoz uchun emas.
+"""
+
+from __future__ import annotations
+
+import re
+from collections import Counter
+from dataclasses import dataclass, field
+from functools import lru_cache
+from pathlib import Path
+from typing import Any
+
+import yaml
+
+from .solishtir import diametr, kvt, olcham, tz_oilasi
+from .tz_jadval import TzQator
+
+# Qator turlari — menejerga hisobot uchun.
+QISQARTMA = "qisqartma"
+ANALOG = "analog"
+TANLOV = "tanlov"
+TANILMADI = "tanilmadi"
+
+_EI = re.compile(r"\bEI\s?-?(\d{2,3})\b", re.I)
+_UCH_OLCHAM = re.compile(r"(\d{2,4})\s*[xхХ×*]\s*(\d{2,4})\s*[xхХ×*]\s*(\d{3,4})")
+_MODEL_RAQAMI = re.compile(r"(?:KV|ВК|ПРО|MF)[\s-]*(\d{3})", re.I)
+
+
+def _jadval_yoli() -> Path:
+    try:
+        from app.config import sozlama
+
+        return Path(sozlama().bilim_yoli) / "product" / "tz_analoglar.yaml"
+    except Exception:   # noqa: BLE001 — sozlamasiz (skript) ishlaganda ham
+        return Path(__file__).resolve().parent.parent / "knowledge" / "product" / "tz_analoglar.yaml"
+
+
+@lru_cache
+def jadval() -> dict[str, Any]:
+    return yaml.safe_load(_jadval_yoli().read_text(encoding="utf-8")) or {}
+
+
+@dataclass
+class Qoralama:
+    mahsulotlar: list[dict[str, Any]] = field(default_factory=list)
+    turlar: Counter = field(default_factory=Counter)
+    # Butun qoralama uchun bitta marta aytiladigan gaplar («74 ta klapanda
+    # EI yo'q») — har qatorda takrorlansa menejer o'qimay qo'yadi.
+    umumiy: list[str] = field(default_factory=list)
+
+    @property
+    def tayyor_foizi(self) -> float:
+        jami = sum(self.turlar.values())
+        return 100.0 * (self.turlar[QISQARTMA] + self.turlar[ANALOG]) / jami if jami else 0.0
+
+
+def _kichikmi(a: str, b: str) -> bool:
+    x = [int(s) for s in re.findall(r"\d+", a)]
+    y = [int(s) for s in re.findall(r"\d+", b)]
+    return len(x) >= 2 and len(y) >= 2 and (x[0] < y[0] or x[1] < y[1])
+
+
+def _parametrlar_matni(q: TzQator) -> str:
+    nomlar = {"L": "m³/soat", "P": "Pa", "N": "kVt"}
+    qismlar = [f"{q.parametrlar[k]:g} {nomlar[k]}" for k in ("L", "P", "N") if k in q.parametrlar]
+    return ", ".join(qismlar)
+
+
+def _standart(qiymat: float, olchamlar: list[float]) -> float | None:
+    """Eng kichik standart o'lcham, TZ quvvatidan 5% gacha kam bo'lishi mumkin."""
+    mos = [o for o in sorted(olchamlar) if o >= 0.95 * qiymat]
+    return mos[0] if mos else None
+
+
+def _konditsioner(q: TzQator, oila_kod: str, qoida: dict[str, Any],
+                  yozuv: dict[str, Any]) -> list[dict[str, Any]] | None:
+    """VRF ichki blok / split: quvvatdan model. Bo'lmasa `None` (tanlov)."""
+    matn = f"{q.nomi} {q.matn}"
+    quvvat = kvt(matn)
+    if not quvvat:
+        return None
+    standart = _standart(quvvat, qoida.get("olchamlar") or [])
+    if standart is None:
+        return None
+    if oila_kod == "split":
+        nomi = qoida["qolip"].format(kvt=f"{standart:g}".replace(".", ","))
+        yozuv["nomi"] = nomi
+        return [yozuv]
+    tur = next((t for t in qoida.get("turlar") or [] if re.search(t["agar"], matn, re.I)), None)
+    if tur is None:
+        return None
+    yozuv["nomi"] = tur["qolip"].format(kod=f"{round(standart * 10):03d}")
+    if abs(standart - quvvat) > 0.01:
+        yozuv["ogohlantirishlar"].append(
+            f"«{q.nomi[:50]}»: TZ da {quvvat:g} kVt — standart {standart:g} kVt olindi")
+    qatorlar = [yozuv]
+    if tur.get("panel") and qoida.get("panel"):
+        qatorlar.append({
+            "nomi": qoida["panel"], "miqdor": q.miqdor, "birlik": "шт",
+            "bolim": yozuv["bolim"], "asl_nomi": "",
+            "ogohlantirishlar": [],
+        })
+    return qatorlar
+
+
+def _qator(q: TzQator, ei_yoq: list[str]) -> tuple[list[dict[str, Any]], str]:
+    from .qisqartma import qollash
+
+    bolim = " · ".join(x for x in (q.tizim, q.guruh.rstrip(":")) if x)
+    yozuv: dict[str, Any] = {
+        "nomi": q.nomi, "miqdor": q.miqdor, "birlik": q.birlik or "шт",
+        "bolim": bolim, "asl_nomi": q.nomi, "ogohlantirishlar": [],
+    }
+
+    # 1) Bo'lim sarlavhasi orqali (ro'yxat TZ).
+    if q.guruh:
+        tarjima = qollash(q.guruh, q.nomi)
+        if tarjima is not None:
+            yozuv["nomi"] = tarjima.nomi
+            yozuv["ogohlantirishlar"] = list(tarjima.ogohlantirishlar)
+            return [yozuv], QISQARTMA
+
+    oila = tz_oilasi(q.nomi, q.guruh)
+    if oila is None:
+        yozuv["ogohlantirishlar"] = [f"«{q.nomi[:60]}» tanilmadi — TZ nomi bilan qoldi"]
+        return [yozuv], TANILMADI
+
+    qoida = (jadval().get("analoglar") or {}).get(oila.kod) or {}
+    matn = f"{q.nomi} {q.matn}"
+
+    # 2) Konditsioner: quvvatdan model (VRF ichki blok, split).
+    if oila.kod in ("vrf_ichki", "split") and not qoida.get("tanlov"):
+        qatorlar = _konditsioner(q, oila.kod, qoida, yozuv)
+        if qatorlar is not None:
+            return qatorlar, ANALOG
+
+    if qoida.get("tanlov") or not qoida.get("qoliplar"):
+        parametr = _parametrlar_matni(q)
+        izoh = qoida.get("izoh") or f"{oila.nomi} — parametr bo'yicha tanlanadi"
+        yozuv["ogohlantirishlar"] = [
+            f"«{q.nomi[:60]}»{' (' + q.tizim + ')' if q.tizim else ''}: {izoh}"
+            + (f" — TZ: {parametr}" if parametr else "")]
+        return [yozuv], TANLOV
+
+    qolip_yozuvi = next(
+        (k for k in qoida["qoliplar"] if not k.get("agar") or re.search(k["agar"], matn, re.I)),
+        qoida["qoliplar"][-1])
+
+    # O'rinlarni to'ldirish.
+    kv = olcham(q.nomi) or olcham(q.matn)
+    d = diametr(q.nomi) or diametr(q.matn)
+    d_son = d.lstrip("Ø") if d else ""
+    if not d_son:
+        m = _MODEL_RAQAMI.search(matn)
+        d_son = m.group(1) if m else ""
+    qolip = qolip_yozuvi["qolip"]
+    if "{olcham}" in qolip and not kv and d_son:
+        kv = f"Ф{d_son}"
+    if ("{olcham}" in qolip and not kv) or ("{d}" in qolip and not d_son):
+        yozuv["ogohlantirishlar"] = [f"«{q.nomi[:60]}»: o'lcham topilmadi — TZ nomi bilan qoldi"]
+        return [yozuv], TANILMADI
+
+    if kv and qoida.get("eng_kichik") and "х" in kv and _kichikmi(kv, qoida["eng_kichik"]):
+        yozuv["ogohlantirishlar"].append(
+            f"«{q.nomi[:60]}»: {kv} so'ralgan, eng kichik {qoida['eng_kichik']} — "
+            "kattalashtirildi, loyihadagi tuynukni tekshiring")
+        kv = qoida["eng_kichik"]
+
+    ei = ""
+    if "{ei}" in qolip:
+        m = _EI.search(matn)
+        ei = m.group(1) if m else str(jadval().get("ei_standart") or "60")
+        if not m:
+            ei_yoq.append(oila.nomi)
+    uzunlik = ""
+    if "{uzunlik}" in qolip:
+        m = _UCH_OLCHAM.search(matn)
+        uzunlik = m.group(3) if m else str(jadval().get("uzunlik_standart") or "1000")
+
+    yozuv["nomi"] = qolip.format(olcham=kv, d=d_son, ei=ei, uzunlik=uzunlik)
+    if qolip_yozuvi.get("ogohlantirish"):
+        yozuv["ogohlantirishlar"].append(f"«{q.nomi[:50]}»: {qolip_yozuvi['ogohlantirish']}")
+    return [yozuv], ANALOG
+
+
+def qoralama(tz: list[TzQator]) -> Qoralama:
+    """TZ qatorlari -> `/kp` «model» yo'li uchun mahsulotlar ro'yxati."""
+    natija = Qoralama()
+    ei_yoq: list[str] = []
+
+    # Ventilyatsiyaga aloqasi yo'q varaq (bir faylda eski armatura, quvur
+    # zayavkalari ham turadi — 5-juft) qoralamaga tushmaydi.
+    tanilgan: Counter = Counter()
+    jami: Counter = Counter()
+    for q in tz:
+        jami[q.varaq] += 1
+        if tz_oilasi(q.nomi, q.guruh) is not None:
+            tanilgan[q.varaq] += 1
+    for varaq in jami:
+        if tanilgan[varaq] == 0:
+            natija.umumiy.append(
+                f"«{varaq}» varag'i ({jami[varaq]} qator) ventilyatsiyaga aloqasiz — olinmadi")
+
+    for q in tz:
+        if tanilgan[q.varaq] == 0:
+            continue
+        qatorlar, turi = _qator(q, ei_yoq)
+        natija.mahsulotlar += qatorlar
+        natija.turlar[turi] += 1
+    if ei_yoq:
+        standart = jadval().get("ei_standart") or "60"
+        sanoq = Counter(ei_yoq)
+        natija.umumiy.append(
+            f"Olovbardoshlik (EI) TZ da yozilmagan: "
+            + ", ".join(f"{nom} — {soni} qator" for nom, soni in sanoq.items())
+            + f". EI{standart} qo'yildi — loyiha talabini tekshiring")
+    return natija
+
+
+def kp_bilan_qamrov(mahsulotlar: list[dict[str, Any]], kp) -> tuple[float, float]:
+    """Qoralama haqiqiy KP ni qanchalik takrorlaydi — ETALON o'lchovi.
+
+    (miqdor qamrovi %, aniq nom %):
+      * miqdor qamrovi — KP dagi har (oila, o'lcham/quvvat) miqdorining
+        qanchasi qoralamada ham bor (`min(qoralama, KP)` yig'indisi);
+      * aniq nom — KP mahsulot qatorlarining qanchasi qoralamada harfma-harf
+        bor (bo'shliq va katta-kichik harf farqsiz).
+    Narx hisobga olinmaydi — u katalogdan keladi, qoralamadan emas.
+    """
+    from .solishtir import _kalit, kp_oilasi
+
+    def guruhla(nomlar_miqdor):
+        natija: Counter = Counter()
+        for nomi, miqdor in nomlar_miqdor:
+            oila = kp_oilasi(nomi)
+            kalit = (oila.kod, _kalit(oila, nomi)) if oila else ("?", nomi.lower())
+            natija[kalit] += miqdor
+        return natija
+
+    haqiqiy = guruhla((q.toza_nomi, q.miqdor) for q in kp.mahsulotlar)
+    # TZ nomi bilan QOLGAN qator (tanlov, tanilmadi) hech narsani qoplamaydi —
+    # aks holda «ventilyator» oilasi bir xil bo'lgani uchun mos sanalardi.
+    bizniki = guruhla((m["nomi"], float(m["miqdor"])) for m in mahsulotlar
+                      if m["nomi"] != m.get("asl_nomi"))
+    jami = sum(haqiqiy.values())
+    qamrov = sum(min(v, bizniki.get(k, 0)) for k, v in haqiqiy.items())
+
+    def norm(s: str) -> str:
+        return re.sub(r"\s+", "", s).lower()
+
+    bizning_nomlar = {norm(m["nomi"]) for m in mahsulotlar}
+    aniq = sum(1 for q in kp.mahsulotlar if norm(q.toza_nomi) in bizning_nomlar)
+    return (100.0 * qamrov / jami if jami else 0.0,
+            100.0 * aniq / len(kp.mahsulotlar) if kp.mahsulotlar else 0.0)
+
+
+def jadvaldan_taklif(yol: str | Path):
+    """Excel TZ -> `ShaklTaklifi` (yol=model). Jadval bo'lmasa `None`.
+
+    `None` qaytsa `/kp` eski yo'ldan ketadi (matn -> model): Excel da
+    jadval emas, xonalar tavsifi bo'lishi mumkin.
+    """
+    from .tz import ShaklTaklifi
+    from .tz_jadval import jadval_oqi
+
+    j = jadval_oqi(yol)
+    if not j.qatorlar:
+        return None
+    q = qoralama(j.qatorlar)
+    if q.turlar[QISQARTMA] + q.turlar[ANALOG] + q.turlar[TANLOV] == 0:
+        return None     # hech bir qator ventilyatsiya mahsulotiga o'xshamadi
+
+    taklif = ShaklTaklifi()
+    taklif.javoblar["yol"] = "model"
+    taklif.javoblar["mahsulotlar"] = q.mahsulotlar
+    jami = len(q.mahsulotlar)
+    taklif.topilganlar.append(
+        f"Jadval: {jami} qator, miqdorlari bilan")
+    taklif.topilganlar.append(
+        f"Climavent nomiga aylandi: {q.turlar[QISQARTMA] + q.turlar[ANALOG]} "
+        f"({q.tayyor_foizi:.0f}%)")
+    if q.turlar[TANLOV]:
+        taklif.topilganlar.append(
+            f"Parametr bo'yicha TANLASH kerak: {q.turlar[TANLOV]} (КЦКП, ventilyator, VRF …)")
+    if q.turlar[TANILMADI]:
+        taklif.topilganlar.append(f"Tanilmadi (TZ nomi bilan qoldi): {q.turlar[TANILMADI]}")
+    # Bot bu matnni Markdown bilan yuboradi: TZ dan kelgan «_», «*» (varaq
+    # nomida, mahsulot nomida) xabarni BUZADI — Telegram uni rad etadi.
+    taklif.ogohlantirishlar += [_markdownsiz(o) for o in j.ogohlantirishlar + q.umumiy]
+    return taklif
+
+
+def _markdownsiz(matn: str) -> str:
+    return re.sub(r"[_*`\[\]]", " ", matn)
