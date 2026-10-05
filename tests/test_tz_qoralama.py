@@ -49,7 +49,7 @@ def _bitta(q: TzQator) -> dict:
     ("Огнезадерживающий клапан КЛОП-1 (Н/О) с реверсивным приводом 24В FD 125x100",
      "Клапан противопожарный КПУ-НО-Н-EI60-125х100-КН-НУП-ЭМ-220"),
     ("Клапан-(НЗ) 500х500, огнезащитный",
-     "Клапан противопожарный КПД-НЗ-Н-EI60-500х500-КН-НУП-ЭР-220v"),
+     "Клапан противопожарный КПД-НЗ-Н-E60-500х500-КН-НУП-ЭР-220v"),
     ("Альюминевые решетка 4АПР-450х450мм.",
      "Решетка вентиляционная потолочная 4РВП 450х450мм без КРВ"),
     ("Решетка щелевая АРС 1700х150.",
@@ -116,9 +116,59 @@ def test_KCKP_olchami_sarfdan(sarf_q, olcham_q):
     assert natija.turlar[ANALOG] == 1
     assert m["nomi"] == f"Кондиционер КЦКП-{olcham_q}"
     assert "pozitsiya" not in m             # menejer «КЦКП-3,15 (П1)» deb yozmaydi
-    assert m["tavsif"] == (f"L={sarf_q}м3/ч, Р=500Па\nТип системы: приточная\n"
-                           "Система в проекте: П1")
+    qatorlar = m["tavsif"].split("\n")
+    assert qatorlar[:3] == [f"L={sarf_q}м3/ч, Р=500Па", "Тип системы: приточная",
+                            "Секция фильтров: ФяГ G4"]      # kirish havosi — filtr standart
+    assert qatorlar[-1] == "Система в проекте: П1"
     assert any("Seksiyalar" in u for u in natija.umumiy)    # tarkibi yasalmaydi — aytiladi
+
+
+@pytest.mark.parametrize("filtr, kutilgan, eslatma", [
+    ("ФВП-I-570-325-48-G3/С; Класс:G3;", "ФяГ G4", "G3"),     # 13603: G3 -> standart G4
+    ("G4", "ФяГ G4", None),
+    ("G4 + F7", "ФяГ G4, ФяК F7", None),
+    ("G4, F9, H14", "ФяГ G4, ФяК F9", "HEPA"),                 # КЦКП ichida F9 gacha
+])
+def test_KCKP_filtri_katalog_boyicha(filtr, kutilgan, eslatma):
+    q = _tz("Кондиционеры компактные панельные", tizim="П1", L=3000, P=500)
+    q.guruh_matni = {"filtr": filtr}
+    m = _bitta(q)
+    assert f"Секция фильтров: {kutilgan}" in m["tavsif"]
+    assert any(eslatma in o for o in m["ogohlantirishlar"]) if eslatma else not m["ogohlantirishlar"]
+
+
+def test_KCKP_isitgich_quvvati_hisoblab_tekshiriladi():
+    """13603 10-seksiya: 1100 m³/soat, −14 -> +12 °C ga 9,6 kVt kerak, TZ da 7,8."""
+    yetmaydi = _bitta(_tz("Кондиционеры компактные панельные", tizim="П1",
+                          L=1100, P=500, tn=-14, tk=12, Qt=7.8))
+    assert "Qт=7,8кВт" in yetmaydi["tavsif"]                  # mijoz talabi o'zgartirilmaydi
+    assert any("9,6 kVt kerak" in o and "+7 °C" in o for o in yetmaydi["ogohlantirishlar"])
+    yetadi = _bitta(_tz("Кондиционеры компактные панельные", tizim="П1",
+                        L=3000, P=500, tn=-14, tk=12, Qt=30))
+    assert not yetadi["ogohlantirishlar"]
+
+
+def test_KCKP_ventilyatori_katalogdan_past_bosimda():
+    """Katalog: КЦКП-3,15 -> ebmpapst K3G310 (menejer 13603). 1185 Pa da — yozilmaydi (13574 AHU-10)."""
+    past = _bitta(_tz("Приточная установка", tizim="П1", L=3000, P=500))
+    assert "Секция вентилятора: ebmpapst K3G310-PH38-02" in past["tavsif"]
+    yuqori = _bitta(_tz("Приточная установка", tizim="П1", L=3000, P=1185))
+    assert "Секция вентилятора" not in yuqori["tavsif"]
+    katta = _bitta(_tz("Приточная установка", tizim="П1", L=12000, P=500))  # 8+ — bir nechta variant
+    assert "Секция вентилятора" not in katta["tavsif"]
+
+
+@pytest.mark.parametrize("tz, kutilgan, ogoh", [
+    ("Клапан дымоудаления КПД4-01-800x400", "КПД-НЗ-Н-E60-800х400", False),   # yozilmagan -> E60
+    ("Клапан дымоудаления КПД 800x400 EI 90", "КПД-НЗ-Н-E90-800х400", False),
+    ("Клапан дымоудаления КПД 800x400 EI120", "КПД-НЗ-Н-E90-800х400", True),  # katalogda 90 gacha
+    ("Клапан КЛОП-1 EI45 FD 125x100", "КПУ-НО-Н-EI60-125х100", False),       # yuqorisiga yaxlitlanadi
+    ("Клапан КЛОП-1 EI120 FD 125x100", "КПУ-НО-Н-EI120-125х100", False),
+])
+def test_klapan_olovbardoshligi_katalog_bajarilishidan(tz, kutilgan, ogoh):
+    m = _bitta(_tz(tz))
+    assert kutilgan in m["nomi"]
+    assert any("zavoddan" in o for o in m["ogohlantirishlar"]) == ogoh
 
 
 def test_KCKP_sarfsiz_tanlov_TZ_nomi_bilan():
@@ -481,7 +531,8 @@ def test_etalon_murod_menejer_KP_13603_dagidek():
     kckp = m[1]
     assert kckp["nomi"] == "Кондиционер КЦКП-3,15"
     assert "Секция нагрева: электрический, tвн=-14°С, tвк=+12°С, Qт=30кВт" in kckp["tavsif"]
-    assert "Секция фильтров: G3" in kckp["tavsif"]
+    assert "Секция фильтров: ФяГ G4" in kckp["tavsif"]          # TZ G3 -> standart G4
+    assert "ebmpapst K3G310" in kckp["tavsif"]                  # menejer 13603 dagidek
 
 
 @etalon
@@ -491,7 +542,10 @@ def test_etalon_VENTAS_kp_ga_fayl_bilan():
     taklif = fayldan_taklif(ETALON / "7-provik-ventas" / "tz" / "AHU-11.pdf")
     m = taklif.javoblar["mahsulotlar"][0]
     assert m["nomi"] == "Кондиционер КЦКП-20"
-    assert "Секция рекуператора: гликолевый" in m["tavsif"] and "H14" in m["tavsif"]
+    assert "Секция рекуператора: гликолевый" in m["tavsif"]
+    # H14 КЦКП ichida bo'lmaydi (katalog: F9 gacha) — tavsifga emas, menejerga.
+    assert "Секция фильтров: ФяГ G4, ФяК F7, ФяК F9" in m["tavsif"] and "H14" not in m["tavsif"]
+    assert any("H14" in o and "HEPA" in o for o in m["ogohlantirishlar"])
     assert m["tavsif"].endswith("Система в проекте: AHU-11")
 
 

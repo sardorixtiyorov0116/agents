@@ -36,13 +36,20 @@ analoglar:
 
   kpu:
     manba: "KP 12748 (КЛОП-1 -> КПУ-НО), KP 13357"
+    # Katalog 2021, КПУ: EI 15, 30, 60, 90, 120, 180.
+    ei_qatori: [15, 30, 60, 90, 120, 180]
     qoliplar:
       - qolip: "Клапан противопожарный КПУ-НО-Н-EI{ei}-{olcham}-КН-НУП-ЭМ-220"
 
+  # КПД — TUTUN klapani: katalog 2021 (207-bet) va saytda faqat КПД (60) va
+  # КПД (90), belgisi «E» (zichlik yo'qotish chegarasi), «EI» emas — namuna:
+  # «КПД-НЗ-H-E60-500x400-КН-НУП-ЭР-…». Menejer 13603 da «EI120» yozgan —
+  # katalogda yo'q. TZ 90 dan ko'p so'rasa E90 qo'yiladi va OGOHLANTIRILADI.
   kpd:
-    manba: "KP 13603 (КПД4-01 -> КПД-НЗ-EI120), KP 12748 (Клапан-(НЗ) -> КПД-НЗ-EI60)"
+    manba: "Katalog 2021 207-bet; KP 13603 (КПД4-01 -> КПД-НЗ), KP 12748 (Клапан-(НЗ) -> КПД-НЗ)"
+    ei_qatori: [60, 90]
     qoliplar:
-      - qolip: "Клапан противопожарный КПД-НЗ-Н-EI{ei}-{olcham}-КН-НУП-ЭР-220v"
+      - qolip: "Клапан противопожарный КПД-НЗ-Н-E{ei}-{olcham}-КН-НУП-ЭР-220v"
 
   dks:
     manba: "KP 12748, KP 13357"
@@ -123,6 +130,24 @@ analoglar:
     olchamlar: [1.6, 3.15, 5, 6.3, 8, 10, 12.5, 16, 20, 25, 31.5, 40, 50, 63, 80, 100]
     ortiq_foizi: 5
     qolip: "Кондиционер КЦКП-{olcham}"
+    # Katalog 2021, КЦКП «блок вентилятора»: ebmpapst modeli BITTA bo'lgan
+    # o'lchamlar (8 dan boshlab 2–3 variant — tanlov, yozilmaydi).
+    # Menejer 13603: КЦКП-3,15 -> K3G310, КЦКП-1,6 -> K3G250 — shu jadvaldan.
+    ventilyator:
+      "1,6": "K3G250-AV29-B2"
+      "3,15": "K3G310-PH38-02"
+      "5": "K3G310-PH58-02"
+      "6,3": "K3G400-PA27-71"
+    # EC ventilyator (ebmpapst) yuqori bosimga chiqmaydi: menejer 13574 da
+    # AHU-10 (КЦКП-3,15, 1185 Pa) ga ZA RH45C 5,5 kVt qo'ygan, 13603 da
+    # 500–550 Pa ga K3G. Shundan yuqori bosimda ventilyator yozilmaydi.
+    ec_maks_bosim: 600
+    # Katalog 2021, КЦКП «блок ячейковых фильтров»: hamma o'lchamda ФЯГ G4.
+    # G3 so'ralsa ham standart G4 (menejer 13603 shunday qilgan); F5–F9 —
+    # cho'ntakli ФЯК; F9 dan yuqori (HEPA) КЦКП ichida bo'lmaydi.
+    filtr_standart: "ФяГ G4"
+    filtr_kotarma: "ФяК"
+    filtr_maks: "F9"
     izoh: "КЦКП sarf, bosim, isitish/sovutish bo'yicha tanlanadi"
 
   # Faqat seriya va nomer aniq bo'lganda nom yasaladi (ВРАН6 080 -> ВЦ 4-75-8,

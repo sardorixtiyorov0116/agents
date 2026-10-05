@@ -55,7 +55,8 @@ TANILMADI = "tanilmadi"
 # tavsif oxirida («Система в проекте: П1»).
 POZITSIYALI = {"vent_kanal", "vent_sanoat", "vent_maishiy", "rekuperator"}
 
-_EI = re.compile(r"\bEI\s?-?(\d{2,3})\b", re.I)
+# «EI60», «EI 90», tutun klapanida «E90» / kirillcha «Е90».
+_EI = re.compile(r"\b[EЕ][IІ]?\s?-?(\d{2,3})\b", re.I)
 _UCH_OLCHAM = re.compile(r"(\d{2,4})\s*[xхХ×*]\s*(\d{2,4})\s*[xхХ×*]\s*(\d{3,4})")
 _MODEL_RAQAMI = re.compile(r"(?:KV|ВК|ПРО|MF)[\s-]*(\d{3})", re.I)
 # Sanoat ventilyatori nomeri: «ВРАН6 080» -> 8, «ОСА 201 080» -> 8 (080 = №8,0).
@@ -176,7 +177,9 @@ def _kckp(q: TzQator, qoida: dict[str, Any], yozuv: dict[str, Any],
     if olcham_q is None:
         return False
     yozuv["nomi"] = nomi(olcham_q, qoida)
-    yozuv["tavsif"] = tz_tavsifi(sarf_q, q.parametrlar, q.guruh_matni, q.tizim)
+    yozuv["tavsif"], eslatmalar = tz_tavsifi(sarf_q, q.parametrlar, q.guruh_matni,
+                                            q.tizim, olcham_q, qoida)
+    yozuv["ogohlantirishlar"] += eslatmalar
     yozuv["birlik"] = "комп."
     kckp_olindi.append(f"{q.tizim or q.nomi[:20]} {sarf_q:g} -> КЦКП-{olcham_q}")
     return True
@@ -291,6 +294,17 @@ def _qator(q: TzQator, ei_yoq: list[str],
         ei = m.group(1) if m else str(jadval().get("ei_standart") or "60")
         if not m:
             ei_yoq.append(oila.nomi)
+        # Katalogdagi bajarilishlar: so'ralganidan kichik bo'lmagan eng yaqini.
+        # Katalogda yo'q darajani (КПД EI120) YOZMAYMIZ — eng kattasi va
+        # menejerga ogohlantirish: ishlab chiqarilmaydigan klapan KP ga tushmasin.
+        qatori = sorted(int(x) for x in qoida.get("ei_qatori") or [])
+        if qatori:
+            mos = [x for x in qatori if x >= int(ei)]
+            if not mos:
+                yozuv["ogohlantirishlar"].append(
+                    f"«{q.nomi[:50]}»: TZ da {ei} daqiqa so'ralgan, katalogda {oila.nomi} "
+                    f"{qatori[-1]} gacha — {qatori[-1]} yozildi, zavoddan so'rang")
+            ei = str(mos[0] if mos else qatori[-1])
     uzunlik = ""
     if "{uzunlik}" in qolip:
         m = _UCH_OLCHAM.search(matn)
@@ -453,7 +467,7 @@ def ventas_mahsuloti(q) -> tuple[dict[str, Any], str]:
     if olcham_q is None:
         return yozuv, TANLOV
     yozuv["nomi"] = nomi(olcham_q, qoida)
-    yozuv["tavsif"] = ventas_tavsifi(q)
+    yozuv["tavsif"], yozuv["ogohlantirishlar"] = ventas_tavsifi(q, olcham_q, qoida)
     return yozuv, ANALOG
 
 
