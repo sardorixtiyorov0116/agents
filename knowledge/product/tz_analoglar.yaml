@@ -195,6 +195,7 @@ analoglar:
   vrf_tashqi:
     manba: "KP 13173, 13321, 13508"
     modullar:
+      - {kod: "JVO-155S", kvt: 15.5}
       - {kod: "JVO-335T", kvt: 33.5}
       - {kod: "JVO-560T", kvt: 56.0}
       - {kod: "JVO-615T", kvt: 61.5}
@@ -202,6 +203,10 @@ analoglar:
       - {kod: "JVO-725T", kvt: 72.5}
     maks_modul: 4
     farq_foizi: 1.5
+    # TZ quvvati hech bir kombinatsiyaga teng bo'lmasa — shu tizimning ichki
+    # bloklari yig'indisidan BITTA modul: ichki/tashqi 100–130% (KP 13321 K7:
+    # TZ 18 kVt, ichki 2×4,5+7,1 = 16,1 -> JVO-155S; 13321/13508 da nisbat 104–119%).
+    ulanish_foizi: [100, 130]
     qolip: "Наружный блок VRF модель {kod}"
     izoh: "VRF tashqi blok quvvat bo'yicha tanlanadi (JVO) — aniq kombinatsiya topilmadi"
 
@@ -225,6 +230,16 @@ analoglar:
     manba: "KP 13321 (2,64 -> 2,7 квт; 3,52 -> 3,6 квт)"
     olchamlar: [2.7, 3.6, 5.3, 7.0]
     qolip: "Сплит кондиционер {kvt} квт"
+    # 7 kVt dan katta split — mini-VRF to'plami (KP 13321 K6, K12: 14,07 / 14,1 kVt).
+    # Shu tizimdagi alohida «Вн.блок кассетного 14,07» qatori — shu splitning
+    # ichki qismi, ikkinchi marta yozilmaydi.
+    katta:
+      - kvt: 15.8
+        qatorlar:
+          - "Фанкойл 4-канальная кассетного типа JUI-158C"
+          - "Наружный блок VRF модель JUO-158S"
+          - "Панель управление для мультезадачного кондиционера JHP-G-NK (для JUI-158C)"
+          - "Пульт управления для мультизонального кондиционера JHYE-W01"
     izoh: "Split konditsioner quvvat bo'yicha tanlanadi (7 kVt dan katta — mini-VRF)"
 
   vrf_tizim:

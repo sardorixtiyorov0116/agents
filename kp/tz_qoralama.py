@@ -118,6 +118,8 @@ def _konditsioner(q: TzQator, oila_kod: str, qoida: dict[str, Any],
     if not quvvat:
         return None
     standart = _standart(quvvat, qoida.get("olchamlar") or [])
+    if standart is None and oila_kod == "split":
+        return _katta_split(q, quvvat, qoida, yozuv)
     if standart is None:
         return None
     if oila_kod == "split":
@@ -139,6 +141,34 @@ def _konditsioner(q: TzQator, oila_kod: str, qoida: dict[str, Any],
             "ogohlantirishlar": [],
         })
     return qatorlar
+
+
+def _katta_split(q: TzQator, quvvat: float, qoida: dict[str, Any],
+                 yozuv: dict[str, Any]) -> list[dict[str, Any]] | None:
+    """7 kVt dan katta split -> mini-VRF to'plami (fankoyl + tashqi + panel + pult)."""
+    toplam = _katta_toplam(quvvat, qoida)
+    if toplam is None:
+        return None
+    qatorlar = [{**yozuv, "nomi": nomi, "ogohlantirishlar": []} for nomi in toplam["qatorlar"]]
+    qatorlar[0]["ogohlantirishlar"] = [
+        f"«{q.nomi[:50]}»: {quvvat:g} kVt split — mini-VRF to'plami "
+        f"({toplam['kvt']:g} kVt), tasdiqlang"]
+    return qatorlar
+
+
+def _katta_toplam(quvvat: float, qoida: dict[str, Any]) -> dict[str, Any] | None:
+    return next((t for t in sorted(qoida.get("katta") or [], key=lambda t: t["kvt"])
+                 if t["kvt"] >= 0.95 * quvvat), None)
+
+
+def ulanish_boyicha(ichki: float, modullar: list[dict[str, Any]],
+                    foiz: tuple[float, float] = (100, 130)) -> str | None:
+    """Ichki bloklar yig'indisidan BITTA tashqi modul (ichki/tashqi foiz oralig'ida).
+
+    Bir nechta mos kelsa — nisbati 100% ga eng yaqini (eng katta modul).
+    """
+    mos = [m for m in modullar if foiz[0] <= 100 * ichki / m["kvt"] <= foiz[1]]
+    return max(mos, key=lambda m: m["kvt"])["kod"] if mos else None
 
 
 def tashqi_kombinatsiyalar(quvvat: float, modullar: list[dict[str, Any]],
@@ -186,7 +216,8 @@ def _kckp(q: TzQator, qoida: dict[str, Any], yozuv: dict[str, Any],
 
 
 def _qator(q: TzQator, ei_yoq: list[str],
-           kckp_olindi: list[str] | None = None) -> tuple[list[dict[str, Any]], str]:
+           kckp_olindi: list[str] | None = None,
+           ichki_yigindi: dict[str, float] | None = None) -> tuple[list[dict[str, Any]], str]:
     from .qisqartma import qollash
 
     bolim = " · ".join(x for x in (q.tizim, q.guruh.rstrip(":")) if x)
@@ -248,6 +279,17 @@ def _qator(q: TzQator, ei_yoq: list[str],
                 f"{len(variantlar)} ta aniq kombinatsiya bor, tanlang: "
                 + "; ".join(_kombinatsiya_matni(v) for v in variantlar[:4])]
             return [yozuv], TANLOV
+        # Aniq kombinatsiya yo'q — shu tizim ichki bloklari yig'indisidan.
+        ichki = (ichki_yigindi or {}).get(q.tizim, 0) / (q.miqdor or 1)
+        kod = ulanish_boyicha(ichki, qoida["modullar"],
+                              tuple(qoida.get("ulanish_foizi") or (100, 130))) if ichki else None
+        if kod:
+            modul = next(m for m in qoida["modullar"] if m["kod"] == kod)
+            return [{**yozuv, "nomi": qoida["qolip"].format(kod=kod), "ogohlantirishlar": [
+                f"«{q.nomi[:50]}»{' (' + q.tizim + ')' if q.tizim else ''}: "
+                f"TZ {quvvat or 0:g} kVt — aniq modul yo'q; ichki bloklar {ichki:g} kVt "
+                f"-> {kod} ({modul['kvt']:g} kVt, ulanish {100 * ichki / modul['kvt']:.0f}%), "
+                "tasdiqlang"]}], ANALOG
 
     mos_qolip = next(
         (k for k in qoida.get("qoliplar") or []
@@ -340,6 +382,7 @@ def qoralama(tz: list[TzQator]) -> Qoralama:
                 f"«{varaq}» varag'i ({jami[varaq]} qator) ventilyatsiyaga aloqasiz — olinmadi")
 
     analoglar = jadval().get("analoglar") or {}
+    ichki_yigindi, split_ichki = _vrf_kontekst(tz, analoglar)
     kirmadi: Counter = Counter()
     oxirgi_bolim = ""
     for q in tz:
@@ -351,6 +394,11 @@ def qoralama(tz: list[TzQator]) -> Qoralama:
         if oila is not None and (analoglar.get(oila.kod) or {}).get("kpga_kirmaydi"):
             kirmadi[q.nomi[:40]] += q.miqdor
             continue
+        if id(q) in split_ichki:
+            natija.umumiy.append(
+                f"«{q.nomi[:50]}» ({q.tizim}) — katta splitning ichki bloki, "
+                "mini-VRF to'plamiga kirdi")
+            continue
         # SEKSIYA SARLAVHASI qator bo'lib turadi («- 9 СЕКЦИЯ»), menejer KP
         # sidagidek — bir xil ro'yxat 3 seksiyada takrorlanganda qaysi qator
         # qaysi seksiyaniki ekani shundan bilinadi.
@@ -360,7 +408,7 @@ def qoralama(tz: list[TzQator]) -> Qoralama:
                 "sarlavha": True, "ogohlantirishlar": [],
             })
             oxirgi_bolim = q.bolim
-        qatorlar, turi = _qator(q, ei_yoq, kckp_olindi)
+        qatorlar, turi = _qator(q, ei_yoq, kckp_olindi, ichki_yigindi)
         natija.mahsulotlar += qatorlar
         natija.turlar[turi] += 1
     if kirmadi:
@@ -377,6 +425,34 @@ def qoralama(tz: list[TzQator]) -> Qoralama:
     if kckp_olindi:
         natija.umumiy.append(_kckp_eslatma(kckp_olindi))
     return natija
+
+
+def _vrf_kontekst(tz: list[TzQator], analoglar: dict[str, Any]
+                 ) -> tuple[dict[str, float], set[int]]:
+    """Tizim bo'yicha VRF ichki bloklar yig'indisi (kVt) va katta splitning
+    ichki qismi bo'lgan qatorlar (KP 13321 K6: «Сплит 14,07» + «Вн.блок 14,07»
+    — bitta qurilma, menejer bir marta yozgan)."""
+    katta: dict[str, list[float]] = {}
+    split_q = analoglar.get("split") or {}
+    eng_katta = max(split_q.get("olchamlar") or [0])
+    for q in tz:
+        oila = tz_oilasi(q.nomi, q.guruh)
+        if oila is not None and oila.kod == "split":
+            quvvat = kvt(f"{q.nomi} {q.matn}")
+            if quvvat and quvvat > eng_katta and _katta_toplam(quvvat, split_q):
+                katta.setdefault(q.tizim, []).append(quvvat)
+    yigindi: dict[str, float] = {}
+    split_ichki: set[int] = set()
+    for q in tz:
+        oila = tz_oilasi(q.nomi, q.guruh)
+        if oila is None or oila.kod != "vrf_ichki":
+            continue
+        quvvat = kvt(f"{q.nomi} {q.matn}") or 0
+        if q.tizim and any(abs(quvvat - k) <= 0.05 * k for k in katta.get(q.tizim, [])):
+            split_ichki.add(id(q))
+            continue
+        yigindi[q.tizim] = yigindi.get(q.tizim, 0) + quvvat * q.miqdor
+    return yigindi, split_ichki
 
 
 def _kckp_eslatma(olindi: list[str]) -> str:

@@ -470,7 +470,7 @@ etalon = pytest.mark.skipif(not ETALON.is_dir(), reason="tests/etalon_tz/ yo'q (
     # Chegaralar o'lchovdan bir oz past — pasayish xato sifatida ushlanadi.
     ("1-murod", 45, 85),            # КЦКП, radial ventilyator — tanlov
     ("3-provik-zarafshon", 98, 95),
-    ("4-enter-k1-k12", 60, 75),     # VRF tashqi blok — tanlov
+    ("4-enter-k1-k12", 98, 98),     # 05.10: K7 ulanishdan, K6/K12 mini-VRF to'plami
     ("6-nirvana", 100, 100),
 ])
 def test_etalon_qoralama_haqiqiy_KP_ni_takrorlaydi(papka, nomga, qamrov):
@@ -595,3 +595,34 @@ def test_etalon_alm_aloqasiz_varaqlar_olinmaydi():
     natija = qoralama(jadval_oqi(ETALON / "5-enter-alm" / "tz_zayavka.xlsx").qatorlar)
     assert sum("aloqasiz" in u for u in natija.umumiy) == 3
     assert not any("Арматура" in m["nomi"] for m in natija.mahsulotlar)
+
+
+def test_VRF_tashqi_aniq_bolmasa_ichki_bloklar_yigindisidan():
+    """KP 13321 K7: TZ 18 kVt (modul yo'q), ichki 2×4,5 + 7,1 = 16,1 -> JVO-155S."""
+    tz = [_tz("Наружный блок кондиционирования, напольная Производительность 18 кВт", 1, tizim="К7"),
+          _tz("Внутренний блок, настенный Производительность 4,5 кВт", 2, tizim="К7"),
+          _tz("Внутренний блок, настенный Производительность 7,1 кВт", 1, tizim="К7")]
+    nomlar = [m["nomi"] for m in qoralama(tz).mahsulotlar]
+    assert "Наружный блок VRF модель JVO-155S" in nomlar
+
+
+def test_VRF_tashqi_ulanish_oraligidan_tashqarida_tanlov():
+    from kp.tz_qoralama import ulanish_boyicha
+    modullar = [{"kod": "JVO-155S", "kvt": 15.5}, {"kod": "JVO-335T", "kvt": 33.5}]
+    assert ulanish_boyicha(16.1, modullar) == "JVO-155S"
+    assert ulanish_boyicha(25, modullar) is None        # 161% / 75% — mos emas
+
+
+def test_katta_split_mini_VRF_toplami_va_ichki_qismi_takrorlanmaydi():
+    """KP 13321 K6: «Сплит 14,07» + «Вн.блок кассетного 14,07» — bitta to'plam."""
+    tz = [_tz("Сплит-система кондиционирования, подвесная Производительность 14,07 кВт", 2, tizim="К6"),
+          _tz("Вн.блок кассетного типа 14,07 кВт", 2, tizim="К6")]
+    natija = qoralama(tz)
+    nomlar = {m["nomi"]: m["miqdor"] for m in natija.mahsulotlar}
+    assert nomlar == {
+        "Фанкойл 4-канальная кассетного типа JUI-158C": 2,
+        "Наружный блок VRF модель JUO-158S": 2,
+        "Панель управление для мультезадачного кондиционера JHP-G-NK (для JUI-158C)": 2,
+        "Пульт управления для мультизонального кондиционера JHYE-W01": 2,
+    }
+    assert any("ichki bloki" in u for u in natija.umumiy)
