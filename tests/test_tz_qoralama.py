@@ -105,12 +105,65 @@ def test_bolim_sarlavhasi_qisqartmasi_birinchi():
 # --- tanlov va VRF ------------------------------------------------------------
 
 
-def test_KCKP_tanlov_TZ_nomi_va_parametrlari_bilan():
-    natija = qoralama([_tz("Кондиционеры компактные панельные", tizim="П1", L=3000, P=500)])
+@pytest.mark.parametrize("sarf_q, olcham_q", [
+    # Menejer KP lari (13603, 13574): nominaldan 5% gacha oshsa ham o'sha o'lcham.
+    (1100, "1,6"), (2600, "3,15"), (3000, "3,15"), (4500, "5"), (9000, "10"),
+    (10250, "10"), (17500, "20"), (22500, "25"), (28000, "31,5"), (33000, "31,5"),
+])
+def test_KCKP_olchami_sarfdan(sarf_q, olcham_q):
+    natija = qoralama([_tz("Кондиционеры компактные панельные", tizim="П1", L=sarf_q, P=500)])
     m = natija.mahsulotlar[0]
+    assert natija.turlar[ANALOG] == 1
+    assert m["nomi"] == f"Кондиционер КЦКП-{olcham_q}"
+    assert m["pozitsiya"] == "П1"
+    assert m["tavsif"] == f"L={sarf_q}м3/ч, Р=500Па"
+    assert any("Seksiyalar" in u for u in natija.umumiy)    # tarkibi yasalmaydi — aytiladi
+
+
+def test_KCKP_sarfsiz_tanlov_TZ_nomi_bilan():
+    natija = qoralama([_tz("Кондиционеры компактные панельные", tizim="П1", P=500)])
     assert natija.turlar[TANLOV] == 1
-    assert m["nomi"] == "Кондиционеры компактные панельные"     # o'ylab topilmaydi
-    assert "3000 m³/soat" in m["ogohlantirishlar"][0]
+    assert natija.mahsulotlar[0]["nomi"] == "Кондиционеры компактные панельные"
+    assert qoralama([_tz("Приточная установка", L=120000)]).turlar[TANLOV] == 1
+
+
+def test_pozitsiya_faqat_qurilmaga():
+    """«(В1)» ventilyatorga qo'yiladi, panjara/klapanga — yo'q (menejer KP lari)."""
+    natija = qoralama([
+        _tz("Канальный вентилятор KV315M", tizim="В1"),
+        _tz("Альюминевые решетка 4АПР-450х450мм.", tizim="В1"),
+    ])
+    assert natija.mahsulotlar[0]["pozitsiya"] == "В1"
+    assert "pozitsiya" not in natija.mahsulotlar[1]
+
+
+def test_KP_da_nom_qisqa_asl_nom_hujjatga_yozilmaydi():
+    """Ilgari ostiga «В1 · от · Канальный вентилятор KV315M» yozilardi."""
+    from kp.shakldan import _qatorlar_modeldan
+
+    natija = qoralama([
+        _tz("Канальный вентилятор KV315M", tizim="В1", guruh="от"),
+        _tz("Кондиционеры компактные панельные", tizim="П1", L=3000, P=500),
+        _tz("Огнезадерживающий клапан КЛОП-1 FD 125x100", 4, tizim="В1"),
+    ])
+    qatorlar, _, aniqlik, _ = _qatorlar_modeldan(natija.mahsulotlar, [], 12000, 12)
+    assert aniqlik is None
+    assert [q.nomi for q in qatorlar] == [
+        "Вентилятор канальный ВК-315С (В1)",
+        "Кондиционер КЦКП-3,15 (П1)",
+        "Клапан противопожарный КПУ-НО-Н-EI60-125х100-КН-НУП-ЭМ-220",
+    ]
+    assert [q.spetsifikatsiya for q in qatorlar] == ["", "L=3000м3/ч, Р=500Па", ""]
+    assert "KV315M" in qatorlar[0].izoh                       # menejer uchun saqlanadi
+    assert qatorlar[1].birlik == "компл"
+
+
+def test_qatorli_tavsif_hujjatda_qatorlari_bilan_qoladi():
+    from kp.hujjat import _qisqa_spetsifikatsiya
+
+    tavsif = "L=31750м3/ч, Р=750Па\nНагрев Qт=138,9кВт\nФильтры: G4, F7, F9"
+    assert _qisqa_spetsifikatsiya(tavsif) == tavsif
+    assert _qisqa_spetsifikatsiya("bir  qator,   tavsif") == "bir qator, tavsif"
 
 
 def test_VRF_kasseta_kodi_va_paneli():
@@ -336,6 +389,50 @@ def test_etalon_OL_dan_VRF_bloklari():
     taklif = fayldan_taklif(ETALON / "5-enter-alm" / "tz_ol.pdf")
     assert taklif.javoblar["yol"] == "model"
     assert fayldan_taklif(ETALON / "5-enter-alm" / "kp.pdf") is None    # KP — ОЛ emas
+
+
+@etalon
+def test_etalon_VENTAS_dan_KCKP_menejer_tanloviga_mos():
+    """7-juft: AHU + RC — o'lcham menejer KP-13574 dagidek.
+
+    Bitta istisno — AHU-19 (13250 m³/soat): menejer КЦКП-12,5 olgan (6%
+    ortiq), AHU-13 da esa 26500 uchun 6% da ham 25 emas, 31,5. Bitta foiz
+    ikkalasini qoplamaydi — 5% qoldi, AHU-19 da 16 chiqadi.
+    """
+    import re
+
+    from kp.kp_pdf import kp_oqi
+    from kp.solishtir import sarf
+    from kp.tz_qoralama import ventas_mahsuloti
+    from kp.ventas import papka_oqi
+
+    menejer = {}
+    for q in kp_oqi(ETALON / "7-provik-ventas" / "kp.pdf").mahsulotlar:
+        m = re.search(r"КЦКП-([\d,]+)", q.toza_nomi)
+        if m:
+            menejer.setdefault(sarf(q.toza_nomi), m.group(1))
+    mos, jami = 0, 0
+    for q in papka_oqi(ETALON / "7-provik-ventas" / "tz"):
+        yozuv, turi = ventas_mahsuloti(q)
+        if not q.nomi.startswith(("AHU", "RC")):
+            assert turi == TANLOV                     # HEF — КЦКП emas
+            continue
+        assert yozuv["nomi"].startswith("Кондиционер КЦКП-")
+        assert yozuv["tavsif"].startswith(("L=", "Приток L="))
+        if q.sarf in menejer:
+            jami += 1
+            mos += yozuv["nomi"].endswith(f"-{menejer[q.sarf]}")
+    assert jami >= 15 and mos >= jami - 1
+
+
+@etalon
+def test_etalon_VENTAS_kp_ga_fayl_bilan():
+    from kp.tz_qoralama import fayldan_taklif
+
+    taklif = fayldan_taklif(ETALON / "7-provik-ventas" / "tz" / "AHU-11.pdf")
+    m = taklif.javoblar["mahsulotlar"][0]
+    assert m["nomi"] == "Кондиционер КЦКП-20" and m["pozitsiya"] == "AHU-11"
+    assert "Рекуператор гликолевый" in m["tavsif"] and "H14" in m["tavsif"]
 
 
 @etalon

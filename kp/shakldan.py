@@ -287,14 +287,20 @@ def _qatorlar_modeldan(
             # ДКСп uzunligi, КОП chuqurligi — TZ da yo'q, katalogda bor.
             # Narx aynan o'sha variantdan olingan, nom ham unga mos bo'lsin.
             nom = katalog_olchami(nom, topilgan[1])
-        # ASL NOM spetsifikatsiyada qoladi: menejer mijoz nima
-        # so'raganini va biz nimaga aylantirganimizni yonma-yon ko'rsin.
+        # NOM QISQA — menejer KP laridagidek: «Вентилятор канальный ВК-315С
+        # (В1)». Ilgari ostiga «В1 · от · Канальный вентилятор KV315M» (TZ
+        # dagi asl nom) yozilardi — mijoz hujjatida raqib nomi va bo'lim
+        # chiqardi. Asl nom endi `izoh` da: hujjatga yozilmaydi.
+        pozitsiya = str(xom.get("pozitsiya") or "").strip()
+        if pozitsiya and f"({pozitsiya})" not in nom:
+            nom = f"{nom} ({pozitsiya})"
         asl = str(xom.get("asl_nomi") or "").strip()
         bolim = str(xom.get("bolim") or "").strip()
-        spek = f"{bolim} · {asl}" if asl and bolim else (asl or "")
         qatorlar.append(Qator(
             nomi=nom,
-            spetsifikatsiya=spek,
+            # Faqat TZ dagi RAQAMLAR (КЦКП: L, Р, Qт, filtr) — `kp/kckp.py`.
+            spetsifikatsiya=str(xom.get("tavsif") or ""),
+            izoh=f"{bolim} · {asl}" if asl and bolim else asl,
             miqdor=float(xom.get("miqdor") or 1),
             birlik=_birlik(til, str(xom.get("birlik") or "")),
             birlik_narx=topilgan[0] if topilgan else None,

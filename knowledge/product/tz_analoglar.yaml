@@ -24,8 +24,9 @@
 # MAYDONLAR
 #   agar:     TZ matni bo'yicha regex — qaysi qolip olinishi (birinchi mosi)
 #   tanlov:   true — avtomatik nom YASALMAYDI, qator asl nomi bilan qoladi va
-#             «parametr bo'yicha tanlash kerak» deb belgilanadi (КЦКП, VRF,
+#             «parametr bo'yicha tanlash kerak» deb belgilanadi (VRF,
 #             radial ventilyator — bular muhandis tanlovi).
+#   olchamlar/ortiq_foizi/qolip: КЦКП — o'lcham sarfdan (`kp/kckp.py`).
 #   eng_kichik: shundan kichik o'lcham kattalashtiriladi va OGOHLANTIRILADI.
 
 ei_standart: "60"
@@ -109,8 +110,15 @@ analoglar:
     tanlov: true
     izoh: "Rekuperator sarf bo'yicha tanlanadi (РКВ)"
 
+  # КЦКП o'lchami — SARFDAN (`kp/kckp.py`). Nominal sarfdan `ortiq_foizi`
+  # gacha oshsa ham o'sha o'lcham: 10250 -> КЦКП-10, 33000 -> КЦКП-31,5;
+  # oshsa — keyingisi: 4500 -> 5, 9000 -> 10. O'lchamlar — katalogdagi
+  # КЦКП modellari (1,6 … 100). Sarf yo'q yoki 105 000 dan katta — tanlov.
   kckp:
-    tanlov: true
+    manba: "KP 13603 (3000 -> 3,15; 1100 -> 1,6), KP 13574 (VENTAS, 16 qurilma)"
+    olchamlar: [1.6, 3.15, 5, 6.3, 8, 10, 12.5, 16, 20, 25, 31.5, 40, 50, 63, 80, 100]
+    ortiq_foizi: 5
+    qolip: "Кондиционер КЦКП-{olcham}"
     izoh: "КЦКП sarf, bosim, isitish/sovutish bo'yicha tanlanadi"
 
   vent_sanoat:

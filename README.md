@@ -486,8 +486,12 @@ yuboriladi. Hozircha o'qilmaydi: skan PDF, rasm, DWG, arxiv.
 **Excel TZ -> qoralama (`kp/tz_qoralama.py`).** `/kp` ga Excel tashlansa u
 modelga emas, jadval sifatida o'qiladi (miqdori bilan) va har qator
 Climavent nomiga aylantiriladi: bo'lim qisqartmasi -> qolip
-(`knowledge/product/tz_analoglar.yaml`) -> muhandis tanlovi (КЦКП, VRF
-tashqi blok — TZ nomi parametrlari bilan qoladi). Etalon o'lchovi
+(`knowledge/product/tz_analoglar.yaml`) -> muhandis tanlovi (VRF tashqi
+blok, radial ventilyator — TZ nomi parametrlari bilan qoladi). КЦКП o'lchami
+sarfdan (`kp/kckp.py`, 3000 -> КЦКП-3,15); VENTAS tanlov PDF ham `/kp` ga
+tashlanadi — har PDF bitta КЦКП qatori (sarf, bosim, Qт/Qх, filtrlar).
+KP da nom QISQA, menejer KP sidagidek: «Вентилятор канальный ВК-315С (В1)» —
+TZ dagi asl nom hujjatga yozilmaydi. Etalon o'lchovi
 (`kp_bilan_qamrov`): qoralama haqiqiy KP miqdorining qanchasini takrorlaydi —
 `tests/test_tz_qoralama.py` pasayishga yo'l qo'ymaydi.
 

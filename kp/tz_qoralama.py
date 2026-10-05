@@ -13,9 +13,16 @@ qator esa Climavent nomiga aylantiriladi:
      «Решетка 300x150» -> «РВР-2 300х150мм без КРВ»);
   2. qator nomi tanilsa — `knowledge/product/tz_analoglar.yaml` qolipi
      («КЛОП-1 … FD 125x100» -> «КПУ-НО-Н-EI60-125х100-…»);
-  3. muhandis TANLOVI kerak bo'lsa (КЦКП, VRF, radial ventilyator) —
-     qator TZ nomi bilan qoladi va parametrlari bilan belgilanadi;
-  4. tanilmasa — TZ nomi bilan qoladi va belgilanadi.
+  3. КЦКП — o'lchami sarfdan (`kp/kckp.py`: 3000 -> КЦКП-3,15);
+  4. muhandis TANLOVI kerak bo'lsa (VRF, radial ventilyator, sarfsiz
+     КЦКП) — qator TZ nomi bilan qoladi va parametrlari bilan belgilanadi;
+  5. tanilmasa — TZ nomi bilan qoladi va belgilanadi.
+
+KP DA NOM QISQA: menejer KP larida qatorda faqat Climavent nomi turadi,
+qurilmada esa loyihadagi pozitsiyasi — «Вентилятор канальный ВК-315С
+(В1)». TZ dagi asl nom hujjatga YOZILMAYDI (`asl_nomi` — faqat menejer
+uchun). Pozitsiya faqat qurilmalarga qo'yiladi: panjara va klapanlarda
+«В1» tizim nomi, menejer uni yozmaydi.
 
 HECH NARSA JIMGINA QO'YILMAYDI: TZ da EI yozilmagan bo'lsa standart
 olinadi va bu aytiladi; o'lcham kattalashtirilsa — aytiladi. Qoralama —
@@ -33,7 +40,7 @@ from typing import Any
 
 import yaml
 
-from .solishtir import diametr, kvt, olcham, tz_oilasi
+from .solishtir import diametr, kvt, olcham, sarf, tz_oilasi
 from .tz_jadval import TzQator
 
 # Qator turlari — menejerga hisobot uchun.
@@ -41,6 +48,10 @@ QISQARTMA = "qisqartma"
 ANALOG = "analog"
 TANLOV = "tanlov"
 TANILMADI = "tanilmadi"
+
+# Nomga loyiha pozitsiyasi («(В1)», «(П1)») qo'shiladigan oilalar —
+# o'z belgisi bor QURILMALAR. Panjara/klapandagi «В1» — tizim nomi.
+POZITSIYALI = {"kckp", "vent_kanal", "vent_sanoat", "vent_maishiy", "rekuperator"}
 
 _EI = re.compile(r"\bEI\s?-?(\d{2,3})\b", re.I)
 _UCH_OLCHAM = re.compile(r"(\d{2,4})\s*[xхХ×*]\s*(\d{2,4})\s*[xхХ×*]\s*(\d{3,4})")
@@ -150,7 +161,24 @@ def _kombinatsiya_matni(kodlar: list[str]) -> str:
                       for kod in dict.fromkeys(kodlar))
 
 
-def _qator(q: TzQator, ei_yoq: list[str]) -> tuple[list[dict[str, Any]], str]:
+def _kckp(q: TzQator, qoida: dict[str, Any], yozuv: dict[str, Any],
+          kckp_olindi: list[str]) -> bool:
+    """КЦКП: o'lcham sarfdan, tavsifda sarf va bosim. Sarf yo'q — `False`."""
+    from .kckp import nomi, olcham_tanla, sarf_matni
+
+    sarf_q = q.parametrlar.get("L") or sarf(f"{q.nomi} {q.matn}")
+    olcham_q = olcham_tanla(sarf_q or 0, qoida)
+    if olcham_q is None:
+        return False
+    yozuv["nomi"] = nomi(olcham_q, qoida)
+    yozuv["tavsif"] = sarf_matni(sarf_q, q.parametrlar.get("P"))
+    yozuv["birlik"] = "компл"
+    kckp_olindi.append(f"{q.tizim or q.nomi[:20]} {sarf_q:g} -> КЦКП-{olcham_q}")
+    return True
+
+
+def _qator(q: TzQator, ei_yoq: list[str],
+           kckp_olindi: list[str] | None = None) -> tuple[list[dict[str, Any]], str]:
     from .qisqartma import qollash
 
     bolim = " · ".join(x for x in (q.tizim, q.guruh.rstrip(":")) if x)
@@ -174,6 +202,12 @@ def _qator(q: TzQator, ei_yoq: list[str]) -> tuple[list[dict[str, Any]], str]:
 
     qoida = (jadval().get("analoglar") or {}).get(oila.kod) or {}
     matn = f"{q.nomi} {q.matn}"
+    if q.tizim and oila.kod in POZITSIYALI:
+        yozuv["pozitsiya"] = q.tizim
+
+    if oila.kod == "kckp" and _kckp(q, qoida, yozuv,
+                                    kckp_olindi if kckp_olindi is not None else []):
+        return [yozuv], ANALOG
 
     # 2) Konditsioner: quvvatdan model (VRF ichki blok, split).
     if oila.kod in ("vrf_ichki", "split") and not qoida.get("tanlov"):
@@ -260,6 +294,7 @@ def qoralama(tz: list[TzQator]) -> Qoralama:
     """TZ qatorlari -> `/kp` «model» yo'li uchun mahsulotlar ro'yxati."""
     natija = Qoralama()
     ei_yoq: list[str] = []
+    kckp_olindi: list[str] = []
 
     # Ventilyatsiyaga aloqasi yo'q varaq (bir faylda eski armatura, quvur
     # zayavkalari ham turadi — 5-juft) qoralamaga tushmaydi.
@@ -277,7 +312,7 @@ def qoralama(tz: list[TzQator]) -> Qoralama:
     for q in tz:
         if tanilgan[q.varaq] == 0:
             continue
-        qatorlar, turi = _qator(q, ei_yoq)
+        qatorlar, turi = _qator(q, ei_yoq, kckp_olindi)
         natija.mahsulotlar += qatorlar
         natija.turlar[turi] += 1
     if ei_yoq:
@@ -287,7 +322,16 @@ def qoralama(tz: list[TzQator]) -> Qoralama:
             f"Olovbardoshlik (EI) TZ da yozilmagan: "
             + ", ".join(f"{nom} — {soni} qator" for nom, soni in sanoq.items())
             + f". EI{standart} qo'yildi — loyiha talabini tekshiring")
+    if kckp_olindi:
+        natija.umumiy.append(_kckp_eslatma(kckp_olindi))
     return natija
+
+
+def _kckp_eslatma(olindi: list[str]) -> str:
+    return (f"КЦКП o'lchami sarfdan olindi ({len(olindi)}): " + "; ".join(olindi[:6])
+            + (" …" if len(olindi) > 6 else "")
+            + ". Seksiyalar (isitgich, sovutgich, ventilyator, avtomatika) KP da "
+              "YO'Q — tanlov dasturidan qo'shing")
 
 
 def kp_bilan_qamrov(mahsulotlar: list[dict[str, Any]], kp) -> tuple[float, float]:
@@ -330,8 +374,9 @@ def kp_bilan_qamrov(mahsulotlar: list[dict[str, Any]], kp) -> tuple[float, float
 def fayldan_taklif(yol: str | Path):
     """TZ fayli -> `ShaklTaklifi` (yol=model). Tanilmasa `None`.
 
-    Excel jadval (`kp/tz_jadval.py`) yoki konditsioner so'rovnoma varaqasi
-    PDF (`kp/ol_pdf.py`). `None` qaytsa `/kp` eski yo'ldan ketadi (matn ->
+    Excel jadval (`kp/tz_jadval.py`), VENTAS КЦКП tanlovi PDF
+    (`kp/ventas.py`) yoki konditsioner so'rovnoma varaqasi PDF
+    (`kp/ol_pdf.py`). `None` qaytsa `/kp` eski yo'ldan ketadi (matn ->
     model): fayl jadval emas, xonalar tavsifi bo'lishi mumkin.
     """
     yol = Path(yol)
@@ -342,10 +387,60 @@ def fayldan_taklif(yol: str | Path):
         return jadvaldan_taklif(yol)
     if kengaytma == ".pdf":
         from .ol_pdf import ol_oqi
+        from .ventas import ventas_oqi
+
+        qurilma = ventas_oqi(yol)
+        if qurilma is not None:
+            return ventasdan_taklif(qurilma)
 
         qatorlar = ol_oqi(yol)
         return qatorlardan_taklif(qatorlar, [], "So'rovnoma varaqasi (ОЛ)") if qatorlar else None
     return None
+
+
+def ventas_mahsuloti(q) -> tuple[dict[str, Any], str]:
+    """VENTAS qurilmasi (`kp/ventas.py`) -> qoralama qatori va turi.
+
+    AHU / RC — КЦКП, o'lchami kirish sarfidan. Boshqasi (HEF — oshxona
+    so'rish filtri) КЦКП emas: TZ nomi bilan qoladi, menejer tanlaydi.
+    """
+    from .kckp import nomi, olcham_tanla, ventas_tavsifi
+
+    asl = f"{q.nomi} {q.model}".strip()
+    yozuv: dict[str, Any] = {
+        "nomi": asl, "miqdor": q.soni or 1, "birlik": "компл", "bolim": "",
+        "asl_nomi": asl, "ogohlantirishlar": [],
+    }
+    qoida = (jadval().get("analoglar") or {}).get("kckp") or {}
+    olcham_q = (olcham_tanla(q.sarf, qoida)
+                if re.match(r"(AHU|RC)\b", q.nomi, re.I) else None)
+    if olcham_q is None:
+        return yozuv, TANLOV
+    yozuv["nomi"] = nomi(olcham_q, qoida)
+    yozuv["tavsif"] = ventas_tavsifi(q)
+    yozuv["pozitsiya"] = q.nomi
+    return yozuv, ANALOG
+
+
+def ventasdan_taklif(q):
+    """Bitta VENTAS tanlov PDF -> `ShaklTaklifi`. Bir nechta PDF tashlansa
+    bot ularni bitta ro'yxatga QO'SHADI (`bot/kp_oqim.py::_taklifni_qolla`)."""
+    from .tz import ShaklTaklifi
+
+    yozuv, turi = ventas_mahsuloti(q)
+    taklif = ShaklTaklifi()
+    taklif.javoblar["yol"] = "model"
+    taklif.javoblar["mahsulotlar"] = [yozuv]
+    taklif.topilganlar.append(
+        f"VENTAS tanlovi: {q.nomi}, {q.sarf:g} m³/soat"
+        + (f" -> {yozuv['nomi']}" if turi == ANALOG else ""))
+    if turi == ANALOG:
+        taklif.ogohlantirishlar.append(_markdownsiz(_kckp_eslatma(
+            [f"{q.nomi} {q.sarf:g} -> {yozuv['nomi'].split()[-1]}"])))
+    else:
+        taklif.ogohlantirishlar.append(_markdownsiz(
+            f"{q.nomi} ({q.model}) — КЦКП emas, TZ nomi bilan qoldi: menejer tanlaydi"))
+    return taklif
 
 
 def jadvaldan_taklif(yol: str | Path):

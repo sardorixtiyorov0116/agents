@@ -165,7 +165,13 @@ def _qisqa_spetsifikatsiya(matn: str) -> str:
     KP ga emas, alohida spetsifikatsiyaga tegishli — bu yerda uzun matn
     jadvalni buzadi va hujjat ikkinchi sahifaga ketadi.
     Kesish GAP OXIRIDA bo'ladi: yarim jumla qolmasin.
+
+    QATORLI tavsif (КЦКП: «L=…, Р=…» / «Нагрев Qт=…» / «Фильтры: …» —
+    `kp/kckp.py`) qatorlari bilan qoladi, menejer KP sidagidek; har
+    qatori alohida qisqartiriladi.
     """
+    if "\n" in (matn or ""):
+        return "\n".join(_qisqa_spetsifikatsiya(q) for q in matn.splitlines() if q.strip())
     matn = " ".join((matn or "").split())
     if len(matn) <= SPETS_MAKS:
         return matn
