@@ -53,13 +53,16 @@ oilalar:
   - kod: kpu
     nomi: "Yong'inga qarshi klapan (normal ochiq)"
     tz: ['огн[еа]задер', 'огназадер', 'огнезащит', 'КЛОП', 'КПУ', '\bFD\b']
+    # «Противопожарные клапан 500х300» (KP 13508) — turi guruhdan: «Дымоудаление»
+    # ostida bo'lsa tutun klapani (КПД), `kp/tz_qoralama.py` almashtiradi.
+    tz_umumiy: ['противопожарн\w*\s+клапан']
     kp: ['КПУ-']
     kalit: olcham
     olcham_shart: true
 
   - kod: dks
     nomi: "Drossel klapan"
-    tz: ['ДКС', 'дроссел']
+    tz: ['ДКС', 'дроссел', 'воздушн\w*\s+клапан', 'клапан\w*\s+общего\s+назначен']
     kp: ['ДКСп', 'Дроссель']
     kalit: olcham
     olcham_shart: true
@@ -134,7 +137,7 @@ oilalar:
   - kod: vent_maishiy
     nomi: "Maishiy ventilyator (panjarali)"
     # «Compact 20», «Compakt 200» — model; «COMPACTOR» (chizmadagi xona) emas.
-    tz: ['вентилятор с решеткой', 'compa[ck]t\s*\d']
+    tz: ['вентилятор с решеткой', 'compa[ck]t\s*\d', 'вентс\s+ОВ\d']
     kp: ['Compact', 'Compakt']
     kalit: belgi
 

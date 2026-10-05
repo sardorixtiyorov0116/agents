@@ -80,9 +80,10 @@ analoglar:
       - qolip: "Решетка вентиляционная регулируемая РВР-2 {olcham}мм без КРВ"
 
   diffuzor:
-    manba: "KP 12748 (ДПУ-М ∅100 -> ДФА 100)"
+    manba: "KP 12748 (ДПУ-М ∅100 -> ДФА 100); KP 13508 (ДПУ-М100 -> DVS 100)"
     qoliplar:
       - qolip: "Диффузор веерный ДФА {d}"
+        ogohlantirish: "ДПУ-М o'rniga ДФА olindi (KP 12748); KP 13508 da menejer DVS qo'ygan — tekshiring"
 
   panjara_tashqi:
     manba: "KP 12748 (РВН-Решетка наружная 400x350 -> РВН 400х350мм)"
@@ -109,6 +110,16 @@ analoglar:
         qolip: "Вентилятор канальный MF-{d}P"
       - qolip: "Вентилятор канальный ВК-{d}С"
         ogohlantirish: "Kanal ventilyatori diametri bo'yicha olindi — ВК-С yoki MF-P, sarf va bosimni tekshiring"
+    # Diametr yo'q, sarf (va bosim) bor — Katalog 2021 47-bet ВК-С jadvali:
+    # eng kichik model, maks. sarfi ≥ 1,2·L va maks. bosimi ≥ 1,5·P
+    # (KP 13508: L=735, P=200 -> ВК-160С).
+    sarf_jadvali:
+      - {d: 100, lmax: 580, pmax: 240}
+      - {d: 125, lmax: 580, pmax: 240}
+      - {d: 160, lmax: 945, pmax: 340}
+      - {d: 200, lmax: 1200, pmax: 425}
+      - {d: 250, lmax: 1425, pmax: 500}
+      - {d: 315, lmax: 2110, pmax: 550}
 
   vent_maishiy:
     manba: "KP 13603 — menejer KP ga KIRITMAGAN (Climavent ishlab chiqarmaydi)"
@@ -117,8 +128,11 @@ analoglar:
     izoh: "Maishiy ventilyator (Compact) — Climavent ishlab chiqarmaydi"
 
   rekuperator:
-    manba: "KP 13508 (VENCO-VHR-25/20 -> РКВ1-260)"
-    tanlov: true
+    manba: "KP 13508 (VENCO-VHR-25 L=2500 va VHR-20 L=2000 -> РКВ1-260)"
+    # Katalogda РКВ jadvali YO'Q — yagona dalil KP 13508. Sarf shu oraliqda
+    # bo'lsa o'sha model, «tasdiqlang» bilan; boshqa sarf — tanlov.
+    sarf_boyicha:
+      - {min: 1500, max: 2600, nomi: "Рекуператор канальный вентиляторный РКВ1-260"}
     izoh: "Rekuperator sarf bo'yicha tanlanadi (РКВ)"
 
   # КЦКП o'lchami — SARFDAN (`kp/kckp.py`). Nominal sarfdan `ortiq_foizi`
@@ -223,6 +237,12 @@ analoglar:
         panel: true
       - agar: 'настен'
         qolip: "Внутренний блок настенные типа VRF JVI-{kod}W"
+    # TZ da turi yozilmagan («Внутренний блок Qх=3.6 кВт») — kasseta: KP 13508
+    # da menejer 22 ta shunday blokni kassetali (JVI-036CR) + panel qilgan.
+    turi_yoq:
+      qolip: "Внутренний блок кассетного типа VRF JVI-{kod}C"
+      panel: true
+      ogohlantirish: "TZ da blok turi yo'q — kassetali olindi (KP 13508 dagidek), loyihadan tekshiring"
     panel: "Состав панели JHPEE-G-NK управления для мультизонального кондиционера входит: 1) JHYRE-T03H -панель; 2) JHYE-W01 -пульт."
     izoh: "VRF ichki blok quvvat va turi bo'yicha tanlanadi (JVI)"
 
@@ -245,3 +265,17 @@ analoglar:
   vrf_tizim:
     tanlov: true
     izoh: "VRF tizimi — bloklar so'rovnoma varaqasidan (ОЛ) tanlanadi"
+
+# MONTAJ MATERIALLARI — Climavent KP siga KIRMAYDI (KP 13508: loyihada quvur,
+# fiting, izolyatsiya, havo quvuri, mahkamlash, mis quvur, razvetvitel, pult
+# bor edi — menejer hech birini yozmagan). Qator nomi BOSHIDAN tekshiriladi:
+# «Шумоглушитель трубчатый» yoki «Клапан … с муфтой» ushlanmasin.
+montaj_materiallari:
+  - '^\W*труб[аы]\b'
+  - '^\W*трубопровод'
+  - '^\W*(клипс|муфт|угольник|тройник|переход\s+для\s+труб|отвод\b|американк|резьб|пробк)'
+  - '^\W*(кран|задвижк|вентиль|шаров|грязевик|воздухоспускник|манометр|термометр|термостат)'
+  - '^\W*(трубчат\w*\s+теплов|теплоизоляц|изоляц)'
+  - '^\W*(воздуховод|креплени|кронштейн|уголок|опора|окраск|маслян|гидравлическ)'
+  - '^\W*(зонт|комплект\s+разветвител|разветвител|беспроводн\w*\s+пульт|фильтр\s*[ØФ∅])'
+  - '^\W*(панельн\w*\s+радиатор|радиатор|циркуляционн\w*\s+насос|пластинчат\w*\s+теплообменник)'

@@ -626,3 +626,52 @@ def test_katta_split_mini_VRF_toplami_va_ichki_qismi_takrorlanmaydi():
         "Пульт управления для мультизонального кондиционера JHYE-W01": 2,
     }
     assert any("ichki bloki" in u for u in natija.umumiy)
+
+
+@etalon
+def test_etalon_skan_loyiha_13508():
+    """2-juft: skan loyiha (Gemini 05.10 da ko'chirgan qatorlar) -> menejer KP 13508.
+
+    Isitish/quvur varaqlari tushib qoladi, montaj materiallari KP ga kirmaydi,
+    РКВ1-260, ВК-160С (katalog jadvali), JVO-680T (bitta modul), kasseta.
+    """
+    import json
+
+    from kp.kp_pdf import kp_oqi
+
+    xom = json.loads((ETALON / "2-provik-skan" / "gemini_qatorlar.json").read_text(encoding="utf-8"))
+    tz = [TzQator(**{k: v for k, v in x.items() if k in TzQator.__dataclass_fields__}) for x in xom]
+    natija = qoralama(tz)
+    nomlar = {m["nomi"]: m["miqdor"] for m in natija.mahsulotlar}
+    assert nomlar["Рекуператор канальный вентиляторный РКВ1-260"] in (1, 3)
+    assert nomlar["Вентилятор канальный ВК-160С"] == 4
+    assert nomlar["Наружный блок VRF модель JVO-680T"] == 1
+    assert nomlar["Внутренний блок кассетного типа VRF JVI-036C"] == 22
+    assert not any("Труба" in n or "Воздуховод" in n or "Радиатор" in n for n in nomlar)
+    assert any(n.startswith("Клапан противопожарный КПД-НЗ") for n in nomlar)
+    olchov, _ = kp_bilan_qamrov(natija.mahsulotlar, kp_oqi(ETALON / "2-provik-skan" / "kp.pdf"))
+    assert olchov >= 95
+
+
+def test_montaj_materiallari_KP_ga_kirmaydi_shumoglushitel_kiradi():
+    from kp.tz_qoralama import montajmi
+    assert montajmi("Труба медная ∅6.35")
+    assert montajmi("Воздуховод из тонколистовой оцинкованной стали 150х150 мм")
+    assert montajmi("Комплект разветвителей для внутренних блоков FQZHN-02D")
+    assert not montajmi("Шумоглушитель трубчатый 250*150*1000 ГТП1-3")
+    assert not montajmi("Клапан обратный 500х300")
+
+
+def test_kanal_ventilyatori_sarf_va_bosimdan():
+    m = _bitta(_tz("Канальный вентилятор L=735м3/ч, Pп=200Па,n=2400 об/мин, N=0.095кВт."))
+    assert m["nomi"] == "Вентилятор канальный ВК-160С"
+
+
+def test_VRF_tashqi_bitta_modul_afzal():
+    m = _bitta(_tz("Наружный блок Qх=67.0кВт Nэ=21.6 кВт"))
+    assert m["nomi"] == "Наружный блок VRF модель JVO-680T"
+
+
+def test_dymoudalenie_ostidagi_protivopojarniy_klapan_KPD():
+    m = _bitta(_tz("Противопожарные клапан 500х300 мм", guruh="Дымоудаление"))
+    assert m["nomi"].startswith("Клапан противопожарный КПД-НЗ")

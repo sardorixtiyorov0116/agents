@@ -35,7 +35,10 @@ from .tz_jadval import TzQator
 
 RASM_KENGAYTMALARI = {".png": "image/png", ".jpg": "image/jpeg",
                       ".jpeg": "image/jpeg", ".webp": "image/webp"}
-MAKS_SAHIFA = 4                 # skan PDF dan shuncha sahifa (kvota)
+MAKS_SAHIFA = 4                 # shundan ko'p sahifa bo'lsa — avval jadval sahifalari tanlanadi
+MAKS_PDF_SAHIFA = 40            # skan PDF dan ko'riladigan sahifalar
+MAKS_JADVAL_SAHIFA = 12         # tanlangandan keyin ko'chiriladigan sahifalar (kvota)
+RENDER_PIKSEL = 2200            # render qilingan varaqning uzun tomoni
 MAKS_HAJM = 8 * 1024 * 1024     # bitta rasm
 MIN_HAJM = 20 * 1024            # bundan kichigi — muhr/belgi, varaq emas
 
@@ -100,10 +103,19 @@ def rasmlar(yol: str | Path) -> list[tuple[bytes, str]]:
 
     from pypdf import PdfReader
 
-    natija: list[tuple[bytes, str]] = []
-    for sahifa in PdfReader(str(yol)).pages[:MAKS_SAHIFA]:
+    sahifalar = PdfReader(str(yol)).pages[:MAKS_PDF_SAHIFA]
+    for sahifa in sahifalar[:MAKS_SAHIFA]:
         if (sahifa.extract_text() or "").strip():
             return []           # matnli PDF — skan emas
+    # Sahifa RENDER qilinadi. Skanerlar varaqni qatlamlab siqadi (MRC: fon
+    # + matn niqobi alohida rasmlar) — «eng katta rasm» ko'pincha matnsiz
+    # fon bo'lib chiqardi (2-juft loyihasi: jadval ramkasi bor, yozuv yo'q).
+    try:
+        return _render(yol, len(sahifalar))
+    except ImportError:
+        pass
+    natija: list[tuple[bytes, str]] = []
+    for sahifa in sahifalar:
         # Sahifada bir nechta rasm bo'lishi mumkin (muhr, belgi — 200 bayt,
         # 2 KB). Skan varag'i — ENG KATTASI.
         sahifa_rasmlari = [r for r in sahifa.images if MIN_HAJM <= len(r.data) <= MAKS_HAJM]
@@ -112,6 +124,61 @@ def rasmlar(yol: str | Path) -> list[tuple[bytes, str]]:
             mime = "image/png" if rasm.name.lower().endswith(".png") else "image/jpeg"
             natija.append((rasm.data, mime))
     return natija
+
+
+def _render(yol: Path, soni: int) -> list[tuple[bytes, str]]:
+    import io
+
+    import pypdfium2 as pdfium
+
+    hujjat = pdfium.PdfDocument(str(yol))
+    natija: list[tuple[bytes, str]] = []
+    try:
+        for i in range(min(soni, len(hujjat))):
+            sahifa = hujjat[i]
+            en, boy = sahifa.get_size()
+            rasm = sahifa.render(scale=RENDER_PIKSEL / max(en, boy)).to_pil().convert("L")
+            bufer = io.BytesIO()
+            rasm.save(bufer, "JPEG", quality=80)
+            natija.append((bufer.getvalue(), "image/jpeg"))
+    finally:
+        hujjat.close()
+    return natija
+
+
+TANLASH_PROMPT = """Senga loyiha varaqlari kichraytirilgan holda beriladi (1 dan boshlab raqamlangan).
+Qaysi varaqlarda USKUNA/MAHSULOT SPETSIFIKATSIYASI JADVALI bor — nomi, birligi,
+miqdori ustunlari bilan («Спецификация», «Наименование и техническая
+характеристика», «Ведомость оборудования»)? Chizma, sxema, muqova, umumiy
+ma'lumot varaqlarini OLMA. Javob FAQAT JSON: {"varaqlar": [3, 4, 5]}"""
+
+
+class Tanlov(BaseModel):
+    varaqlar: list[int] = Field(default_factory=list)
+
+
+async def jadval_varaqlari(bolaklar: list[tuple[bytes, str]], llm: Any) -> list[int]:
+    """Ko'p varaqli skan loyihadan spetsifikatsiya varaqlari (0 dan indeks)."""
+    import io
+
+    from PIL import Image
+
+    from app.llm import json_ajrat, matn_yig
+
+    kontent: list[dict[str, Any]] = []
+    for i, (baytlar, _) in enumerate(bolaklar, 1):
+        rasm = Image.open(io.BytesIO(baytlar))
+        rasm.thumbnail((900, 900))
+        bufer = io.BytesIO()
+        rasm.convert("L").save(bufer, "JPEG", quality=70)
+        kontent += [{"type": "text", "text": f"{i}-varaq:"},
+                    {"type": "image", "source": {
+                        "type": "base64", "media_type": "image/jpeg",
+                        "data": base64.b64encode(bufer.getvalue()).decode("ascii")}}]
+    kontent.append({"type": "text", "text": "Spetsifikatsiya varaqlari raqamlari?"})
+    javob = await llm.javob(system=TANLASH_PROMPT, messages=[{"role": "user", "content": kontent}])
+    tanlov = Tanlov.model_validate(json_ajrat(matn_yig(javob)))
+    return sorted({v - 1 for v in tanlov.varaqlar if 1 <= v <= len(bolaklar)})
 
 
 def rasm_modellari(modellar: list[str]) -> list[str]:
@@ -131,7 +198,21 @@ async def rasmdan_qatorlar(yol: str | Path, llm: Any) -> tuple[list[TzQator], li
 
     qatorlar: list[TzQator] = []
     ogohlar: list[str] = []
-    for i, (baytlar, mime) in enumerate(bolaklar, 1):
+    raqamlar = list(range(len(bolaklar)))
+    if len(bolaklar) > MAKS_SAHIFA:
+        # Loyiha to'plami (muqova, chizmalar, spetsifikatsiya) — avval
+        # jadval varaqlari tanlanadi, faqat ular ko'chiriladi (kvota).
+        raqamlar = await jadval_varaqlari(bolaklar, llm)
+        if not raqamlar:
+            raise RasmXatosi(f"{len(bolaklar)} varaqda spetsifikatsiya jadvali topilmadi")
+        if len(raqamlar) > MAKS_JADVAL_SAHIFA:
+            ogohlar.append(f"{len(raqamlar)} ta jadval varag'idan birinchi "
+                           f"{MAKS_JADVAL_SAHIFA} tasi o'qildi")
+            raqamlar = raqamlar[:MAKS_JADVAL_SAHIFA]
+        ogohlar.append(f"{len(bolaklar)} varaqdan spetsifikatsiya: "
+                       + ", ".join(str(r + 1) for r in raqamlar) + "-varaqlar")
+    for i in (r + 1 for r in raqamlar):
+        baytlar, mime = bolaklar[i - 1]
         javob = await llm.javob(
             system=TIZIM_PROMPT,
             messages=[{"role": "user", "content": [

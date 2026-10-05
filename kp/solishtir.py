@@ -163,7 +163,7 @@ def kp_oilasi(nomi: str) -> Oila | None:
 
 _OLCHAM = re.compile(r"(\d{2,4})\s*[xхХ×*]\s*(\d{2,4})")
 # «∅100», «Ø100», «ДФА 100», «DVS 125», «Д125», «…-Ф200» (dumaloq klapan).
-_DIAMETR = re.compile(r"(?:∅|Ø|ДФА|DVS|\bД|-Ф)\s*-?\s*(\d{2,4})\b", re.I)
+_DIAMETR = re.compile(r"(?:∅|Ø|ДФА|DVS|ДПУ-?М|\bД|-Ф)\s*-?\s*(\d{2,4})\b", re.I)
 _KVT = re.compile(r"(\d+(?:[.,]\d+)?)\s*к[Вв]т", re.I)
 _VRF_KOD = re.compile(r"\bJ[VU][IO]-(\d{3})", re.I)
 _BTU = re.compile(r"(\d+)\s*(?:000)?\s*БТУ", re.I)

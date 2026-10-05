@@ -78,6 +78,19 @@ def jadval() -> dict[str, Any]:
     return yaml.safe_load(_jadval_yoli().read_text(encoding="utf-8")) or {}
 
 
+@lru_cache
+def _montaj_qoliplari() -> tuple[re.Pattern, ...]:
+    return tuple(re.compile(q, re.I) for q in jadval().get("montaj_materiallari") or [])
+
+
+def montajmi(nomi: str) -> bool:
+    """Montaj materiali (quvur, fiting, izolyatsiya, havo quvuri…) — KP ga kirmaydi."""
+    return any(q.search(nomi) for q in _montaj_qoliplari())
+
+
+_BOSIM = re.compile(r"\bP\w?\s*=\s*(\d+)\s*Па", re.I)
+
+
 @dataclass
 class Qoralama:
     mahsulotlar: list[dict[str, Any]] = field(default_factory=list)
@@ -127,6 +140,9 @@ def _konditsioner(q: TzQator, oila_kod: str, qoida: dict[str, Any],
         yozuv["nomi"] = nomi
         return [yozuv]
     tur = next((t for t in qoida.get("turlar") or [] if re.search(t["agar"], matn, re.I)), None)
+    if tur is None and qoida.get("turi_yoq"):
+        tur = qoida["turi_yoq"]
+        yozuv["ogohlantirishlar"].append(f"«{q.nomi[:50]}»: {tur['ogohlantirish']}")
     if tur is None:
         return None
     yozuv["nomi"] = tur["qolip"].format(kod=f"{round(standart * 10):03d}")
@@ -239,10 +255,42 @@ def _qator(q: TzQator, ei_yoq: list[str],
         yozuv["ogohlantirishlar"] = [f"«{q.nomi[:60]}» tanilmadi — TZ nomi bilan qoldi"]
         return [yozuv], TANILMADI
 
+    # «Противопожарные клапан» «Дымоудаление» ostida — tutun klapani (KP 13508).
+    if oila.kod == "kpu" and re.search(r"дым", f"{q.guruh} {q.bolim}", re.I):
+        from .solishtir import oilalar
+        oila = next((o for o in oilalar() if o.kod == "kpd"), oila)
     qoida = (jadval().get("analoglar") or {}).get(oila.kod) or {}
     matn = f"{q.nomi} {q.matn}"
     if q.tizim and oila.kod in POZITSIYALI:
         yozuv["pozitsiya"] = q.tizim
+
+    # Rekuperator: sarf oralig'idan model (KP 13508). Boshqa sarf — tanlov.
+    if oila.kod == "rekuperator" and qoida.get("sarf_boyicha"):
+        l_q = q.parametrlar.get("L") or sarf(matn)
+        mos = next((r for r in qoida["sarf_boyicha"]
+                    if l_q and r["min"] <= l_q <= r["max"]), None)
+        if mos:
+            yozuv["nomi"] = mos["nomi"]
+            yozuv["ogohlantirishlar"] = [
+                f"«{q.nomi[:50]}»: L={l_q:g} m³/soat -> {mos['nomi'].split()[-1]} "
+                f"({qoida.get('manba', '')}), tasdiqlang"]
+            return [yozuv], ANALOG
+
+    # Kanal ventilyatori diametrsiz, sarf bilan — katalog jadvalidan (ВК-С).
+    if (oila.kod == "vent_kanal" and qoida.get("sarf_jadvali")
+            and not (diametr(q.nomi) or diametr(q.matn) or _MODEL_RAQAMI.search(q.nomi))):
+        l_q = q.parametrlar.get("L") or sarf(matn)
+        m = _BOSIM.search(matn)
+        p_q = q.parametrlar.get("P") or (float(m.group(1)) if m else 0)
+        mos = next((r for r in qoida["sarf_jadvali"]
+                    if l_q and r["lmax"] >= 1.2 * l_q and r["pmax"] >= 1.5 * p_q), None)
+        if mos:
+            yozuv["nomi"] = f"Вентилятор канальный ВК-{mos['d']}С"
+            yozuv["ogohlantirishlar"] = [
+                f"«{q.nomi[:50]}»: L={l_q:g}" + (f", P={p_q:g} Pa" if p_q else "")
+                + f" -> ВК-{mos['d']}С (katalog: maks. {mos['lmax']} m³/soat, "
+                f"{mos['pmax']} Pa) — xarakteristika bo'yicha tekshiring"]
+            return [yozuv], ANALOG
 
     if oila.kod == "kckp" and _kckp(q, qoida, yozuv,
                                     kckp_olindi if kckp_olindi is not None else []):
@@ -260,8 +308,13 @@ def _qator(q: TzQator, ei_yoq: list[str],
         variantlar = tashqi_kombinatsiyalar(
             quvvat, qoida["modullar"], qoida.get("maks_modul", 4),
             qoida.get("farq_foizi", 1.5)) if quvvat else []
-        if len(variantlar) == 1:
-            kodlar = variantlar[0]
+        # Bitta modul bilan aniq variant bo'lsa — o'sha (KP 13508: 67 kVt ->
+        # JVO-680T, 335T × 2 emas). Bir modulli variant yo'q va bir nechta
+        # ko'p modulli bo'lsa — tanlov (KP 13173: 128,5 = 725+560 ham,
+        # 615+335×2 ham; menejer ikkinchisini olgan — qoida noma'lum).
+        yagona = [v for v in variantlar if len(v) == 1]
+        if len(variantlar) == 1 or len(yagona) == 1:
+            kodlar = variantlar[0] if len(variantlar) == 1 else yagona[0]
             qatorlar = []
             for kod in dict.fromkeys(kodlar):
                 qatorlar.append({
@@ -271,7 +324,10 @@ def _qator(q: TzQator, ei_yoq: list[str],
                 })
             qatorlar[0]["ogohlantirishlar"] = [
                 f"«{q.nomi[:50]}»: {quvvat:g} kVt = {_kombinatsiya_matni(kodlar)} — "
-                "yagona aniq kombinatsiya, tasdiqlang"]
+                + ("yagona aniq kombinatsiya" if len(variantlar) == 1 else
+                   "bitta modul; boshqa variant: " + "; ".join(
+                       _kombinatsiya_matni(v) for v in variantlar if v is not kodlar)[:120])
+                + ", tasdiqlang"]
             return qatorlar, ANALOG
         if len(variantlar) > 1:
             yozuv["ogohlantirishlar"] = [
@@ -374,7 +430,7 @@ def qoralama(tz: list[TzQator]) -> Qoralama:
     jami: Counter = Counter()
     for q in tz:
         jami[q.varaq] += 1
-        if tz_oilasi(q.nomi, q.guruh) is not None:
+        if not montajmi(q.nomi) and tz_oilasi(q.nomi, q.guruh) is not None:
             tanilgan[q.varaq] += 1
     for varaq in jami:
         if tanilgan[varaq] == 0:
@@ -384,9 +440,15 @@ def qoralama(tz: list[TzQator]) -> Qoralama:
     analoglar = jadval().get("analoglar") or {}
     ichki_yigindi, split_ichki = _vrf_kontekst(tz, analoglar)
     kirmadi: Counter = Counter()
+    montaj: list[str] = []
     oxirgi_bolim = ""
     for q in tz:
         if tanilgan[q.varaq] == 0:
+            continue
+        # Montaj materiallari (quvur, fiting, havo quvuri, izolyatsiya) — menejer
+        # KP 13508 da hech birini yozmagan.
+        if montajmi(q.nomi):
+            montaj.append(q.nomi)
             continue
         # Climavent ishlab chiqarmaydigan narsa (maishiy «Compact 20») KP ga
         # tushmaydi — menejer 13603 da shunday: 50 emas, 41 mahsulot.
@@ -411,6 +473,11 @@ def qoralama(tz: list[TzQator]) -> Qoralama:
         qatorlar, turi = _qator(q, ei_yoq, kckp_olindi, ichki_yigindi)
         natija.mahsulotlar += qatorlar
         natija.turlar[turi] += 1
+    if montaj:
+        natija.umumiy.append(
+            f"Montaj materiallari KP ga KIRITILMADI ({len(montaj)} qator): "
+            + ", ".join(dict.fromkeys(re.split(r"[\s,(]", m.strip(" -"))[0] for m in montaj))
+            + " — kerak bo'lsa menejer qo'shadi")
     if kirmadi:
         natija.umumiy.append(
             "KP ga KIRITILMADI (Climavent ishlab chiqarmaydi): "

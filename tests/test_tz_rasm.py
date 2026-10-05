@@ -141,3 +141,30 @@ async def test_kp_oqimi_Gemini_yoq_bolsa_ochiq_aytadi(tmp_path, monkeypatch):
     await kp_oqim.boshla(baza, xabar, 5252)
     await kp_oqim.hujjat(baza, xabar, 5252, _Fayl(PNG), "rasm.png")
     assert any("Gemini" in m for m in xabar.matnlar)
+
+
+@pytest.mark.skipif(not (ETALON / "2-provik-skan" / "tz_ov.pdf").is_file(), reason="etalon yo'q")
+def test_qatlamli_skan_render_qilinadi():
+    """2-juft loyihasi MRC skan: «eng katta rasm» matnsiz fon edi — endi sahifa render."""
+    bolaklar = rasmlar(ETALON / "2-provik-skan" / "tz_ov.pdf")
+    assert len(bolaklar) == 14 and all(m == "image/jpeg" for _, m in bolaklar)
+
+
+async def test_kop_varaqli_skan_avval_jadval_varaqlari_tanlanadi(monkeypatch, tmp_path):
+    import kp.tz_rasm as modul
+
+    yol = tmp_path / "loyiha.pdf"
+    yol.write_bytes(b"%PDF")
+    from PIL import Image
+    import io
+    bufer = io.BytesIO()
+    Image.new("L", (50, 50)).save(bufer, "JPEG")
+    monkeypatch.setattr(modul, "rasmlar", lambda _: [(bufer.getvalue(), "image/jpeg")] * 6)
+    llm = SoxtaLlm([json_javob({"varaqlar": [5, 9]}), _nirvana_javobi()])
+    qatorlar, ogoh = await rasmdan_qatorlar(yol, llm)
+
+    # 1-chaqiruv — 6 ta kichik varaq tanlash uchun; 2-chaqiruv — faqat 5-varaq.
+    assert sum(1 for b in llm.chaqiruvlar[0]["messages"][0]["content"] if b["type"] == "image") == 6
+    assert len(llm.chaqiruvlar) == 2
+    assert {q.varaq for q in qatorlar} == {"rasm 5"}
+    assert any("6 varaqdan spetsifikatsiya: 5-varaqlar" in o for o in ogoh)
