@@ -184,7 +184,9 @@ oilalar:
 
   - kod: vibro
     nomi: "Vibroizolyator"
-    tz: ['виброизол']
+    # Faqat qator SHU so'z bilan boshlansa: «Вентилятор … ВЦ4-75-2,5 …
+    # с виброизоляторами» — ventilyator, vibroizolyator emas (aeroport zayavkasi).
+    tz: ['^\W*виброизол']
     kp: ['Виброизолятор']
     kalit: belgi
     aksessuar: true

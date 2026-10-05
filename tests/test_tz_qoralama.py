@@ -227,6 +227,32 @@ def test_ventilyator_analoglari_13603(tz, kp):
     assert _bitta(_tz(tz))["nomi"] == kp
 
 
+@pytest.mark.parametrize("tz, kp", [
+    ("Вентилятор центробежный исп.1 пол Пр.0 (градус) H=810 ВЦ4-75 №5", "Вентилятор ВЦ 4-75-5"),
+    ("Вентилятор центробежный исп.1 пол Л.0 H=400 ВЦ4-75 №2.5", "Вентилятор ВЦ 4-75-2,5"),
+    ("Вентилятор радиальный ВЦ4-75-3,15 мощностью N=1,1 квт с виброизоляторами",
+     "Вентилятор ВЦ 4-75-3,15"),                    # vibroizolyator EMAS
+    ("Вентилятор радиальный взрывозащищенный ВЦ14-46-2,5", "Вентилятор ВЦ 14-46-2,5"),
+    ("Виброизоляторы ДО-40", "Виброизолятор ДО-40"),
+])
+def test_bizning_seriya_TZ_da_nomer_bilan(tz, kp):
+    assert _bitta(_tz(tz))["nomi"] == kp
+
+
+def test_parametrsiz_zayavkadan_KP_yasalmaydi(tmp_path):
+    """KP-2026-13008: Enter zayavkasi (faqat nomlar) 37 qatorlik bo'sh KP bo'lgan edi."""
+    yol = _xlsx(tmp_path, [
+        ["№", "Наименование", "Ед.изм.", "Кол-во"],
+        [1, "Приточная установка П1", "к-т", 1],
+        [2, "Вытяжной вентилятор В1", "к-т", 1],
+        [3, "К1. Система VRF кондиционирования", "к-т", 1],
+    ])
+    taklif = jadvaldan_taklif(yol)
+    assert not taklif.bormi                              # shaklga hech narsa yozilmaydi
+    assert any("KP YASALMADI" in o for o in taklif.ogohlantirishlar)
+    assert any("opros list" in o for o in taklif.ogohlantirishlar)
+
+
 def test_nomersiz_sanoat_ventilyatori_tanlov():
     natija = qoralama([_tz("Вентилятор радиальный дымоудаления", L=20000)])
     assert natija.turlar[TANLOV] == 1

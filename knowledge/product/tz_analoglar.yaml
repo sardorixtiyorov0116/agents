@@ -158,6 +158,16 @@ analoglar:
     manba: "KP 13603 (ВРАН6 080 ДУ400 -> ВЦ 4-75-8-ДУ-400, ОСА 201 080 Н -> ВО 30-160-8)"
     faqat_mos: true
     qoliplar:
+      # TZ da bizning seriya nomeri bilan («ВЦ4-75 №2.5», «ВЦ4-75-2,5 N=0,55»,
+      # aeroport zayavkasi) — nom shu nomer bilan; dvigatel menejer tanlovi.
+      - agar: 'ВЦ\s*4-75'
+        ajrat: 'ВЦ\s*4-75\s*[-№N]*\s*(\d+(?:[.,]\d+)?)'
+        qolip: "Вентилятор ВЦ 4-75-{x}"
+        ogohlantirish: "dvigatel (kVt, ob/min) va bajarilishini TZ bo'yicha to'liq belgiga qo'shing"
+      - agar: 'ВЦ\s*14-46'
+        ajrat: 'ВЦ\s*14-46\s*[-№N]*\s*(\d+(?:[.,]\d+)?)'
+        qolip: "Вентилятор ВЦ 14-46-{x}"
+        ogohlantirish: "dvigatel (kVt, ob/min) va bajarilishini TZ bo'yicha to'liq belgiga qo'shing"
       - agar: 'ВРАН'
         qolip: "Вентилятор ВЦ 4-75-{nomer}{du}"
         ogohlantirish: "seriya ВЦ 4-75, dvigatel quvvati va ijrosi tanlansin"
@@ -165,6 +175,16 @@ analoglar:
         qolip: "Вентилятор ВО 30-160-{nomer}"
         ogohlantirish: "seriya ВО 30-160, dvigatel quvvati tanlansin"
     izoh: "Ventilyator sarf, bosim va dvigatel bo'yicha tanlanadi (ВЦ / ВО)"
+
+  # Katalog 2021: prujinali vibroizolyatorlar ДО-38 … ДО-45.
+  vibro:
+    manba: "Katalog 2021 (Виброизоляторы ДО); aeroport zayavkasi ДО-38/39/40"
+    faqat_mos: true
+    qoliplar:
+      - agar: 'ДО\s*-?\s*(3[89]|4[0-5])\b'
+        ajrat: 'ДО\s*-?\s*(\d{2})'
+        qolip: "Виброизолятор ДО-{x}"
+    izoh: "Vibroizolyator — katalogda ДО-38…45, yuk bo'yicha tanlanadi"
 
   # VRF tashqi blok — modullar kombinatsiyasi. Faqat yig'indisi TZ quvvatiga
   # AYNAN (1,5% gacha) teng bo'lsa olinadi, eng kam modulli kombinatsiya.

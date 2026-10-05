@@ -277,8 +277,11 @@ def _qator(q: TzQator, ei_yoq: list[str],
     nomer = f"{int(m.group(1)) / 10:g}".replace(".", ",") if m else ""
     m = _DU.search(q.nomi)
     du = f"-ДУ-{m.group(1)}" if m else ""
+    # `ajrat` — qolipning o'z regexi: TZ dagi nomerni oladi («ВЦ4-75 №2.5» -> 2,5).
+    m = re.search(qolip_yozuvi["ajrat"], q.nomi, re.I) if qolip_yozuvi.get("ajrat") else None
+    x = m.group(1).replace(".", ",") if m else ""
     if (("{olcham}" in qolip and not kv) or ("{d}" in qolip and not d_son)
-            or ("{nomer}" in qolip and not nomer)):
+            or ("{nomer}" in qolip and not nomer) or ("{x}" in qolip and not x)):
         yozuv["ogohlantirishlar"] = [f"«{q.nomi[:60]}»: o'lcham topilmadi — TZ nomi bilan qoldi"]
         return [yozuv], TANILMADI
 
@@ -311,7 +314,7 @@ def _qator(q: TzQator, ei_yoq: list[str],
         uzunlik = m.group(3) if m else str(jadval().get("uzunlik_standart") or "1000")
 
     yozuv["nomi"] = qolip.format(olcham=kv, d=d_son, ei=ei, uzunlik=uzunlik,
-                                 nomer=nomer, du=du)
+                                 nomer=nomer, du=du, x=x)
     if qolip_yozuvi.get("ogohlantirish"):
         yozuv["ogohlantirishlar"].append(f"«{q.nomi[:50]}»: {qolip_yozuvi['ogohlantirish']}")
     return [yozuv], ANALOG
@@ -510,6 +513,30 @@ def qatorlardan_taklif(qatorlar: list[TzQator], fayl_ogohlari: list[str], manba:
         return None     # hech bir qator ventilyatsiya mahsulotiga o'xshamadi
 
     taklif = ShaklTaklifi()
+    if q.turlar[QISQARTMA] + q.turlar[ANALOG] == 0:
+        # BIRORTA qator Climavent nomiga aylanmadi — bu KP emas, TZ nusxasi.
+        # JONLI HOLAT (2026-10-05, KP-2026-13008): Enter ALM zayavkasi (xarid
+        # so'rovi: «Приточная установка П1», «Вытяжной вентилятор В1…В25»,
+        # «К1. Система VRF…», «Чиллер») 37 qatorlik bo'sh KP bo'lib chiqdi.
+        # Menejer o'sha so'rovga opros listdan (ОЛ, kVt bilan) faqat VRF
+        # qismini hisoblagan (KP 13173). Zayavkada parametr yo'q — model
+        # tanlab bo'lmaydi; nima kerakligini aytamiz, KP yasamaymiz.
+        guruhlar = Counter(
+            (tz_oilasi(t.nomi, t.guruh).nomi if tz_oilasi(t.nomi, t.guruh) else "boshqa")
+            for t in qatorlar if t.varaq in {x.varaq for x in qatorlar
+                                             if tz_oilasi(x.nomi, x.guruh)})
+        taklif.ogohlantirishlar.append(_markdownsiz(
+            f"{manba}: {sum(guruhlar.values())} qator, lekin BIRORTASI Climavent modeliga "
+            "aylanmadi — faqat nomlar, parametr (sarf, bosim, kVt) yo'q. KP YASALMADI: u "
+            "TZ nusxasi bo'lib qolardi. Tarkibi: "
+            + ", ".join(f"{nom} — {soni}" for nom, soni in guruhlar.most_common())))
+        taklif.ogohlantirishlar.append(
+            "KP uchun kerak: VRF/konditsioner — opros list (ОЛ, har blok kVt); КЦКП va "
+            "ventilyatorlar — sarf (m³/soat) va bosim (Pa) yozilgan spetsifikatsiya. "
+            "Shularni tashlang — shu /kp ga qo'shiladi.")
+        taklif.ogohlantirishlar += [_markdownsiz(o) for o in fayl_ogohlari + q.umumiy]
+        return taklif
+
     taklif.javoblar["yol"] = "model"
     taklif.javoblar["mahsulotlar"] = q.mahsulotlar
     jami = len(q.mahsulotlar)
