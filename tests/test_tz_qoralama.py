@@ -675,3 +675,52 @@ def test_VRF_tashqi_bitta_modul_afzal():
 def test_dymoudalenie_ostidagi_protivopojarniy_klapan_KPD():
     m = _bitta(_tz("Противопожарные клапан 500х300 мм", guruh="Дымоудаление"))
     assert m["nomi"].startswith("Клапан противопожарный КПД-НЗ")
+
+
+@etalon
+def test_etalon_OV2_loyiha_spetsifikatsiyasi_13173():
+    """5-juft ОВ2 (chizma PDF, 9–16 varaq jadval, Gemini 05.10) -> KP 13173 to'liq.
+
+    Kentatsu kodlari: KTRV340 -> JVO-335T, KTVA100 -> JVI-112C (eng yaqin),
+    SFT-18HN1 -> «18 БТУ»; «То же» qatorlari oldingi nom bilan ochiladi.
+    """
+    import json
+
+    from kp.kp_pdf import kp_oqi
+    from kp.tz_rasm import _toliq_nom
+
+    xom = json.loads((ETALON / "5-enter-alm" / "gemini_ov2_qatorlar.json").read_text(encoding="utf-8"))
+    tz, oldingi = [], ""
+    for x in xom:
+        q = TzQator(**{k: v for k, v in x.items() if k in TzQator.__dataclass_fields__})
+        q.nomi, oldingi = _toliq_nom(q.nomi, oldingi)
+        q.matn = q.nomi
+        tz.append(q)
+    natija = qoralama(tz)
+    olchov, _ = kp_bilan_qamrov(natija.mahsulotlar, kp_oqi(ETALON / "5-enter-alm" / "kp.pdf"))
+    assert olchov >= 98
+    nomlar = [m["nomi"] for m in natija.mahsulotlar]
+    assert nomlar.count("Сплит кондиционер 18 БТУ") == 2
+    assert not any(n.startswith(("То же", "Труба", "Декоративная")) for n in nomlar)
+
+
+@pytest.mark.parametrize("tz, kutilgan", [
+    ("Внутренний блок кассетного типа KTVA72HQAN1", "Внутренний блок кассетного типа VRF JVI-071C"),
+    ("Внутренний блок кассетного типа KTVA100HQAN1", "Внутренний блок кассетного типа VRF JVI-112C"),
+    ("Внутренний блок настенного типа KTGA40HQAN1", "Внутренний блок настенные типа VRF JVI-036W"),
+    ("Внутренний блок напольно-потолочного типа KTHA115HQAN1", "Внутренний блок кассетного типа VRF JVI-112C"),
+    ("Наружный блок KTRV34OHZAN3-B", "Наружный блок VRF модель JVO-335T"),     # O harfi
+    ("Сплит-система кондиционирования, Q=5,3 кВт в комплекте: SFT-18HN1_18Y", "Сплит кондиционер 18 БТУ"),
+])
+def test_raqib_kodi_Climavent_analogi(tz, kutilgan):
+    assert _bitta(_tz(tz))["nomi"] == kutilgan
+
+
+def test_rasm_qatori_to_zhe_va_olcham_davomi():
+    from kp.tz_rasm import _toliq_nom
+    nom, old = _toliq_nom("Внутренний блок настенного типа KTGA40HQAN1", "")
+    assert _toliq_nom("То же KTGA60HQAN1", old)[0] == "Внутренний блок настенного типа KTGA60HQAN1"
+    nom, old = _toliq_nom("1. Труба медная по стандарту EN 12735: 1/4\"", "")
+    assert nom == "Труба медная по стандарту EN 12735: 1/4\""
+    assert _toliq_nom("3/8\"", old)[0] == "Труба медная по стандарту EN 12735 3/8\""
+    assert _toliq_nom("1 1/4\"", old)[0].endswith("1 1/4\"")

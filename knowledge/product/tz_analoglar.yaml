@@ -231,11 +231,17 @@ analoglar:
   vrf_ichki:
     manba: "KP 13173 (7,1 kasseta -> JVI-071C, 2,8 devoriy -> JVI-028W, напольно-потолочный -> C), KP 13321"
     olchamlar: [2.2, 2.8, 3.6, 4.5, 5.6, 7.1, 8.0, 9.0, 11.2, 14.0, 16.0]
+    # Raqib MODEL KODI bilan (Kentatsu KTVA72…) — kodidagi quvvatga ENG YAQIN
+    # Climavent o'lchami, KP larda uchragan o'lchamlardan: KP 13173 / ОВ2
+    # АЛМ 2.16 — 7,2->071, 6,0->056, 4,0->036, 3,0->028, 10,0->112, 11,5->112.
+    # (TZ da talab qilingan kVt bo'lsa — yuqoridagi `olchamlar`, kichraytirilmaydi.)
+    kod_olchamlari: [2.8, 3.6, 4.5, 5.6, 7.1, 11.2, 14.0, 16.0]
     turlar:
-      - agar: 'кассет|напольно|потолоч'
+      # KTVA/KTYA — kasseta, KTHA — напольно-потолочный (menejer C qo'ygan).
+      - agar: 'кассет|напольно|потолоч|\bKT[VYH]A\d'
         qolip: "Внутренний блок кассетного типа VRF JVI-{kod}C"
         panel: true
-      - agar: 'настен'
+      - agar: 'настен|\bKTGA\d'
         qolip: "Внутренний блок настенные типа VRF JVI-{kod}W"
     # TZ da turi yozilmagan («Внутренний блок Qх=3.6 кВт») — kasseta: KP 13508
     # da menejer 22 ta shunday blokni kassetali (JVI-036CR) + panel qilgan.
@@ -250,6 +256,10 @@ analoglar:
     manba: "KP 13321 (2,64 -> 2,7 квт; 3,52 -> 3,6 квт)"
     olchamlar: [2.7, 3.6, 5.3, 7.0]
     qolip: "Сплит кондиционер {kvt} квт"
+    # TZ da raqib modeli BTU raqami bilan («SFT-18HN1», «-12HN1») — menejer
+    # «18 БТУ» deb yozgan (ОВ2 АЛМ 2.16 K1–K4 -> KP 13173).
+    btu_kodi: '\b[A-Z]{2,4}-?(07|09|12|18|24|30|36)H'
+    btu_qolip: "Сплит кондиционер {btu} БТУ"
     # 7 kVt dan katta split — mini-VRF to'plami (KP 13321 K6, K12: 14,07 / 14,1 kVt).
     # Shu tizimdagi alohida «Вн.блок кассетного 14,07» qatori — shu splitning
     # ichki qismi, ikkinchi marta yozilmaydi.
@@ -279,3 +289,8 @@ montaj_materiallari:
   - '^\W*(воздуховод|креплени|кронштейн|уголок|опора|окраск|маслян|гидравлическ)'
   - '^\W*(зонт|комплект\s+разветвител|разветвител|беспроводн\w*\s+пульт|фильтр\s*[ØФ∅])'
   - '^\W*(панельн\w*\s+радиатор|радиатор|циркуляционн\w*\s+насос|пластинчат\w*\s+теплообменник)'
+  # Konditsioner montaji va raqib aksessuarlari (ОВ2 АЛМ 2.16 -> KP 13173: menejer
+  # yozmagan). Kassetaga panel Climavent nomi bilan o'zimiz qo'shamiz.
+  - '^\W*(шланг|хладагент|фреон|кабель|лента|зимний\s+комплект|трубк|помп|гидрозатвор|шпильк|профиль)'
+  - '^\W*(гайк|шайб|анкер|дюбел|саморез|витая\s+пара|азот|припой|кислород|пропан|хомут|переходник)'
+  - '^\W*(тройник-разветвител|рефнет|декоративн\w*\s+панел|центральн\w*\s+пульт|пульт\s+дистанц)'

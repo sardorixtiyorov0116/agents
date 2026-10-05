@@ -73,6 +73,9 @@ QAT'IY QOIDALAR:
 4) Tartib raqami ustunini (№) ko'chirmaysan.
 5) Jadval yo'q yoki o'qib bo'lmasa — bo'sh ro'yxat va `izoh` ga sababi.
 6) Hech qanday mahsulot, model yoki raqam O'YLAB TOPMAYSAN.
+7) «То же», «-//-» — oldingi mahsulot nomini yozasan. «Тип, марка» ustunidagi
+   model kodini (KTVA72HQAN1, ВЦ 4-75) nomga qo'shasan: «Внутренний блок
+   кассетного типа KTVA72HQAN1».
 
 Javobni faqat so'ralgan JSON sxemasi bo'yicha ber."""
 
@@ -104,8 +107,13 @@ def rasmlar(yol: str | Path) -> list[tuple[bytes, str]]:
     from pypdf import PdfReader
 
     sahifalar = PdfReader(str(yol)).pages[:MAKS_PDF_SAHIFA]
+    # CHIZMA TO'PLAMI (A3/A2 varaq) — matni faqat shtamp, spetsifikatsiya
+    # jadvali chiziq bo'lib chizilgan (ОВ2 АЛМ 2.16: 16 varaq, 9–16 jadval,
+    # matn qatlamida birorta mahsulot yo'q) — u ham render qilinadi.
+    chizma = any(max(float(s.mediabox.width), float(s.mediabox.height)) > 1000
+                 for s in sahifalar[:MAKS_SAHIFA])
     for sahifa in sahifalar[:MAKS_SAHIFA]:
-        if (sahifa.extract_text() or "").strip():
+        if not chizma and (sahifa.extract_text() or "").strip():
             return []           # matnli PDF — skan emas
     # Sahifa RENDER qilinadi. Skanerlar varaqni qatlamlab siqadi (MRC: fon
     # + matn niqobi alohida rasmlar) — «eng katta rasm» ko'pincha matnsiz
@@ -181,6 +189,28 @@ async def jadval_varaqlari(bolaklar: list[tuple[bytes, str]], llm: Any) -> list[
     return sorted({v - 1 for v in tanlov.varaqlar if 1 <= v <= len(bolaklar)})
 
 
+_TARTIB = re.compile(r"^\d{1,2}\.?\s+(?=[^\d\s])")       # «2. Труба…», «3 То же…»
+_TO_ZHE = re.compile(r"^(?:то\s+же|-//-|—//—)[\s,.:]*", re.I)
+_KOD_OXIRI = re.compile(r"[\s:]+[^\s]*\d[^\s]*$")         # oxirgi model kodi / o'lcham
+
+
+def _toliq_nom(nomi: str, oldingi: str) -> tuple[str, str]:
+    """Spetsifikatsiyadagi qisqa qatorni to'liq nomga aylantiradi.
+
+    «То же KTGA60HQAN1» -> «Внутренний блок настенного типа KTGA60HQAN1»,
+    «3/8"» (oldingi qator «Труба медная …: 1/4"» davomi) -> «Труба медная …: 3/8"».
+    Model ko'pincha shunday ochadi, lekin har doim emas (ОВ2 АЛМ 2.16).
+    Qaytadi: (nom, keyingi qator uchun asos nom).
+    """
+    nomi = _TARTIB.sub("", nomi)
+    asos = _KOD_OXIRI.sub("", oldingi) if oldingi else ""
+    if _TO_ZHE.match(nomi) and asos:
+        nomi = f"{asos} {_TO_ZHE.sub('', nomi)}".strip()
+    elif asos and not re.search(r"[A-Za-zА-Яа-яЁё]{3}", nomi):
+        nomi = f"{asos} {nomi}".strip()     # faqat o'lcham — oldingi qator davomi
+    return nomi, nomi
+
+
 def rasm_modellari(modellar: list[str]) -> list[str]:
     """Zanjirdan faqat rasm qabul qiladigan modellar (Gemini)."""
     from app.llm import provayder
@@ -211,6 +241,7 @@ async def rasmdan_qatorlar(yol: str | Path, llm: Any) -> tuple[list[TzQator], li
             raqamlar = raqamlar[:MAKS_JADVAL_SAHIFA]
         ogohlar.append(f"{len(bolaklar)} varaqdan spetsifikatsiya: "
                        + ", ".join(str(r + 1) for r in raqamlar) + "-varaqlar")
+    oldingi = ""
     for i in (r + 1 for r in raqamlar):
         baytlar, mime = bolaklar[i - 1]
         javob = await llm.javob(
@@ -226,7 +257,7 @@ async def rasmdan_qatorlar(yol: str | Path, llm: Any) -> tuple[list[TzQator], li
         if natija.izoh:
             ogohlar.append(f"{i}-rasm: {natija.izoh}")
         for r in natija.qatorlar:
-            nomi = re.sub(r"\s+", " ", r.nomi).strip()
+            nomi, oldingi = _toliq_nom(re.sub(r"\s+", " ", r.nomi).strip(), oldingi)
             if not nomi:
                 continue
             if r.miqdor <= 0:

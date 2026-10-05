@@ -131,11 +131,19 @@ def _konditsioner(q: TzQator, oila_kod: str, qoida: dict[str, Any],
     if not quvvat:
         return None
     standart = _standart(quvvat, qoida.get("olchamlar") or [])
+    from .solishtir import _BREND_KOD
+    if oila_kod == "vrf_ichki" and qoida.get("kod_olchamlari") and _BREND_KOD.search(matn):
+        # Raqib modeli — quvvati kodida, eng yaqin o'lcham (yuqoriga ham, pastga ham).
+        standart = min(qoida["kod_olchamlari"], key=lambda o: (abs(o - quvvat), -o))
     if standart is None and oila_kod == "split":
         return _katta_split(q, quvvat, qoida, yozuv)
     if standart is None:
         return None
     if oila_kod == "split":
+        m = re.search(qoida["btu_kodi"], matn) if qoida.get("btu_kodi") else None
+        if m:
+            yozuv["nomi"] = qoida["btu_qolip"].format(btu=int(m.group(1)))
+            return [yozuv]
         nomi = qoida["qolip"].format(kvt=f"{standart:g}".replace(".", ","))
         yozuv["nomi"] = nomi
         return [yozuv]

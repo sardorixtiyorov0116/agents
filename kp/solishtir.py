@@ -166,6 +166,9 @@ _OLCHAM = re.compile(r"(\d{2,4})\s*[xхХ×*]\s*(\d{2,4})")
 _DIAMETR = re.compile(r"(?:∅|Ø|ДФА|DVS|ДПУ-?М|\bД|-Ф)\s*-?\s*(\d{2,4})\b", re.I)
 _KVT = re.compile(r"(\d+(?:[.,]\d+)?)\s*к[Вв]т", re.I)
 _VRF_KOD = re.compile(r"\bJ[VU][IO]-(\d{3})", re.I)
+# Kentatsu kodi: «KTRV340HZAN3» = 34,0 kVt, «KTVA72HQAN1» = 7,2 kVt (ОВ2 АЛМ 2.16).
+# Rasmdan o'qilganda 0 o'rniga O harfi tushadi («KTRV34OHZAN3») — ham olinadi.
+_BREND_KOD = re.compile(r"\bKT[A-Z]{2}(\d[\dOО]{1,2})H", re.I)
 _BTU = re.compile(r"(\d+)\s*(?:000)?\s*БТУ", re.I)
 _SARF = re.compile(r"L\s*=\s*([\d\s]+?)\s*м", re.I)
 _BELGI = re.compile(r"\(((?:ПВ|ПД|ДУ|П|В|K|К)\d+[рp]?)\)")
@@ -196,9 +199,9 @@ def diametr(matn: str) -> str:
 
 
 def kvt(matn: str) -> float | None:
-    m = _VRF_KOD.search(matn or "")
+    m = _VRF_KOD.search(matn or "") or _BREND_KOD.search(matn or "")
     if m:
-        return int(m.group(1)) / 10
+        return int(re.sub("[OОoо]", "0", m.group(1))) / 10
     m = _KVT.search(matn or "")
     if m:
         return float(m.group(1).replace(",", "."))
