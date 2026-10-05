@@ -232,7 +232,9 @@ async def hujjat(baza, xabar, tg_id: int, fayl, fayl_nomi: str) -> bool:
         return True
 
     # PDF bo'lsa — konditsioner so'rovnoma varaqasi (ОЛ) bo'lishi mumkin.
-    if yol.suffix.lower() in (".xlsx", ".pdf"):
+    from kp.tz_jadval import JADVAL_KENGAYTMALARI
+
+    if yol.suffix.lower() in JADVAL_KENGAYTMALARI | {".pdf"}:
         import asyncio
 
         from kp.tz_qoralama import fayldan_taklif

@@ -826,7 +826,9 @@ def fayllarni_tekshir(kp_yoli: str | Path,
         if yol.resolve() == Path(kp_yoli).resolve():
             continue    # TZ papkasida KP ning o'zi ham turgan bo'lishi mumkin
         kengaytma = yol.suffix.lower()
-        if kengaytma == ".xlsx":
+        from .tz_jadval import JADVAL_KENGAYTMALARI
+
+        if kengaytma in JADVAL_KENGAYTMALARI:
             j = jadval_oqi(yol)
             jadval_qatorlari += j.qatorlar
             ogoh += [f"{yol.name}: {o}" for o in j.ogohlantirishlar]

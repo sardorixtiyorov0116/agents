@@ -102,8 +102,11 @@ def test_yoq_fayl():
 
 
 def test_qollab_quvvatlanadigan_formatlar():
-    """DWG yo'q — chizmadan matn olib bo'lmaydi, buni va'da qilmaymiz."""
-    assert QOLLAB_QUVVATLANADI == {".pdf", ".docx", ".xlsx", ".txt"}
+    """DWG yo'q — chizmadan TZ matni olinmaydi (u `kp/dwg.py` da, faqat uskuna
+    turlari). Eski .xls va .doc (ichida RTF/HTML ham) — bor (2026-10-05)."""
+    assert QOLLAB_QUVVATLANADI == {".pdf", ".docx", ".xlsx", ".txt", ".xls", ".xlsm",
+                                   ".doc", ".rtf", ".htm", ".html"}
+    assert ".dwg" not in QOLLAB_QUVVATLANADI
 
 
 # --- 2-bosqich: natijani shaklga aylantirish ----------------------------------

@@ -336,7 +336,9 @@ def fayldan_taklif(yol: str | Path):
     """
     yol = Path(yol)
     kengaytma = yol.suffix.lower()
-    if kengaytma == ".xlsx":
+    from .tz_jadval import JADVAL_KENGAYTMALARI
+
+    if kengaytma in JADVAL_KENGAYTMALARI:
         return jadvaldan_taklif(yol)
     if kengaytma == ".pdf":
         from .ol_pdf import ol_oqi

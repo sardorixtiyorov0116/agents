@@ -130,11 +130,14 @@ def _tani(yol: Path) -> tuple[str, str]:
         return "tz", "chizma (DWG) — uskuna TURLARI solishtiriladi"
     if kengaytma in RASM_KENGAYTMALARI:
         return "rasm", "rasm — jadval tekshiruvda o'qiladi"
-    if kengaytma == ".xlsx":
+    from kp.tz_jadval import JADVAL_KENGAYTMALARI
+
+    if kengaytma in JADVAL_KENGAYTMALARI:
         j = jadval_oqi(yol)
         if not j.qatorlar:
             return "", "; ".join(j.ogohlantirishlar) or "jadval topilmadi"
-        return "tz", f"TZ (Excel): {len(j.qatorlar)} qator"
+        tur = "Excel" if kengaytma.startswith(".xls") else "Word"
+        return "tz", f"TZ ({tur}): {len(j.qatorlar)} qator"
     if kengaytma == ".pdf":
         q = ventas_oqi(yol)
         if q is not None:
@@ -152,9 +155,7 @@ def _tani(yol: Path) -> tuple[str, str]:
         if rasmlar(yol):
             return "rasm", "skan PDF — jadval tekshiruvda o'qiladi"
         return "", "na KP, na TZ jadvali"
-    if kengaytma == ".xls":
-        return "", "eski .xls format — Excel da «.xlsx» qilib saqlab yuboring"
-    return "", f"«{kengaytma}» hozircha o'qilmaydi (rasm, DWG, arxiv — keyingi bosqichda)"
+    return "", f"«{kengaytma}» o'qilmaydi (arxivni ochib, ichidagi fayllarni yuboring)"
 
 
 async def hujjat(xabar, tg_id: int, fayl, fayl_nomi: str, hajm: int = 0) -> bool:

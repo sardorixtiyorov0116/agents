@@ -37,7 +37,10 @@ MAKS_MATN = 60_000
 # Bir TZ dan shuncha xonadan ko'pi olinmaydi.
 MAKS_XONA = 20
 
-QOLLAB_QUVVATLANADI = {".pdf", ".docx", ".xlsx", ".txt"}
+# Eski .xls va .doc ham — mijozlar ko'pincha shunday yuboradi; «.doc» ichida
+# RTF yoki HTML ham bo'ladi (`kp/word_doc.py` mazmunidan aniqlaydi).
+QOLLAB_QUVVATLANADI = {".pdf", ".docx", ".xlsx", ".txt", ".xls", ".xlsm",
+                       ".doc", ".rtf", ".htm", ".html"}
 
 
 class TzXatosi(ValueError):
@@ -86,6 +89,19 @@ def _xlsx_matni(yol: Path) -> str:
     return "\n".join(bolaklar)
 
 
+def _xls_matni(yol: Path) -> str:
+    import xlrd
+
+    bolaklar = []
+    for varaq in xlrd.open_workbook(str(yol)).sheets():
+        bolaklar.append(f"--- {varaq.name} ---")
+        for i in range(varaq.nrows):
+            kataklar = [str(k).strip() for k in varaq.row_values(i) if str(k).strip()]
+            if kataklar:
+                bolaklar.append(" | ".join(kataklar))
+    return "\n".join(bolaklar)
+
+
 def matn_ol(yol: str | Path) -> str:
     """TZ faylidan matn. Formatni KENGAYTMA bo'yicha aniqlaydi.
 
@@ -114,8 +130,14 @@ def matn_ol(yol: str | Path) -> str:
             matn = _pdf_matni(yol)
         elif kengaytma == ".docx":
             matn = _docx_matni(yol)
-        elif kengaytma == ".xlsx":
+        elif kengaytma in (".xlsx", ".xlsm"):
             matn = _xlsx_matni(yol)
+        elif kengaytma == ".xls":
+            matn = _xls_matni(yol)
+        elif kengaytma in (".doc", ".rtf", ".htm", ".html"):
+            from .word_doc import hujjat_oqi
+
+            matn = hujjat_oqi(yol)[0]
         else:
             matn = yol.read_text(encoding="utf-8", errors="replace")
     except TzXatosi:

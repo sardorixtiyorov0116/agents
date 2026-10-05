@@ -205,6 +205,17 @@ def _varaq_qatorlari(nom: str, qatorlar: list[tuple]) -> tuple[list[TzQator], st
         if not nomi and not turlar:
             continue
         tolik = " ".join(x for x in [nomi] + [t for t in turlar if t not in nomi] if x)
+        # NOM DAVOMI: Excel da uzun nom keyingi qatorga o'tadi va miqdor u yerda
+        # ham takrorlanadi («Вентилятор радиальный … ВЦ4-75-2,5 — 1» va ostida
+        # «мощностью N=0,55 квт … 4АА6382 — 1»). Belgisiz, KICHIK harf bilan
+        # boshlangan va miqdori bir xil qator — oldingisining davomi, alohida
+        # mahsulot emas. «Виброизоляторы ДО-40 — 5» (bosh harf) alohida qoladi.
+        birinchi_katak = kataklar[0] if kataklar else ""
+        if (natija and re.match(r"[a-zа-яё]", tolik) and miqdor == natija[-1].miqdor
+                and _son(birinchi_katak) is None and not TIZIM_BELGISI.match(belgi or "")):
+            natija[-1].nomi += " " + tolik
+            natija[-1].matn += " | " + " | ".join(k for k in kataklar if k)
+            continue
         q = TzQator(
             nomi=tolik,
             miqdor=miqdor,
@@ -234,29 +245,55 @@ def _varaq_qatorlari(nom: str, qatorlar: list[tuple]) -> tuple[list[TzQator], st
     return natija, imzo
 
 
-def jadval_oqi(yol: str | Path) -> TzJadval:
-    """Excel TZ dan miqdorli mahsulot qatorlari."""
-    import openpyxl
+# Jadval o'qiladigan formatlar. Eski .xls va .doc ham — mijozlar ko'pincha
+# shunday yuboradi (Jihozvent so'rovnoma varaqalari .doc, 2026-10-03).
+JADVAL_KENGAYTMALARI = {".xlsx", ".xlsm", ".xls", ".doc", ".docx", ".rtf"}
 
+
+def _varaqlar(yol: Path):
+    """(varaq nomi, qatorlar) — Excel varaqlari yoki Word jadvallari."""
+    kengaytma = yol.suffix.lower()
+    if kengaytma in (".xlsx", ".xlsm"):
+        import openpyxl
+
+        kitob = openpyxl.load_workbook(str(yol), data_only=True, read_only=True)
+        try:
+            for varaq in kitob.worksheets:
+                yield varaq.title, [tuple(r) for r in varaq.iter_rows(values_only=True)]
+        finally:
+            kitob.close()
+    elif kengaytma == ".xls":
+        import xlrd
+
+        kitob = xlrd.open_workbook(str(yol))
+        for varaq in kitob.sheets():
+            yield varaq.name, [
+                tuple(None if k in ("", None) else k for k in varaq.row_values(i))
+                for i in range(varaq.nrows)]
+    else:
+        from .word_doc import hujjat_oqi
+
+        _, jadvallar = hujjat_oqi(yol)
+        for n, jadval in enumerate(jadvallar, 1):
+            yield f"jadval {n}", [tuple(k or None for k in q) for q in jadval]
+
+
+def jadval_oqi(yol: str | Path) -> TzJadval:
+    """Excel (.xlsx, .xls) yoki Word (.doc, .docx, .rtf) TZ dan miqdorli qatorlar."""
     yol = Path(yol)
     natija = TzJadval(yol=str(yol))
-    kitob = openpyxl.load_workbook(str(yol), data_only=True, read_only=True)
     imzolar: dict[str, str] = {}
-    try:
-        for varaq in kitob.worksheets:
-            qatorlar = [tuple(r) for r in varaq.iter_rows(values_only=True)]
-            topildi, imzo = _varaq_qatorlari(varaq.title, qatorlar)
-            if not topildi:
-                continue
-            if imzo in imzolar:
-                natija.ogohlantirishlar.append(
-                    f"«{varaq.title}» varag'i «{imzolar[imzo]}» bilan bir xil — "
-                    "ikkinchi marta sanalmadi")
-                continue
-            imzolar[imzo] = varaq.title
-            natija.qatorlar += topildi
-    finally:
-        kitob.close()
+    for nom, qatorlar in _varaqlar(yol):
+        topildi, imzo = _varaq_qatorlari(nom, qatorlar)
+        if not topildi:
+            continue
+        if imzo in imzolar:
+            natija.ogohlantirishlar.append(
+                f"«{nom}» varag'i «{imzolar[imzo]}» bilan bir xil — "
+                "ikkinchi marta sanalmadi")
+            continue
+        imzolar[imzo] = nom
+        natija.qatorlar += topildi
     if not natija.qatorlar:
         natija.ogohlantirishlar.append(
             "Faylda «Кол-во» ustunli jadval topilmadi — TZ ni qo'lda tekshiring")

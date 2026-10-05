@@ -36,6 +36,11 @@ reportlab>=4.0
 pypdf>=5.0
 pillow>=11.0
 
+# --- TZ fayllari: eski formatlar (kp/tz_jadval.py, kp/word_doc.py) ---
+# Mijozlar TZ ni .xls va .doc da ham yuboradi; serverda Word/LibreOffice yo'q.
+xlrd>=2.0           # .xls (Excel 97–2003)
+olefile>=0.47       # .doc (Word 97–2003) — OLE konteyner
+
 # --- testlar (serverda kerak emas, lekin CI uchun) ---
 pytest>=8.3
 pytest-asyncio>=0.24
