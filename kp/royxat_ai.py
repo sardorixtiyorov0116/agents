@@ -158,7 +158,7 @@ async def moslashtir(
 
     for index, xom in enumerate(mahsulotlar[:MAKS_QATOR]):
         nom = str(xom.get("nomi") or "").strip()
-        if not nom:
+        if not nom or xom.get("sarlavha"):        # seksiya sarlavhasi — mahsulot emas
             continue
         nomzodlar = _nomzodlar(katalog, nom)
         if not nomzodlar:

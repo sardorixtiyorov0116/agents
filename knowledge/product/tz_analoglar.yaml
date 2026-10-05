@@ -97,13 +97,17 @@ analoglar:
   vent_kanal:
     manba: "KP 13603 (KV315M -> ВК-315С; ВЕНТС ТТ ПРО 250 -> MF-250P)"
     qoliplar:
+      # ВЕНТС ТТ ПРО (aralash oqimli) -> MF-P, menejer 13603 dagidek.
+      - agar: 'ТТ\s*ПРО|TT\s*PRO'
+        qolip: "Вентилятор канальный MF-{d}P"
       - qolip: "Вентилятор канальный ВК-{d}С"
         ogohlantirish: "Kanal ventilyatori diametri bo'yicha olindi — ВК-С yoki MF-P, sarf va bosimni tekshiring"
 
   vent_maishiy:
     manba: "KP 13603 — menejer KP ga KIRITMAGAN (Climavent ishlab chiqarmaydi)"
-    tanlov: true
-    izoh: "Maishiy ventilyator (Compact) — Climavent ishlab chiqarmaydi, KP dan chiqarish mumkin"
+    # KP ga QO'SHILMAYDI — menejerga «kiritilmadi» deb aytiladi.
+    kpga_kirmaydi: true
+    izoh: "Maishiy ventilyator (Compact) — Climavent ishlab chiqarmaydi"
 
   rekuperator:
     manba: "KP 13508 (VENCO-VHR-25/20 -> РКВ1-260)"
@@ -121,8 +125,20 @@ analoglar:
     qolip: "Кондиционер КЦКП-{olcham}"
     izoh: "КЦКП sarf, bosim, isitish/sovutish bo'yicha tanlanadi"
 
+  # Faqat seriya va nomer aniq bo'lganda nom yasaladi (ВРАН6 080 -> ВЦ 4-75-8,
+  # ОСА 201 080 -> ВО 30-160-8; KP 13603). Dvigatel quvvati va ijrosi —
+  # menejer tanlovi (TZ 15 kVt, menejer 18,5 kVt qo'ygan): nomga yozilmaydi.
+  # Boshqa ventilyator — tanlov (`faqat_mos`).
   vent_sanoat:
-    tanlov: true
+    manba: "KP 13603 (ВРАН6 080 ДУ400 -> ВЦ 4-75-8-ДУ-400, ОСА 201 080 Н -> ВО 30-160-8)"
+    faqat_mos: true
+    qoliplar:
+      - agar: 'ВРАН'
+        qolip: "Вентилятор ВЦ 4-75-{nomer}{du}"
+        ogohlantirish: "seriya ВЦ 4-75, dvigatel quvvati va ijrosi tanlansin"
+      - agar: 'ОСА\s*\d'
+        qolip: "Вентилятор ВО 30-160-{nomer}"
+        ogohlantirish: "seriya ВО 30-160, dvigatel quvvati tanlansin"
     izoh: "Ventilyator sarf, bosim va dvigatel bo'yicha tanlanadi (ВЦ / ВО)"
 
   # VRF tashqi blok — modullar kombinatsiyasi. Faqat yig'indisi TZ quvvatiga

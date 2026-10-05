@@ -882,7 +882,9 @@ class Bot:
         tg_id = await self._ruxsatmi(update)
         if tg_id is None:
             return
-        await kp_oqim.boshla(self.baza, update.effective_message, tg_id)
+        xabar = update.effective_message
+        await kp_oqim.boshla(self.baza, xabar, tg_id,
+                             til=kp_oqim.til_buyruqdan(xabar.text or ""))
 
     async def kp_hujjati(self, update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:
         """Shakl ochiq bo'lganda yuborilgan fayl — texnik topshiriq.

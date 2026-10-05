@@ -61,7 +61,10 @@ class TzQator:
     tizim: str = ""          # П1, В1, «К1, К4»
     guruh: str = ""          # eng yaqin miqdorsiz sarlavha: «Решетка АДН», «9 СЕКЦИЯ»
     bolim: str = ""          # seksiya / qavat darajasidagi sarlavha
-    parametrlar: dict[str, float] = field(default_factory=dict)  # L, P, N
+    parametrlar: dict[str, float] = field(default_factory=dict)  # L, P, N; tn, tk, Qt
+    # Ustun guruhidan olingan matn: {"isitgich": "Воздухонагр.электр", "filtr": "…G3"}
+    # — КЦКП tavsifi uchun (`kp/kckp.py`).
+    guruh_matni: dict[str, str] = field(default_factory=dict)
     matn: str = ""           # qatorning hamma kataklari — parametr qidirish uchun
     varaq: str = ""
     qator_n: int = 0
@@ -97,6 +100,39 @@ class _Ustunlar:
     tur: list[int] = field(default_factory=list)
     belgi: int | None = None
     parametr: dict[str, int] = field(default_factory=dict)
+    # Ustun guruhlari («Воздухонагреватель» 15–21, «Фильтр» 22–27): kalit -> ustunlar.
+    guruhlar: dict[str, list[int]] = field(default_factory=dict)
+
+
+# ГОСТ «Характеристика систем» jadvalida ustunlar GURUHLANGAN: yuqori
+# qatorda «Воздухонагреватель» bitta birlashgan katak, ostida «Тип»,
+# «Т-ра нагрева от/до», «Расход тепла, квт». КЦКП tavsifi shulardan.
+_GURUH_USTUNI = {
+    "isitgich": re.compile(r"нагреват", re.I),
+    "filtr": re.compile(r"фильтр", re.I),
+}
+_ISITGICH_PARAMETRI = (
+    ("tn", re.compile(r"\bот\b", re.I)),
+    ("tk", re.compile(r"\bдо\b", re.I)),
+    ("Qt", re.compile(r"расход\s+тепла|квт", re.I)),
+)
+
+
+def _ustun_guruhlari(qatorlar: list[tuple], i: int, miqdor: int) -> dict[str, list[int]]:
+    yuqori = [_matn(k) for k in qatorlar[i]]
+    # Guruh — miqdordan o'ngdagi, keyingi to'la katakkacha bo'lgan oraliq.
+    chegaralar, boshi = [], None
+    for j in range(miqdor + 1, len(yuqori) + 1):
+        if j == len(yuqori) or yuqori[j]:
+            if boshi is not None:
+                chegaralar.append((boshi, j))
+            boshi = j
+    natija: dict[str, list[int]] = {}
+    for boshi, oxiri in chegaralar:
+        for kalit, qolip in _GURUH_USTUNI.items():
+            if qolip.search(yuqori[boshi]) and kalit not in natija:
+                natija[kalit] = list(range(boshi, oxiri))
+    return natija
 
 
 def _sarlavha_ustunlari(qatorlar: list[tuple], i: int) -> _Ustunlar | None:
@@ -138,6 +174,13 @@ def _sarlavha_ustunlari(qatorlar: list[tuple], i: int) -> _Ustunlar | None:
             u.parametr["P"] = j
         elif "N" not in u.parametr and _N.search(k):
             u.parametr["N"] = j
+    u.guruhlar = _ustun_guruhlari(qatorlar, i, u.miqdor)
+    for j in u.guruhlar.get("isitgich", []):
+        ost = " ".join(_matn(q[j]) for q in qatorlar[i + 1:i + 3] if j < len(q))
+        for kalit, qolip in _ISITGICH_PARAMETRI:
+            if kalit not in u.parametr and qolip.search(ost):
+                u.parametr[kalit] = j
+                break
     return u
 
 
@@ -158,10 +201,11 @@ def _varaq_qatorlari(nom: str, qatorlar: list[tuple]) -> tuple[list[TzQator], st
     natija: list[TzQator] = []
     u: _Ustunlar | None = None
     guruh = bolim = tizim = oxirgi_belgi = ""
+    sarlavha_i = -10
     for i, xom in enumerate(qatorlar):
         yangi = _sarlavha_ustunlari(qatorlar, i)
         if yangi is not None:
-            u = yangi
+            u, sarlavha_i = yangi, i
             continue
         kataklar = [_matn(k) for k in xom]
         if not any(kataklar):
@@ -190,6 +234,11 @@ def _varaq_qatorlari(nom: str, qatorlar: list[tuple]) -> tuple[list[TzQator], st
             # Miqdorsiz qator — sarlavha. Qaysi daraja ekanini aniqlaymiz.
             matn = nomi or next((k for k in kataklar if k), "")
             if not matn or _SHTAMP.match(matn) or _SHTAMP.match(belgi or "-"):
+                continue
+            # Ko'p qatorli sarlavhaning davomi («Тип, исполнение…», «от | до»
+            # — isitish harorati) guruh emas: nom katagi bo'sh. Ilgari 1-juftda
+            # HAMMA qator «от» guruhiga tushardi.
+            if i - sarlavha_i <= 2 and not nomi:
                 continue
             if re.search(r"секци|этаж|подвал|блок\s*\w$", matn, re.I):
                 bolim, guruh, tizim = matn, "", ""
@@ -238,8 +287,18 @@ def _varaq_qatorlari(nom: str, qatorlar: list[tuple]) -> tuple[list[TzQator], st
         for kalit, j in u.parametr.items():
             if j < len(xom):
                 qiymat = _son(xom[j])
+                if qiymat is None and kalit in ("tn", "tk"):
+                    m = re.fullmatch(r"\s*([-+−]?\d+(?:[.,]\d+)?)\s*", _matn(xom[j]))
+                    qiymat = float(m.group(1).replace(",", ".").replace("−", "-")) if m else None
                 if qiymat is not None:
                     q.parametrlar[kalit] = qiymat
+        for kalit, ustunlar in u.guruhlar.items():
+            # Birlashgan katak bo'lib yozilgan matn bo'laklanib keladi:
+            # «Воздухон | агр.эл | ектр» — oraliqsiz qo'shiladi.
+            bolaklar = [kataklar[j] for j in ustunlar if j < len(kataklar) and kataklar[j]
+                        and j not in u.parametr.values() and _son(kataklar[j]) is None]
+            if bolaklar:
+                q.guruh_matni[kalit] = "".join(bolaklar)
         natija.append(q)
     imzo = "\n".join(f"{q.nomi}|{q.miqdor:g}" for q in natija)
     return natija, imzo

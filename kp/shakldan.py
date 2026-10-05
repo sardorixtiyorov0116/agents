@@ -70,6 +70,8 @@ TARQOQQA_OT = "__tarqoq__"
 # o'zgarmaydi — faqat «dona»/«шт» juftligi hujjat tiliga moslanadi.
 BIRLIK = {"uz": "dona", "ru": "шт"}
 DONA_BELGILARI = {"dona", "шт", "шт.", "dona.", "pcs"}
+# КЦКП — «комп.» (menejer KP si; «компл» tor ustunda ikki qatorga bo'linardi).
+KOMPLEKT = {"uz": "kompl.", "ru": "комп."}
 
 MATN = {
     "uz": {
@@ -127,6 +129,8 @@ def _birlik(til: str, aytilgan: str = "") -> str:
     toza = (aytilgan or "").strip().lower()
     if not toza or toza in DONA_BELGILARI:
         return standart
+    if toza in ("комп.", "компл", "kompl.", "komplekt"):
+        return KOMPLEKT.get(til, KOMPLEKT["ru"])
     return aytilgan.strip()
 
 
@@ -249,6 +253,12 @@ def _qatorlar_modeldan(
     ogohlantirishlar: list[str] = []
     for index, xom in enumerate(mahsulotlar):
         nom = str(xom.get("nomi") or "").strip()
+        if xom.get("sarlavha"):
+            # Seksiya sarlavhasi («- 9 СЕКЦИЯ») — menejer KP sidagidek 0 narxli
+            # qator: katalogdan qidirilmaydi va «narxsiz» sanalmaydi.
+            qatorlar.append(Qator(nomi=nom, miqdor=1, birlik=_birlik(til, "шт"),
+                                  birlik_narx=0.0, qqs_foizi=qqs))
+            continue
         # Loyiha qisqartmasi tarjima qilingan bo'lsa — ogohlantirishlari
         # KP ga o'tsin (`kp/qisqartma.py`).
         ogohlantirishlar += [str(o) for o in (xom.get("ogohlantirishlar") or [])]

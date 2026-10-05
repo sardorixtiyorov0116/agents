@@ -167,8 +167,26 @@ async def _savolni_yubor(xabar, shakl: Shakl) -> None:
 # --- oqim ---------------------------------------------------------------------
 
 
-async def boshla(baza, xabar, tg_id: int) -> None:
-    """`/kp` — yangi shakl. Eskisi bo'lsa tashlab yuboriladi."""
+def til_buyruqdan(matn: str) -> str | None:
+    """`/kp uz`, `/kp ruscha`, `/kp o'zbekcha` -> "uz" | "ru". Aytilmasa `None`."""
+    from app.agentlar.tijorat_menejeri import til_aniqla
+
+    qolgan = (matn or "").split(maxsplit=1)[1:] or [""]
+    soz = qolgan[0].strip().lower()
+    return {"uz": "uz", "ru": "ru", "уз": "uz", "ру": "ru"}.get(soz) or til_aniqla(soz)
+
+
+async def boshla(baza, xabar, tg_id: int, til: str | None = None) -> None:
+    """`/kp` — yangi shakl. Eskisi bo'lsa tashlab yuboriladi.
+
+    KP TILI — saqlangan sozlama (`kp_tili`). Menejer o'zbekcha yozsa ham
+    u o'zgarmasdi va qanday o'zgartirishni hech qayer aytmasdi (2026-10-05:
+    «o'zbekcha yozsam o'zbekcha chiqadimi?»). Endi `/kp uz` / `/kp ru`
+    saqlaydi va har /kp boshida joriy til aytiladi.
+    """
+    if til:
+        await baza.sozlama_yoz(tg_id, til)
+    joriy = til or (await baza.foydalanuvchi_sozlamasi(tg_id) or {}).get("kp_tili") or "uz"
     shakl = Shakl()
     await baza.kp_shakli_yoz(tg_id, shakl.javoblar)
     # TZ HAQIDA SHU YERDA AYTAMIZ.
@@ -183,7 +201,10 @@ async def boshla(baza, xabar, tg_id: int) -> None:
         "savollarni o'zim to'ldiraman.\n"
         "_Word, PDF, Excel. Skanerlangan (rasm) fayl o'qilmaydi._\n\n"
         "Bo'lmasa — savollarga javob bering. Ko'pini o'tkazib yuborsangiz "
-        "ham bo'ladi.\nTo'xtatish uchun: /bekor",
+        "ham bo'ladi.\nTo'xtatish uchun: /bekor\n\n"
+        f"🌐 KP tili: *{'ruscha' if joriy == 'ru' else 'oʻzbekcha'}* — "
+        "o'zgartirish: /kp uz yoki /kp ru. Mahsulot nomlari ikkala tilda "
+        "ham ruscha (katalog nomi).",
         parse_mode="Markdown",
     )
     await _savolni_yubor(xabar, shakl)
@@ -841,21 +862,20 @@ async def _natijani_yubor(xabar, natija: Natija) -> None:
                 f"tezlik {h['tezlik']} m/s"
             )
         qatorlar.append("\n".join(bolaklar))
-    qatorlar.append("")
-    for qator in kp.qatorlar:
-        narx = (f"{qator.birlik_narx:,.0f}".replace(",", " ")
-                if qator.birlik_narx else "— narx yo'q")
-        # XONA NOMI shu yerda ham kerak.
-        #
-        # JONLI E'TIROZ (2026-08-27): panjaralar har xona uchun alohida
-        # hisoblanadi, shuning uchun xulosada bir xil nom ikki marta
-        # chiqardi ("РВН 1000х1000 · 8 dona" va "РВН 1000х1000 · 3
-        # dona"). Hujjatda farq ko'rinardi — xona nomi `spetsifikatsiya`
-        # ustunida — lekin menejer avval SHU xulosani o'qiydi va uni
-        # takror deb tushunardi.
-        qatorlar.append(
-            f"• {_qator_belgisi(qator)} · {qator.miqdor:g} {qator.birlik} · {narx}"
-        )
+    # QATORLAR RO'YXATI CHATGA YOZILMAYDI — u hujjatning o'zida.
+    #
+    # JONLI E'TIROZ (2026-10-05): 50 qatorlik KP oldidan bot o'sha 50
+    # qatorni chatga ham yozdi — «PDF dagini yana botda yozyapti,
+    # ortiqcha». Faqat soni va narxsizlar (ko'p bo'lmasa — nomi bilan).
+    mahsulotlar = [q for q in kp.qatorlar if not q.nomi.startswith("- ")]
+    narxsiz = [q for q in mahsulotlar if q.narxsizmi]
+    qatorlar.append(
+        f"\n📄 {len(mahsulotlar)} pozitsiya · til: "
+        f"{'ruscha' if kp.til == 'ru' else 'oʻzbekcha'} (o'zgartirish: /kp uz yoki /kp ru)")
+    if narxsiz and len(narxsiz) <= 5:
+        qatorlar.append("Narxsiz: " + "; ".join(_qator_belgisi(q) for q in narxsiz))
+    elif narxsiz:
+        qatorlar.append(f"Narxsiz: {len(narxsiz)} pozitsiya — hujjatda qizil")
     if kp.jami:
         qatorlar.append(f"\n*Jami (QQS bilan): {kp.jami:,.0f} so'm*".replace(",", " "))
     # Excel TZ dan 200 qatorlik KP chiqishi mumkin: bir xil ogohlantirish

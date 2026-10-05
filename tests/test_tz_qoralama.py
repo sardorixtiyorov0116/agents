@@ -31,8 +31,8 @@ ETALON = Path(__file__).parent / "etalon_tz"
 
 
 def _tz(nomi: str, miqdor: float = 1, guruh: str = "", tizim: str = "",
-        varaq: str = "Лист1", **param) -> TzQator:
-    return TzQator(nomi=nomi, miqdor=miqdor, guruh=guruh, tizim=tizim,
+        varaq: str = "Лист1", bolim: str = "", **param) -> TzQator:
+    return TzQator(nomi=nomi, miqdor=miqdor, guruh=guruh, tizim=tizim, bolim=bolim,
                    parametrlar=param, matn=nomi, varaq=varaq)
 
 
@@ -115,8 +115,9 @@ def test_KCKP_olchami_sarfdan(sarf_q, olcham_q):
     m = natija.mahsulotlar[0]
     assert natija.turlar[ANALOG] == 1
     assert m["nomi"] == f"Кондиционер КЦКП-{olcham_q}"
-    assert m["pozitsiya"] == "П1"
-    assert m["tavsif"] == f"L={sarf_q}м3/ч, Р=500Па"
+    assert "pozitsiya" not in m             # menejer «КЦКП-3,15 (П1)» deb yozmaydi
+    assert m["tavsif"] == (f"L={sarf_q}м3/ч, Р=500Па\nТип системы: приточная\n"
+                           "Система в проекте: П1")
     assert any("Seksiyalar" in u for u in natija.umumiy)    # tarkibi yasalmaydi — aytiladi
 
 
@@ -150,12 +151,49 @@ def test_KP_da_nom_qisqa_asl_nom_hujjatga_yozilmaydi():
     assert aniqlik is None
     assert [q.nomi for q in qatorlar] == [
         "Вентилятор канальный ВК-315С (В1)",
-        "Кондиционер КЦКП-3,15 (П1)",
+        "Кондиционер КЦКП-3,15",
         "Клапан противопожарный КПУ-НО-Н-EI60-125х100-КН-НУП-ЭМ-220",
     ]
-    assert [q.spetsifikatsiya for q in qatorlar] == ["", "L=3000м3/ч, Р=500Па", ""]
+    assert qatorlar[1].spetsifikatsiya.startswith("L=3000м3/ч, Р=500Па\n")
+    assert qatorlar[0].spetsifikatsiya == qatorlar[2].spetsifikatsiya == ""
     assert "KV315M" in qatorlar[0].izoh                       # menejer uchun saqlanadi
-    assert qatorlar[1].birlik == "компл"
+    assert qatorlar[1].birlik == "комп."
+
+
+def test_maishiy_ventilyator_KP_ga_kirmaydi_va_aytiladi():
+    """Menejer 13603: «Compact 20» (9 dona) KP da yo'q — Climavent qilmaydi."""
+    natija = qoralama([_tz("вентилятор с решеткой Compact 20", tizim="В3", L=100),
+                       _tz("Канальный вентилятор KV315M", tizim="В1")])
+    assert [m["nomi"] for m in natija.mahsulotlar] == ["Вентилятор канальный ВК-315С"]
+    assert any("KIRITILMADI" in u and "Compact 20" in u for u in natija.umumiy)
+
+
+@pytest.mark.parametrize("tz, kp", [
+    ("Канальный вентилятор ВЕНТС ТТ ПРО 250", "Вентилятор канальный MF-250P"),
+    ("Вентилятор ВРАН6 080 ДУ400", "Вентилятор ВЦ 4-75-8-ДУ-400"),
+    ("Вентилятор ОСА 201 080 Н", "Вентилятор ВО 30-160-8"),
+])
+def test_ventilyator_analoglari_13603(tz, kp):
+    assert _bitta(_tz(tz))["nomi"] == kp
+
+
+def test_nomersiz_sanoat_ventilyatori_tanlov():
+    natija = qoralama([_tz("Вентилятор радиальный дымоудаления", L=20000)])
+    assert natija.turlar[TANLOV] == 1
+
+
+def test_seksiya_sarlavhasi_qator_bolib_turadi():
+    natija = qoralama([
+        _tz("Канальный вентилятор KV315M", tizim="В1", bolim="9 СЕКЦИЯ"),
+        _tz("Канальный вентилятор KV200M", tizim="В2", bolim="9 СЕКЦИЯ"),
+        _tz("Канальный вентилятор KV200M", tizim="В2", bolim="10 СЕКЦИЯ"),
+    ])
+    nomlar = [m["nomi"] for m in natija.mahsulotlar]
+    assert nomlar[0] == "- 9 СЕКЦИЯ" and nomlar[3] == "- 10 СЕКЦИЯ" and len(nomlar) == 5
+    from kp.shakldan import _qatorlar_modeldan
+
+    qatorlar, narxsiz, _, _ = _qatorlar_modeldan(natija.mahsulotlar, [], 12000, 12)
+    assert qatorlar[0].birlik_narx == 0 and "- 9 СЕКЦИЯ" not in narxsiz
 
 
 def test_qatorli_tavsif_hujjatda_qatorlari_bilan_qoladi():
@@ -426,13 +464,35 @@ def test_etalon_VENTAS_dan_KCKP_menejer_tanloviga_mos():
 
 
 @etalon
+def test_etalon_murod_menejer_KP_13603_dagidek():
+    """TZ -> 44 qator, menejer KP 13603 dagidek: 3 seksiya sarlavhasi + 41 mahsulot.
+
+    Ilgari bot 50 qator chiqardi (seksiyasiz, 9 ta «Compact 20» bilan) va
+    КЦКП tavsifi faqat «L=…, Р=…» edi — isitgich TZ da bo'lsa ham.
+    """
+    from kp.tz_qoralama import jadvaldan_taklif
+
+    m = jadvaldan_taklif(ETALON / "1-murod" / "tz.xlsx").javoblar["mahsulotlar"]
+    nomlar = [x["nomi"] for x in m]
+    assert len(m) == 44
+    assert [n for n in nomlar if n.startswith("- ")] == [
+        "- 9 СЕКЦИЯ", "- 10 СЕКЦИЯ", "- 11 СЕКЦИЯ"]
+    assert not any("Compact" in n or "ВРАН" in n or "ОСА" in n for n in nomlar)
+    kckp = m[1]
+    assert kckp["nomi"] == "Кондиционер КЦКП-3,15"
+    assert "Секция нагрева: электрический, tвн=-14°С, tвк=+12°С, Qт=30кВт" in kckp["tavsif"]
+    assert "Секция фильтров: G3" in kckp["tavsif"]
+
+
+@etalon
 def test_etalon_VENTAS_kp_ga_fayl_bilan():
     from kp.tz_qoralama import fayldan_taklif
 
     taklif = fayldan_taklif(ETALON / "7-provik-ventas" / "tz" / "AHU-11.pdf")
     m = taklif.javoblar["mahsulotlar"][0]
-    assert m["nomi"] == "Кондиционер КЦКП-20" and m["pozitsiya"] == "AHU-11"
-    assert "Рекуператор гликолевый" in m["tavsif"] and "H14" in m["tavsif"]
+    assert m["nomi"] == "Кондиционер КЦКП-20"
+    assert "Секция рекуператора: гликолевый" in m["tavsif"] and "H14" in m["tavsif"]
+    assert m["tavsif"].endswith("Система в проекте: AHU-11")
 
 
 @etalon

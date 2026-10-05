@@ -51,11 +51,16 @@ TANILMADI = "tanilmadi"
 
 # Nomga loyiha pozitsiyasi («(В1)», «(П1)») qo'shiladigan oilalar —
 # o'z belgisi bor QURILMALAR. Panjara/klapandagi «В1» — tizim nomi.
-POZITSIYALI = {"kckp", "vent_kanal", "vent_sanoat", "vent_maishiy", "rekuperator"}
+# КЦКП ga qo'yilmaydi: menejer «Кондиционер КЦКП-3,15» deb yozadi, belgisi
+# tavsif oxirida («Система в проекте: П1»).
+POZITSIYALI = {"vent_kanal", "vent_sanoat", "vent_maishiy", "rekuperator"}
 
 _EI = re.compile(r"\bEI\s?-?(\d{2,3})\b", re.I)
 _UCH_OLCHAM = re.compile(r"(\d{2,4})\s*[xхХ×*]\s*(\d{2,4})\s*[xхХ×*]\s*(\d{3,4})")
 _MODEL_RAQAMI = re.compile(r"(?:KV|ВК|ПРО|MF)[\s-]*(\d{3})", re.I)
+# Sanoat ventilyatori nomeri: «ВРАН6 080» -> 8, «ОСА 201 080» -> 8 (080 = №8,0).
+_NOMER = re.compile(r"(?:ВРАН\d*|ОСА\s*\d+)\s+(\d{3})\b", re.I)
+_DU = re.compile(r"ДУ\s*-?\s*(\d{3})\b")
 
 
 def _jadval_yoli() -> Path:
@@ -163,16 +168,16 @@ def _kombinatsiya_matni(kodlar: list[str]) -> str:
 
 def _kckp(q: TzQator, qoida: dict[str, Any], yozuv: dict[str, Any],
           kckp_olindi: list[str]) -> bool:
-    """КЦКП: o'lcham sarfdan, tavsifda sarf va bosim. Sarf yo'q — `False`."""
-    from .kckp import nomi, olcham_tanla, sarf_matni
+    """КЦКП: o'lcham sarfdan, tavsif TZ raqamlaridan. Sarf yo'q — `False`."""
+    from .kckp import nomi, olcham_tanla, tz_tavsifi
 
     sarf_q = q.parametrlar.get("L") or sarf(f"{q.nomi} {q.matn}")
     olcham_q = olcham_tanla(sarf_q or 0, qoida)
     if olcham_q is None:
         return False
     yozuv["nomi"] = nomi(olcham_q, qoida)
-    yozuv["tavsif"] = sarf_matni(sarf_q, q.parametrlar.get("P"))
-    yozuv["birlik"] = "компл"
+    yozuv["tavsif"] = tz_tavsifi(sarf_q, q.parametrlar, q.guruh_matni, q.tizim)
+    yozuv["birlik"] = "комп."
     kckp_olindi.append(f"{q.tizim or q.nomi[:20]} {sarf_q:g} -> КЦКП-{olcham_q}")
     return True
 
@@ -241,7 +246,11 @@ def _qator(q: TzQator, ei_yoq: list[str],
                 + "; ".join(_kombinatsiya_matni(v) for v in variantlar[:4])]
             return [yozuv], TANLOV
 
-    if qoida.get("tanlov") or not qoida.get("qoliplar"):
+    mos_qolip = next(
+        (k for k in qoida.get("qoliplar") or []
+         if not k.get("agar") or re.search(k["agar"], matn, re.I)), None)
+    if (qoida.get("tanlov") or not qoida.get("qoliplar")
+            or (mos_qolip is None and qoida.get("faqat_mos"))):
         parametr = _parametrlar_matni(q)
         izoh = qoida.get("izoh") or f"{oila.nomi} — parametr bo'yicha tanlanadi"
         yozuv["ogohlantirishlar"] = [
@@ -249,9 +258,7 @@ def _qator(q: TzQator, ei_yoq: list[str],
             + (f" — TZ: {parametr}" if parametr else "")]
         return [yozuv], TANLOV
 
-    qolip_yozuvi = next(
-        (k for k in qoida["qoliplar"] if not k.get("agar") or re.search(k["agar"], matn, re.I)),
-        qoida["qoliplar"][-1])
+    qolip_yozuvi = mos_qolip or qoida["qoliplar"][-1]
 
     # O'rinlarni to'ldirish.
     kv = olcham(q.nomi) or olcham(q.matn)
@@ -263,7 +270,12 @@ def _qator(q: TzQator, ei_yoq: list[str],
     qolip = qolip_yozuvi["qolip"]
     if "{olcham}" in qolip and not kv and d_son:
         kv = f"Ф{d_son}"
-    if ("{olcham}" in qolip and not kv) or ("{d}" in qolip and not d_son):
+    m = _NOMER.search(q.nomi)
+    nomer = f"{int(m.group(1)) / 10:g}".replace(".", ",") if m else ""
+    m = _DU.search(q.nomi)
+    du = f"-ДУ-{m.group(1)}" if m else ""
+    if (("{olcham}" in qolip and not kv) or ("{d}" in qolip and not d_son)
+            or ("{nomer}" in qolip and not nomer)):
         yozuv["ogohlantirishlar"] = [f"«{q.nomi[:60]}»: o'lcham topilmadi — TZ nomi bilan qoldi"]
         return [yozuv], TANILMADI
 
@@ -284,7 +296,8 @@ def _qator(q: TzQator, ei_yoq: list[str],
         m = _UCH_OLCHAM.search(matn)
         uzunlik = m.group(3) if m else str(jadval().get("uzunlik_standart") or "1000")
 
-    yozuv["nomi"] = qolip.format(olcham=kv, d=d_son, ei=ei, uzunlik=uzunlik)
+    yozuv["nomi"] = qolip.format(olcham=kv, d=d_son, ei=ei, uzunlik=uzunlik,
+                                 nomer=nomer, du=du)
     if qolip_yozuvi.get("ogohlantirish"):
         yozuv["ogohlantirishlar"].append(f"«{q.nomi[:50]}»: {qolip_yozuvi['ogohlantirish']}")
     return [yozuv], ANALOG
@@ -309,12 +322,34 @@ def qoralama(tz: list[TzQator]) -> Qoralama:
             natija.umumiy.append(
                 f"«{varaq}» varag'i ({jami[varaq]} qator) ventilyatsiyaga aloqasiz — olinmadi")
 
+    analoglar = jadval().get("analoglar") or {}
+    kirmadi: Counter = Counter()
+    oxirgi_bolim = ""
     for q in tz:
         if tanilgan[q.varaq] == 0:
             continue
+        # Climavent ishlab chiqarmaydigan narsa (maishiy «Compact 20») KP ga
+        # tushmaydi — menejer 13603 da shunday: 50 emas, 41 mahsulot.
+        oila = tz_oilasi(q.nomi, q.guruh)
+        if oila is not None and (analoglar.get(oila.kod) or {}).get("kpga_kirmaydi"):
+            kirmadi[q.nomi[:40]] += q.miqdor
+            continue
+        # SEKSIYA SARLAVHASI qator bo'lib turadi («- 9 СЕКЦИЯ»), menejer KP
+        # sidagidek — bir xil ro'yxat 3 seksiyada takrorlanganda qaysi qator
+        # qaysi seksiyaniki ekani shundan bilinadi.
+        if q.bolim and q.bolim != oxirgi_bolim:
+            natija.mahsulotlar.append({
+                "nomi": f"- {q.bolim}", "miqdor": 1, "birlik": "шт",
+                "sarlavha": True, "ogohlantirishlar": [],
+            })
+            oxirgi_bolim = q.bolim
         qatorlar, turi = _qator(q, ei_yoq, kckp_olindi)
         natija.mahsulotlar += qatorlar
         natija.turlar[turi] += 1
+    if kirmadi:
+        natija.umumiy.append(
+            "KP ga KIRITILMADI (Climavent ishlab chiqarmaydi): "
+            + ", ".join(f"{nom} — {soni:g} dona" for nom, soni in kirmadi.items()))
     if ei_yoq:
         standart = jadval().get("ei_standart") or "60"
         sanoq = Counter(ei_yoq)
@@ -330,8 +365,9 @@ def qoralama(tz: list[TzQator]) -> Qoralama:
 def _kckp_eslatma(olindi: list[str]) -> str:
     return (f"КЦКП o'lchami sarfdan olindi ({len(olindi)}): " + "; ".join(olindi[:6])
             + (" …" if len(olindi) > 6 else "")
-            + ". Seksiyalar (isitgich, sovutgich, ventilyator, avtomatika) KP da "
-              "YO'Q — tanlov dasturidan qo'shing")
+            + ". Tavsifda faqat TZ dagi raqamlar (sarf, bosim, isitgich, filtr) — "
+              "Seksiyalar tarkibi: ventilyator modeli, xizmat tomoni, avtomatika "
+              "KP da YO'Q, tanlov dasturidan qo'shing")
 
 
 def kp_bilan_qamrov(mahsulotlar: list[dict[str, Any]], kp) -> tuple[float, float]:
@@ -408,7 +444,7 @@ def ventas_mahsuloti(q) -> tuple[dict[str, Any], str]:
 
     asl = f"{q.nomi} {q.model}".strip()
     yozuv: dict[str, Any] = {
-        "nomi": asl, "miqdor": q.soni or 1, "birlik": "компл", "bolim": "",
+        "nomi": asl, "miqdor": q.soni or 1, "birlik": "комп.", "bolim": "",
         "asl_nomi": asl, "ogohlantirishlar": [],
     }
     qoida = (jadval().get("analoglar") or {}).get("kckp") or {}
@@ -418,7 +454,6 @@ def ventas_mahsuloti(q) -> tuple[dict[str, Any], str]:
         return yozuv, TANLOV
     yozuv["nomi"] = nomi(olcham_q, qoida)
     yozuv["tavsif"] = ventas_tavsifi(q)
-    yozuv["pozitsiya"] = q.nomi
     return yozuv, ANALOG
 
 
