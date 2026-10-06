@@ -11,6 +11,7 @@ from .climavent_client import (
     mahsulot_qisqa,
     matn,
     narx_bormi,
+    variant_narxlari,
     xususiyatlar_qisqa,
 )
 from .instagram_klient import (
@@ -47,5 +48,6 @@ __all__ = [
     "mahsulot_qisqa",
     "matn",
     "narx_bormi",
+    "variant_narxlari",
     "xususiyatlar_qisqa",
 ]

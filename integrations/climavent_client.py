@@ -16,6 +16,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import os
 import re
 import time
 from pathlib import Path
@@ -91,6 +92,177 @@ def _mos_keladimi(sorov: str, nomzod: str) -> bool:
     if not sorov_kalitlari or not nomzod_kalitlari:
         return False
     return any(s in n or n in s for s in sorov_kalitlari for n in nomzod_kalitlari)
+
+
+def _boshidan_mosmi(sorov: str, nomzod: str) -> bool:
+    """So'rov nomzodning BOSHI bo'lsa va oila nomi bo'linmasa — mos.
+
+    `_mos_keladimi` so'rovni nomzodning ISTALGAN joyidan qidiradi. Narx
+    uchun bu xavfli. JONLI XATO (2026-10-03): mijoz «Вк-с 100 narxi»
+    deb yozdi, kod «ВК» ni ajratdi va «АВКв 200х200» (portlashdan
+    himoyalangan klapan!) narxini aytdi — chunki «ВК» uning ICHIDA bor.
+
+    Endi: «ВК» faqat «ВК…» bilan boshlangan nomga mos keladi va oila
+    nomi davom etmasligi kerak — «ВК» «ВКПП 50х25» ga mos EMAS (u boshqa
+    oila), «ВК-125С» ga esa mos.
+    """
+    for s in _bosh_kalitlari(sorov):
+        for n in _bosh_kalitlari(nomzod):
+            # So'z BOSHIDAN: «Вентилятор канальный MF-200P» da «MF-200P»
+            # bor, «АВКв» da esa «ВК» yo'q (u so'z o'rtasida).
+            boshlar = [0] + [i + 1 for i, ch in enumerate(n) if ch == "-"]
+            for bosh in boshlar:
+                if not n.startswith(s, bosh):
+                    continue
+                oxir = bosh + len(s)
+                if oxir == len(n):
+                    return True
+                keyingi = n[oxir]
+                # Davomi ajratuvchi bo'lsa — mos. Harf ortidan harf (oila
+                # davom etyapti: «ВК» -> «ВКПП») yoki son ortidan son/vergul
+                # («ВЦ 4-75-6» -> «…-6,3», «ВК-10» -> «ВК-100С») — mos EMAS.
+                if keyingi == "-":
+                    return True
+                if s[-1].isalpha() and keyingi.isdigit():
+                    return True    # «РКВ» -> «РКВ150» (ajratuvchisiz yozuv)
+    return False
+
+
+def _bosh_kalitlari(nom: str) -> set[str]:
+    """`kalitla` kabi, lekin ajratuvchilar «-» bo'lib QOLADI.
+
+    Ajratuvchisiz «ВЦ4756» dan «6» tugadimi yoki «6,3» davom etyaptimi —
+    bilib bo'lmaydi.
+    """
+    asos = re.sub(r"[\s\-/_]+", "-", str(nom or "").upper()).strip("-")
+    asos = "".join(ch for ch in asos if ch.isalnum() or ch in "-,.")
+    if not asos:
+        return set()
+    return {
+        asos,
+        "".join(TRANSLIT.get(ch, ch) for ch in asos),
+        asos.translate(KORINISH),
+    }
+
+
+# «50х25», «800x600» dagi x — ko'paytirish belgisi, harf emas.
+_KOPAYTUV = re.compile(r"(?<=\d)\s*[xх×XХ]\s*(?=\d)")
+_SON = re.compile(r"\d+(?:[.,]\d+)?")
+
+
+def tarkib_kaliti(nom: str) -> tuple[set[str], tuple[str, ...]]:
+    """Nomning HARFLARI va SONLARI alohida — tartibiga qaramay.
+
+    NEGA: katalogda «ВК-100С», mijoz esa «ВК-С 100», «VKS 100»,
+    «Vk-s 100», «ВКС-100» deb yozadi (2026-10-03 jonli suhbatlar). Harf
+    va son bir xil, faqat joyi va ajratuvchisi boshqa. Oddiy satr
+    solishtirish bularni hech qachon topmaydi.
+
+    «ВК-100С»  -> ({«ВКС», «VKS», «BKC»}, («100»,))
+    «VKS 100»  -> ({«VKS»},              («100»,))
+    """
+    matn_q = _KOPAYTUV.sub(" ", str(nom or ""))
+    harflar = "".join(ch for ch in matn_q if ch.isalpha())
+    sonlar = tuple(s.replace(",", ".") for s in _SON.findall(matn_q))
+    return kalitla(harflar), sonlar
+
+
+def _tarkibi_mosmi(sorov: str, nomzod: str) -> bool:
+    """Harflar bir xil va so'rovdagi sonlar nomzodning BOSHIDAGI sonlar.
+
+    Son SHART: sonsiz «ВК» har ВК-oilasiga mos kelib, tasodifiy
+    variant narxini aytardi.
+    """
+    s_harf, s_son = tarkib_kaliti(sorov)
+    if not s_son or not s_harf:
+        return False
+    n_harf, n_son = tarkib_kaliti(nomzod)
+    return bool(s_harf & n_harf) and n_son[:len(s_son)] == s_son
+
+
+def _katalog_yozuvlari(
+    mahsulotlar: list[dict[str, Any]]
+) -> list[str]:
+    """Katalogdagi barcha model nomlari (narxli-narxsiz)."""
+    nomlar: list[str] = []
+    for mahsulot in mahsulotlar or []:
+        for xususiyat in mahsulot.get("characters") or []:
+            if not isinstance(xususiyat, dict):
+                continue
+            sarlavha = str(xususiyat.get("title") or "").strip()
+            if sarlavha:
+                nomlar.append(sarlavha)
+            for ichki in xususiyat.get("insides") or []:
+                if isinstance(ichki, dict):
+                    nom = str(ichki.get("in_model_name") or "").strip()
+                    if nom:
+                        nomlar.append(nom)
+    return nomlar
+
+
+def katalog_nomi(mahsulotlar: list[dict[str, Any]], sorov: str) -> str | None:
+    """Mijoz yozgan model nomining KATALOGDAGI yozilishi.
+
+    «VKS 100» / «Вк-с 100» / «ВКС-100» -> «ВК-100С». Narxi bor-yo'qligiga
+    qaramaydi — bu «katalogda bormi» degan savolga javob. Topilmasa None.
+    """
+    if not sorov:
+        return None
+    nomlar = _katalog_yozuvlari(mahsulotlar)
+    sorov_kalitlari = kalitla(sorov)
+    for nom in nomlar:
+        if sorov_kalitlari & kalitla(nom):
+            return nom
+    tarkibdan = [nom for nom in nomlar if _tarkibi_mosmi(sorov, nom)]
+    if not tarkibdan:
+        return None
+    # Sonlar TO'LIQ mos — aynan shu model («VKS 100» -> «ВК-100С»).
+    s_son = tarkib_kaliti(sorov)[1]
+    toliq = [nom for nom in tarkibdan if tarkib_kaliti(nom)[1] == s_son]
+    if toliq:
+        return min(toliq, key=len)
+    # Sonlar QISMAN («ВКК-Ш 45» -> 24 variant). Bittasini tanlab olish
+    # mijozga «siz shuni so'radingiz» degan yolg'on bo'lardi — hammasiga
+    # UMUMIY qism qaytariladi: «ВКК-Ш 45-3,15».
+    return _umumiy_bosh(tarkibdan) or min(tarkibdan, key=len)
+
+
+def _umumiy_bosh(nomlar: list[str]) -> str:
+    """Nomlarning umumiy boshi, son o'rtasidan kesilmasdan."""
+    bosh = os.path.commonprefix(nomlar)
+    if all(len(nom) == len(bosh) for nom in nomlar):
+        return bosh
+    # «…-2,2» va «…-2,5» ning umumiy boshi «…-2,» — bu «2» soni EMAS.
+    # Oxirgi to'liq ajratuvchigacha qaytiladi.
+    kesilgan = any(
+        len(nom) > len(bosh) and (nom[len(bosh)].isalnum() or nom[len(bosh)] in ",.")
+        for nom in nomlar
+    )
+    if bosh and kesilgan:
+        bosh = re.sub(r"[\w,.]+$", "", bosh)
+    return bosh.rstrip(" -/,.")
+
+
+def oila_modellari(mahsulotlar: list[dict[str, Any]], sorov: str) -> list[str]:
+    """O'lchamsiz oila nomi («vks», «ВК-С») -> katalogdagi modellari.
+
+    Mijoz «vks narxi» deb o'lchamsiz so'rasa, katalogda «ВКС» degan
+    yozuv yo'q — bor-yo'g'i «ВК-100С», «ВК-125С»… Harflari bir xil
+    bo'lgan nomlar qaytariladi (o'lcham bo'yicha tartiblangan).
+    """
+    s_harf, s_son = tarkib_kaliti(sorov)
+    if s_son or not s_harf:
+        return []
+    topilgan: list[str] = []
+    for nom in _katalog_yozuvlari(mahsulotlar):
+        n_harf, n_son = tarkib_kaliti(nom)
+        if n_son and s_harf & n_harf and nom not in topilgan:
+            topilgan.append(nom)
+
+    def tartib(nom: str) -> tuple[float, ...]:
+        return tuple(float(s) for s in tarkib_kaliti(nom)[1])
+
+    return sorted(topilgan, key=tartib)
 
 
 class ApiXatosi(RuntimeError):
@@ -1030,13 +1202,21 @@ def xususiyatlar_qisqa(mahsulot: dict[str, Any]) -> list[dict[str, Any]]:
     return natija
 
 
+# Bundan arzon narx — kiritishdagi xato, haqiqiy narx emas.
+# JONLI XATO (2026-10-03 QA): JV-65 chilleri adminkada 1.03 deb turibdi
+# va mijozga "12 360 so'm" deb aytilardi. Katalogdagi eng arzon haqiqiy
+# narx — 5 $ (RSK-100 klapani). Shubhali narxni aytgandan ko'ra
+# "menejer hisoblaydi" degan to'g'ri.
+ENG_KAM_NARX = 2.0
+
+
 def _narx_soni(qiymat: Any) -> float:
     """API narxni matn ("1200000") yoki son sifatida qaytaradi."""
     try:
         son = float(str(qiymat).replace(" ", "").replace(",", ".") or 0)
     except (TypeError, ValueError):
         return 0.0
-    return son if son > 0 else 0.0
+    return son if son >= ENG_KAM_NARX else 0.0
 
 
 def _ichki_variantlar(
@@ -1071,6 +1251,7 @@ def _ichki_narx(
     bo'lardi: `ВЦ 4-75 №2,5` da narx 156 dan 199 dollargacha.
     """
     aniq: list[tuple[float, str]] = []
+    tarkib: list[tuple[float, str]] = []
     keng: list[tuple[float, str]] = []
     sorov_kalitlari = kalitla(nom)
     for mahsulot in mahsulotlar:
@@ -1079,10 +1260,12 @@ def _ichki_narx(
                 continue
             if sorov_kalitlari & kalitla(variant_nomi):
                 aniq.append((usd, variant_nomi))
-            elif _mos_keladimi(nom, variant_nomi):
+            elif _tarkibi_mosmi(nom, variant_nomi):
+                tarkib.append((usd, variant_nomi))
+            elif _boshidan_mosmi(nom, variant_nomi):
                 keng.append((usd, variant_nomi))
 
-    nomzodlar = aniq or keng
+    nomzodlar = aniq or tarkib or keng
     if not nomzodlar:
         return None
 
@@ -1094,6 +1277,16 @@ def _ichki_narx(
     else:
         manba = f"{variant_nomi} ({hisob})"
     return usd * kurs, manba
+
+
+_MODEL_KODI = re.compile(
+    r"(?<![\w'ʻʼ’])([А-ЯA-Z]{2,5}[\s-]?\d[\w,.\-/xх×]*)", re.IGNORECASE)
+
+
+def model_kodi(nom: str) -> str:
+    """«Вентилятор канальный MF-200P» -> «MF-200P». Kod bo'lmasa — bo'sh."""
+    topilganlar = [m.group(1).rstrip(".,-/") for m in _MODEL_KODI.finditer(nom or "")]
+    return max(topilganlar, key=len) if topilganlar else ""
 
 
 def katalog_narxi(
@@ -1118,6 +1311,16 @@ def katalog_narxi(
     """
     if not nom:
         return None
+
+    # Nomda model kodi bo'lsa — AVVAL kod bo'yicha. Model KP ga «Вентилятор
+    # MF-200P» deb yozadi; to'liq nom bilan qidirilsa «Ventilyator MF /
+    # MF-100» (boshqa model!) zaxira sifatida topilardi, «Вентилятор
+    # ВЦ 4-75-4» esa umuman topilmasdi (2026-10-03 QA).
+    kod = model_kodi(nom)
+    if kod and kod != nom.strip():
+        topilgan = katalog_narxi(mahsulotlar, kod, kurs)
+        if topilgan is not None:
+            return topilgan
 
     kurs_qiymati = kurs_joriy() if kurs is None else kurs
     ichki = _ichki_narx(mahsulotlar, nom, kurs_qiymati)
@@ -1152,7 +1355,7 @@ def katalog_narxi(
                 narx *= kurs_qiymati
             if narx <= 0:
                 continue
-            if _mos_keladimi(nom, yozuv_nomi):
+            if _boshidan_mosmi(nom, yozuv_nomi):
                 return narx, yozuv_nomi
             # Mahsulot nomi mos kelsa — modeli aniq aytilmagan bo'lishi
             # mumkin; birinchi narxli modelni zaxira sifatida saqlaymiz.
@@ -1164,10 +1367,26 @@ def katalog_narxi(
 def narx_bormi(mahsulot: dict[str, Any]) -> bool:
     """Ichki tizimda haqiqiy narx bormi?
 
-    Hozircha deyarli barcha mahsulotda `price = 0` — bu "narx yo'q" degani,
-    "bepul" emas. Shuning uchun 0 narx sifatida ko'rsatilmaydi.
+    Narx 2026-iyundan beri VARIANTLARDA turadi (`characters[].insides[]`,
+    dollarda). Mahsulotning o'z `price` maydoni esa eski sxema va doim 0.
+    JONLI XATO (2026-10-03 QA): faqat `price` tekshirilardi va Zara
+    "kanal ventilyatori" uchun "narx to'ldirilmagan" derdi — katalogda
+    esa MF-200P $34.61 turibdi.
+
+    0 — "narx kiritilmagan" degani, "bepul" emas.
     """
-    try:
-        return float(mahsulot.get("price") or 0) > 0
-    except (TypeError, ValueError):
-        return False
+    if _ichki_variantlar(mahsulot):
+        return True
+    for xususiyat in mahsulot.get("characters") or []:
+        if isinstance(xususiyat, dict) and _narx_soni(xususiyat.get("price")) > 0:
+            return True
+    return _narx_soni(mahsulot.get("price")) > 0
+
+
+def variant_narxlari(mahsulot: dict[str, Any]) -> list[tuple[str, float]]:
+    """Mahsulot variantlari va narxi (DOLLARDA), arzonidan boshlab."""
+    natija = list(_ichki_variantlar(mahsulot))
+    for xususiyat in mahsulot.get("characters") or []:
+        if isinstance(xususiyat, dict) and _narx_soni(xususiyat.get("price")) > 0:
+            natija.append((str(xususiyat.get("title") or ""), _narx_soni(xususiyat.get("price"))))
+    return sorted(natija, key=lambda x: x[1])
